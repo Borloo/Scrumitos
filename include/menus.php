@@ -5,7 +5,7 @@
 <?php
 		// si l'admin ne s'est pas déja connecté alors on affiche le lien pour cela
 		if (!isset($_SESSION['AdminConnecte'])) {
-			echo '<li><a href="Connexion.php">Se connecter comme admin </a></li>';
+			echo '<li><a href="./../src/Connexion.php">Se connecter comme admin </a></li>';
 		}
 		// si l'admin est connecté alors on lui affiche des liens particuliers
 		else {
