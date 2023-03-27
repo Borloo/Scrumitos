@@ -4,7 +4,7 @@
 session_start();
 
 
-    require_once("./include/base/Functions.php");
+    require_once("./base/Functions.php");
 
     if (empty($_SESSION['token'])) {
         connection();
