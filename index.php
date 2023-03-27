@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +19,15 @@
 		<section id="content">
             <div class="card">
                 <div class="card-body">
-                    <p>Bienvenue sur le site !</p>
+                    <?php
+                    require_once("./include/base/Functions.php");
+
+                    if(empty($_SESSION['SLogin'])){
+                        connection();
+                    } else {
+                        deconnection();
+                    }
+                    ?>
                 </div>
             </div>
 		</section>
