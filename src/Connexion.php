@@ -4,7 +4,16 @@
 session_start();
 
 
-	// Le formulaire a été soumis
+    require_once("./include/base/Functions.php");
+
+    if (empty($_SESSION['token'])) {
+        connection();
+    } else {
+        deconnection();
+    }
+
+
+// Le formulaire a été soumis
 	if (isset($_POST['Envoyer'])) {
 		// si les champs du formulaire ne sont pas remplis ou n'ont la bonne valeur
 		if (!isset($_POST['login']) OR !isset($_POST['motPasse']) 

@@ -19,15 +19,7 @@ session_start();
 		<section id="content">
             <div class="card">
                 <div class="card-body">
-                    <?php
-                    require_once("./include/base/Functions.php");
-
-                    if(empty($_SESSION['SLogin'])){
-                        connection();
-                    } else {
-                        deconnection();
-                    }
-                    ?>
+                    <p>oui</p>
                 </div>
             </div>
 		</section>

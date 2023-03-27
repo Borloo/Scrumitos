@@ -6,9 +6,9 @@ function connection(){
         <h2>Connexion</h2>
     </div>
     <div class='card-body'>
-        <form method='post'><input type='submit' name='SeConnecter' value='Se connecter'></form>
+        <form method='post'><input type='submit' name='submit' value='Se connecter'></form>
     </div>";
-    if(isset($_POST['SeConnecter'])){
+    if(isset($_POST['submit'])){
         header("location: ./FormConnection.php");
     }
 }
@@ -18,13 +18,17 @@ function deconnection(){
     "<div class='card-header'>
         <h2>Connexion</h2>
     </div>
-    <form method='post'><input type='submit' name='SeDeconnecter' value='Se déconnecter'></form>";
-    if(isset($_POST['SeDeconnecter'])) {
-        if (empty($_SESSION['SLogin'])) {
+    <div class='card-body'>
+        <form method='post'>
+            <input type='submit' name='submit' value='Se déconnecter'>
+        </form>
+    </div>";
+    if(isset($_POST['submit'])) {
+        if (empty($_SESSION['token'])) {
             header("location: ./Connexion.php?msg=Vous n'êtes pas identifié");
         }
         session_destroy();
-        header('location: ./Deconnexion');
+        header('location: ./Deconnexion.php');
     }
 }
 ?>
