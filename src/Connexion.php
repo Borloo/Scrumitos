@@ -2,6 +2,8 @@
 // 1ère instruction à faire apparâitre dans un script quand une session est 
 // lue ou manipulée
 session_start();
+
+
 	// Le formulaire a été soumis
 	if (isset($_POST['Envoyer'])) {
 		// si les champs du formulaire ne sont pas remplis ou n'ont la bonne valeur
