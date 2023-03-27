@@ -21,6 +21,12 @@ session_start();
                 <div class="card-body">
                     <?php
                     require_once("./include/base/Functions.php");
+
+                    if(empty($_SESSION['SLogin'])){
+                        connection();
+                    } else {
+                        deconnection();
+                    }
                     ?>
                 </div>
             </div>

@@ -8,7 +8,6 @@ function connection(){
     <div class='card-body'>
         <form method='post'><input type='submit' name='SeConnecter' value='Se connecter'></form>
     </div>";
-    echo '<form method="post"><input type="submit" name="SeConnecter" value="Se connecter"></form>';
     if(isset($_POST['SeConnecter'])){
         header("location: ./FormConnection.php");
     }
