@@ -1,6 +1,7 @@
 <nav class="sidebar">
   <ul>
     <li><a href="./../index.php">Accueil</a></li>
+	<li><a href="./../app/ConsultDetails.php">Consulter les news du camping</a></li>
     <li><a href="./../app/ConsultDate.php">Consulter les emplacements par année de construction/rénovation</a></li>
 	<li><a href="./../app/ConsultDetails.php">Consulter les détails d'un emplacement</a></li>
 
