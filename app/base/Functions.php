@@ -15,7 +15,7 @@ function connection(){
                 <input type='submit' name='submit' value='Se connecter'>
             </form>
         </div>";
-    echo '26 <br/>';
+    echo '27 <br/>';
     if(isset($_POST['submit'])){
         if (isset($_POST['login']) && isset($_POST['password'])){
             require('./bd/Utilisateur.php');
@@ -24,7 +24,7 @@ function connection(){
             $user = getUser($login, $password);
             echo "<p>user</p><br>";
             if ($user == null){
-                echo "<p>null</p><br/>";
+                echo "<p>Problèmes d'identification</p><br/>";
             }
             print_r($user);
             $isAdmin = isAdmin($user);

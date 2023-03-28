@@ -29,10 +29,19 @@
         echo $query->rowCount();
         if ($query->rowCount() == 1){
             echo "<p>avant return</p><br/>";
-            print_r(get_class($query->fetch()));
-            return $query->fetch();
+            print_r($query->fetch());
+            /** @var array $user */
+            $user = $query->fetch();
+            return userTrait($user);
         }
         return null;
+    }
+
+    function userTrait(array $user){
+        return [$user['id'] => [
+            'login' => $user['login'],
+            'roles' => $user['roles'],
+        ]];
     }
 
     function isAdmin(array $user): bool
