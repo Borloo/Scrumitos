@@ -21,9 +21,9 @@ session_start();
                 <div class="card-body">
                     <?php
                         if (isset($_SESSION['USER'])){
-                            echo "<p>" . $_SESSION['USER'] . "</p>";
+                            echo "<p>Bonjour " . $_SESSION['USER'] . " !</p>";
                         }else{
-                            echo "<p>oui</p>";
+                            echo "<p>Bonjour</p>";
                         }
                     ?>
                 </div>
