@@ -19,17 +19,15 @@
                     <div class="row">
                         <div class="col-md-4"></div>
                         <div class="col-md-4">
-                            <div class="card">
-                                <?php
-                                require_once("./base/Functions.php");
+                            <?php
+                            require_once("./base/Functions.php");
 
-                                if (empty($_SESSION['token'])) {
-                                    connection();
-                                } else {
-                                    deconnection();
-                                }
-                                ?>
-                            </div>
+                            if (empty($_SESSION['token'])) {
+                                connection();
+                            } else {
+                                deconnection();
+                            }
+                            ?>
                         </div>
                         <div class="col-md-4"></div>
                     </div>
