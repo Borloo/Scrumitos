@@ -18,7 +18,7 @@ function connection(){
                 <input type='submit' name='submit' value='Se connecter'>
             </form>
         </div>";
-    echo '9 <br/>';
+    echo '10 <br/>';
     if(isset($_POST['submit'])){
         if (isset($_POST['login']) && isset($_POST['password'])){
             $login = $_POST['login'];
@@ -33,8 +33,9 @@ function connection(){
             $res = $conn->prepare($sql);
             $res->execute(['login' => $login, 'password' => $password]);
             if ($res->rowCount() != 1){
-                $msg = "Erreur lors de la connexion ...";
-                header('location: http://88.208.226.189/index.php?msg=' . $msg);
+                $msg = 'Erreur lors de la connexion ...';
+                $location = 'location: http://88.208.226.189/index.php?msg=' . $msg;
+                header($location);
                 die();
             }
             $row = $res->fetch();
@@ -42,11 +43,12 @@ function connection(){
             foreach($roles as $role){
                 if ($role == 'ADMIN'){
                     $msg = 'Connecté !';
-                    header('Location: http://88.208.226.189/index.php?msg=' . + $msg);
+                    $location = 'location: http://88.208.226.189/index.php?msg=' . $msg;
+                    header($location);
                     die();
                 }
             }
-            $msg = 'Nope !';
+            $msg = 'Pas Admin !';
             header('location: http://88.208.226.189/app/Connexion.php?msg=' . $msg);
             die();
         }
