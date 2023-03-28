@@ -15,6 +15,7 @@
     }
 
     function getUser(string $login, string $password){
+        echo "ok";
         $sql = "SELECT * FROM Utilisateur 
          WHERE login= :login 
          AND password = :password";
@@ -22,9 +23,8 @@
         $conn->prepare($sql);
         $res = $conn->execute(['login' => $login, 'password' => $password]);
         $res->fetchAll();
-        echo "
-        <p>$res</p>
-        ";
+        echo $sql;
+        echo $res;
         return $res;
     }
 ?>
