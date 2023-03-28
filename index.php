@@ -19,7 +19,13 @@ session_start();
 		<section id="content">
             <div class="card">
                 <div class="card-body">
-                    <p>oui</p>
+                    <?php
+                        if (isset($_POST['msg'])){
+                            echo "<p>" . $_POST['msg'] . "</p>";
+                        }else{
+                            echo "<p>oui</p>";
+                        }
+                    ?>
                 </div>
             </div>
 		</section>
