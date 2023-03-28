@@ -26,8 +26,6 @@
 
             try {
 
-                $login = $_POST['login'];
-                $password = $_POST['password'];
                 $sql = "SELECT * FROM News";
                 $user = 'clmt';
                 $pass = '130702';
