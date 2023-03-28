@@ -19,21 +19,17 @@
 
     function getUser(string $login, string $password)
     {
-        echo "<p>Deb</p><br/>";
         /** @var PDO $conn */
         $conn = getConnexion();
-        echo "<p>après conn</p><br/>";
         $sql = "SELECT * FROM Utilisateur 
              WHERE login= :login 
              AND password = :password";
-        echo "<p>avant prepare</p><br/>";
         $query = $conn->prepare($sql);
-        echo "<p>avant query</p><br/>";
         $query->execute(['login' => $login, 'password' => $password]);
-        echo "<p>après query</p><br/>";
         echo $query->rowCount();
         if ($query->rowCount() == 1){
-            print_r($query->fetch());
+            echo "<p>avant return</p><br/>";
+            print_r(get_class($query->fetch()));
             return $query->fetch();
         }
         return null;
