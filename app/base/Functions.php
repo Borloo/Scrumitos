@@ -30,7 +30,7 @@ function connection(){
                 $conn->prepare($sql);
                 $res = $conn->execute(['login' => $login, 'password' => $password]);
                 $res->fetchAll();
-                echo $res;
+                echo $res[0];
             }catch (PDOException $e){
                 echo "Erreur : " . $e->getMessage();
                 die();
