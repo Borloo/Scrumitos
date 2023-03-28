@@ -73,10 +73,10 @@ function deconnection(){
     </div>";
     if(isset($_POST['submit'])) {
         if (empty($_SESSION['token'])) {
-            header("location: ./Connexion.php?msg=Vous n'êtes pas identifié");
+            header("location: http://88.208.226.189/app/Connexion.php");
         }
         session_destroy();
-        header('location: ./Deconnexion.php');
+        header('location: http://88.208.226.189/app/Deconnexion.php');
     }
 }
 ?>
