@@ -41,10 +41,10 @@ function connection(){
                 echo "<p>Inconnu</p>";
             }
         }
-        if (isset($_POST['retour'])){
-            header('location: http://88.208.226.189/index.php');
-            die();
-        }
+    }
+    if (isset($_POST['retour'])){
+        header('location: http://88.208.226.189/index.php');
+        die();
     }
 }
 ?>
