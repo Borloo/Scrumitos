@@ -20,8 +20,10 @@ function connection(){
         if (isset($_POST['login']) && isset($_POST['password'])){
             $login = $_POST['login'];
             echo $login;
+            echo $_POST['login'];
             $password = $_POST['password'];
             echo $password;
+            echo $_POST['password'];
             $user = getUser($login, $password);
             echo "user : ";
             echo $user;
