@@ -20,13 +20,17 @@ function connection(){
                         <input class='btn btn-success' type='submit' name='submit' value='Se connecter'>
                     </div>
                     <div class='col-md-6'>
-                        <input class='btn btn-dark' type='button' name='retour' value='Retour'>
+                        <input class='btn btn-dark' type='submit' name='retour' value='Retour'>
                     </div>
                 </div>
             </form>
         </div>
     </div>";
     if(isset($_POST['submit'])){
+        if (isset($_POST['retour'])){
+            header('location: http://88.208.226.189/index.php');
+            die();
+        }
         if (isset($_POST['login']) && isset($_POST['password'])){
             require('./bd/Utilisateur.php');
             $login = $_POST['login'];
@@ -41,10 +45,6 @@ function connection(){
                 echo "<p>Inconnu</p>";
             }
         }
-    }
-    if (isset($_POST['retour'])){
-        header('location: http://88.208.226.189/index.php');
-        die();
     }
 }
 ?>
