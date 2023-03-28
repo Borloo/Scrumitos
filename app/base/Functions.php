@@ -15,7 +15,7 @@ function connection(){
                 <input type='submit' name='submit' value='Se connecter'>
             </form>
         </div>";
-    echo '15 <br/>';
+    echo '16 <br/>';
     if(isset($_POST['submit'])){
         if (isset($_POST['login']) && isset($_POST['password'])){
             echo "<p>ok</p><br>";
