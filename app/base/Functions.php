@@ -11,18 +11,20 @@ function connection(){
         <div class='card-body'>
             <form method='post'>
                 <p>Login : <input type='text' name='login'></p>
-                <p>Password : <input type='text' name='password'></p>
+                <p>Password : <input type='password' name='password'></p>
                 <input type='submit' name='submit' value='Se connecter'>
             </form>
         </div>";
-    echo '13 <br/>';
+    echo '14 <br/>';
     if(isset($_POST['submit'])){
         if (isset($_POST['login']) && isset($_POST['password'])){
             require_once('./app/bd/Utilisateur.php');
             $login = $_POST['login'];
             $password = $_POST['password'];
             $user = getUser($login, $password);
+            print_r($user);
             $isAdmin = isAdmin($user);
+            print_r($isAdmin);
             if (null == $user || !$isAdmin){
                 $_SESSION['USER'] = 'Inconnu';
             }else{

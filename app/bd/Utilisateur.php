@@ -1,6 +1,7 @@
 <?php
 
-    function getConnexion(){
+    function getConnexion()
+    {
         try{
             $user = 'clmt';
             $pass = '130702';
@@ -14,7 +15,8 @@
         return $conn;
     }
 
-    function getUser(string $login, string $password){
+    function getUser(string $login, string $password)
+    {
         $conn = $this->getConnexion();
         $sql = "SELECT * FROM Utilisateur 
              WHERE login= :login 
@@ -27,7 +29,8 @@
         return null;
     }
 
-    function isAdmin(array $user){
+    function isAdmin(array $user): bool
+    {
         if ($user != null){
             $roles = explode(', ', $user['roles']);
             foreach($roles as $role){
