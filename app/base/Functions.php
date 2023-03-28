@@ -9,8 +9,11 @@ function connection(){
         <div class='card-header'>
             <h2>Connexion</h2>
         </div>
-        <div class='card-body'>
-            <form method='post'>
+        <div class='card-body'>";
+    if (isset($_POST['msg'])){
+        echo "<p>" . $_POST['msg'] . "</p>";
+    }
+            echo "<form method='post'>
                 <p>Login : <input type='text' name='login'></p>
                 <p>Password : <input type='text' name='password'></p>
                 <input type='submit' name='submit' value='Se connecter'>
@@ -30,10 +33,13 @@ function connection(){
                 ,$user, $pass, array(PDO::ATTR_ERRMODE =>PDO::ERRMODE_EXCEPTION));
             $res = $conn->prepare($sql);
             $res->execute(['login' => $login, 'password' => $password]);
-            $res->fetchAll();
-            echo $res->rowCount() . "<br/>";
-            $row = $res->fetch();
-            echo "roles : " . $row['roles'];
+            if ($res->rowCount() != 1){
+                $msg = "Erreur lors de la connexion ...";
+                header('location : index.php?msg=' . $msg);
+                die();
+            }
+            $row = $res->fetchAll();
+            print_r($row);
         }
     }
     echo "</div>";
