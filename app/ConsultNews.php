@@ -25,7 +25,7 @@
             
             // on affiche le tableau des résultats
 
-            $reqnews = $conn->prepare("SELECT * FROM news where ");
+            $reqnews = $conn->prepare("SELECT * FROM news");
             $reqNews->execute();
             foreach ($reqnews as $new) {
                 echo "<tr>";
