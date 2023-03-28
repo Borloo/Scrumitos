@@ -2,8 +2,7 @@
 
 
 function connection(){
-    echo
-    "
+    echo "
     <div class='card'>
         <div class='card-header'>
             <h2>Connexion</h2>
@@ -25,7 +24,8 @@ function connection(){
                     </div>
                 </div>
             </form>
-        </div>";
+        </div>
+    </div>";
     if(isset($_POST['submit'])){
         if (isset($_POST['login']) && isset($_POST['password'])){
             require('./bd/Utilisateur.php');
@@ -41,15 +41,10 @@ function connection(){
                 echo "<p>Inconnu</p>";
             }
         }
-        if (isset($_POST['retour'])){
-            header('location: http://88.208.226.189/index.php');
-            die();
-        }
     }
-    echo "</div>";
-}
-
-function deconnection(){
-    session_destroy();
+    if (isset($_POST['retour'])){
+        header('location: http://88.208.226.189/index.php');
+        die();
+    }
 }
 ?>
