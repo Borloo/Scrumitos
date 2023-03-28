@@ -1,69 +1,53 @@
-<!DOCTYPE html>
-<html>
+<?php
+include("../include/header.php");
+include("../include/connect.inc.php");
 
-<head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="../include/styles.css" />
-    <title>Mon site !</title>
-</head>
+include("../include/menus.php");
 
-<body>
-    <?php
-    include("../include/header.php");
-    include("../include/connect.inc.php");
-    ?>
-    <div class="wrapper">
-        <?php include("../include/menus.php"); ?>
-        <section id="content">
-            <?php
-            /********************
-            ConsultNews.php	
-            *********************/
+/********************
+ConsultNews.php	
+*********************/
 
-            echo "<h1>les dernières news du camping</h1>";
-            echo "<BR/><BR/>";
+echo "<h1>les dernières news du camping</h1>";
+echo "<BR/><BR/>";
 
 
-            try {
+try {
 
-                $login = $_POST['login'];
-                $password = $_POST['password'];
-                $sql = "SELECT * FROM News";
-                $user = 'clmt';
-                $pass = '130702';
-                $conn = new PDO(
-                    'mysql:host=localhost;dbname=base_camping;charset=UTF8'
-                    ,
-                    $user,
-                    $pass,
-                    array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
-                );
+    $login = $_POST['login'];
+    $password = $_POST['password'];
+    $sql = "SELECT * FROM News";
+    $user = 'clmt';
+    $pass = '130702';
+    $conn = new PDO(
+        'mysql:host=localhost;dbname=base_camping;charset=UTF8'
+        ,
+        $user,
+        $pass,
+        array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
+    );
 
-                $reqnews = $conn->prepare($sql);
-                $reqNews->execute();
-                $news = $reqnews->fetch();
-            
-                foreach ($news as $new) {
-                    echo "<tr>";
-                    echo "<td>" . $new["id"] . "</td>";
-                    echo "<td>" . $new["titre"] . "</td>";
-                    echo "<td>" . $new["body"] . "</td>";
-                    echo "</tr>";
-                }
-                $reqnews->closeCursor();
-            
-            } catch (PDOException $e) {
-                echo "Erreur : " . $e->getMessage();
-            }
+    $reqnews = $conn->prepare($sql);
+    $reqNews->execute();
+    $news = $reqnews->fetch();
 
-            echo "</table></center>";
-            echo "<BR/><BR/>";
-           
+    foreach ($news as $new) {
+        echo "<tr>";
+        echo "<td>" . $new["id"] . "</td>";
+        echo "<td>" . $new["titre"] . "</td>";
+        echo "<td>" . $new["body"] . "</td>";
+        echo "</tr>";
+    }
+    $reqnews->closeCursor();
 
-                ?>
-        </section>
-    </div>
-    <?php include("../include/footer.php"); ?>
-</body>
+} catch (PDOException $e) {
+    echo "Erreur : " . $e->getMessage();
+}
 
-</html>
+echo "</table></center>";
+echo "<BR/><BR/>";
+
+
+
+include("../include/footer.php");
+?>
