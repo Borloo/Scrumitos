@@ -12,8 +12,4 @@ session_start();
         deconnection();
     }
 
-    if (isset($_SESSION['USER'])){
-        echo "<p>" . $_SESSION['USER'] . "</p>";
-    }
-
 ?>

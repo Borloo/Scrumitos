@@ -15,7 +15,6 @@ function connection(){
                 <input type='submit' name='submit' value='Se connecter'>
             </form>
         </div>";
-    echo '36 <br/>';
     if(isset($_POST['submit'])){
         if (isset($_POST['login']) && isset($_POST['password'])){
             require('./bd/Utilisateur.php');
@@ -28,7 +27,7 @@ function connection(){
             }else{
                 $_SESSION['USER'] = $user['login'];
             }
-            header('http://88.208.226.189/index.php');
+            header('location: http://88.208.226.189/index.php');
             die();
         }
     }
