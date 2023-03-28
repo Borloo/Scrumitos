@@ -29,7 +29,6 @@
         echo $query->rowCount();
         if ($query->rowCount() == 1){
             $user = $query->fetch();
-            print_r($user);
             return [$user['id'] => [
                 'login' => $user['login'],
                 'roles' => $user['roles'],
@@ -41,6 +40,8 @@
     function isAdmin(array $user): bool
     {
         if ($user != null){
+            echo "<p>isAdmin - user</p><br>";
+            print_r($user);
             $roles = explode(', ', $user['roles']);
             foreach($roles as $role){
                 if ($role == 'ADMIN') {

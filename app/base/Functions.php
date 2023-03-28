@@ -15,18 +15,17 @@ function connection(){
                 <input type='submit' name='submit' value='Se connecter'>
             </form>
         </div>";
-    echo '30 <br/>';
+    echo '31 <br/>';
     if(isset($_POST['submit'])){
         if (isset($_POST['login']) && isset($_POST['password'])){
             require('./bd/Utilisateur.php');
             $login = $_POST['login'];
             $password = $_POST['password'];
             $user = getUser($login, $password);
-            echo "<p>user</p><br>";
             if ($user == null){
                 echo "<p>Problèmes d'identification</p><br/>";
             }
-            print_r($user);
+            echo "<p>avant isAdmin</p><br>";
             $isAdmin = isAdmin($user);
             echo "<p>isAdmin</p><br>";
             print_r($isAdmin);
