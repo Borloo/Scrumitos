@@ -15,11 +15,11 @@ function connection(){
                 <input type='submit' name='submit' value='Se connecter'>
             </form>
         </div>";
-    echo '18 <br/>';
+    echo '19 <br/>';
     if(isset($_POST['submit'])){
         if (isset($_POST['login']) && isset($_POST['password'])){
             echo "<p>ok1</p><br>";
-            require('./app/bd/Utilisateur.php');
+            require('http://88.208.226.189/app/bd/Utilisateur.php');
             echo "<p>ok2</p><br>";
             $login = $_POST['login'];
             $password = $_POST['password'];
