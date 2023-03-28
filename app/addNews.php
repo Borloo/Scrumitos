@@ -7,12 +7,29 @@
     <title>Ajout de news</title>
 </head>
 <body>
-    <h1>Ajouter des news TEST</h1>
-    <form action="addNews.php" method="post">
-        <p>Titre : <input type="text" name="newsName" autocomplete="off"/></p>
-        <p>News : <input type="text" name="newsContent" autocomplete="off" /></p>
-        <p><input type="submit" value="Envoyer"></p>
-    </form>
+<?php 
+    // Index.php
+    session_start();
+    include("./include/header.php"); 
+?>
+	<div class="wrapper">
+	<?php include("./include/menus.php"); ?>
+		<section id="content">
+            <h1>Ajouter des news TEST</h1>
+            <form action="addNews.php" method="post">
+                <p>Titre : <input type="text" name="newsName" autocomplete="off"/></p>
+                <p>News : <input type="text" name="newsContent" autocomplete="off" /></p>
+                <p><input type="submit" value="Envoyer"></p>
+            </form>
+
+
+
+            
+		</section>
+	</div>
+
+	<?php include("./include/footer.php"); ?>
+    
 </body>
 </html>
 
