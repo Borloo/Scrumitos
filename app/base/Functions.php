@@ -16,6 +16,7 @@ function connection(){
                 <input type='submit' name='submit' value='Se connecter'>
             </form>
         </div>";
+    echo '1';
     if(isset($_POST['submit'])){
         if (isset($_POST['login']) && isset($_POST['password'])){
             $login = $_POST['login'];
@@ -32,13 +33,9 @@ function connection(){
             $res = $conn->prepare($sql);
             $res->execute(['login' => $login, 'password' => $password]);
             $res->fetchAll();
-            echo "<p>ok</p>";
-            $i = 0;
-            foreach ($res as $row){
-                echo $i;
-                echo $row->roles;
-                $i++;
-            }
+            echo $res->rowCount();
+            $roles = $res->fetch()->roles;
+            echo "roles : " . $roles;
         }
     }
     echo "</div>";
