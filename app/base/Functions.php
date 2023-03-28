@@ -16,16 +16,14 @@ function connection(){
                 <input type='submit' name='submit' value='Se connecter'>
             </form>
         </div>";
-    echo '1';
+    echo '2 <br/>';
     if(isset($_POST['submit'])){
         if (isset($_POST['login']) && isset($_POST['password'])){
             $login = $_POST['login'];
             $password = $_POST['password'];
-            echo $login . " " . $password;
             $sql = "SELECT * FROM Utilisateur 
              WHERE login= :login 
              AND password = :password";
-            echo $sql . "<br/>";
             $user = 'clmt';
             $pass = '130702';
             $conn = new PDO('mysql:host=localhost;dbname=base_camping;charset=UTF8'
@@ -33,7 +31,7 @@ function connection(){
             $res = $conn->prepare($sql);
             $res->execute(['login' => $login, 'password' => $password]);
             $res->fetchAll();
-            echo $res->rowCount();
+            echo $res->rowCount() . "<br/>";
             $roles = $res->fetch()->roles;
             echo "roles : " . $roles;
         }
