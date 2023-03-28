@@ -21,7 +21,8 @@ function connection(){
             $login = $_POST['login'];
             $password = $_POST['password'];
             $user = getUser($login, $password);
-            echo "user : " . $user;
+            echo "user : ";
+            echo $user;
         }
     }
     echo "</div>";
