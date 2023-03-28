@@ -2,6 +2,8 @@
   <ul>
     <li><a href="./../index.php">Accueil</a></li>
     <li><a href="./../app/ConsultDate.php">Consulter les emplacements par année de construction/rénovation</a></li>
+	<li><a href="./../app/ConsultDetails.php">Consulter les détails d'un emplacement</a></li>
+
 <?php
 		// si l'admin ne s'est pas déja connecté alors on affiche le lien pour cela
 		if (!isset($_SESSION['AdminConnecte'])) {
