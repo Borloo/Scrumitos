@@ -28,21 +28,14 @@
         $query->execute(['login' => $login, 'password' => $password]);
         echo $query->rowCount();
         if ($query->rowCount() == 1){
-            echo "<p>avant return</p><br/>";
-            print_r($query->fetch());
-            /** @var Array $user */
             $user = $query->fetch();
-            return userTrait($user);
+            print_r($user);
+            return [$user['id'] => [
+                'login' => $user['login'],
+                'roles' => $user['roles'],
+            ]];
         }
         return null;
-    }
-
-    function userTrait(Array $user){
-        echo "<p>avant usertrait</p><br/>";
-        return [$user['id'] => [
-            'login' => $user['login'],
-            'roles' => $user['roles'],
-        ]];
     }
 
     function isAdmin(array $user): bool
