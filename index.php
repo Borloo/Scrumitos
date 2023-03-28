@@ -20,8 +20,8 @@ session_start();
             <div class="card">
                 <div class="card-body">
                     <?php
-                        if (isset($_SESSION['ADMIN'])){
-                            echo "<p>" . $_SESSION['ADMIN'] . "</p>";
+                        if (isset($_SESSION['USER'])){
+                            echo "<p>" . $_SESSION['USER'] . "</p>";
                         }else{
                             echo "<p>oui</p>";
                         }
