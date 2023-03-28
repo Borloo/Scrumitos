@@ -10,7 +10,7 @@ function connection(){
             <h2>Connexion</h2>
         </div>
         <div class='card-body'>
-            <form action='./../bd/Utilisateur.php' method='post'>
+            <form method='post'>
                 <p>Login : <input type='text' name='login'></p>
                 <p>Password : <input type='text' name='password'></p>
                 <input type='submit' name='submit' value='Se connecter'>
