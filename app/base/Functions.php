@@ -34,7 +34,8 @@ function connection(){
             $res->execute(['login' => $login, 'password' => $password]);
             if ($res->rowCount() != 1){
                 $msg = 'Erreur lors de la connexion ...';
-                $location = 'location: http://88.208.226.189/index.php?msg=' . $msg;
+                $location = 'location: http://88.208.226.189/index.php';
+                $_SESSION['USER'] = $msg;
                 header($location);
                 die();
             }
@@ -43,13 +44,16 @@ function connection(){
             foreach($roles as $role){
                 if ($role == 'ADMIN'){
                     $msg = 'Connecté !';
-                    $location = 'location: http://88.208.226.189/index.php?msg=' . $msg;
+                    $location = 'location: http://88.208.226.189/index.php';
+                    $_SESSION['USER'] = $msg;
                     header($location);
                     die();
                 }
             }
             $msg = 'Pas Admin !';
-            header('location: http://88.208.226.189/app/Connexion.php?msg=' . $msg);
+            $location = 'location: http://88.208.226.189/app/Connexion.php';
+            $_SESSION['USER'] = $msg;
+            header($location);
             die();
         }
     }

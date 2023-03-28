@@ -20,8 +20,8 @@ session_start();
             <div class="card">
                 <div class="card-body">
                     <?php
-                        if (isset($_POST['msg'])){
-                            echo "<p>" . $_POST['msg'] . "</p>";
+                        if (isset($_SESSION['ADMIN'])){
+                            echo "<p>" . $_SESSION['ADMIN'] . "</p>";
                         }else{
                             echo "<p>oui</p>";
                         }
