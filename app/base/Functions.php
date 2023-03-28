@@ -10,9 +10,20 @@ function connection(){
         </div>
         <div class='card-body'>
             <form method='post'>
-                <p>Login : <input type='text' name='login'></p>
-                <p>Password : <input type='password' name='password'></p>
-                <input type='submit' name='submit' value='Se connecter'>
+                <div class='row'>
+                    <p>Login : <input type='text' name='login'></p>
+                </div>
+                <div class='row'>
+                    <p>Password : <input type='password' name='password'></p>
+                </div>
+                <div class='row'>
+                    <div class='col-md-6'>
+                        <input class='button' type='submit' name='submit' value='Se connecter'>
+                    </div>
+                    <div class='col-md-6'>
+                        <input class='button' name='retour' value='Retour'>
+                    </div>
+                </div>
             </form>
         </div>";
     if(isset($_POST['submit'])){
@@ -29,6 +40,10 @@ function connection(){
             }else{
                 echo "<p>Inconnu</p>";
             }
+        }
+        if (isset($_POST['retour'])){
+            header('location: http://88.208.226.189/index.php');
+            die();
         }
     }
     echo "</div>";
