@@ -2,7 +2,7 @@
 
     echo "<p>Utilisateur.php</p>";
 
-    function getConnexion()
+    function getConnexion(): PDO
     {
         try{
             $user = 'clmt';
@@ -19,13 +19,14 @@
 
     function getUser(string $login, string $password)
     {
-        echo "<p>getuser</p><br>";
+        /** @var PDO $conn */
         $conn = $this->getConnexion();
         $sql = "SELECT * FROM Utilisateur 
              WHERE login= :login 
              AND password = :password";
         $query = $conn->prepare($sql);
         $query->execute(['login' => $login, 'password' => $password]);
+        echo "<p>après query</p>";
         echo $query->rowCount();
         if ($query->rowCount() == 1){
             print_r($query->fetch());
