@@ -25,27 +25,30 @@ function connection(){
                 </div>
             </form>
         </div>";
-
-    if(isset($_POST['submit'])){
-        if (isset($_POST['login']) && isset($_POST['password'])){
-            require('./bd/Utilisateur.php');
-            $login = $_POST['login'];
-            $password = $_POST['password'];
-            $user = getUser($login, $password);
-            $isAdmin = isAdmin($user);
-            if ($isAdmin && null !== $user){
-                $_SESSION['USER'] = $user['login'];
-                header('location: http://88.208.226.189/index.php');
-                die();
-            }else{
-                echo "<p>Inconnu</p>";
+        if (isset($_SESSION['ERRORCO'])){
+            echo "<p style='background-color: red'>" . $_SESSION['ERRORCO'] . "</p><br/>";
+        }
+        if(isset($_POST['submit'])){
+            if (isset($_POST['login']) && isset($_POST['password'])){
+                require('./bd/Utilisateur.php');
+                $login = $_POST['login'];
+                $password = $_POST['password'];
+                $user = getUser($login, $password);
+                $isAdmin = isAdmin($user);
+                if ($isAdmin && null !== $user){
+                    unset($_SESSION['ERRORCO']);
+                    $_SESSION['USER'] = $user['login'];
+                    header('location: http://88.208.226.189/index.php');
+                    die();
+                }else{
+                    $_SESSION['ERRORCO'] = 'Inconnu';
+                }
             }
         }
-    }
-    if (isset($_POST['retour'])){
-        header('location: http://88.208.226.189/index.php');
-        die();
-    }
+        if (isset($_POST['retour'])){
+            header('location: http://88.208.226.189/index.php');
+            die();
+        }
     echo "</div>";
 }
 ?>
