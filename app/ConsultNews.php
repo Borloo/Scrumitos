@@ -10,7 +10,7 @@
 <body>
     <?php
     include("./include/header.php");
-    include("../include/connect.inc.php");
+    include("./include/connect.inc.php");
     ?>
     <div class="wrapper">
         <?php include("./include/menus.php"); ?>
