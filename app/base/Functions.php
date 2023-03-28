@@ -10,9 +10,6 @@ function connection(){
             <h2>Connexion</h2>
         </div>
         <div class='card-body'>";
-    if (isset($_POST['msg'])){
-        echo "<p>" . $_POST['msg'] . "</p>";
-    }
             echo "<form method='post'>
                 <p>Login : <input type='text' name='login'></p>
                 <p>Password : <input type='text' name='password'></p>
@@ -39,7 +36,15 @@ function connection(){
                 die();
             }
             $row = $res->fetch();
-            print_r($row);
+            $roles = explode(', ', $row['roles']);
+            foreach($roles as $role){
+                if ($role == 'ADMIN'){
+                    print_r($role);
+                }
+            }
+            $msg = "Pas de rôle admin";
+            header('location : index.php?msg=' . $msg);
+            die();
         }
     }
     echo "</div>";
