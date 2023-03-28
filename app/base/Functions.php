@@ -2,7 +2,6 @@
 
 
 function connection(){
-    include("./../bd/Utilisateur.php");
     echo
     "
     <div class='card'>
@@ -10,13 +9,16 @@ function connection(){
             <h2>Connexion</h2>
         </div>
         <div class='card-body'>";
+            if (isset($_POST['msg'])){
+                echo "<p>" . $_POST['msg'] . "</p>";
+            }
             echo "<form method='post'>
                 <p>Login : <input type='text' name='login'></p>
                 <p>Password : <input type='text' name='password'></p>
                 <input type='submit' name='submit' value='Se connecter'>
             </form>
         </div>";
-    echo '7 <br/>';
+    echo '8 <br/>';
     if(isset($_POST['submit'])){
         if (isset($_POST['login']) && isset($_POST['password'])){
             $login = $_POST['login'];
@@ -32,19 +34,21 @@ function connection(){
             $res->execute(['login' => $login, 'password' => $password]);
             if ($res->rowCount() != 1){
                 $msg = "Erreur lors de la connexion ...";
-//                header('location : index.php?msg=' . $msg);
-//                die();
+                header('location : http://88.208.226.189/index.php?msg=' . $msg);
+                die();
             }
             $row = $res->fetch();
             $roles = explode(', ', $row['roles']);
             foreach($roles as $role){
                 if ($role == 'ADMIN'){
-                    print_r($role);
+                    $msg = 'Connecté !';
+                    header('location : http://88.208.226.189/index.php?msg=' . + $msg);
+                    die();
                 }
             }
-            echo "nope";
-//            header('location : index.php?msg=' . $msg);
-//            die();
+            $msg = 'Nope !';
+            header('location : http://88.208.226.189/app/Connexion.php?msg=' . $msg);
+            die();
         }
     }
     echo "</div>";
