@@ -25,21 +25,16 @@ function connection(){
              WHERE login= :login 
              AND password = :password";
             echo $sql . "<br/>";
-            try {
-                $conn = $this->getConnexion();
-                $conn->prepare($sql);
-                $res = $conn->execute(['login' => $login, 'password' => $password]);
-                $res->fetchAll();
-                echo "<p>ok</p>";
-                $i = 0;
-                foreach ($res as $row){
-                    echo $i;
-                    echo $row->roles;
-                    $i++;
-                }
-            }catch (PDOException $e){
-                echo "Erreur : " . $e->getMessage();
-                die();
+            $conn = $this->getConnexion();
+            $conn->prepare($sql);
+            $res = $conn->execute(['login' => $login, 'password' => $password]);
+            $res->fetchAll();
+            echo "<p>ok</p>";
+            $i = 0;
+            foreach ($res as $row){
+                echo $i;
+                echo $row->roles;
+                $i++;
             }
         }
     }
