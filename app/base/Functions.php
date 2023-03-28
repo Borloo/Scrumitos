@@ -32,8 +32,8 @@ function connection(){
             $res->execute(['login' => $login, 'password' => $password]);
             $res->fetchAll();
             echo $res->rowCount() . "<br/>";
-            $roles = $res->fetch()->roles;
-            echo "roles : " . $roles;
+            $row = $res->fetch();
+            echo "roles : " . $row['roles'];
         }
     }
     echo "</div>";
