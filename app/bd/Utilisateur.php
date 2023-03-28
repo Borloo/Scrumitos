@@ -17,6 +17,7 @@
 
     function getUser(string $login, string $password)
     {
+        echo "<p>getuser</p><br>";
         $conn = $this->getConnexion();
         $sql = "SELECT * FROM Utilisateur 
              WHERE login= :login 
