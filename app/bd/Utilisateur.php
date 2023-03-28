@@ -28,10 +28,11 @@
         $query->execute(['login' => $login, 'password' => $password]);
         if ($query->rowCount() == 1){
             $user = $query->fetch();
-            return [$user['id'] => [
+            return [
+                'id' => $user['id'],
                 'login' => $user['login'],
                 'roles' => $user['roles'],
-            ]];
+            ];
         }
         return null;
     }
