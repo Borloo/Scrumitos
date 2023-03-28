@@ -10,13 +10,15 @@
 </head>
 <body>
     <?php
-        include("./include/header.php");
+        include("./../include/header.php");
     ?>
     <div class="wrapper">
         <section id="content">
             <div class="card">
                 <div class="card-body">
-                    <?php
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <?php
                         require_once("./base/Functions.php");
 
                         if (empty($_SESSION['token'])) {
@@ -24,7 +26,9 @@
                         } else {
                             deconnection();
                         }
-                    ?>
+                        ?>
+                    </div>
+                    <div class="col-md-4"></div>
                 </div>
             </div>
         </section>
