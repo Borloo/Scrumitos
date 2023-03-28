@@ -2,15 +2,28 @@
 
 function connection(){
     echo
-    "<div class='card-header'>
-        <h2>Connexion</h2>
-    </div>
-    <div class='card-body'>
-        <form method='post'><input type='submit' name='submit' value='Se connecter'></form>
-    </div>";
+    "
+    <div class='card'>
+        <div class='card-header'>
+            <h2>Connexion</h2>
+        </div>
+        <div class='card-body'>
+            <form method='post'>
+                <p>Login : <input type='text' name='login'></p>
+                <p>Password : <input type='text' name='password'></p>
+                <input type='submit' name='submit' value='Se connecter'>
+            </form>
+        </div>";
     if(isset($_POST['submit'])){
-        header("location: ./FormConnection.php");
+        if (isset($_POST['login']) && isset($_POST['password'])){
+            $login = $_POST['login'];
+            $password = $_POST['password'];
+        }
+        include("./../bd/Utilisateur.php");
+        $user = getUser($login, $password);
+        echo $user;
     }
+    echo "</div>";
 }
 
 function deconnection(){

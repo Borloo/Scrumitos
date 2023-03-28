@@ -16,11 +16,15 @@
 
     function getUser(string $login, string $password){
         $sql = "SELECT * FROM Utilisateur 
-         WHERE login=`" . $login . "` 
-         AND password = `" . $password . "`";
+         WHERE login= :login 
+         AND password = :password";
         $conn = $this->getConnexion();
         $conn->prepare($sql);
-        $res = $conn->execute();
+        $res = $conn->execute(['login' => $login, 'password' => $password]);
+        $res->fetchAll();
+        echo "
+        <p>$res</p>
+        ";
         return $res;
     }
 ?>
