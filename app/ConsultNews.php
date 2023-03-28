@@ -22,12 +22,13 @@
             // le formulaire de saisie du type d'emplacement recherché
             echo "<h1>les dernières news du camping</h1>";
             echo "<BR/><BR/>";					
-            
-            // on affiche le tableau des résultats
+        
 
             $reqnews = $conn->prepare("SELECT * FROM news");
             $reqNews->execute();
-            foreach ($reqnews as $new) {
+
+            $news = $reqnews->fetchAll();
+            foreach ($news as $new) {
                 echo "<tr>";
                 echo "<td>" . $new["id"] . "</td>";
                 echo "<td>" . $new["titre"] . "</td>";
