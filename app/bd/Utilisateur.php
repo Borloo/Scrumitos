@@ -30,14 +30,14 @@
         if ($query->rowCount() == 1){
             echo "<p>avant return</p><br/>";
             print_r($query->fetch());
-            /** @var ArrayObject $user */
+            /** @var Array $user */
             $user = $query->fetch();
             return userTrait($user);
         }
         return null;
     }
 
-    function userTrait(ArrayObject $user){
+    function userTrait(Array $user){
         echo "<p>avant usertrait</p><br/>";
         return [$user['id'] => [
             'login' => $user['login'],
