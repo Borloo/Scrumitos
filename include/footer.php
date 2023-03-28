@@ -1,3 +1,3 @@
 <footer class="globalFooter" id="bottom">
-  <p>Contact : laurent.nonne@univ-tlse2.fr </p>
+  <p>Contact : maximetcheverria@gmail.com </p>
 </footer>
