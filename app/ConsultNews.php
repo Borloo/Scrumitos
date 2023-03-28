@@ -3,17 +3,17 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="./include/styles.css" />
+    <link rel="stylesheet" href="../include/styles.css" />
     <title>Mon site !</title>
 </head>
 
 <body>
     <?php
-    include("./include/header.php");
-    include("./include/connect.inc.php");
+    include("../include/header.php");
+    include("../include/connect.inc.php");
     ?>
     <div class="wrapper">
-        <?php include("./include/menus.php"); ?>
+        <?php include("../include/menus.php"); ?>
         <section id="content">
             <?php
             /********************
@@ -26,8 +26,8 @@
 
             $reqnews = $conn->prepare("SELECT * FROM news");
             $reqNews->execute();
-
             $news = $reqnews->fetchAll();
+
             foreach ($news as $new) {
                 echo "<tr>";
                 echo "<td>" . $new["id"] . "</td>";
@@ -42,7 +42,7 @@
             ?>
         </section>
     </div>
-    <?php include("./include/footer.php"); ?>
+    <?php include("../include/footer.php"); ?>
 </body>
 
 </html>
