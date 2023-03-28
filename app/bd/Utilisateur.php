@@ -23,6 +23,7 @@
              AND password = :password";
         $query = $conn->prepare($sql);
         $query->execute(['login' => $login, 'password' => $password]);
+        echo $query->rowCount();
         if ($query->rowCount() == 1){
             print_r($query->fetch());
             return $query->fetch();
