@@ -27,22 +27,25 @@
             try {
                 $reqnews = $conn->prepare("SELECT * FROM News");
                 $reqNews->execute();
-                $news = $reqnews->fetchAll();
-
-                foreach ($news as $new) {
-                    echo "<tr>";
-                    echo "<td>" . $new["id"] . "</td>";
-                    echo "<td>" . $new["titre"] . "</td>";
-                    echo "<td>" . $new["body"] . "</td>";
-                    echo "</tr>";
-                }
+                $news = $reqnews->fetch();
                 $reqnews->closeCursor();
+                
+
+                // foreach ($news as $new) {
+                //     echo "<tr>";
+                //     echo "<td>" . $new["id"] . "</td>";
+                //     echo "<td>" . $new["titre"] . "</td>";
+                //     echo "<td>" . $new["body"] . "</td>";
+                //     echo "</tr>";
+                // }
+                
             }catch(PDOException $e){
                 echo "Erreur : " . $e->getMessage();
             }
 
             echo "</table></center>";
             echo "<BR/><BR/>";
+            print_r($news)
 
             ?>
         </section>
