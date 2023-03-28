@@ -7,7 +7,7 @@
     <title>Ajout de news</title>
 </head>
 <body>
-    <h1>Ajouter des news</h1>
+    <h1>Ajouter des news TEST</h1>
     <form action="action.php" method="post">
         <p>Titre : <input type="text" name="newsName" /></p>
         <p>News : <input type="text" name="newsContains" /></p>
