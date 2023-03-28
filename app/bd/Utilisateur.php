@@ -24,6 +24,7 @@
         $query = $conn->prepare($sql);
         $query->execute(['login' => $login, 'password' => $password]);
         if ($query->rowCount() == 1){
+            print_r($query->fetch());
             return $query->fetch();
         }
         return null;
