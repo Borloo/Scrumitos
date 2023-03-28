@@ -20,7 +20,7 @@ function connection(){
                         <input class='btn btn-success' type='submit' name='submit' value='Se connecter'>
                     </div>
                     <div class='col-md-6'>
-                        <input class='btn btn-dark' type='submit' name='retour' value='Retour'>
+                        <input class='btn btn-dark' type='button' name='retour' value='Retour'>
                     </div>
                 </div>
             </form>
