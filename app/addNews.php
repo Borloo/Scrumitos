@@ -32,6 +32,8 @@
 
 
 		</section>
+
+        <a href="index.php">Retour à l'ccueil</a>
 	</div>
 
 	<?php include("./include/footer.php"); ?>
