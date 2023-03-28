@@ -26,7 +26,6 @@
              AND password = :password";
         $query = $conn->prepare($sql);
         $query->execute(['login' => $login, 'password' => $password]);
-        echo $query->rowCount();
         if ($query->rowCount() == 1){
             $user = $query->fetch();
             return [$user['id'] => [
@@ -41,9 +40,10 @@
     {
         if ($user != null){
             echo "<p>isAdmin - user</p><br>";
-            print_r($user);
             $roles = explode(', ', $user['roles']);
             foreach($roles as $role){
+                echo "<p>role</p><br>";
+                print_r($role);
                 if ($role == 'ADMIN') {
                     return true;
                 }
