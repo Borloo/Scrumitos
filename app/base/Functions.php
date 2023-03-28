@@ -24,8 +24,8 @@ function connection(){
                     </div>
                 </div>
             </form>
-        </div>
-    </div>";
+        </div>";
+
     if(isset($_POST['submit'])){
         if (isset($_POST['login']) && isset($_POST['password'])){
             require('./bd/Utilisateur.php');
@@ -46,5 +46,6 @@ function connection(){
         header('location: http://88.208.226.189/index.php');
         die();
     }
+    echo "</div>";
 }
 ?>
