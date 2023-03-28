@@ -22,7 +22,7 @@ function connection(){
             $password = $_POST['password'];
             $user = getUser($login, $password);
             $isAdmin = isAdmin($user);
-            if ($isAdmin){
+            if ($isAdmin && null !== $user){
                 $_SESSION['USER'] = $user['login'];
                 header('location: http://88.208.226.189/index.php');
                 die();
