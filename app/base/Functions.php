@@ -24,13 +24,16 @@ function connection(){
             $sql = "SELECT * FROM Utilisateur 
              WHERE login= :login 
              AND password = :password";
-            echo $sql;
+            echo $sql . "<br/>";
             try {
                 $conn = $this->getConnexion();
                 $conn->prepare($sql);
                 $res = $conn->execute(['login' => $login, 'password' => $password]);
                 $res->fetchAll();
-                echo $res[0];
+                echo "ok";
+                foreach ($res as $row){
+                    echo $row->roles;
+                }
             }catch (PDOException $e){
                 echo "Erreur : " . $e->getMessage();
                 die();
