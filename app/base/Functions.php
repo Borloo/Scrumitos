@@ -29,8 +29,8 @@ function connection(){
             $pass = '130702';
             $conn = new PDO('mysql:host=localhost;dbname=base_camping;charset=UTF8'
                 ,$user, $pass, array(PDO::ATTR_ERRMODE =>PDO::ERRMODE_EXCEPTION));
-            $conn->prepare($sql);
-            $res = $conn->exec(['login' => $login, 'password' => $password]);
+            $res = $conn->prepare($sql);
+            $res->execute(['login' => $login, 'password' => $password]);
             $res->fetchAll();
             echo "<p>ok</p>";
             $i = 0;
