@@ -1,5 +1,7 @@
 <?php
 
+    echo "<p>Utilisateur.php</p>";
+
     function getConnexion()
     {
         try{

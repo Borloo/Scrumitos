@@ -15,7 +15,7 @@ function connection(){
                 <input type='submit' name='submit' value='Se connecter'>
             </form>
         </div>";
-    echo '20 <br/>';
+    echo '21 <br/>';
     if(isset($_POST['submit'])){
         if (isset($_POST['login']) && isset($_POST['password'])){
             echo "<p>ok1</p><br>";
@@ -30,10 +30,7 @@ function connection(){
                 </script>";
             print_r($user);
             $isAdmin = isAdmin($user);
-            echo "<p>ok</p><br>";
-            echo "<script type='text/javascript'>
-                    console.log(" . $user . ");
-                </script>";
+            echo "<p>isAdmin</p><br>";
             print_r($isAdmin);
             if (null == $user || !$isAdmin){
                 $_SESSION['USER'] = 'Inconnu';
