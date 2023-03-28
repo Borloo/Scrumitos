@@ -1,8 +1,19 @@
-<?php
-   
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../include/styles.css" />
+    <title>Mon site !</title>
+</head>
+
+<body>
+    <?php
     include("../include/header.php");
     include("../include/connect.inc.php");
-    include("../include/menus.php"); ?>
+    ?>
+    <div class="wrapper">
+        <?php include("../include/menus.php"); ?>
         <section id="content">
             <?php
             /********************
