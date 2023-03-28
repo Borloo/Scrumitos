@@ -17,14 +17,14 @@
         <section id="content">
             <?php
             /********************
-            ConsultType.php	
+            ConsultNews.php	
             *********************/
-            // le formulaire de saisie du type d'emplacement recherché
+            
             echo "<h1>les dernières news du camping</h1>";
             echo "<BR/><BR/>";					
         
 
-            $reqnews = $conn->prepare("SELECT * FROM news");
+            $reqnews = $conn->prepare("SELECT * FROM News");
             $reqNews->execute();
             $news = $reqnews->fetchAll();
 
