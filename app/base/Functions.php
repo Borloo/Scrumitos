@@ -1,5 +1,7 @@
 <?php
 
+include("./../bd/Utilisateur.php");
+
 function connection(){
     echo
     "
@@ -18,10 +20,10 @@ function connection(){
         if (isset($_POST['login']) && isset($_POST['password'])){
             $login = $_POST['login'];
             $password = $_POST['password'];
+            echo "ok isset";
         }
-        include("./../bd/Utilisateur.php");
         $user = getUser($login, $password);
-        echo $user;
+        echo "user : " . $user;
     }
     echo "</div>";
 }
