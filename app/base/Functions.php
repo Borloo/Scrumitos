@@ -18,10 +18,10 @@ function connection(){
                 </div>
                 <div class='row'>
                     <div class='col-md-6'>
-                        <input class='button' type='submit' name='submit' value='Se connecter'>
+                        <input class='btn btn-success' type='submit' name='submit' value='Se connecter'>
                     </div>
                     <div class='col-md-6'>
-                        <input class='button' name='retour' value='Retour'>
+                        <input class='btn btn-dark' type='button' name='retour' value='Retour'>
                     </div>
                 </div>
             </form>
