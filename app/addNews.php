@@ -9,17 +9,12 @@
 <body>
     <h1>Ajouter des news TEST</h1>
     <form action="addNews.php" method="post">
-        <p>Titre : <input type="text" name="newsName" /></p>
-        <p>News : <input type="text" name="newsContains" /></p>
+        <p>Titre : <input type="text" name="newsName" autocomplete="off"/></p>
+        <p>News : <input type="text" name="newsContent" autocomplete="off" /></p>
         <p><input type="submit" value="Envoyer"></p>
     </form>
 </body>
 </html>
 
-<?php
-    if($_POST) {
-        echo 'Contenu de la variable $_POST : >';
-        print_r($_POST);
-    }
-
-?>
+Le titre de la news est:  <?php echo htmlspecialchars($_POST['newsName']); ?>.
+Son contenu est <?php echo $_POST['newsContent']; ?> 
