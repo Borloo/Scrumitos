@@ -22,9 +22,15 @@
                 <p><input type="submit" value="Envoyer"></p>
             </form>
 
+            <?php 
+            if($_POST) {
+            ?> 
+                Le titre de la news est:  <?php echo htmlspecialchars($_POST['newsName']); ?>.
+                Son contenu est <?php echo $_POST['newsContent']; 
+            }?> 
 
 
-            
+
 		</section>
 	</div>
 
@@ -33,5 +39,4 @@
 </body>
 </html>
 
-Le titre de la news est:  <?php echo htmlspecialchars($_POST['newsName']); ?>.
-Son contenu est <?php echo $_POST['newsContent']; ?> 
+
