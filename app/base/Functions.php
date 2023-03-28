@@ -23,10 +23,16 @@ function connection(){
             $login = $_POST['login'];
             $password = $_POST['password'];
             $user = getUser($login, $password);
-            echo "<p>ok</p><br>";
+            echo "<p>user</p><br>";
+            echo "<script type='text/javascript'>
+                    console.log(" . $user . ");
+                </script>";
             print_r($user);
             $isAdmin = isAdmin($user);
             echo "<p>ok</p><br>";
+            echo "<script type='text/javascript'>
+                    console.log(" . $user . ");
+                </script>";
             print_r($isAdmin);
             if (null == $user || !$isAdmin){
                 $_SESSION['USER'] = 'Inconnu';
