@@ -8,53 +8,27 @@ function connection(){
         <div class='card-header'>
             <h2>Connexion</h2>
         </div>
-        <div class='card-body'>";
-            if (isset($_POST['msg'])){
-                echo "<p>" . $_POST['msg'] . "</p>";
-            }
-            echo "<form method='post'>
+        <div class='card-body'>
+            <form method='post'>
                 <p>Login : <input type='text' name='login'></p>
                 <p>Password : <input type='text' name='password'></p>
                 <input type='submit' name='submit' value='Se connecter'>
             </form>
         </div>";
-    echo '12 <br/>';
+    echo '13 <br/>';
     if(isset($_POST['submit'])){
         if (isset($_POST['login']) && isset($_POST['password'])){
+            require_once('./app/bd/Utilisateur.php');
             $login = $_POST['login'];
             $password = $_POST['password'];
-            $sql = "SELECT * FROM Utilisateur 
-             WHERE login= :login 
-             AND password = :password";
-            $user = 'clmt';
-            $pass = '130702';
-            $conn = new PDO('mysql:host=localhost;dbname=base_camping;charset=UTF8'
-                ,$user, $pass, array(PDO::ATTR_ERRMODE =>PDO::ERRMODE_EXCEPTION));
-            $res = $conn->prepare($sql);
-            $res->execute(['login' => $login, 'password' => $password]);
-            if ($res->rowCount() != 1){
-                $msg = 'Erreur lors de la connexion ...';
-                $location = 'location: http://88.208.226.189/app/Connexion.php';
-                $_SESSION['USER'] = $msg;
-                header($location);
-                die();
+            $user = getUser($login, $password);
+            $isAdmin = isAdmin($user);
+            if (null == $user || !$isAdmin){
+                $_SESSION['USER'] = 'Inconnu';
+            }else{
+                $_SESSION['USER'] = $user['login'];
             }
-            $row = $res->fetch();
-            $roles = explode(', ', $row['roles']);
-            foreach($roles as $role){
-                if ($role == 'ADMIN'){
-                    $msg = 'Connecté en tant que ' . $row['login'];
-                    $location = 'location: http://88.208.226.189/index.php';
-                    $_SESSION['USER'] = $msg;
-                    header($location);
-                    die();
-                }
-            }
-            $msg = 'Pas Admin !';
-
-            $_SESSION['USER'] = $msg;
-            $location = 'location: http://88.208.226.189/app/Connexion.php';
-            header($location);
+            header('http://88.208.226.189/index.php');
             die();
         }
     }
@@ -62,21 +36,6 @@ function connection(){
 }
 
 function deconnection(){
-    echo
-    "<div class='card-header'>
-        <h2>Connexion</h2>
-    </div>
-    <div class='card-body'>
-        <form method='post'>
-            <input type='submit' name='submit' value='Se déconnecter'>
-        </form>
-    </div>";
-    if(isset($_POST['submit'])) {
-        if (empty($_SESSION['token'])) {
-            header("location: http://88.208.226.189/app/Connexion.php");
-        }
-        session_destroy();
-        header('location: http://88.208.226.189/app/Deconnexion.php');
-    }
+    session_destroy();
 }
 ?>

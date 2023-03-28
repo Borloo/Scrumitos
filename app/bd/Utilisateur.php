@@ -15,16 +15,27 @@
     }
 
     function getUser(string $login, string $password){
-        echo "ok";
-        $sql = "SELECT * FROM Utilisateur 
-         WHERE login= :login 
-         AND password = :password";
         $conn = $this->getConnexion();
-        $conn->prepare($sql);
-        $res = $conn->execute(['login' => $login, 'password' => $password]);
-        $res->fetchAll();
-        echo $sql;
-        echo $res;
-        return $res;
+        $sql = "SELECT * FROM Utilisateur 
+             WHERE login= :login 
+             AND password = :password";
+        $query = $conn->prepare($sql);
+        $query->execute(['login' => $login, 'password' => $password]);
+        if ($query->rowCount() == 1){
+            return $query->fetch();
+        }
+        return null;
+    }
+
+    function isAdmin(array $user){
+        if ($user != null){
+            $roles = explode(', ', $user['roles']);
+            foreach($roles as $role){
+                if ($role == 'ADMIN') {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 ?>
