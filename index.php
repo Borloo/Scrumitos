@@ -9,9 +9,7 @@ session_start();
     ?>
 </head>
 <body>
-	<?php 
-		// Index.php
-		session_start();
+	<?php
 		include("./include/header.php"); 
 	?>
 	<div class="wrapper">

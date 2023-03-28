@@ -1,15 +1,33 @@
 <?php
-// 1ère instruction à faire apparâitre dans un script quand une session est 
-// lue ou manipulée
-session_start();
-
-
-    require_once("./base/Functions.php");
-
-    if (empty($_SESSION['token'])) {
-        connection();
-    } else {
-        deconnection();
-    }
-
+    session_start();
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <?php
+        include("./../include/headfile.php");
+    ?>
+</head>
+<body>
+    <?php
+        include("./include/header.php");
+    ?>
+    <div class="wrapper">
+        <section id="content">
+            <div class="card">
+                <div class="card-body">
+                    <?php
+                        require_once("./base/Functions.php");
+
+                        if (empty($_SESSION['token'])) {
+                            connection();
+                        } else {
+                            deconnection();
+                        }
+                    ?>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
