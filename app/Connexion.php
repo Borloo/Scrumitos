@@ -31,21 +31,4 @@ session_start();
 		}
 	}
 
-	// on génère l'en-tête HTML car on doit afficher le formulaire de connexion
-	echo ('<!DOCTYPE html>');
-	echo ('<html><head><meta charset="utf-8" /><link rel="stylesheet" href="../include/styles.css" /></head><body>');
-
-	// On affiche le formulaire
-	echo "<p>Veuillez entrer les identifiants :</p><BR/>";
-	echo "<form method='post' action='Connexion.php'>";
-		echo "<p>";
-		echo "Login : <input type='text' value='Admin' name='login' /> <BR/><BR/>";
-		echo "Mot de passe : <input type='password' value='Admin' name='motPasse' /><BR/><BR/>";
-		echo "<input type='submit' name='Envoyer' value='Valider' />";
-		echo "</p>";
-	echo "</form>";
-		
-	// on ferme les balises HTML
-	echo ('</body></html>');
-
 ?>
