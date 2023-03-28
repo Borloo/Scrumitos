@@ -30,9 +30,12 @@ function connection(){
                 $conn->prepare($sql);
                 $res = $conn->execute(['login' => $login, 'password' => $password]);
                 $res->fetchAll();
-                echo "ok";
+                echo "<p>ok</p>";
+                $i = 0;
                 foreach ($res as $row){
+                    echo $i;
                     echo $row->roles;
+                    $i++;
                 }
             }catch (PDOException $e){
                 echo "Erreur : " . $e->getMessage();
