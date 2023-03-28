@@ -21,7 +21,7 @@
     {
         echo "<p>Deb</p><br/>";
         /** @var PDO $conn */
-        $conn = $this->getConnexion();
+        $conn = getConnexion();
         echo "<p>après conn</p><br/>";
         $sql = "SELECT * FROM Utilisateur 
              WHERE login= :login 
