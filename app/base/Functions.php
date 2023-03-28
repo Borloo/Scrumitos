@@ -16,7 +16,7 @@ function connection(){
                 <input type='submit' name='submit' value='Se connecter'>
             </form>
         </div>";
-    echo '6 <br/>';
+    echo '7 <br/>';
     if(isset($_POST['submit'])){
         if (isset($_POST['login']) && isset($_POST['password'])){
             $login = $_POST['login'];
@@ -32,8 +32,8 @@ function connection(){
             $res->execute(['login' => $login, 'password' => $password]);
             if ($res->rowCount() != 1){
                 $msg = "Erreur lors de la connexion ...";
-                header('location : index.php?msg=' . $msg);
-                die();
+//                header('location : index.php?msg=' . $msg);
+//                die();
             }
             $row = $res->fetch();
             $roles = explode(', ', $row['roles']);
@@ -42,9 +42,9 @@ function connection(){
                     print_r($role);
                 }
             }
-            $msg = "Pas de rôle admin";
-            header('location : index.php?msg=' . $msg);
-            die();
+            echo "nope";
+//            header('location : index.php?msg=' . $msg);
+//            die();
         }
     }
     echo "</div>";
