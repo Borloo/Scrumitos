@@ -15,26 +15,21 @@ function connection(){
                 <input type='submit' name='submit' value='Se connecter'>
             </form>
         </div>";
-    echo '35 <br/>';
+    echo '36 <br/>';
     if(isset($_POST['submit'])){
         if (isset($_POST['login']) && isset($_POST['password'])){
             require('./bd/Utilisateur.php');
             $login = $_POST['login'];
             $password = $_POST['password'];
             $user = getUser($login, $password);
-            if ($user == null){
-                echo "<p>Problèmes d'identification</p><br/>";
-            }
             $isAdmin = isAdmin($user);
-            echo "<p>isAdmin</p><br>";
-            print_r($isAdmin);
             if (null == $user || !$isAdmin){
                 $_SESSION['USER'] = 'Inconnu';
             }else{
                 $_SESSION['USER'] = $user['login'];
             }
-//            header('http://88.208.226.189/index.php');
-//            die();
+            header('http://88.208.226.189/index.php');
+            die();
         }
     }
     echo "</div>";
