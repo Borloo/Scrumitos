@@ -40,6 +40,7 @@
     {
         if ($user != null){
             echo "<p>isAdmin - user roles</p><br>";
+            print_r($user);
             print_r($user['roles']);
             echo $user['roles'] . "<br>";
             $roles = explode(', ', $user['roles']);
