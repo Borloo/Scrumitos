@@ -82,7 +82,6 @@
                     if (isset($_POST['listType'])){
                         $typeId = $_POST['listType'];
                         $typeName = getEmplacementNameById($typeId)['nomType'];
-                        print_r($typeName);
                         echo "
                             <div class='card'>
                                 <div class='card-header'>
@@ -107,7 +106,7 @@
                             ";
                             }
                         }else{
-                            echo "<tr>Aucun résultat</tr>";
+                            echo "<tr><td>Aucun résultat</td></tr>";
                         }
                         echo "
                                     </table></center>
