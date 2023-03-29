@@ -24,7 +24,10 @@ function updateEmplacement(
     string $taille,
     int $maxPersonne,
     DateTime $dateDeb,
-    DateTime $dateFin
+    DateTime $dateFin,
+    int $prixSemaine,
+    int $prixAnnee,
+    string $options
 ){
     $conn = getBDConnexion();
     $sql = "UPDATE Emplacement SET
@@ -35,7 +38,10 @@ function updateEmplacement(
             Taille = :taille,
             Max_Personnes = :maxPersonne,
             Periode_Dispo_Debut = :dateDeb,
-            Periode_Dispo_Fin = :dateFin
+            Periode_Dispo_Fin = :dateFin,
+            Prix_Semaine = :prixSemaine,
+            Prix_Periode_Annee = :prixAnnee,
+            Options = :options
             WHERE idEmpl = :id
            ";
     $query = $conn->prepare($sql);
@@ -48,6 +54,9 @@ function updateEmplacement(
         'maxPersonne' => $maxPersonne,
         'dateDeb' => $dateDeb->format('Y-m-d H:i:s'),
         'dateFin' => $dateFin->format('Y-m-d H:i:s'),
+        'prixSemaine' => $prixSemaine,
+        'prixAnnee' => $prixAnnee,
+        'options' => $options,
         'id' => $id,
     ]);
     print_r($query->errorInfo());
