@@ -91,7 +91,7 @@
                                         </div>
                                         <div class='col-md-2'></div>
                                         <div class='col-md-2'>
-                                            <a href='./EmplacementDetail.php?maj=0&id=" . $_GET['id'] . "&edit=2'><input class='btn btn-info' type='button' value='Ajouter'></a>
+                                            <a href='./EmplacementDetail.php?maj=0&id=-1&edit=2'><input class='btn btn-info' type='button' value='Ajouter'></a>
                                         </div>
                                     </div>
                                 </div>
