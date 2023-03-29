@@ -7,15 +7,15 @@ ini_set('display_errors', 'on');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../include/styles.css" />
+    <link rel="stylesheet" href=".../include/styles.css" />
     <title>Ajout de news</title>
 </head>
 <body>
-    <?php include("./include/header.php");?>
-    <!--include("./include/connect.inc.php"); -->
+    <?php include("../include/header.php");?>
+    <!--include("../include/connect.inc.php"); -->
         
 	<div class="wrapper">
-        <?php include("./include/menus.php"); ?>
+        <?php include("../include/menus.php"); ?>
 		<section id="content">
             <div class="card">
                 <div class="card-body">
@@ -96,7 +96,7 @@ ini_set('display_errors', 'on');
 		</section>
 	</div>
 
-	<?php include("./include/footer.php"); ?>
+	<?php include("../include/footer.php"); ?>
     
 </body>
 </html>
