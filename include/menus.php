@@ -4,7 +4,7 @@
 	<li><a href="/app/ConsultNews.php">Consulter les news</a></li>
     <li><a href="/app/ConsultDate.php">Consulter les emplacements par année de construction/rénovation</a></li>
 	<li><a href="/app/ConsultEmplacementPrix.php">Consulter les emplacements par prix</a></li>
-    <li><a href="/app/ConsultEmpAvance.php.php">Consultation avancée des emplacements</a></li>
+    <li><a href="/app/ConsultEmpAvance.php">Consultation avancée des emplacements</a></li>
 	<li><a href="/app/ConsultDetails.php">Consulter les détails d'un emplacement</a></li>
 
 <?php
