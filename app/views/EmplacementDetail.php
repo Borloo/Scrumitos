@@ -234,7 +234,7 @@
                                     }else{
                                         updateEmplacement((string)$_GET['id'], $name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options);
                                         echo "<script>
-                                            location.href='http://88.208.226.189/app/views/EmplacementDetail.php?maj=1&id=' + $id
+                                            location.href='http://88.208.226.189/app/views/EmplacementDetail.php?edit=1&maj=1&id=' + $id
                                         </script>";
                                         die();
                                     }
