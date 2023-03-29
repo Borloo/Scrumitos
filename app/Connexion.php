@@ -13,6 +13,7 @@
         include("./../include/header.php");
     ?>
     <div class="wrapper">
+        <?php include("./include/menus.php"); ?>
         <section id="content">
             <div class="card">
                 <div class="card-body">
