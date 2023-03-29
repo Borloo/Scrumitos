@@ -11,18 +11,18 @@
 <body>
     <?php
     include("./../include/header.php");
-    // include("./../include/connect.inc.php");
-    // $user = 'clmt';
-    // $pass = '130702';
-    // $conn = new PDO(
-    //     'mysql:host=localhost;dbname=base_camping;charset=UTF8',
-    //     $user,
-    //     $pass,
-    //     array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
-    // );
+     include("./../include/connect.inc.php");
+     $user = 'clmt';
+     $pass = '130702';
+     $conn = new PDO(
+         'mysql:host=localhost;dbname=base_camping;charset=UTF8',
+         $user,
+         $pass,
+         array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
+     );
    phpinfo();
     ?>
-    <p>tohoho</p>
+    <p>EZ CITY GANG</p>
 </body>
 
 </html>
