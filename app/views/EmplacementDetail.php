@@ -11,10 +11,10 @@
     require('./../base/Functions.php');
     if ($_GET['edit'] == 3){
         deleteEmplacement($_GET['id']);
-//        echo "<script>
-//                location.href='http://88.208.226.189/app/views/ConsultType.php?suppr=1'
-//            </script>";
-//        die();
+        echo "<script>
+                location.href='http://88.208.226.189/app/views/ConsultType.php?suppr=1'
+            </script>";
+        die();
     }
 ?>
 <!DOCTYPE html>

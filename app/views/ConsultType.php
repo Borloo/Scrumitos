@@ -69,11 +69,14 @@
                                     <div class='col-md-4'></div>
                                 </div><br>
                                 <div class='row'>
-                                    <div class='col-md-4'></div>
+                                    <div class='col-md-2'></div>
                                     <div class='col-md-4'>
-                                        <input type='submit' name='submit' value='Afficher'>
+                                        <input class='btn btn-secondary' type='submit' name='submit' value='Afficher'>
                                     </div>
-                                    <div class='col-md-4'></div>
+                                    <div class='col-md-4'>
+                                            <a href='./EmplacementDetail.php?maj=0&id=-1&edit=2'><input class='btn btn-info' type='button' value='Ajouter'></a>
+                                    </div>
+                                    <div class='col-md-2'></div>
                                 </div>
                             </fieldset>
                         </form>
@@ -90,14 +93,7 @@
                             <div class='card'>
                                 <div class='card-header'>
                                     <div class='row'>
-                                        <div class='col-md-4'></div>
-                                        <div class='col-md-2'>
-                                            <h4>" . $typeName . "</h4>
-                                        </div>
-                                        <div class='col-md-2'></div>
-                                        <div class='col-md-2'>
-                                            <a href='./EmplacementDetail.php?maj=0&id=-1&edit=2'><input class='btn btn-info' type='button' value='Ajouter'></a>
-                                        </div>
+                                        <h4>" . $typeName . "</h4>
                                     </div>
                                 </div>
                                 <div class='card-body'>
