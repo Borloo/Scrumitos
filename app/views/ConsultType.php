@@ -2,10 +2,14 @@
 	session_start();
 	// si l'internaute accède à cette page sans être l'admin connecté alors
 	// on le renvoie vers la page indexphp
+<<<<<<< Updated upstream:app/views/ConsultType.php
 	if (!isset($_SESSION['USER'])) {
+=======
+	/*if (!isset($_SESSION['AdminConnecte'])) {
+>>>>>>> Stashed changes:app/ConsultType.php
 		header('location: index.php');
-		die();	
-	}
+		die();
+	}*/
 
 ?>
 <!DOCTYPE html>
