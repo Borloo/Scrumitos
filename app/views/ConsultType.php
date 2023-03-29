@@ -47,11 +47,11 @@
                                         </select>
                                     </div>
                                     <div class='col-md-4'></div>
-                                </div>
+                                </div><br>
                                 <div class='row'>
                                     <div class='col-md-4'></div>
                                     <div class='col-md-4'>
-                                        <input type='submit' name='Afficher' value='Afficher'>
+                                        <input type='submit' name='submit' value='Afficher'>
                                     </div>
                                     <div class='col-md-4'></div>
                                 </div>
@@ -62,32 +62,42 @@
                     ?>
                 </div>
             </div>
+            <?php
+                if (isset($_POST['submit'])){
+                    if (isset($_POST['listType'])){
+                        echo "
+                            <div class='card'>
+                                <div class='card-header'>
+                                    <h4>" . $_POST['listType'] . "</h4>
+                                </div>
+                                <div class='card-body'>
+                                    <table border='2'>
+                                        <caption> Emplacement du type " . $_POST['listType'] . "</caption>
+                                        <tr><th>Id de l'emplacement</th><th>Type de l'emplacement</th><th>Adresse Emplacement</th><th>Année de Construction</th></tr>
+                        ";
+
+                        $emplacements = getEmplacementByType($_POST['listType']);
+                        foreach ($emplacements as $emplacement){
+                            echo "
+                                <tr>
+                                    <td>" . $emplacement['idEmpl'] . "</td>
+                                    <td>" . $_POST['listType'] . "</td>
+                                    <td>" . $emplacement['adresseEmpl'] . "</td>
+                                    <td>" . $emplacement['anneeConstruction'] . "</td>
+                                </tr>
+                            ";
+                        }
+
+                        echo "
+                                    </table>
+                                </div>
+                            </div>
+                        ";
+
+                    }
+                }
+            ?>
 <!--		--><?php
-//			/********************
-//				ConsultType.php
-//			*********************/
-//				// le formulaire de saisie du type d'emplacement recherché
-//				echo "";
-//				echo "<BR/><BR/>";
-//				echo "<form method='post'>";
-//					echo "<fieldset>";
-//						echo "<legend> Types d'Emplacement </legend><BR/>";
-//						// LD_Types = Liste Déroulante des types
-//						echo "<select name='LD_Types'>";
-//						// on constitue la liste déroulante à partir de la table Type
-//						$reqType = $conn->prepare("SELECT * FROM Type");
-//						$reqType->execute();
-//						foreach($reqType as $type) {
-//							echo "<option value='".$type["idType"]."'>".$type["nomType"]."</option>";
-//						}
-//						$reqType->closeCursor();
-//						echo "</select><br/><br/>";
-//						echo "<input type='submit' name='Afficher' value='Afficher'/>";
-//						echo "<br/><br/>";
-//					echo "</fieldset>";
-//				echo "</form>";
-//
-//
 //				// le formulaire a été soumis
 //				if(isset($_POST['Afficher']) && isset($_POST['LD_Types'])) {
 //					// echo $_POST['LD_Types'];
