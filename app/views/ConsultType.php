@@ -82,12 +82,12 @@
                         echo "ok";
                         foreach ($emplacements as $emplacement){
                             echo "
-                                <center><tr>
+                                <tr>
                                     <td>" . $emplacement['idEmpl'] . "</td>
                                     <td>" . $_POST['listType'] . "</td>
                                     <td>" . $emplacement['adresseEmpl'] . "</td>
                                     <td>" . $emplacement['anneeConstruction'] . "</td>
-                                </tr></center>
+                                </tr>
                             ";
                         }
 
