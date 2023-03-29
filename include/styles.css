@@ -64,9 +64,10 @@ section {
 	text-align: center;
 }
 
-td, th{
-	text-align: center;
-	padding: 1px;
+table, th, td {
+	padding: 10px;
+	border: 1px solid black;
+	border-collapse: collapse;
 }
 
 /* Responsive */

@@ -60,7 +60,6 @@
                             </fieldset>
                         </form>
                         ";
-
                     ?>
                 </div>
             </div>
@@ -73,7 +72,7 @@
                                     <h4>" . $_POST['listType'] . "</h4>
                                 </div>
                                 <div class='card-body'>
-                                    <center><table border='2'>
+                                    <center><table>
                                         <caption> Emplacement du type " . $_POST['listType'] . "</caption>
                                         <tr><th>Id de l'emplacement</th><th>Type de l'emplacement</th><th>Adresse Emplacement</th><th>Année de Construction</th></tr>
                         ";
@@ -100,31 +99,6 @@
                     }
                 }
             ?>
-<!--		--><?php
-//				// le formulaire a été soumis
-//				if(isset($_POST['Afficher']) && isset($_POST['LD_Types'])) {
-//					// echo $_POST['LD_Types'];
-//
-//					// on affiche le tableau des résultats
-//					echo "<BR/><BR/>";
-//					echo "<center><table border='2' >";
-//						echo "<caption> Emplacement du Type ".$_POST['LD_Types']."</caption>";
-//						echo "<tr><th>Id Emp</th><th>Type de l'Emplacement</th><th>Adresse Emplacement</th><th>Année de Construction</th></tr>";
-//						$reqEmpl = $conn->prepare("SELECT * FROM Emplacement where idType = :pIdType");
-//						$reqEmpl->execute(array('pIdType' => $_POST['LD_Types']));
-//						foreach($reqEmpl as $empl) {
-//							echo "<tr>";
-//								echo "<td>".$empl["idEmpl"]."</td>";
-//								echo "<td>".$empl["idType"]."</td>";
-//								echo "<td>".$empl["adresseEmpl"]."</td>";
-//								echo "<td>".$empl["anneeConstruction"]."</td>";
-//							echo "</tr>";
-//						}
-//						$reqEmpl->closeCursor();
-//					echo "</table></center>";
-//					echo "<BR/><BR/>";
-//				}
-//		?>
 		</section>
 	</div>
 	<?php include("./../../include/footer.php"); ?>
