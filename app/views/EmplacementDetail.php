@@ -35,6 +35,10 @@
                             $prixSemaine = $emplacement['Prix_Semaine'];
                             $prixAnnee = $emplacement['Prix_Periode_Annee'];
                             $options = $emplacement['Options'];
+                            if (isset($_SESSION['MSG'])){
+                                echo "<h4>" . $_SESSION['MSG'] . "</h4>";
+                                unset($_SESSION['MSG']);
+                            }
                             echo "
                                 <div class='card-headear'>
                                     <h1>" . $id . " - " . $name . "</h1>
@@ -157,8 +161,10 @@
                                     $prixSemaine = $_POST['prixSemaine'];
                                     $prixAnnee = $_POST['prixAnnee'];
                                     $options = $_POST['options'];
-                                    print_r($_GET['id'] . " / " . $name . " / " . $type . " / " . $adresse . " / " . $annee . " / " . $taille . " / " . $maxPersonne . " / " . $dateDeb->format('Y-m-d H:i:s') . " / " . $dateFin->format('Y-m-d H:i:s') . " / " . $prixSemaine . " / " . $prixAnnee . " / " . $options);
                                     updateEmplacement((string)$_GET['id'], $name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options);
+                                    $_SESSION['MSG'] = "Emplacement mis à jour !";
+                                    header('location: http://88.208.226.189/app/views/EmplacementDetail.php?id=115');
+                                    die();
                                 }
                             }
                         }else{
