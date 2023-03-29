@@ -35,12 +35,12 @@
                             $prixSemaine = $emplacement['Prix_Semaine'];
                             $prixAnnee = $emplacement['Prix_Periode_Annee'];
                             $options = $emplacement['Options'];
-                            print_r($emplacement);
                             echo "
                                 <div class='card-headear'>
                                     <h1>" . $id . " - " . $name . "</h1>
                                 </div>
                                 <div class='card-body'>
+                                <form method='post'>
                                     <div class='row'>
                                         <div class='col-md-6'>
                                             <div class='input-group mb-3'>
@@ -123,8 +123,42 @@
                                             <input class='form-control' name='options' type='text' value='" . $options . "'>
                                         </div>
                                     </div>
+                                    <div class='row'>
+                                        <div class='col-md-5'></div>
+                                            <div class='col-md-2'>
+                                                <input type='submit' name='submit' value='Sauvegarder'>
+                                            </div>
+                                        <div class='col-md-5'></div>
+                                    </div>
                                 </div>
+                            </form>
                             ";
+                            if (isset($_POST['submit'])){
+                                if (
+                                    isset($_POST['name']) &&
+                                    isset($_POST['listType']) &&
+                                    isset($_POST['adresse']) &&
+                                    isset($_POST['annee']) &&
+                                    isset($_POST['taille']) &&
+                                    isset($_POST['maxPersonne']) &&
+                                    isset($_POST['dateDeb']) &&
+                                    isset($_POST['dateFin']) &&
+                                    isset($_POST['prixSemaine']) &&
+                                    isset($_POST['prixAnnee'])
+                                ){
+                                    $name = $_POST['name'];
+                                    $type = $_POST['listType'];
+                                    $adresse = $_POST['adresse'];
+                                    $annee = $_POST['annee'];
+                                    $taille = $_POST['taille'];
+                                    $maxPersonne = $_POST['maxPersonne'];
+                                    $dateDeb = $_POST['dateDeb'];
+                                    $dateFin = $_POST['dateFin'];
+                                    $prixSemaine = $_POST['prixSemaine'];
+                                    $prixAnnee = $_POST['prixAnnee'];
+                                    echo "yes";
+                                }
+                            }
                         }else{
                             echo "<p>Il semblerait il y avoir un problème, cliquez <a href='./../../index.php'>ici</a> pour retourner à l'acceuil</p>";
                         }
