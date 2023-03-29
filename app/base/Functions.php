@@ -29,6 +29,7 @@ function getEmplacementNameById(int $id){
 function getOneEmplacementById(int $id){
     /** @var PDOStatement $emplacement */
     $emplacement = getEmplacementById($id, true);
+    print_r('ok1.5');
     if ($emplacement->rowCount() == 1){
         print_r('ok2');
         return $emplacement->fetch();
