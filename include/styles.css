@@ -59,7 +59,7 @@ section {
 	background-color: #F9F9F9;
 }
 
-td {
+td, tr {
 	border: 1px solid black;
 }
 
