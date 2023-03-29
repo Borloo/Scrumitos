@@ -2,6 +2,15 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 ?>
+
+<?php
+	session_start();
+	if (!isset($_SESSION['USER'])) {
+		header('location: index.php');
+		die();
+	}
+
+?>
 <!DOCTYPE html>
 <html>
 
