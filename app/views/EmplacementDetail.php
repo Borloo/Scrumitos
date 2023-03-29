@@ -28,6 +28,8 @@
                             $typeId = $emplacement['idType'];
                             $adresse = $emplacement['adresseEmpl'];
                             $annee = $emplacement['anneeConstruction'];
+                            $taille = $emplacement['Taille'];
+                            $maxPersonne = $emplacement['Max_Personnes'];
                             print_r($emplacement);
                             echo "
                                 <div class='card-headear'>
@@ -65,6 +67,20 @@
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text'>Année construction</span>
                                                 <input class='form-control' name='annee' type='number' value='" . $annee . "'>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class='row'>
+                                        <div class='col-md-6'>
+                                            <div class='input-group mb-3'>
+                                                <span class='input-group-text'>Taille</span>
+                                                <input class='form-control' name='annee' type='number' value='" . $taille . "'>
+                                            </div>
+                                        </div>
+                                        <div class='col-md-6'>
+                                            <div class='input-group mb-3'>
+                                                <span class='input-group-text'>Max personne</span>
+                                                <input class='form-control' name='annee' type='number' value='" . $maxPersonne . "'>
                                             </div>
                                         </div>
                                     </div>
