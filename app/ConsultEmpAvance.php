@@ -10,6 +10,7 @@ ini_set('display_errors', 'on');
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../include/styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recherche Emplacement</title>
 </head>
@@ -115,7 +116,7 @@ ini_set('display_errors', 'on');
 
 
     ?>
-    <p>EZ CITY GANG</p><
+    <p>EZ CITY GANG</p>
     <?php include("../include/footer.php"); ?>
 </body>
 
