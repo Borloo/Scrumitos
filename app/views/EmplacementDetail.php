@@ -22,7 +22,11 @@
                         require('./../base/Functions.php');
 
                         $emplacement = getOneEmplacementById((int)$_GET['id']);
-                        print_r($emplacement);
+                        if ($emplacement == 1){
+                            print_r($emplacement);
+                        }else{
+                            echo "<p>Il semblerait il y avoir un problème, cliquez <a href='./../../index.php'>ici</a> pour retourner à l'acceuil</p>";
+                        }
                     ?>
                 </div>
             </section>
