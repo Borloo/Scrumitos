@@ -17,40 +17,16 @@ function getBDConnexion(): PDO
 
 function updateEmplacement(
     string $id,
-    string $name,
-    string $type,
-    string $adresse,
-    int $annee,
-    string $taille,
-    int $maxPersonne,
-    int $prixSemaine,
-    int $prixAnnee,
-    string $options
+    string $name
 ){
     $conn = getBDConnexion();
     $sql = "UPDATE Emplacement SET
-            Nom_Emplacement = :name,
-            idType = :type,
-            adresseEmpl = :adresse,
-            anneeConstruction = :annee,
-            Taille = :taille,
-            Max_Personnes = :maxPersonne,
-            Prix_Semaine = :prixSemaine,
-            Prix_Periode_Annee = :prixAnnee,
-            Options = :options
+            Nom_Emplacement = :name
             WHERE idEmpl = :id
            ";
     $query = $conn->prepare($sql);
     $query->execute([
         'name' => $name,
-        'type' => $type,
-        'adresse' => $adresse,
-        'annee' => $annee,
-        'taille' => $taille,
-        'maxPersonne' => $maxPersonne,
-        'prixSemaine' => $prixSemaine,
-        'prixAnnee' => $prixAnnee,
-        'options', $options,
         'id' => $id
     ]);
     print_r($query->errorInfo());
