@@ -30,8 +30,8 @@
                 <div class="card">
                     <?php
                         $emplacement = getOneEmplacementById((int)$_GET['id']);
-                        if ($_GET['edit'] != 3){
-                            if ($_GET['edit'] == 2){
+                        if ($_GET['edit'] != "3"){
+                            if ($_GET['id'] == "-1"){
                                 $dateDeb = new DateTime('now');
                                 $dateDeb = $dateDeb->format('d/m/Y H:i');
                                 echo 'here';
