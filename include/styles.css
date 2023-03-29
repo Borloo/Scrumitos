@@ -64,16 +64,6 @@ section {
 	text-align: center;
 }
 
-td {
-	text-align: center;
-	padding: 5px;
-}
-
-table {
-	border-width: 1px;
-	border-color: black;
-}
-
 /* Responsive */
 
 @media (max-width: 640px) {

@@ -14,6 +14,17 @@
     <?php
         include("./../../include/headfile.php");
     ?>
+    <style>
+        td {
+            text-align: center;
+            padding: 5px;
+        }
+
+        table {
+            border-width: 1px;
+            border-color: black;
+        }
+    </style>
 </head>
 <body>
 	<?php 
