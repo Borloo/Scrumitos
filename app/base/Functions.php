@@ -73,6 +73,17 @@ function getEmplacementNameById(int $id){
     return null;
 }
 
+function getTypeByName(string $name){
+    $conn = getBDConnexion();
+    $sql = "SELECT * FROM Type WHERE nomType = :name";
+    $query = $conn->prepare($sql);
+    $query->execute(['name' => $name]);
+    if ($query->rowCount() == 1){
+        return $query->fetch();
+    }
+    return null;
+}
+
 function getOneEmplacementById(int $id){
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Emplacement WHERE idEmpl = :id";

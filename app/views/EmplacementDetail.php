@@ -147,7 +147,7 @@
                                     isset($_POST['prixAnnee'])
                                 ){
                                     $name = $_POST['name'];
-                                    $type = $_POST['listType'];
+                                    $type = getTypeByName($_POST['listType']);
                                     $adresse = $_POST['adresse'];
                                     $annee = $_POST['annee'];
                                     $taille = $_POST['taille'];
