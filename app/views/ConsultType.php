@@ -98,7 +98,7 @@
                                 <div class='card-body'>
                                     <center><table>
                                         <caption> Emplacement du type " . $typeName . "</caption>
-                                        <tr><th>Id de l'emplacement</th><th>Type de l'emplacement</th><th>Adresse Emplacement</th><th>Année de Construction</th><th>Actions</th></tr>
+                                        <tr><th>Nom de l'emplacement</th><th>Type de l'emplacement</th><th>Adresse Emplacement</th><th>Année de Construction</th><th>Actions</th></tr>
                         ";
 
                         $emplacements = getEmplacementById($typeId);
@@ -106,7 +106,7 @@
                             foreach ($emplacements as $emplacement){
                                 echo "
                                 <tr>
-                                    <td>" . $emplacement['idEmpl'] . "</td>
+                                    <td>" . $emplacement['Nom_Eplacement'] . "</td>
                                     <td>" . $typeName . "</td>
                                     <td>" . $emplacement['adresseEmpl'] . "</td>
                                     <td>" . $emplacement['anneeConstruction'] . "</td>
