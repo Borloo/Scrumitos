@@ -9,8 +9,8 @@
 
 <body>
     <?php
-    include("./include/header.php");
-    include("./include/connect.inc.php");
+    include("../include/header.php");
+    include("../include/connect.inc.php");
     ?>
     <div class="wrapper">
         <?php include("./include/menus.php"); ?>
@@ -65,7 +65,7 @@
             </div>
         </section>
     </div>
-    <?php include("./include/footer.php"); ?>
+    <?php include("../include/footer.php"); ?>
 </body>
 
 </html>
