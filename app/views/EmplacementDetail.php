@@ -30,6 +30,8 @@
                             $annee = $emplacement['anneeConstruction'];
                             $taille = $emplacement['Taille'];
                             $maxPersonne = $emplacement['Max_Personnes'];
+                            $dateDeb = $emplacement['Periode_Dispo_Debut'];
+                            $dateFin = $emplacement['Periode_Dispo_Fin'];
                             print_r($emplacement);
                             echo "
                                 <div class='card-headear'>
@@ -74,13 +76,27 @@
                                         <div class='col-md-6'>
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text'>Taille</span>
-                                                <input class='form-control' name='annee' type='number' value='" . $taille . "'>
+                                                <input class='form-control' name='taille' type='number' value='" . $taille . "'>
                                             </div>
                                         </div>
                                         <div class='col-md-6'>
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text'>Max personne</span>
-                                                <input class='form-control' name='annee' type='number' value='" . $maxPersonne . "'>
+                                                <input class='form-control' name='maxPersonne' type='number' value='" . $maxPersonne . "'>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class='row'>
+                                        <div class='col-md-6'>
+                                            <div class='input-group mb-3'>
+                                                <span class='input-group-text'>Date début</span>
+                                                <input class='form-control' name='dateDeb' type='datetime-local' value='" . $dateDeb . "'>
+                                            </div>
+                                        </div>
+                                        <div class='col-md-6'>
+                                            <div class='input-group mb-3'>
+                                                <span class='input-group-text'>Date fin</span>
+                                                <input class='form-control' name='dateFin' type='datetime-local' value='" . $dateFin . "'>
                                             </div>
                                         </div>
                                     </div>
