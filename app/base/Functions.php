@@ -42,7 +42,6 @@ function updateEmplacement(
            ";
     $query = $conn->prepare($sql);
     $query->execute([
-        'id' => $id,
         'name' => $name,
         'type' => $type,
         'adresse' => $adresse,
@@ -51,7 +50,8 @@ function updateEmplacement(
         'maxPersonne' => $maxPersonne,
         'prixSemaine' => $prixSemaine,
         'prixAnnee' => $prixAnnee,
-        'options', $options
+        'options', $options,
+        'id' => $id
     ]);
     print_r($query->errorInfo());
 }
