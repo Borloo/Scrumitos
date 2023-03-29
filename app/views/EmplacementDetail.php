@@ -8,6 +8,7 @@
     }
 ?>
 <?php
+    require('./../base/Functions.php');
     if ($_GET['edit'] == 3){
         deleteEmplacement($_GET['id']);
 //        echo "<script>
@@ -28,8 +29,6 @@
             <section id="content">
                 <div class="card">
                     <?php
-                        require('./../base/Functions.php');
-
                         $emplacement = getOneEmplacementById((int)$_GET['id']);
                         if ($_GET['edit'] != 3){
                             $name = $emplacement['Nom_Emplacement'];
