@@ -20,7 +20,6 @@ function getTypes(): array{
     $sql = "SELECT * FROM Type";
     $query = $conn->prepare($sql);
     $query->execute();
-    echo "ok";
     return $query->fetchAll();
 }
 

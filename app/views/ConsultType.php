@@ -35,7 +35,17 @@
                                     <select name='listType'>
                         ";
 
-                        getTypes();
+                        $types = getTypes();
+                        foreach ($types as $type){
+                            echo "<option value='" . $type['idType'] . "'>" . $type['nomType'] . "</option>";
+                        }
+
+                        echo "
+                            </select>
+                            <input type='submit' name='Afficher' value='Afficher'>
+                            </fieldset>
+                            </form>
+                        ";
 
                     ?>
                 </div>
