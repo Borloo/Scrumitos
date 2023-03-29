@@ -43,11 +43,14 @@
                             if ($_GET['maj'] == 1){
                                 echo "<h4>Emplacement mise à jour</h4><br/>";
                             }
-                            echo "
-                                <div class='card-headear'>
-                                    <h1>" . $id . " - " . $name . "</h1>
-                                </div>
-                                <div class='card-body'>
+                                if ($_GET['edit'] != 2){
+                                    echo "
+                                    <div class='card-headear'>
+                                        <h1>" . $id . " - " . $name . "</h1>
+                                    </div>
+                                    ";
+                                }
+                                echo "<div class='card-body'>
                                 <form method='post'>
                                     <div class='row'>
                                         <div class='col-md-6'>
@@ -182,21 +185,12 @@
                                                     echo ">
                                         </div>
                                     </div>";
-                                    if ($_GET['edit'] == 1){
+                                    if ($_GET['edit'] == 1 || $_GET['edit'] == 2){
                                         echo "
                                         <div class='row'>
                                             <div class='col-md-5'></div>
                                                 <div class='col-md-2'>
-                                                    <input type='submit' name='submit' value='Sauvegarder'>
-                                                </div>
-                                            <div class='col-md-5'></div>
-                                        </div>";
-                                    }elseif ($_GET['edit'] == 2){
-                                        echo "
-                                        <div class='row'>
-                                            <div class='col-md-5'></div>
-                                                <div class='col-md-2'>
-                                                    <input type='submit' name='submit' value='Ajouter'>
+                                                    <input class='btn btn-success' type='submit' name='submit' value='Sauvegarder'>
                                                 </div>
                                             <div class='col-md-5'></div>
                                         </div>";
