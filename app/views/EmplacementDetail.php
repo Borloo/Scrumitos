@@ -156,6 +156,7 @@
                                     $dateFin = $_POST['dateFin'];
                                     $prixSemaine = $_POST['prixSemaine'];
                                     $prixAnnee = $_POST['prixAnnee'];
+                                    print_r($_GET['id'] . " / " . $name . " / " . $type . " / " . $adresse . " / " . $annee . " / " . $taille . " / " . $maxPersonne . " / " . $dateDeb . " / " . $dateFin . " / " . $prixSemaine . " / " . $prixAnnee . " / " . $options);
                                     updateEmplacement($_GET['id'], $name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, (int)$prixSemaine, (int)$prixAnnee, $options);
                                 }
                             }
