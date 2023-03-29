@@ -34,21 +34,22 @@
                             if ($_GET['edit'] == 2){
                                 $dateDeb = new DateTime('now');
                                 $dateDeb = $dateDeb->format('d/m/Y H:i');
+                                echo 'here';
                                 print_r($dateDeb);
                             }else{
-                                $name = $emplacement['Nom_Emplacement'];
-                                $id = $emplacement['idEmpl'];
-                                $typeId = $emplacement['idType'];
-                                $adresse = $emplacement['adresseEmpl'];
-                                $annee = $emplacement['anneeConstruction'];
-                                $taille = $emplacement['Taille'];
-                                $maxPersonne = $emplacement['Max_Personnes'];
-                                $dateFin = $emplacement['Periode_Dispo_Fin'];
-                                $prixSemaine = $emplacement['Prix_Semaine'];
-                                $prixAnnee = $emplacement['Prix_Periode_Annee'];
-                                $options = $emplacement['Options'];
                                 $dateDeb = $emplacement['Periode_Dispo_Debut'];
                             }
+                            $name = $emplacement['Nom_Emplacement'];
+                            $id = $emplacement['idEmpl'];
+                            $typeId = $emplacement['idType'];
+                            $adresse = $emplacement['adresseEmpl'];
+                            $annee = $emplacement['anneeConstruction'];
+                            $taille = $emplacement['Taille'];
+                            $maxPersonne = $emplacement['Max_Personnes'];
+                            $dateFin = $emplacement['Periode_Dispo_Fin'];
+                            $prixSemaine = $emplacement['Prix_Semaine'];
+                            $prixAnnee = $emplacement['Prix_Periode_Annee'];
+                            $options = $emplacement['Options'];
                             if ($_GET['maj'] == 1){
                                 echo "<h4>Emplacement mise à jour</h4><br/>";
                             }
