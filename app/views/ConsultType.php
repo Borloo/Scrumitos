@@ -20,8 +20,11 @@
             padding: 5px;
         }
 
-        table {
+        th {
             padding: 5px 20px 5px 20px;
+        }
+
+        table {
             border: 1px solid black;
         }
     </style>
