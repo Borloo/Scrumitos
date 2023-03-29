@@ -23,7 +23,7 @@ function updateEmplacement(
     $conn = getBDConnexion();
     $sql = "UPDATE Emplacement SET
             Nom_Emplacement = :name,
-            Type = :type
+            idType = :type
             WHERE idEmpl = :id
            ";
     $query = $conn->prepare($sql);
