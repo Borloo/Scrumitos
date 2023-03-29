@@ -6,7 +6,6 @@ ini_set('display_errors', 'on');
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="./include/styles.css" />
     <?php
         include("./include/headfile.php");
     ?>
