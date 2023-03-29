@@ -9,6 +9,9 @@ ini_set('display_errors', 'on');
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../include/styles.css" />
     <title>Mon site !</title>
+    <?php
+        include("../include/headfile.php");
+    ?>
 </head>
 
 <body>
