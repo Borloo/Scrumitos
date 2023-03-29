@@ -26,6 +26,8 @@
                             $name = $emplacement['Nom_Emplacement'];
                             $id = $emplacement['idEmpl'];
                             $typeId = $emplacement['idType'];
+                            $adresse = $emplacement['adresseEmpl'];
+                            $annee = $emplacement['anneeConstruction'];
                             print_r($emplacement);
                             echo "
                                 <div class='card-headear'>
@@ -49,6 +51,20 @@
                                                         echo "<option " . ($type['idType'] == $typeId ? "value='" . $type['nomType'] . "'" : '') . ">" . $type['nomType'] . "</option>";
                                                     }
                                                     echo "</select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class='row'>
+                                        <div class='col-md-6'>
+                                            <div class='input-group mb-3'>
+                                                <span class='input-group-text'>Adresse</span>
+                                                <input class='form-control' name='adresse' type='text' value='" . $adresse . "'>
+                                            </div>
+                                        </div>
+                                        <div class='col-md-6'>
+                                            <div class='input-group mb-3'>
+                                                <span class='input-group-text'>Année construction</span>
+                                                <input class='form-control' name='annee' type='number' value='" . $annee . "'>
                                             </div>
                                         </div>
                                     </div>
