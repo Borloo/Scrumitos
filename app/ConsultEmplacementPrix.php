@@ -12,11 +12,11 @@ ini_set('display_errors', 'on');
     <title>Consultation des emplacements</title>
 </head>
 <body>
-    <?php include("./include/header.php");?>
-    <!--include("./include/connect.inc.php"); -->
+    <?php include("../include/header.php");?>
+    <!--include("../include/connect.inc.php"); -->
         
 	<div class="wrapper">
-        <?php include("./include/menus.php"); ?>
+        <?php include("../include/menus.php"); ?>
 		<section id="content">
             <div class="card">
                 <div class="card-body">
@@ -65,7 +65,7 @@ ini_set('display_errors', 'on');
 		</section>
 	</div>
 
-	<?php include("./include/footer.php"); ?>
+	<?php include("../include/footer.php"); ?>
     
 </body>
 </html>
