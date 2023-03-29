@@ -25,8 +25,6 @@
 
                             if (empty($_SESSION['token'])) {
                                 connection();
-                            } else {
-                                deconnection();
                             }
                             ?>
                         </div>
