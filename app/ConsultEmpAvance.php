@@ -19,12 +19,12 @@ ini_set('display_errors', 'on');
 
     session_start();
 
-    include("include/header.php");
+    include("../include/header.php");
     ?>
 
     <section id="content">
 			<?php
-            include("include/menus.php");
+            include("../include/menus.php");
             // le formulaire de choix de la tranche de date
 			echo "<h1>Consulter les emplacements par décennie de parution</h1>";
 			echo "<BR/><BR/>";
@@ -116,7 +116,7 @@ ini_set('display_errors', 'on');
 
     ?>
     <p>EZ CITY GANG</p><
-    <?php include("include/footer.php"); ?>
+    <?php include("../include/footer.php"); ?>
 </body>
 
 </html>
