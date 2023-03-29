@@ -29,7 +29,7 @@ function getEmplacementNameById(int $id){
 function getOneEmplacementById(int $id){
     $emplacement = getEmplacementById($id, true);
     print_r('ok1.5');
-    print_r($emplacement);
+    print_r($emplacement->rowCount());
     if ($emplacement->rowCount() == 1){
         print_r('ok2');
         return $emplacement->fetch();
