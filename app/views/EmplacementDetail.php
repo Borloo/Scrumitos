@@ -33,8 +33,7 @@
                         if ($_GET['edit'] != 3){
                             if ($_GET['edit'] == 2){
                                 $dateDeb = new DateTime('now');
-                                $dateDeb->format('d/m/Y H:i:s');
-                                print_r($dateDeb);
+                                $dateDeb = $dateDeb->format('d/m/Y H:i:s');
                             }else{
                                 $dateDeb = $emplacement['Periode_Dispo_Debut'];
                             }
