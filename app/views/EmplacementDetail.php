@@ -61,7 +61,7 @@
                                                         if ($tempType['idType'] == $typeId){
                                                             echo "<option value='" . $tempType['nomType'] . "'>" . $tempType['nomType'] . "</option>";
                                                         }else{
-                                                            $types[] += $tempType;
+                                                            array_push($types, $tempType);
                                                         }
                                                     }
                                                     foreach ($types as $type){
