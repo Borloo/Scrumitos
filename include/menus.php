@@ -13,6 +13,7 @@
 		else {
             echo '<li><a href="../app/views/ConsultType.php">Recherche un emplacement selon son type</a></li>';
 			echo '<li><a href="../app/addNews.php">Ajouter des news</a></li>';
+			echo '<li><a href="../app/ConsultNews.php">Consulter les news</a></li>';
 			echo '<li><a href="../app/views/ConsultType.php">Consulter les emplacements par type</a></li>';
 			echo '<li><a href="../app/Deconnexion.php">Se déconnecter </a></li>';
 		}
