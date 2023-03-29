@@ -33,7 +33,9 @@
                                 <fieldset>
                                     <legend>Types d'emplacement</legend><br/>
                                     <div class='row'>
-                                        <select name='listType'>
+                                        <div class='col-md-4'></div>
+                                        <div class='col-md-4'>
+                                            <select name='listType'>
                         ";
 
                         $types = getTypes();
@@ -42,10 +44,16 @@
                         }
 
                         echo "
-                                    </select>
+                                        </select>
+                                    </div>
+                                    <div class='col-md-4'></div>
                                 </div>
                                 <div class='row'>
-                                    <input type='submit' name='Afficher' value='Afficher'>
+                                    <div class='col-md-4'></div>
+                                    <div class='col-md-4'>
+                                        <input type='submit' name='Afficher' value='Afficher'>
+                                    </div>
+                                    <div class='col-md-4'></div>
                                 </div>
                             </fieldset>
                         </form>
