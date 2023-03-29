@@ -8,10 +8,10 @@
 <body>
 	<?php 
 		session_start();
-		include("./include/header.php"); 
+		include("../include/header.php"); 
 	?>
 	<div class="wrapper">
-		<?php include("./include/menus.php"); ?>
+		<?php include("../include/menus.php"); ?>
 		<section id="content">
 		<?php
 			/********************
@@ -84,6 +84,6 @@
 		?>
 		</section>
 	</div>
-	<?php include("./include/footer.php"); ?>
+	<?php include("../include/footer.php"); ?>
 </body>
 </html>
