@@ -158,7 +158,7 @@
                                     $prixAnnee = $_POST['prixAnnee'];
                                     $options = $_POST['options'];
                                     print_r($_GET['id'] . " / " . $name . " / " . $type . " / " . $adresse . " / " . $annee . " / " . $taille . " / " . $maxPersonne . " / " . $dateDeb->format('Y-m-d H:i:s') . " / " . $dateFin->format('Y-m-d H:i:s') . " / " . $prixSemaine . " / " . $prixAnnee . " / " . $options);
-                                    updateEmplacement((string)$_GET['id'], $name, $type, $adresse);
+                                    updateEmplacement((string)$_GET['id'], $name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne);
                                 }
                             }
                         }else{

@@ -19,13 +19,19 @@ function updateEmplacement(
     string $id,
     string $name,
     string $type,
-    string $adresse
+    string $adresse,
+    int $annee,
+    string $taille,
+    int $maxPersonne
 ){
     $conn = getBDConnexion();
     $sql = "UPDATE Emplacement SET
             Nom_Emplacement = :name,
             idType = :type,
-            adresseEmpl = :adresse
+            adresseEmpl = :adresse,
+            anneeConstruction = :annee,
+            Taille = :taille,
+            MaxPersonnes = :maxPersonne
             WHERE idEmpl = :id
            ";
     $query = $conn->prepare($sql);
@@ -33,6 +39,9 @@ function updateEmplacement(
         'name' => $name,
         'type' => $type,
         'adresse' => $adresse,
+        'annee' => $annee,
+        'taille' => $taille,
+        'maxPersonne' => $maxPersonne,
         'id' => $id
     ]);
     print_r($query->errorInfo());
