@@ -26,11 +26,23 @@ function getEmplacementNameById(int $id){
     return null;
 }
 
-function getEmplacementById(int $id): array{
+function getOneEmplacementById(int $id){
+    /** @var PDOStatement $emplacement */
+    $emplacement = getEmplacementById($id, true);
+    if ($emplacement->rowCount() == 1){
+        return $emplacement->fetch();
+    }
+    return null;
+}
+
+function getEmplacementById(int $id, bool $onlyQb = false){
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Emplacement WHERE idType = :id";
     $query = $conn->prepare($sql);
     $query->execute(['id' => $id]);
+    if ($onlyQb){
+        return $query;
+    }
     return $query->fetchAll();
 }
 

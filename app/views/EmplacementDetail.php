@@ -20,8 +20,8 @@
                 <div class="card">
                     <?php
                         require('./../base/Functions.php');
-
-                        $emplacement = getEmplacementById((int)$_GET['id']);
+                        
+                        $emplacement = getOneEmplacementById((int)$_GET['id']);
                         print_r($emplacement);
                     ?>
                 </div>
