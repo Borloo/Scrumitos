@@ -23,7 +23,6 @@ function connection(){
                 </div>
             </form>
         </div>";
-        echo "<p>7</p><br>";
         if (isset($_SESSION['ERRORCO'])){
             echo "<p style='background-color: red'>" . $_SESSION['ERRORCO'] . "</p><br/>";
         }
