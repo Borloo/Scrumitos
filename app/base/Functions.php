@@ -55,16 +55,16 @@ function connection(){
                 if ($isAdmin || null !== $user){
                     unset($_SESSION['ERRORCO']);
                     $_SESSION['USER'] = $user['login'];
-                    header('location: http://88.208.226.189/index.php');
-                    die();
+//                    header('location: http://88.208.226.189/index.php');
+//                    die();
                 }else{
                     $_SESSION['ERRORCO'] = 'Inconnu';
                 }
             }
         }
         if (isset($_POST['retour'])){
-            header('location: http://88.208.226.189/index.php');
-            die();
+//            header('location: http://88.208.226.189/index.php');
+//            die();
         }
     echo "</div>";
 }
