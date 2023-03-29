@@ -157,9 +157,10 @@
                                     $prixSemaine = $_POST['prixSemaine'];
                                     $prixAnnee = $_POST['prixAnnee'];
                                     $options = $_POST['options'];
+                                    $id = $_GET['id'];
                                     updateEmplacement((string)$_GET['id'], $name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options);
                                     echo "<script>
-                                        location.href='http://88.208.226.189/app/views/ConsultType.php'
+                                        location.href='http://88.208.226.189/app/views/EmplacementDetail.php?maj=1&id=' + $id
                                     </script>";
                                 }
                             }
