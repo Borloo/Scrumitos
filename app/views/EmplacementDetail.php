@@ -32,7 +32,7 @@
                         $emplacement = getOneEmplacementById((int)$_GET['id']);
                         if ($_GET['edit'] != 3){
                             if ($_GET['edit'] == 2){
-                                $dateDeb = new DateTime('now', 'Europe/West');
+                                $dateDeb = new DateTime('now');
                             }else{
                                 $dateDeb = $emplacement['Periode_Dispo_Debut'];
                             }
