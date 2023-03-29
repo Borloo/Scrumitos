@@ -27,7 +27,16 @@
                 <div class="card-body">
                     <?php
                         require('./../base/Functions.php');
-                        echo "ok";
+
+                        echo "
+                            <form method='post'>
+                                <fieldset>
+                                    <legend>Types d'emplacement</legend><br/>
+                                    <select name='listType'>
+                        ";
+
+                        getTypes();
+
                     ?>
                 </div>
             </div>
