@@ -21,7 +21,7 @@
         }
 
         table {
-            padding: 5px;
+            padding: 5px 20px 5px 20px;
             border: 1px solid black;
         }
     </style>
