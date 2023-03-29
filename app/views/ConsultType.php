@@ -2,7 +2,7 @@
 	session_start();
 	// si l'internaute accède à cette page sans être l'admin connecté alors
 	// on le renvoie vers la page indexphp
-	if (!isset($_SESSION['AdminConnecte'])) {
+	if (!isset($_SESSION['USER'])) {
 		header('location: index.php');
 		die();	
 	}
