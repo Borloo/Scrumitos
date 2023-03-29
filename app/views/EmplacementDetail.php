@@ -2,10 +2,10 @@
     session_start();
     error_reporting(E_ALL);
     ini_set('display_errors', 'on');
-    if (!isset($_SESSION['USER'])) {
-        header('location: index.php');
-        die();
-    }
+//    if (!isset($_SESSION['USER'])) {
+//        header('location: index.php');
+//        die();
+//    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -158,7 +158,6 @@
                                     $prixAnnee = $_POST['prixAnnee'];
                                     $options = $_POST['options'];
                                     updateEmplacement((string)$_GET['id'], $name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options);
-                                    header_remove();
                                     header('location: http://88.208.226.189/app/views/ConsultType.php');
                                     die();
                                 }
