@@ -76,7 +76,7 @@
                                                     foreach ($tempTypes as $tempType){
                                                         if ($tempType['idType'] == $typeId){
                                                             echo "<option value='" . $tempType['nomType'] . "'>" . $tempType['nomType'] . "</option>";
-                                                        }elseif ($_GET['edit'] == 1){
+                                                        }elseif ($_GET['edit'] == 1 || $_GET['edit'] == 2){
                                                             array_push($types, $tempType);
                                                         }
                                                     }
