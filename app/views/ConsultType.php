@@ -85,11 +85,11 @@
                         echo "
                             <div class='card'>
                                 <div class='card-header'>
-                                    <h4>" . $typeName . "</h4>
+                                    <h4>" . $typeName[0] . "</h4>
                                 </div>
                                 <div class='card-body'>
                                     <center><table>
-                                        <caption> Emplacement du type " . $typeName . "</caption>
+                                        <caption> Emplacement du type " . $typeName[0] . "</caption>
                                         <tr><th>Id de l'emplacement</th><th>Type de l'emplacement</th><th>Adresse Emplacement</th><th>Année de Construction</th></tr>
                         ";
 
