@@ -1,7 +1,7 @@
 <?php
     session_start();
     error_reporting(E_ALL);
-    ini_set('display_errors', 'on');
+    ini_set('display_errors', 'off');
     if (!isset($_SESSION['USER'])) {
         header('location: index.php');
         die();
@@ -34,10 +34,12 @@
                             if ($_GET['id'] == "-1"){
                                 $dateDeb = new DateTime('now', new DateTimeZone('Europe/Berlin'));
                                 $dateDeb = $dateDeb->format('Y-m-d H:i:s');
+                                $dateFin = new DateTime('next week', new DateTimeZone('Europe/Berlin'));
+                                $dateFin = $dateFin->format('Y-m-d H:i:s');
                             }else{
                                 $dateDeb = $emplacement['Periode_Dispo_Debut'];
+                                $dateFin = $emplacement['Periode_Dispo_Fin'];
                             }
-                            echo $dateDeb;
                             $name = $emplacement['Nom_Emplacement'];
                             $id = $emplacement['idEmpl'];
                             $typeId = $emplacement['idType'];
@@ -45,7 +47,6 @@
                             $annee = $emplacement['anneeConstruction'];
                             $taille = $emplacement['Taille'];
                             $maxPersonne = $emplacement['Max_Personnes'];
-                            $dateFin = $emplacement['Periode_Dispo_Fin'];
                             $prixSemaine = $emplacement['Prix_Semaine'];
                             $prixAnnee = $emplacement['Prix_Periode_Annee'];
                             $options = $emplacement['Options'];
