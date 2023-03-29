@@ -31,6 +31,11 @@
                     <?php
                         $emplacement = getOneEmplacementById((int)$_GET['id']);
                         if ($_GET['edit'] != 3){
+                            if ($emplacement['Periode_Dispo_Debut'] == null){
+                                $dateDeb = new DateTime('now', 'Europe/West');
+                            }else{
+                                $dateDeb = $emplacement['Periode_Dispo_Debut'];
+                            }
                             $name = $emplacement['Nom_Emplacement'];
                             $id = $emplacement['idEmpl'];
                             $typeId = $emplacement['idType'];
@@ -38,7 +43,6 @@
                             $annee = $emplacement['anneeConstruction'];
                             $taille = $emplacement['Taille'];
                             $maxPersonne = $emplacement['Max_Personnes'];
-                            $dateDeb = $emplacement['Periode_Dispo_Debut'];
                             $dateFin = $emplacement['Periode_Dispo_Fin'];
                             $prixSemaine = $emplacement['Prix_Semaine'];
                             $prixAnnee = $emplacement['Prix_Periode_Annee'];
