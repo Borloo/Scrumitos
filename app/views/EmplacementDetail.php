@@ -37,7 +37,12 @@
                                             <input name='name' type='text' value='" . $name . "'>
                                         </div>
                                         <div class='col-md-6'>
-                                            <input name='name' type='text' value='" . $typeId . "'>
+                                            <select name='listType'>";
+                                                $types = getTypes();
+                                                foreach ($types as $type){
+                                                    echo "<option " . ($type['idType'] == $typeId ? "value='" . $type['nomType'] . "'" : '') . "></option>";
+                                                }
+                                            echo "</select>
                                         </div>
                                     </div>
                                 </div>
