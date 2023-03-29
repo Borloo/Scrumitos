@@ -23,8 +23,8 @@ function updateEmplacement(
     int $annee,
     string $taille,
     int $maxPersonne,
-    string $dateDeb,
-    string $dateFin,
+    DateTime $dateDeb,
+    DateTime $dateFin,
     int $prixSemaine,
     int $prixAnnee,
     string $options
@@ -53,8 +53,8 @@ function updateEmplacement(
         'annee' => $annee,
         'taille' => $taille,
         'maxPersonne' => $maxPersonne,
-        'dateDeb' => $dateDeb,
-        'dateFin' => $dateFin,
+        'dateDeb' => $dateDeb->format('Y-m-d H:i:s'),
+        'dateFin' => $dateDeb->format('Y-m-d H:i:s'),
         'prixSemaine' => $prixSemaine,
         'prixAnnee' => $prixAnnee,
         'options', $options
