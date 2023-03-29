@@ -227,10 +227,10 @@
                                     if ("-1" == $id){
                                         echo "ok";
                                         addEmplacement($name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options);
-//                                        echo "<script>
-//                                            location.href='http://88.208.226.189/app/views/ConsultType.php'
-//                                        </script>";
-//                                        die();
+                                        echo "<script>
+                                            location.href='http://88.208.226.189/app/views/ConsultType.php'
+                                        </script>";
+                                        die();
                                     }else{
                                         updateEmplacement((string)$_GET['id'], $name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options);
                                         echo "<script>
