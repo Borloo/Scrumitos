@@ -31,7 +31,7 @@ function updateEmplacement(
 ){
     echo "ok1";
     /** @var PDO $conn */
-//    $conn = getBDConnexion();
+    $conn = getBDConnexion();
     echo "ok2";
     $sql = "UPDATE Emplacement SET
             Nom_Emplacement = :name,
