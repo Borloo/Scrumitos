@@ -15,6 +15,14 @@ function getBDConnexion(): PDO
     return $conn;
 }
 
+function deleteEmplacement(string $id){
+    $conn = getBDConnexion();
+    $sql = "DELETE FROM Emplacement WHERE idEmpl = :id";
+    $query = $conn->prepare($sql);
+    $query->execute(['id' => $id]);
+    print_r($query->errorInfo());
+}
+
 function updateEmplacement(
     string $id,
     string $name,

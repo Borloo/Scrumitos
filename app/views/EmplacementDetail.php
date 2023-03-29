@@ -2,10 +2,15 @@
     session_start();
     error_reporting(E_ALL);
     ini_set('display_errors', 'on');
-//    if (!isset($_SESSION['USER'])) {
-//        header('location: index.php');
-//        die();
-//    }
+    if (!isset($_SESSION['USER'])) {
+        header('location: index.php');
+        die();
+    }
+?>
+<?php
+    if ($_GET['edit'] == 2){
+        deleteEmplacement($_GET['id']);
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,7 +27,7 @@
                         require('./../base/Functions.php');
 
                         $emplacement = getOneEmplacementById((int)$_GET['id']);
-                        if (null != $emplacement){
+                        if (null != $emplacement && $_GET['edit'] != 2){
                             $name = $emplacement['Nom_Emplacement'];
                             $id = $emplacement['idEmpl'];
                             $typeId = $emplacement['idType'];
