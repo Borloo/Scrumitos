@@ -23,8 +23,6 @@ function updateEmplacement(
     int $annee,
     string $taille,
     int $maxPersonne,
-    DateTime $dateDeb,
-    DateTime $dateFin,
     int $prixSemaine,
     int $prixAnnee,
     string $options
