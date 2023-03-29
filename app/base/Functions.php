@@ -27,7 +27,6 @@ function getEmplacementNameById(int $id){
 }
 
 function getOneEmplacementById(int $id){
-    /** @var PDOStatement $emplacement */
     $emplacement = getEmplacementById($id, true);
     print_r('ok1.5');
     print_r($emplacement);
