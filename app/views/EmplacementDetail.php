@@ -146,8 +146,6 @@
                                     isset($_POST['prixSemaine']) &&
                                     isset($_POST['prixAnnee'])
                                 ){
-                                    require('./base/Functions.php');
-
                                     $name = $_POST['name'];
                                     $type = $_POST['listType'];
                                     $adresse = $_POST['adresse'];
@@ -159,7 +157,7 @@
                                     $prixSemaine = $_POST['prixSemaine'];
                                     $prixAnnee = $_POST['prixAnnee'];
                                     echo "ok0.5";
-//                                    updateEmplacement((int)$_GET['id'], $name, (int)$type, $adresse, (int)$annee, (int)$taille, (int)$maxPersonne, $dateDeb, $dateFin, (int)$prixSemaine, (int)$prixAnnee, $options);
+                                    updateEmplacement((int)$_GET['id'], $name, (int)$type, $adresse, (int)$annee, (int)$taille, (int)$maxPersonne, $dateDeb, $dateFin, (int)$prixSemaine, (int)$prixAnnee, $options);
                                 }
                             }
                         }else{
