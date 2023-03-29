@@ -132,14 +132,18 @@
                                             <span class='input-group-text'>Options</span>
                                             <input class='form-control' name='options' type='text' value='" . $options . "'>
                                         </div>
-                                    </div>
-                                    <div class='row'>
-                                        <div class='col-md-5'></div>
-                                            <div class='col-md-2'>
-                                                <input type='submit' name='submit' value='Sauvegarder'>
-                                            </div>
-                                        <div class='col-md-5'></div>
-                                    </div>
+                                    </div>";
+                                    if ($_GET['edit'] == 1){
+                                        echo "
+                                        <div class='row'>
+                                            <div class='col-md-5'></div>
+                                                <div class='col-md-2'>
+                                                    <input type='submit' name='submit' value='Sauvegarder'>
+                                                </div>
+                                            <div class='col-md-5'></div>
+                                        </div>";
+                                    }
+                                    echo "
                                 </div>
                             </form>
                             ";
