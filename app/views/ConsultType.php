@@ -80,29 +80,34 @@
             <?php
                 if (isset($_POST['submit'])){
                     if (isset($_POST['listType'])){
+                        $typeId = $_POST['listType'];
+                        $typeName = getEmplacementNameById($typeId);
                         echo "
                             <div class='card'>
                                 <div class='card-header'>
-                                    <h4>" . $_POST['listType'] . "</h4>
+                                    <h4>" . $typeName . "</h4>
                                 </div>
                                 <div class='card-body'>
                                     <center><table>
-                                        <caption> Emplacement du type " . $_POST['listType'] . "</caption>
+                                        <caption> Emplacement du type " . $typeName . "</caption>
                                         <tr><th>Id de l'emplacement</th><th>Type de l'emplacement</th><th>Adresse Emplacement</th><th>Année de Construction</th></tr>
                         ";
 
-                        $emplacements = getEmplacementByType($_POST['listType']);
-                        foreach ($emplacements as $emplacement){
-                            echo "
+                        $emplacements = getEmplacementById($typeId);
+                        if (!empty($emplacements)){
+                            foreach ($emplacements as $emplacement){
+                                echo "
                                 <tr>
                                     <td>" . $emplacement['idEmpl'] . "</td>
-                                    <td>" . $_POST['listType'] . "</td>
+                                    <td>" . $typeName . "</td>
                                     <td>" . $emplacement['adresseEmpl'] . "</td>
                                     <td>" . $emplacement['anneeConstruction'] . "</td>
                                 </tr>
                             ";
+                            }
+                        }else{
+                            echo "<tr>Aucun résultat</tr>";
                         }
-
                         echo "
                                     </table></center>
                                 </div>

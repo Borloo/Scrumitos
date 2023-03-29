@@ -15,12 +15,23 @@ function getBDConnexion(): PDO
     return $conn;
 }
 
-function getEmplacementByType(int $type): array{
+function getEmplacementNameById(int $id){
     $conn = getBDConnexion();
-    $sql = "SELECT * FROM Emplacement WHERE idType = :idType";
+    $sql = "SELECT * FROM Type WHERE idType =:id";
     $query = $conn->prepare($sql);
-    $query->execute(['idType' => $type]);
+    $query->execute(['id' => $id]);
     return $query->fetchAll();
+}
+
+function getEmplacementById(int $id){
+    $conn = getBDConnexion();
+    $sql = "SELECT * FROM Emplacement WHERE idType = :id";
+    $query = $conn->prepare($sql);
+    $query->execute(['id' => $id]);
+    if ($query->rowCount() == 1){
+        return $query->fetch();
+    }
+    return null;
 }
 
 function getTypes(): array{
