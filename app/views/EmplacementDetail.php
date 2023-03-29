@@ -34,10 +34,10 @@
                                 <div class='card-body'>
                                     <div class='row'>
                                         <div class='col-md-6'>
-                                            <input name='name' type='text' value='" . $name . "'>
+                                            <input class='form-control' name='name' type='text' value='" . $name . "'>
                                         </div>
                                         <div class='col-md-6'>
-                                            <select name='listType'>";
+                                            <select class='form-select' name='listType'>";
                                                 $types = getTypes();
                                                 foreach ($types as $type){
                                                     print_r(($type['idType'] == $typeId ? "value='" . $type['nomType'] . "'" : ''));
