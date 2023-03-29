@@ -1,7 +1,7 @@
 <?php
     session_start();
     error_reporting(E_ALL);
-    ini_set('display_errors', 'on');
+    ini_set('display_errors', 'off');
     if (!isset($_SESSION['USER'])) {
         header('location: index.php');
         die();
@@ -188,6 +188,15 @@
                                             <div class='col-md-5'></div>
                                                 <div class='col-md-2'>
                                                     <input type='submit' name='submit' value='Sauvegarder'>
+                                                </div>
+                                            <div class='col-md-5'></div>
+                                        </div>";
+                                    }elseif ($_GET['edit'] == 2){
+                                        echo "
+                                        <div class='row'>
+                                            <div class='col-md-5'></div>
+                                                <div class='col-md-2'>
+                                                    <input type='submit' name='submit' value='Ajouter'>
                                                 </div>
                                             <div class='col-md-5'></div>
                                         </div>";
