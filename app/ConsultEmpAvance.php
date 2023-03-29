@@ -9,8 +9,7 @@ ini_set('display_errors', 'on');
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
+    <link rel="stylesheet" href="../include/styles.css" />
     <title>Recherche Emplacement</title>
 </head>
 
