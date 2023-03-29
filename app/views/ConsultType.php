@@ -41,6 +41,8 @@
                     <?php
                         if ($_GET['add'] == '-1'){
                             echo "<p>Emplacement supprimé !</p>";
+                        }elseif ($_GET['add'] == '1'){
+                            echo "<p>Emplacement ajouté !</p>";
                         }
                     ?>
                     <h1>Consulter les emplacements par type </h1>
