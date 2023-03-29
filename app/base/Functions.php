@@ -18,18 +18,21 @@ function getBDConnexion(): PDO
 function updateEmplacement(
     string $id,
     string $name,
-    string $type
+    string $type,
+    string $adresse
 ){
     $conn = getBDConnexion();
     $sql = "UPDATE Emplacement SET
             Nom_Emplacement = :name,
-            idType = :type
+            idType = :type,
+            adresseEmpl = :adresse
             WHERE idEmpl = :id
            ";
     $query = $conn->prepare($sql);
     $query->execute([
         'name' => $name,
         'type' => $type,
+        'adresse' => $adresse,
         'id' => $id
     ]);
     print_r($query->errorInfo());
