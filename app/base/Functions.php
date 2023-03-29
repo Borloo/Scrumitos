@@ -37,12 +37,9 @@ function updateEmplacement(
             anneeConstruction = :annee,
             Taille = :taille,
             Max_Personnes = :maxPersonne,
-            Periode_Dispo_Debut = :dateDeb,
-            Periode_Dispo_Fin = :dateFin,
             Prix_Semaine = :prixSemaine,
             Prix_Periode_Annee = :prixAnnee,
-            Options = :options,
-            PathImage = 'ok'
+            Options = :options
             WHERE idEmpl = :id
            ";
     $query = $conn->prepare($sql);
@@ -54,8 +51,6 @@ function updateEmplacement(
         'annee' => $annee,
         'taille' => $taille,
         'maxPersonne' => $maxPersonne,
-        'dateDeb' => $dateDeb->format('Y-m-d H:i:s'),
-        'dateFin' => $dateFin->format('Y-m-d H:i:s'),
         'prixSemaine' => $prixSemaine,
         'prixAnnee' => $prixAnnee,
         'options', $options
