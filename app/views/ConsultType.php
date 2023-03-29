@@ -71,12 +71,13 @@
                                     <h4>" . $_POST['listType'] . "</h4>
                                 </div>
                                 <div class='card-body'>
-                                    <table border='2'>
+                                    <center><table border='2'>
                                         <caption> Emplacement du type " . $_POST['listType'] . "</caption>
                                         <tr><th>Id de l'emplacement</th><th>Type de l'emplacement</th><th>Adresse Emplacement</th><th>Année de Construction</th></tr>
                         ";
 
                         $emplacements = getEmplacementByType($_POST['listType']);
+                        echo "ok";
                         foreach ($emplacements as $emplacement){
                             echo "
                                 <tr>
@@ -89,7 +90,7 @@
                         }
 
                         echo "
-                                    </table>
+                                    </table></center>
                                 </div>
                             </div>
                         ";
