@@ -26,7 +26,7 @@ include("../include/header.php");
          *********************/
 
         // le formulaire de choix de la tranche de date
-        echo "<h1>Consulter les emplacements par décennie de parution</h1>";
+        echo "<h1>Recherche avancée</h1>";
         echo "<BR/><BR/>";
         echo "<form method='post'>";
         echo "<fieldset>";
