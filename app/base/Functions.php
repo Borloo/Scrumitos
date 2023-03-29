@@ -30,6 +30,7 @@ function updateEmplacement(
     string $options
 ){
     echo "ok1";
+    /** @var PDO $conn */
     $conn = getBDConnexion();
     echo "ok2";
     $sql = "UPDATE Emplacement SET
