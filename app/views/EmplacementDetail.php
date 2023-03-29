@@ -2,6 +2,7 @@
     session_start();
     error_reporting(E_ALL);
     ini_set('display_errors', 'on');
+    require('./../base/Functions.php');
     if (!isset($_SESSION['USER'])) {
         header('location: index.php');
         die();
@@ -156,7 +157,7 @@
                                     $dateFin = $_POST['dateFin'];
                                     $prixSemaine = $_POST['prixSemaine'];
                                     $prixAnnee = $_POST['prixAnnee'];
-                                    echo "yes";
+                                    updateEmplacement((int)$_GET['id'], $name, (int)$type, $adresse, (int)$annee, (int)$taille, (int)$maxPersonne, $dateDeb, $dateFin, (int)$prixSemaine, (int)$prixAnnee, $options);
                                 }
                             }
                         }else{

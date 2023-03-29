@@ -15,6 +15,52 @@ function getBDConnexion(): PDO
     return $conn;
 }
 
+function updateEmplacement(
+    int $id,
+    string $name,
+    int $type,
+    string $adresse,
+    int $annee,
+    int $taille,
+    int $maxPersonne,
+    string $dateDeb,
+    string $dateFin,
+    int $prixSemaine,
+    int $prixAnnee,
+    string $options
+){
+    $conn = getBDConnexion();
+    $sql = "UPDATE Emplacement SET
+            Nom_Emplacement = :name,
+            idType = :type,
+            adresseEmpl = :adresse,
+            anneeConstruction = :annee,
+            Taille = :taille,
+            Max_Personnes = :maxPersonne,
+            Periode_Dispo_Debut = :dateDeb,
+            Periode_Dispo_Fin = :dateFin,
+            Prix_Semaine = :prixSemaine,
+            Prix_Periode_Annee = :prixAnnee,
+            Options = :options
+            WHERE idEmpl = :id
+           ";
+    $query = $conn->prepare($sql);
+    $query->execute([
+        'name' => $name,
+        'type' => $type,
+        'adresse' => $adresse,
+        'annee' => $annee,
+        'taille' => $taille,
+        'maxPersonne' => $maxPersonne,
+        'dateDeb' => $dateDeb,
+        'dateFin' => $dateFin,
+        'prixSemaine' => $prixSemaine,
+        'prixAnnee' => $prixAnnee,
+        'options', $options
+    ]);
+    print_r($query->errorInfo());
+}
+
 function getEmplacementNameById(int $id){
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Type WHERE idType =:id";
