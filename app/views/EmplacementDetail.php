@@ -31,7 +31,7 @@
                     <?php
                         $emplacement = getOneEmplacementById((int)$_GET['id']);
                         if ($_GET['edit'] != 3){
-                            if (empty($emplacement)){
+                            if ($_GET['edit'] == 2){
                                 $dateDeb = new DateTime('now', 'Europe/West');
                             }else{
                                 $dateDeb = $emplacement['Periode_Dispo_Debut'];
