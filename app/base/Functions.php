@@ -35,7 +35,7 @@ function connection(){
                 $password = $_POST['password'];
                 $user = getUser($login, $password);
                 $isAdmin = isAdmin($user);
-                if ($isAdmin && null !== $user){
+                if ($isAdmin || null !== $user){
                     unset($_SESSION['ERRORCO']);
                     $_SESSION['USER'] = $user['login'];
                     header('location: http://88.208.226.189/index.php');
