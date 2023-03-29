@@ -31,7 +31,7 @@ function updateEmplacement(
             adresseEmpl = :adresse,
             anneeConstruction = :annee,
             Taille = :taille,
-            MaxPersonnes = :maxPersonne
+            Max_Personnes = :maxPersonne
             WHERE idEmpl = :id
            ";
     $query = $conn->prepare($sql);
