@@ -29,7 +29,9 @@ function updateEmplacement(
     int $prixAnnee,
     string $options
 ){
+    echo "ok1";
     $conn = getBDConnexion();
+    echo "ok2";
     $sql = "UPDATE Emplacement SET
             Nom_Emplacement = :name,
             idType = :type,
