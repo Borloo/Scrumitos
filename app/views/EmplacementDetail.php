@@ -79,7 +79,7 @@
                                         <div class='col-md-6'>
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text'>Taille</span>
-                                                <input class='form-control' name='taille' type='number' value='" . $taille . "'>
+                                                <input class='form-control' name='taille' type='string' value='" . $taille . "'>
                                             </div>
                                         </div>
                                         <div class='col-md-6'>
@@ -156,8 +156,7 @@
                                     $dateFin = $_POST['dateFin'];
                                     $prixSemaine = $_POST['prixSemaine'];
                                     $prixAnnee = $_POST['prixAnnee'];
-                                    echo "ok0.5";
-                                    updateEmplacement((int)$_GET['id'], $name, (int)$type, $adresse, (int)$annee, (int)$taille, (int)$maxPersonne, $dateDeb, $dateFin, (int)$prixSemaine, (int)$prixAnnee, $options);
+                                    updateEmplacement($_GET['id'], $name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, (int)$prixSemaine, (int)$prixAnnee, $options);
                                 }
                             }
                         }else{

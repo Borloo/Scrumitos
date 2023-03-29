@@ -16,12 +16,12 @@ function getBDConnexion(): PDO
 }
 
 function updateEmplacement(
-    int $id,
+    string $id,
     string $name,
-    int $type,
+    string $type,
     string $adresse,
     int $annee,
-    int $taille,
+    string $taille,
     int $maxPersonne,
     string $dateDeb,
     string $dateFin,
@@ -29,10 +29,7 @@ function updateEmplacement(
     int $prixAnnee,
     string $options
 ){
-    echo "ok1";
-    /** @var PDO $conn */
     $conn = getBDConnexion();
-    echo "ok2";
     $sql = "UPDATE Emplacement SET
             Nom_Emplacement = :name,
             idType = :type,
