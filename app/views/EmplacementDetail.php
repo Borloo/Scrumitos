@@ -34,16 +34,22 @@
                                 <div class='card-body'>
                                     <div class='row'>
                                         <div class='col-md-6'>
-                                            <input class='form-control' name='name' type='text' value='" . $name . "'>
+                                            <div class='input-group mb-3'>
+                                                <span class='input-group-text' id='basic-addon1'>Nom</span>
+                                                <input class='form-control' name='name' type='text' value='" . $name . "'>
+                                            </div>
                                         </div>
                                         <div class='col-md-6'>
-                                            <select class='form-select' name='listType'>";
-                                                $types = getTypes();
-                                                foreach ($types as $type){
-                                                    print_r(($type['idType'] == $typeId ? "value='" . $type['nomType'] . "'" : ''));
-                                                    echo "<option " . ($type['idType'] == $typeId ? "value='" . $type['nomType'] . "'" : '') . ">" . $type['nomType'] . "</option>";
-                                                }
-                                            echo "</select>
+                                            <div class='input-group mb-3'>
+                                                <span class='input-group-text' id='basic-addon2'>Type</span>
+                                                <select class='form-select' name='listType'>";
+                                                    $types = getTypes();
+                                                    foreach ($types as $type){
+                                                        print_r(($type['idType'] == $typeId ? "value='" . $type['nomType'] . "'" : ''));
+                                                        echo "<option " . ($type['idType'] == $typeId ? "value='" . $type['nomType'] . "'" : '') . ">" . $type['nomType'] . "</option>";
+                                                    }
+                                                    echo "</select>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
