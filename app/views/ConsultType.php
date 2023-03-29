@@ -32,7 +32,8 @@
                             <form method='post'>
                                 <fieldset>
                                     <legend>Types d'emplacement</legend><br/>
-                                    <select name='listType'>
+                                    <div class='row'>
+                                        <select name='listType'>
                         ";
 
                         $types = getTypes();
@@ -41,10 +42,13 @@
                         }
 
                         echo "
-                            </select>
-                            <input type='submit' name='Afficher' value='Afficher'>
+                                    </select>
+                                </div>
+                                <div class='row'>
+                                    <input type='submit' name='Afficher' value='Afficher'>
+                                </div>
                             </fieldset>
-                            </form>
+                        </form>
                         ";
 
                     ?>
