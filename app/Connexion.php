@@ -17,9 +17,9 @@ ini_set('display_errors', 'on');
     <?php
     include("./../include/header.php");
     ?>
-    <?php include("./../include/menus.php"); ?>
     <div class="wrapper">
         <section id="content">
+            <?php include("./../include/menus.php"); ?>
             <div class="card">
                 <div class="card-body">
                     <div class="row">
