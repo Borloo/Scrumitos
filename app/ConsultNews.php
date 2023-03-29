@@ -45,7 +45,7 @@ ini_set('display_errors', 'on');
 
                         $reqnews = $conn->prepare($sql);
                         $reqnews->execute();
-                        $news = $reqnews->fetch();
+                        $news = $reqnews->fetchAll();
 
                         foreach ($news as $new) {
                             echo "<tr>";
