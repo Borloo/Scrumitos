@@ -90,7 +90,7 @@
                                 <div class='card-body'>
                                     <center><table>
                                         <caption> Emplacement du type " . $typeName . "</caption>
-                                        <tr><th>Id de l'emplacement</th><th>Type de l'emplacement</th><th>Adresse Emplacement</th><th>Année de Construction</th></tr>
+                                        <tr><th>Id de l'emplacement</th><th>Type de l'emplacement</th><th>Adresse Emplacement</th><th>Année de Construction</th><th>Actions</th></tr>
                         ";
 
                         $emplacements = getEmplacementById($typeId);
@@ -102,6 +102,7 @@
                                     <td>" . $typeName . "</td>
                                     <td>" . $emplacement['adresseEmpl'] . "</td>
                                     <td>" . $emplacement['anneeConstruction'] . "</td>
+                                    <td><a href='#'>Modifier</a></td>
                                 </tr>
                             ";
                             }
