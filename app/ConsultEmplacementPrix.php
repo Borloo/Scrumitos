@@ -22,10 +22,11 @@ ini_set('display_errors', 'on');
                 <div class="card-body">
                     <?php 
                     echo "<h1>Consulter les emplacements</h1><br><br>";
-                    
+                    echo "<table>";
+
                     try {
 
-                        $sql = "SELECT Nom_Emplacement, Taille, Max_Personnes, Prix_Semaine date FROM Emplacement order by Prix_Semaine desc";
+                        $sql = "SELECT * date FROM Emplacement order by Prix_Semaine desc";
                         $user = 'clmt';
                         $pass = '130702';
                         $conn = new PDO(
@@ -42,11 +43,13 @@ ini_set('display_errors', 'on');
 
                         foreach ($emplacements as $emplacement) {
                             echo "<tr>";
-                            echo "<td>" . $emplacement['Nom_Emplacement'] . " - </td>";
-                            echo "<td>" . $emplacement['Taille'] . "</td><br><br>";
-                            echo "<td>" . $emplacement['Prix_Semaine'] . "</td><br><br>";
-                            echo "<td>" . $emplacement['Max_Personnes'] . "</td><br>";
-                            echo "</tr><br><br>";
+                            echo "<td>", $emplacement['Nom_Emplacement'], "</td>";
+                            echo "<td>", $emplacement['Taille'], "</td>";
+                            echo "<td>", $emplacement['Max_Personnes'], "</td>";
+                            echo "<td>", $emplacement['Prix_Semaine'], "</td>";
+                           
+                            echo "</tr>";
+                            echo "</table>";
                         }
                         $reqnews->closeCursor();
 
@@ -54,8 +57,7 @@ ini_set('display_errors', 'on');
                         echo "Erreur : " . $e->getMessage();
                     }
 
-                    echo "</table></center>";
-                    echo "<BR/><BR/>";
+                    
                     
                     ?> 
                 </div>
