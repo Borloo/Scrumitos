@@ -32,7 +32,7 @@ ini_set('display_errors', 'on');
 
                     try {
 
-                        $sql = "SELECT titre, body, date FROM News order by id desc";
+                        $sql = "SELECT titre, body, date FROM News order by date desc";
                         $user = 'clmt';
                         $pass = '130702';
                         $conn = new PDO(
