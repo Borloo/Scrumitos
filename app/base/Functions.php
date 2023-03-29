@@ -45,7 +45,7 @@ function connection(){
         if(isset($_POST['submit'])){
             if (isset($_POST['login']) && isset($_POST['password'])){
                 echo "<p>ok0.5</p><br>";
-                require('../bd/Utilisateur.php');
+                require('./bd/Utilisateur.php');
                 echo "<p>ok0.9</p><br>";
                 $login = $_POST['login'];
                 $password = $_POST['password'];
@@ -54,14 +54,14 @@ function connection(){
                 echo "<p>ok2</p><br>";
                 $isAdmin = isAdmin($user);
                 echo "<p>ok3</p><br>";
-//                 if ($isAdmin || null !== $user){
-// //                    unset($_SESSION['ERRORCO']);
-// //                    $_SESSION['USER'] = $user['login'];
-// //                    header('location: http://88.208.226.189/index.php');
-// //                    die();
-//                 }else{
-// //                    $_SESSION['ERRORCO'] = 'Inconnu';
-//                 }
+                if ($isAdmin || null !== $user){
+//                    unset($_SESSION['ERRORCO']);
+//                    $_SESSION['USER'] = $user['login'];
+//                    header('location: http://88.208.226.189/index.php');
+//                    die();
+                }else{
+//                    $_SESSION['ERRORCO'] = 'Inconnu';
+                }
             }
         }
     echo "</div>";
