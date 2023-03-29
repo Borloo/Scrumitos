@@ -1,3 +1,9 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 'on');
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -13,16 +19,13 @@
 
     session_start();
 
-    include("./../include/header.php");
+    include("include/header.php");
     ?>
 
     <section id="content">
 			<?php
-			/********************
-			ConsultDate.php
-			*********************/
-
-			// le formulaire de choix de la tranche de date
+            include("include/menus.php");
+            // le formulaire de choix de la tranche de date
 			echo "<h1>Consulter les emplacements par décennie de parution</h1>";
 			echo "<BR/><BR/>";
 			echo "<form method='post'>";
@@ -112,7 +115,8 @@
 
 
     ?>
-    <p>EZ CITY GANG</p>
+    <p>EZ CITY GANG</p><
+    <?php include("include/footer.php"); ?>
 </body>
 
 </html>
