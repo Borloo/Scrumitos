@@ -64,9 +64,12 @@ section {
 	text-align: center;
 }
 
-table {
+td {
 	text-align: center;
 	padding: 5px;
+}
+
+table {
 	border-width: 1px;
 	border-color: black;
 }
