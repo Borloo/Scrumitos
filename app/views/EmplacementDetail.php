@@ -1,7 +1,7 @@
 <?php
     session_start();
     error_reporting(E_ALL);
-    ini_set('display_errors', 'off');
+    ini_set('display_errors', 'on');
     if (!isset($_SESSION['USER'])) {
         header('location: index.php');
         die();
@@ -226,10 +226,10 @@
                                     $id = $_GET['id'];
                                     if ("-1" == $id){
                                         addEmplacement($name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options);
-                                        echo "<script>
-                                            location.href='http://88.208.226.189/app/views/ConsultType.php'
-                                        </script>";
-                                        die();
+//                                        echo "<script>
+//                                            location.href='http://88.208.226.189/app/views/ConsultType.php'
+//                                        </script>";
+//                                        die();
                                     }else{
                                         updateEmplacement((string)$_GET['id'], $name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options);
                                         echo "<script>
