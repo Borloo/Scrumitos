@@ -32,7 +32,7 @@ ini_set('display_errors', 'on');
 
                     try {
 
-                        $sql = "SELECT * FROM News";
+                        $sql = "SELECT titre, body FROM News";
                         $user = 'clmt';
                         $pass = '130702';
                         $conn = new PDO(
@@ -49,10 +49,9 @@ ini_set('display_errors', 'on');
 
                         foreach ($news as $new) {
                             echo "<tr>";
-                            echo "<td>" . $new['id'] . "</td>";
-                            echo "<td>" . $new['titre'] . "</td>";
-                            echo "<td>" . $new['body'] . "</td>";
-                            echo "</tr>";
+                            echo "<td>" . $new['titre'] . "</td><br>";
+                            echo "<td>" . $new['body'] . "</td><br>";
+                            echo "</tr><br>";
                         }
                         $reqnews->closeCursor();
 
