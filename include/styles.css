@@ -64,9 +64,9 @@ section {
 	text-align: center;
 }
 
-td{
+td, th{
 	text-align: center;
-	border: 2px;
+	border: 2px black;
 }
 
 /* Responsive */
