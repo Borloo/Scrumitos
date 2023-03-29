@@ -49,7 +49,7 @@
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text' id='basic-addon1'>Nom</span>
                                                 <input class='form-control' name='name' type='text' value='" . $name . "'";
-                                                    if ($_GET['edit'] == 1){
+                                                    if ($_GET['edit'] == 0){
                                                         echo "readonly";
                                                     }
                                                 echo ">
