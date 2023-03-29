@@ -1,7 +1,7 @@
 <?php
     session_start();
     error_reporting(E_ALL);
-    ini_set('display_errors', 'off');
+    ini_set('display_errors', 'on');
     if (!isset($_SESSION['USER'])) {
         header('location: index.php');
         die();
@@ -10,10 +10,10 @@
 <?php
     if ($_GET['edit'] == 3){
         deleteEmplacement($_GET['id']);
-        echo "<script>
-                location.href='http://88.208.226.189/app/views/ConsultType.php?suppr=1'
-            </script>";
-        die();
+//        echo "<script>
+//                location.href='http://88.208.226.189/app/views/ConsultType.php?suppr=1'
+//            </script>";
+//        die();
     }
 ?>
 <!DOCTYPE html>
