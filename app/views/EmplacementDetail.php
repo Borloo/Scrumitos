@@ -1,5 +1,11 @@
 <?php
-session_start();
+    session_start();
+    error_reporting(E_ALL);
+    ini_set('display_errors', 'on');
+    if (!isset($_SESSION['USER'])) {
+        header('location: index.php');
+        die();
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,7 +18,12 @@ session_start();
             <?php include("./../../include/menus.php"); ?>
             <section id="content">
                 <div class="card">
-                    <p>ok</p>
+                    <?php
+                        require('./../base/Functions.php');
+
+                        $emplacement = getEmplacementById((int)$_GET['id']);
+                        print_r($emplacement);
+                    ?>
                 </div>
             </section>
         </div>
