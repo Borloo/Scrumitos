@@ -102,7 +102,7 @@
                                     <td>" . $typeName . "</td>
                                     <td>" . $emplacement['adresseEmpl'] . "</td>
                                     <td>" . $emplacement['anneeConstruction'] . "</td>
-                                    <td><a href='#'>Modifier</a></td>
+                                    <td><a href='./EmplacementDetail.php?id=" . $emplacement['idEmpl'] . "'>Modifier</a></td>
                                 </tr>
                             ";
                             }
