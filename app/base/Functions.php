@@ -15,7 +15,7 @@ function getBDConnexion(): PDO
     return $conn;
 }
 
-function getEmplacementByType(string $type): array{
+function getEmplacementByType(int $type): array{
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Emplacement WHERE idType = :idType";
     $query = $conn->prepare(['idType' => $type]);
