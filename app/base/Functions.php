@@ -17,16 +17,19 @@ function getBDConnexion(): PDO
 
 function updateEmplacement(
     string $id,
-    string $name
+    string $name,
+    string $type
 ){
     $conn = getBDConnexion();
     $sql = "UPDATE Emplacement SET
-            Nom_Emplacement = :name
+            Nom_Emplacement = :name,
+            Type = :type
             WHERE idEmpl = :id
            ";
     $query = $conn->prepare($sql);
     $query->execute([
         'name' => $name,
+        'type' => $type,
         'id' => $id
     ]);
     print_r($query->errorInfo());
