@@ -106,7 +106,7 @@
                             foreach ($emplacements as $emplacement){
                                 echo "
                                 <tr>
-                                    <td>" . $emplacement['Nom_Eplacement'] . "</td>
+                                    <td>" . $emplacement['Nom_Emplacement'] . "</td>
                                     <td>" . $typeName . "</td>
                                     <td>" . $emplacement['adresseEmpl'] . "</td>
                                     <td>" . $emplacement['anneeConstruction'] . "</td>
