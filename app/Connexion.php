@@ -8,15 +8,17 @@ ini_set('display_errors', 'on');
 <html>
 
 <head>
-    <?php include("./include/headfile.php"); ?>
+    <?php
+    include("./../include/headfile.php");
+    ?>
 </head>
 
 <body>
     <?php
-    include("./include/header.php");
+    include("./../include/header.php");
     ?>
     <div class="wrapper">
-        <?php include("./include/menus.php"); ?>
+        <?php include("./../include/menus.php"); ?>
         <section id="content">
             <div class="card">
                 <div class="card-body">
@@ -37,7 +39,7 @@ ini_set('display_errors', 'on');
             </div>
         </section>
     </div>
-    <?php include("./include/footer.php"); ?>
+    <?php include("./../include/footer.php"); ?>
 </body>
 
 </html>

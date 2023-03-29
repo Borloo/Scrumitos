@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <?php include("./include/headfile.php"); ?>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="../include/styles.css" />
+	<title>Mon site !</title>
 </head>
 <body>
-    <?php include("./include/header.php"); ?>
+	<?php 
+		session_start();
+		include("../include/header.php"); 
+	?>
 	<div class="wrapper">
-		<?php include("./include/menus.php"); ?>
-    </div>
-	<?php include("./include/footer.php"); ?>
+		<?php include("../include/menus.php"); ?>
+		
+	<?php include("../include/footer.php"); ?>
 </body>
 </html>
