@@ -43,12 +43,12 @@ ini_set('display_errors', 'on');
 
                         foreach ($emplacements as $emplacement) {
                             echo "<tr>";
-                            echo "<td>", $emplacement['Nom_Emplacement'], "</td><br>";
-                            echo "<td>", $emplacement['Taille'], "</td><br>";
-                            echo "<td>", $emplacement['Max_Personnes'], "</td><br>";
-                            echo "<td>", $emplacement['Prix_Semaine'], "</td><br>";
+                            echo "<td>", $emplacement['Nom_Emplacement'], "</td>";
+                            echo "<td>", $emplacement['Taille'], "m2 </td>";
+                            echo "<td>", $emplacement['Max_Personnes'], " personnes maximum </td>";
+                            echo "<td>", $emplacement['Prix_Semaine'], "€ par semaine </td>";
                            
-                            echo "</tr><br><br>";
+                            echo "</tr>";
                             echo "</table>";
                         }
                         $reqnews->closeCursor();
@@ -56,8 +56,6 @@ ini_set('display_errors', 'on');
                     } catch (PDOException $e) {
                         echo "Erreur : " . $e->getMessage();
                     }
-
-                    
                     
                     ?> 
                 </div>
