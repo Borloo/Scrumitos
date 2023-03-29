@@ -38,13 +38,16 @@ function connection(){
                 </div>
             </form>
         </div>";
-        echo "<p>2</p>";
+        echo "<p>3</p>";
         if (isset($_SESSION['ERRORCO'])){
             echo "<p style='background-color: red'>" . $_SESSION['ERRORCO'] . "</p><br/>";
         }
         if(isset($_POST['submit'])){
+            echo "<p>ok0</p><br>";
             if (isset($_POST['login']) && isset($_POST['password'])){
+                echo "<p>ok0.5</p><br>";
                 require('./bd/Utilisateur.php');
+                echo "<p>ok0.9</p><br>";
                 $login = $_POST['login'];
                 $password = $_POST['password'];
                 echo "<p>ok1</p><br>";
