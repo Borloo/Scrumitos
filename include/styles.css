@@ -69,13 +69,6 @@ td {
 	border: 1px solid black;
 }
 
-table, th, td {
-	padding: 5px;
-	border: solid black;
-	border-width: 1px;
-	border-collapse: collapse;
-}
-
 /* Responsive */
 
 @media (max-width: 640px) {
