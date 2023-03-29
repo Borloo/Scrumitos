@@ -43,12 +43,12 @@ ini_set('display_errors', 'on');
 
                         foreach ($emplacements as $emplacement) {
                             echo "<tr>";
-                            echo "<td>", $emplacement['Nom_Emplacement'], "</td>";
-                            echo "<td>", $emplacement['Taille'], "</td>";
-                            echo "<td>", $emplacement['Max_Personnes'], "</td>";
-                            echo "<td>", $emplacement['Prix_Semaine'], "</td>";
+                            echo "<td>", $emplacement['Nom_Emplacement'], "</td><br>";
+                            echo "<td>", $emplacement['Taille'], "</td><br>";
+                            echo "<td>", $emplacement['Max_Personnes'], "</td><br>";
+                            echo "<td>", $emplacement['Prix_Semaine'], "</td><br>";
                            
-                            echo "</tr>";
+                            echo "</tr><br><br>";
                             echo "</table>";
                         }
                         $reqnews->closeCursor();
