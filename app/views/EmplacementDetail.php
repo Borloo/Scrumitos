@@ -1,7 +1,7 @@
 <?php
     session_start();
     error_reporting(E_ALL);
-    ini_set('display_errors', 'off');
+    ini_set('display_errors', 'on');
     if (!isset($_SESSION['USER'])) {
         header('location: index.php');
         die();
