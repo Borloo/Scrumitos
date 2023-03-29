@@ -9,7 +9,7 @@ ini_set('display_errors', 'on');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../include/styles.css" />
-    <title>Consultation des emplacements</title>
+    <title>Consulter les emplacements par prix</title>
 </head>
 <body>
     <?php include("../include/header.php");?>
@@ -21,7 +21,7 @@ ini_set('display_errors', 'on');
             <div class="card">
                 <div class="card-body">
                     <?php 
-                    echo "<h1>Consulter les emplacements</h1><br><br>";
+                    echo "<h1>Consulter les emplacements par prix</h1><br><br>";
                     echo "<table>";
 
                     try {
