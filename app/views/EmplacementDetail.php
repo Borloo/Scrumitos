@@ -224,10 +224,19 @@
                                     $prixAnnee = $_POST['prixAnnee'];
                                     $options = $_POST['options'];
                                     $id = $_GET['id'];
-                                    updateEmplacement((string)$_GET['id'], $name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options);
-                                    echo "<script>
-                                        location.href='http://88.208.226.189/app/views/EmplacementDetail.php?maj=1&id=' + $id
-                                    </script>";
+                                    if ("-1" == $id){
+                                        addEmplacement($name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options);
+                                        echo "<script>
+                                            location.href='http://88.208.226.189/app/views/ConsultType.php'
+                                        </script>";
+                                        die();
+                                    }else{
+                                        updateEmplacement((string)$_GET['id'], $name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options);
+                                        echo "<script>
+                                            location.href='http://88.208.226.189/app/views/EmplacementDetail.php?maj=1&id=' + $id
+                                        </script>";
+                                        die();
+                                    }
                                 }
                             }
                         }else{

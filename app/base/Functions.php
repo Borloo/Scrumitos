@@ -15,6 +15,39 @@ function getBDConnexion(): PDO
     return $conn;
 }
 
+function addEmplacement(
+    string $name,
+    string $type,
+    string $adresse,
+    int $annee,
+    string $taille,
+    int $maxPersonne,
+    DateTime $dateDeb,
+    DateTime $dateFin,
+    int $prixSemaine,
+    int $prixAnnee,
+    string $options
+){
+    $conn = getBDConnexion();
+    $sql = "INSERT INTO `Emplacement`(`Nom_Emplacement`, `idType`, `adresseEmpl`, `anneeConstruction`, `Taille`, `Max_Personnes`, `Periode_Dispo_Debut`, `Periode_Dispo_Fin`, `Prix_Semaine`, `Prix_Periode_Annee`, `Options`) 
+            VALUES (:name, :type, :adresse, :annee, :taille, :maxPersonne, :dateDeb, :dateFin, :prixSemaine, :prixAnnee, :options)";
+    $query = $conn->prepare($sql);
+    $query->execute([
+        'name' => $name,
+        'type' => $type,
+        'adresse' => $adresse,
+        'annee' => $annee,
+        'taille' => $taille,
+        'maxPersonne' => $maxPersonne,
+        'dateDeb' => $dateDeb->format('Y-m-d H:i:s'),
+        'dateFin' => $dateFin->format('Y-m-d H:i:s'),
+        'prixSemaine' => $prixSemaine,
+        'prixAnnee' => $prixAnnee,
+        'options' => $options,
+    ]);
+    print_r($query->errorInfo());
+}
+
 function deleteEmplacement(string $id){
     $conn = getBDConnexion();
     $sql = "DELETE FROM Emplacement WHERE idEmpl = :id";
