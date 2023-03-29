@@ -54,7 +54,7 @@ function updateEmplacement(
         'taille' => $taille,
         'maxPersonne' => $maxPersonne,
         'dateDeb' => $dateDeb->format('Y-m-d H:i:s'),
-        'dateFin' => $dateDeb->format('Y-m-d H:i:s'),
+        'dateFin' => $dateFin->format('Y-m-d H:i:s'),
         'prixSemaine' => $prixSemaine,
         'prixAnnee' => $prixAnnee,
         'options', $options
