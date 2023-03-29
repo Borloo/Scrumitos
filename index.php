@@ -5,15 +5,15 @@ session_start();
 <html>
 <head>
     <?php
-        include("./include/headfile.php");
+        include("./../../include/headfile.php");
     ?>
 </head>
 <body>
 	<?php
-		include("./include/header.php");
+		include("./../../include/header.php");
 	?>
 	<div class="wrapper">
-		<?php include("./include/menus.php"); ?>
+		<?php include("./../../include/menus.php"); ?>
 		<section id="content" style="height: 100%">
             <div class="card">
                 <div class="card-body">
@@ -28,6 +28,6 @@ session_start();
             </div>
 		</section>
 	</div>
-	<?php include("./include/footer.php"); ?>
+	<?php include("./../../include/footer.php"); ?>
 </body>
 </html>
