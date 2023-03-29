@@ -17,7 +17,7 @@
 
     function getUser(string $login, string $password)
     {
-        /** @var PDO $conn */
+        echo "<p>okUser</p><br/>";
         $conn = getConnexion();
         $sql = "SELECT * FROM Utilisateur 
              WHERE login= :login 
