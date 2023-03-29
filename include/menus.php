@@ -3,6 +3,7 @@
     <li><a href="/index.php">Accueil</a></li>
 	<li><a href="/app/ConsultNews.php">Consulter les news</a></li>
     <li><a href="/app/ConsultDate.php">Consulter les emplacements par année de construction/rénovation</a></li>
+	<li><a href="/app/ConsultEmplacementPrix.php">Consultation des emplacements par prix</a></li>
 	<li><a href="/app/ConsultDetails.php">Consulter les détails d'un emplacement</a></li>
 
 <?php
