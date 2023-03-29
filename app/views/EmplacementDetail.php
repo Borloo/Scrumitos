@@ -35,9 +35,6 @@
                             $prixSemaine = $emplacement['Prix_Semaine'];
                             $prixAnnee = $emplacement['Prix_Periode_Annee'];
                             $options = $emplacement['Options'];
-                            if ($_GET['maj'] == "1"){
-                                echo "<h4>" . $_GET['maj'] . "</h4>";
-                            }
                             echo "
                                 <div class='card-headear'>
                                     <h1>" . $id . " - " . $name . "</h1>
@@ -161,7 +158,7 @@
                                     $prixAnnee = $_POST['prixAnnee'];
                                     $options = $_POST['options'];
                                     updateEmplacement((string)$_GET['id'], $name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options);
-                                    header('location: http://88.208.226.189/app/views/EmplacementDetail.php?id=' . $_GET['id'] . "&maj=1");
+                                    header('location: http://88.208.226.189/app/views/ConsultType.php');
                                     die();
                                 }
                             }
