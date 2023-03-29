@@ -58,7 +58,11 @@
                                         <div class='col-md-6'>
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text' id='basic-addon2'>Type</span>
-                                                <select class='form-select' name='listType'>";
+                                                <select class='form-select' name='listType'";
+                                                    if ($_GET['edit'] == 0){
+                                                        echo "readonly";
+                                                    }
+                                                    echo ">";
                                                     $tempTypes = getTypes();
                                                     $types = [];
                                                     foreach ($tempTypes as $tempType){
@@ -79,13 +83,21 @@
                                         <div class='col-md-6'>
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text'>Adresse</span>
-                                                <input class='form-control' name='adresse' type='text' value='" . $adresse . "'>
+                                                <input class='form-control' name='adresse' type='text' value='" . $adresse . "'";
+                                                    if ($_GET['edit'] == 0){
+                                                        echo "readonly";
+                                                    }
+                                                    echo ">
                                             </div>
                                         </div>
                                         <div class='col-md-6'>
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text'>Année construction</span>
-                                                <input class='form-control' name='annee' type='number' value='" . $annee . "'>
+                                                <input class='form-control' name='annee' type='number' value='" . $annee . "'";
+                                                    if ($_GET['edit'] == 0){
+                                                        echo "readonly";
+                                                    }
+                                                    echo ">
                                             </div>
                                         </div>
                                     </div>
@@ -93,13 +105,21 @@
                                         <div class='col-md-6'>
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text'>Taille</span>
-                                                <input class='form-control' name='taille' type='string' value='" . $taille . "'>
+                                                <input class='form-control' name='taille' type='string' value='" . $taille . "'";
+                                                    if ($_GET['edit'] == 0){
+                                                        echo "readonly";
+                                                    }
+                                                    echo ">
                                             </div>
                                         </div>
                                         <div class='col-md-6'>
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text'>Max personne</span>
-                                                <input class='form-control' name='maxPersonne' type='number' value='" . $maxPersonne . "'>
+                                                <input class='form-control' name='maxPersonne' type='number' value='" . $maxPersonne . "'";
+                                                    if ($_GET['edit'] == 0){
+                                                        echo "readonly";
+                                                    }
+                                                    echo ">
                                             </div>
                                         </div>
                                     </div>
@@ -107,13 +127,21 @@
                                         <div class='col-md-6'>
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text'>Date début</span>
-                                                <input class='form-control' name='dateDeb' type='datetime-local' value='" . $dateDeb . "'>
+                                                <input class='form-control' name='dateDeb' type='datetime-local' value='" . $dateDeb . "'";
+                                                    if ($_GET['edit'] == 0){
+                                                        echo "readonly";
+                                                    }
+                                                    echo ">
                                             </div>
                                         </div>
                                         <div class='col-md-6'>
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text'>Date fin</span>
-                                                <input class='form-control' name='dateFin' type='datetime-local' value='" . $dateFin . "'>
+                                                <input class='form-control' name='dateFin' type='datetime-local' value='" . $dateFin . "'";
+                                                    if ($_GET['edit'] == 0){
+                                                        echo "readonly";
+                                                    }
+                                                    echo ">
                                             </div>
                                         </div>
                                     </div>
@@ -121,20 +149,32 @@
                                         <div class='col-md-6'>
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text'>Prix semaine</span>
-                                                <input class='form-control' name='prixSemaine' type='number' value='" . $prixSemaine . "'>
+                                                <input class='form-control' name='prixSemaine' type='number' value='" . $prixSemaine . "'";
+                                                    if ($_GET['edit'] == 0){
+                                                        echo "readonly";
+                                                    }
+                                                    echo ">
                                             </div>
                                         </div>
                                         <div class='col-md-6'>
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text'>Prix année</span>
-                                                <input class='form-control' name='prixAnnee' type='number' value='" . $prixAnnee . "'>
+                                                <input class='form-control' name='prixAnnee' type='number' value='" . $prixAnnee . "'";
+                                                    if ($_GET['edit'] == 0){
+                                                        echo "readonly";
+                                                    }
+                                                    echo ">
                                             </div>
                                         </div>
                                     </div>
                                     <div class='row'>
                                         <div class='input-group mb-3'>
                                             <span class='input-group-text'>Options</span>
-                                            <input class='form-control' name='options' type='text' value='" . $options . "'>
+                                            <input class='form-control' name='options' type='text' value='" . $options . "'";
+                                                    if ($_GET['edit'] == 0){
+                                                        echo "readonly";
+                                                    }
+                                                    echo ">
                                         </div>
                                     </div>";
                                     if ($_GET['edit'] == 1){
