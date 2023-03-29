@@ -49,7 +49,7 @@ ini_set('display_errors', 'on');
 
                         foreach ($news as $new) {
                             echo "<tr>";
-                            echo "<td>" . $new['date'] . "</td>";
+                            echo "<td>" . $new['date'] . " - </td>";
                             echo "<td>" . $new['titre'] . "</td><br>";
                             echo "<td>" . $new['body'] . "</td><br>";
                             echo "</tr><br>";
