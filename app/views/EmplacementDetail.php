@@ -48,7 +48,11 @@
                                         <div class='col-md-6'>
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text' id='basic-addon1'>Nom</span>
-                                                <input class='form-control' name='name' type='text' value='" . $name . "'" . ($_GET['edit'] == 1 ?  "readonly": "") . ">
+                                                <input class='form-control' name='name' type='text' value='" . $name . "'";
+                                                    if ($_GET['edit'] == 1){
+                                                        echo "readonly";
+                                                    }
+                                                echo ">
                                             </div>
                                         </div>
                                         <div class='col-md-6'>
