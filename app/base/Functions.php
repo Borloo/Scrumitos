@@ -21,6 +21,7 @@ function getEmplacementNameById(int $id){
     $query = $conn->prepare($sql);
     $query->execute(['id' => $id]);
     if ($query->rowCount() != 1){
+        echo "ok";
         return $query->fetch();
     }
     return null;
