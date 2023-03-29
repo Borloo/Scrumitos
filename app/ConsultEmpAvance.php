@@ -3,7 +3,6 @@ error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 ?>
 
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -107,14 +106,11 @@ ini_set('display_errors', 'on');
                     echo "erreur: " . $e->getMessage();
                 }
 
-
                 echo "<BR/><BR/>";
             }
 
-
-
     ?>
-    <p>EZ CITY GANG</p>
+
     <?php include("../include/footer.php"); ?>
 </body>
 
