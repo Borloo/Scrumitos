@@ -26,7 +26,7 @@ ini_set('display_errors', 'on');
 
                     try {
 
-                        $sql = "SELECT * date FROM Emplacement order by Prix_Semaine desc";
+                        $sql = "SELECT * FROM Emplacement order by Prix_Semaine desc";
                         $user = 'clmt';
                         $pass = '130702';
                         $conn = new PDO(
