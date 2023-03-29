@@ -32,7 +32,7 @@
                         $emplacement = getOneEmplacementById((int)$_GET['id']);
                         if ($_GET['edit'] != "3"){
                             if ($_GET['id'] == "-1"){
-                                $dateDeb = new DateTime('now', new DateTimeZone('Europe/West'));
+                                $dateDeb = new DateTime('now', new DateTimeZone('Europe/Berlin'));
                                 $dateDeb = $dateDeb->format('d/m/Y H:i');
                             }else{
                                 $dateDeb = $emplacement['Periode_Dispo_Debut'];
