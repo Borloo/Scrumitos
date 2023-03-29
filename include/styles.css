@@ -59,6 +59,10 @@ section {
 	background-color: #F9F9F9;
 }
 
+td {
+	border: 1px solid black;
+}
+
 .globalFooter {
 	padding: 0.5em 0;
 	text-align: center;
