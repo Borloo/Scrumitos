@@ -48,7 +48,9 @@ function connection(){
                 $login = $_POST['login'];
                 $password = $_POST['password'];
                 $user = getUser($login, $password);
+                echo "<p>ok1</p><br>";
                 $isAdmin = isAdmin($user);
+                echo "<p>ok2</p><br>";
                 if ($isAdmin || null !== $user){
                     unset($_SESSION['ERRORCO']);
                     $_SESSION['USER'] = $user['login'];
