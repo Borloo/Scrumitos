@@ -16,6 +16,7 @@ function getBDConnexion(): PDO
 }
 
 function getEmplacementNameById(int $id){
+    echo "ok";
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Type WHERE idType =:id";
     $query = $conn->prepare($sql);
