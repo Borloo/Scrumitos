@@ -47,7 +47,6 @@
                         echo "
                             <form method='post'>
                                 <fieldset>
-                                    <legend>Types d'emplacement</legend><br/>
                                     <div class='row'>
                                         <div class='col-md-4'></div>
                                         <div class='col-md-4'>
@@ -85,7 +84,16 @@
                         echo "
                             <div class='card'>
                                 <div class='card-header'>
-                                    <h4>" . $typeName . "</h4>
+                                    <div class='row'>
+                                        <div class='col-md-4'></div>
+                                        <div class='col-md-2'>
+                                            <h4>" . $typeName . "</h4>
+                                        </div>
+                                        <div class='col-md-2'></div>
+                                        <div class='col-md-2'>
+                                            <a href='./EmplacementDetail.php?maj=0&id=" . $_GET['id'] . "&edit=2'><input class='btn btn-info' type='button' value='Ajouter'></a>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class='card-body'>
                                     <center><table>
@@ -105,7 +113,7 @@
                                     <td>
                                         <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=1'>Modifier</a>
                                         <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=0'>Prévisualiser</a>
-                                        <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=1'>Supprimer</a>
+                                        <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=2'>Supprimer</a>
                                     </td>
                                 </tr>
                             ";

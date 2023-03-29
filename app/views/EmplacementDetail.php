@@ -8,7 +8,7 @@
     }
 ?>
 <?php
-    if ($_GET['edit'] == 2){
+    if ($_GET['edit'] == 3){
         deleteEmplacement($_GET['id']);
     }
 ?>
@@ -27,7 +27,7 @@
                         require('./../base/Functions.php');
 
                         $emplacement = getOneEmplacementById((int)$_GET['id']);
-                        if (null != $emplacement && $_GET['edit'] != 2){
+                        if ($_GET['edit'] != 3){
                             $name = $emplacement['Nom_Emplacement'];
                             $id = $emplacement['idEmpl'];
                             $typeId = $emplacement['idType'];
