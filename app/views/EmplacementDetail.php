@@ -159,7 +159,6 @@
                                     $options = $_POST['options'];
                                     updateEmplacement((string)$_GET['id'], $name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options);
                                     header('location: http://88.208.226.189/app/views/ConsultType.php');
-                                    die();
                                 }
                             }
                         }else{
