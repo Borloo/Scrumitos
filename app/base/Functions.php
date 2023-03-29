@@ -30,6 +30,7 @@ function getOneEmplacementById(int $id){
     /** @var PDOStatement $emplacement */
     $emplacement = getEmplacementById($id, true);
     if ($emplacement->rowCount() == 1){
+        print_r('ok2');
         return $emplacement->fetch();
     }
     return null;
@@ -41,6 +42,7 @@ function getEmplacementById(int $id, bool $onlyQb = false){
     $query = $conn->prepare($sql);
     $query->execute(['id' => $id]);
     if ($onlyQb){
+        print_r('ok');
         return $query;
     }
     return $query->fetchAll();
