@@ -10,7 +10,7 @@
 
 <body>
     <?php
-    include("./../include/header.php");
+    include("./include/header.php");
     // include("./../include/connect.inc.php");
     // $user = 'clmt';
     // $pass = '130702';
