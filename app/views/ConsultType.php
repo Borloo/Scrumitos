@@ -32,10 +32,32 @@
                             <form method='post'>
                                 <fieldset>
                                     <legend>Types d'emplacement</legend><br/>
-                                    <select name='listType'>
+                                    <div class='row'>
+                                        <div class='col-md-4'></div>
+                                        <div class='col-md-4'>
+                                            <select name='listType'>
                         ";
 
-                        getTypes();
+                        $types = getTypes();
+                        foreach ($types as $type){
+                            echo "<option value='" . $type['idType'] . "'>" . $type['nomType'] . "</option>";
+                        }
+
+                        echo "
+                                        </select>
+                                    </div>
+                                    <div class='col-md-4'></div>
+                                </div>
+                                <div class='row'>
+                                    <div class='col-md-4'></div>
+                                    <div class='col-md-4'>
+                                        <input type='submit' name='Afficher' value='Afficher'>
+                                    </div>
+                                    <div class='col-md-4'></div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        ";
 
                     ?>
                 </div>
