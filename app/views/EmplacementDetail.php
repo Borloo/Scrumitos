@@ -163,7 +163,7 @@
                                     $options = $_POST['options'];
                                     updateEmplacement((string)$_GET['id'], $name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options);
                                     $_SESSION['MSG'] = "Emplacement mis à jour !";
-                                    header('location: http://88.208.226.189/app/views/EmplacementDetail.php?id=115');
+                                    header('location: http://88.208.226.189/app/views/EmplacementDetail.php?id=' . $_GET['id']);
                                     die();
                                 }
                             }
