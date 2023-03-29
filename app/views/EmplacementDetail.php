@@ -40,7 +40,7 @@
                                             <select name='listType'>";
                                                 $types = getTypes();
                                                 foreach ($types as $type){
-                                                    echo "<option " . ($type['idType'] == $typeId ? "value='" . $type['nomType'] . "'" : '') . "></option>";
+                                                    echo "<option " . ($type['idType'] == $typeId ? "value='" . $type['nomType'] . "'" : '') . ">" . $type['nomType'] . "</option>";
                                                 }
                                             echo "</select>
                                         </div>
