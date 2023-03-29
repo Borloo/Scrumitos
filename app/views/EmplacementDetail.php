@@ -35,6 +35,9 @@
                             $prixSemaine = $emplacement['Prix_Semaine'];
                             $prixAnnee = $emplacement['Prix_Periode_Annee'];
                             $options = $emplacement['Options'];
+                            if ($_GET['maj'] == 1){
+                                echo "<h4>Emplacement mise à jour</h4><br/>";
+                            }
                             echo "
                                 <div class='card-headear'>
                                     <h1>" . $id . " - " . $name . "</h1>
