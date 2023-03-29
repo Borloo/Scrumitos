@@ -146,7 +146,7 @@
                                     isset($_POST['prixSemaine']) &&
                                     isset($_POST['prixAnnee'])
                                 ){
-                                    require('./../base/Functions.php');
+//                                    require('./../base/Functions.php');
 
                                     $name = $_POST['name'];
                                     $type = $_POST['listType'];
