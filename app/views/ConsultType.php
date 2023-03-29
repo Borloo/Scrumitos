@@ -83,7 +83,7 @@
                         $typeId = $_POST['listType'];
                         print_r($typeId);
                         $typeName = getEmplacementNameById($typeId);
-                        print_r($typeName['nomType']);
+                        print_r($typeName);
                         echo "
                             <div class='card'>
                                 <div class='card-header'>

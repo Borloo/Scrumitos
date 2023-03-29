@@ -20,18 +20,18 @@ function getEmplacementNameById(int $id){
     $sql = "SELECT * FROM Type WHERE idType =:id";
     $query = $conn->prepare($sql);
     $query->execute(['id' => $id]);
-    return $query->fetchAll();
+    if ($query->rowCount() != 1){
+        return $query->fetch();
+    }
+    return null;
 }
 
-function getEmplacementById(int $id){
+function getEmplacementById(int $id): array{
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Emplacement WHERE idType = :id";
     $query = $conn->prepare($sql);
     $query->execute(['id' => $id]);
-    if ($query->rowCount() == 1){
-        return $query->fetch();
-    }
-    return null;
+    return $query->fetchAll();
 }
 
 function getTypes(): array{
