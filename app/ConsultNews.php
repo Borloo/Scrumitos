@@ -17,7 +17,7 @@ ini_set('display_errors', 'on');
     // include("../include/connect.inc.php");
     ?>
     <div class="wrapper">
-        <?php include("./include/menus.php"); ?>
+        <?php include("../include/menus.php"); ?>
         <section id="content">
             <div class="card">
                 <div class="card-body">
@@ -49,9 +49,9 @@ ini_set('display_errors', 'on');
 
                         foreach ($news as $new) {
                             echo "<tr>";
-                            echo "<td>" . $new["id"] . "</td>";
-                            echo "<td>" . $new["titre"] . "</td>";
-                            echo "<td>" . $new["body"] . "</td>";
+                            echo "<td>" . $new['id'] . "</td>";
+                            echo "<td>" . $new['titre'] . "</td>";
+                            echo "<td>" . $new['body'] . "</td>";
                             echo "</tr>";
                         }
                         $reqnews->closeCursor();
