@@ -34,6 +34,7 @@
                             $dateFin = $emplacement['Periode_Dispo_Fin'];
                             $prixSemaine = $emplacement['Prix_Semaine'];
                             $prixAnnee = $emplacement['Prix_Periode_Annee'];
+                            $options = $emplacement['Options'];
                             print_r($emplacement);
                             echo "
                                 <div class='card-headear'>
@@ -106,7 +107,7 @@
                                         <div class='col-md-6'>
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text'>Prix semaine</span>
-                                                <input class='form-control' name='prixSemaine' type='number' value='" . $prixSeminaire . "'>
+                                                <input class='form-control' name='prixSemaine' type='number' value='" . $prixSemaine . "'>
                                             </div>
                                         </div>
                                         <div class='col-md-6'>
@@ -114,6 +115,12 @@
                                                 <span class='input-group-text'>Prix année</span>
                                                 <input class='form-control' name='prixAnnee' type='number' value='" . $prixAnnee . "'>
                                             </div>
+                                        </div>
+                                    </div>
+                                    <div class='row'>
+                                        <div class='input-group mb-3'>
+                                            <span class='input-group-text'>Options</span>
+                                            <input class='form-control' name='options' type='text' value='" . $options . "'>
                                         </div>
                                     </div>
                                 </div>
