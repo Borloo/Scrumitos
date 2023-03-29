@@ -33,7 +33,7 @@
                         if ($_GET['edit'] != "3"){
                             if ($_GET['id'] == "-1"){
                                 $dateDeb = new DateTime('now', new DateTimeZone('Europe/Berlin'));
-                                $dateDeb = $dateDeb->format('d/m/Y H:i');
+                                $dateDeb = $dateDeb->format('Y-m-d H:i:s');
                             }else{
                                 $dateDeb = $emplacement['Periode_Dispo_Debut'];
                             }
