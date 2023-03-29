@@ -82,7 +82,8 @@ function updateEmplacement(
             Periode_Dispo_Fin = :dateFin,
             Prix_Semaine = :prixSemaine,
             Prix_Periode_Annee = :prixAnnee,
-            Options = :options
+            Options = :options,
+            PathIlage = ''
             WHERE idEmpl = :id
            ";
     $query = $conn->prepare($sql);
