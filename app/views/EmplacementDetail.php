@@ -32,6 +32,8 @@
                             $maxPersonne = $emplacement['Max_Personnes'];
                             $dateDeb = $emplacement['Periode_Dispo_Debut'];
                             $dateFin = $emplacement['Periode_Dispo_Fin'];
+                            $prixSemaine = $emplacement['Prix_Semaine'];
+                            $prixAnnee = $emplacement['Prix_Periode_Annee'];
                             print_r($emplacement);
                             echo "
                                 <div class='card-headear'>
@@ -97,6 +99,20 @@
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text'>Date fin</span>
                                                 <input class='form-control' name='dateFin' type='datetime-local' value='" . $dateFin . "'>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class='row'>
+                                        <div class='col-md-6'>
+                                            <div class='input-group mb-3'>
+                                                <span class='input-group-text'>Prix semaine</span>
+                                                <input class='form-control' name='prixSemaine' type='number' value='" . $prixSeminaire . "'>
+                                            </div>
+                                        </div>
+                                        <div class='col-md-6'>
+                                            <div class='input-group mb-3'>
+                                                <span class='input-group-text'>Prix année</span>
+                                                <input class='form-control' name='prixAnnee' type='number' value='" . $prixAnnee . "'>
                                             </div>
                                         </div>
                                     </div>
