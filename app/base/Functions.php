@@ -16,13 +16,11 @@ function getBDConnexion(): PDO
 }
 
 function getEmplacementNameById(int $id){
-    echo "ok";
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Type WHERE idType =:id";
     $query = $conn->prepare($sql);
     $query->execute(['id' => $id]);
-    if ($query->rowCount() != 1){
-        echo "ok";
+    if ($query->rowCount() == 1){
         return $query->fetch();
     }
     return null;
