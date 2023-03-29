@@ -17,7 +17,7 @@
 </head>
 <body>
 	<?php 
-		include("./../");
+		include("./include/header.php"); 
 		include("./include/connect.inc.php");
 	?>
 	<div class="wrapper">

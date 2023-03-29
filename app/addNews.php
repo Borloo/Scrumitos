@@ -67,12 +67,12 @@ ini_set('display_errors', 'on');
                             }
                             else
                             {
-                                $requeteAjout = $linkpdo ->query("INSERT INTO   News (titre, body, date)
+                                $requeteAjout = $conn ->query("INSERT INTO   News (titre, body, date)
                                                                 VALUES ('$newsName', '$newsContent', '$newsDate')");
                                     
                                 if ($requeteAjout === false) 
                                 {
-                                    var_dump($linkpdo->errorInfo());
+                                    var_dump($conn->errorInfo());
                                     die("<script>alert('ERREUR')</script>");
                                 } 
                                 else

@@ -1,19 +1,21 @@
 <?php
 session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 'on');
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <?php
-        include("./app/include/headfile.php");
+        include("./include/headfile.php");
     ?>
 </head>
 <body>
 	<?php
-		include("./app/include/header.php");
+		include("./include/header.php");
 	?>
 	<div class="wrapper">
-		<?php include("./app/include/menus.php"); ?>
+		<?php include("./include/menus.php"); ?>
 		<section id="content" style="height: 100%">
             <div class="card">
                 <div class="card-body">
@@ -28,6 +30,6 @@ session_start();
             </div>
 		</section>
 	</div>
-	<?php include("./app/include/footer.php"); ?>
+	<?php include("./include/footer.php"); ?>
 </body>
 </html>
