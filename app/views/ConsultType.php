@@ -78,7 +78,6 @@
                         ";
 
                         $emplacements = getEmplacementByType($_POST['listType']);
-                        echo "ok";
                         foreach ($emplacements as $emplacement){
                             echo "
                                 <tr>
