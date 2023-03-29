@@ -55,10 +55,17 @@
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text' id='basic-addon2'>Type</span>
                                                 <select class='form-select' name='listType'>";
-                                                    $types = getTypes();
+                                                    $tempTypes = getTypes();
+                                                    $types = [];
+                                                    foreach ($tempTypes as $tempType){
+                                                        if ($tempType['idType'] == $typeId){
+                                                            echo "<option value='" . $tempType['nomType'] . "'>" . $tempType['nomType'] . "</option>";
+                                                        }else{
+                                                            $types[] += $tempType;
+                                                        }
+                                                    }
                                                     foreach ($types as $type){
-                                                        print_r(($type['idType'] == $typeId ? "value='" . $type['nomType'] . "'" : ''));
-                                                        echo "<option " . ($type['idType'] == $typeId ? "value='" . $type['nomType'] . "'" : '') . ">" . $type['nomType'] . "</option>";
+                                                        echo "<option value='" . $type['nomType'] . "'" . ">" . $type['nomType'] . "</option>";
                                                     }
                                                     echo "</select>
                                             </div>
