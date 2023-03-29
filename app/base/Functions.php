@@ -27,12 +27,12 @@ function getEmplacementNameById(int $id){
 }
 
 function getOneEmplacementById(int $id){
-    $emplacement = getEmplacementById($id, true);
-    print_r('ok1.5');
-    print_r($emplacement->rowCount());
-    if ($emplacement->rowCount() == 1){
-        print_r('ok2');
-        return $emplacement->fetch();
+    $conn = getBDConnexion();
+    $sql = "SELECT * FROM Emplacement WHERE idEmpl = :id";
+    $query = $conn->prepare($sql);
+    $query->execute(['id' => $id]);
+    if ($query->rowCount() == 1){
+        return $query->fetch();
     }
     return null;
 }
@@ -43,7 +43,6 @@ function getEmplacementById(int $id, bool $onlyQb = false){
     $query = $conn->prepare($sql);
     $query->execute(['id' => $id]);
     if ($onlyQb){
-        print_r('ok');
         return $query;
     }
     return $query->fetchAll();
