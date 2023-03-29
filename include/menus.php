@@ -1,6 +1,7 @@
 <nav class="sidebar">
   <ul>
     <li><a href="/index.php">Accueil</a></li>
+	<li><a href="/app/ConsultNews.php">Consulter les news</a></li>
     <li><a href="/app/ConsultDate.php">Consulter les emplacements par année de construction/rénovation</a></li>
 	<li><a href="/app/ConsultDetails.php">Consulter les détails d'un emplacement</a></li>
 
@@ -13,7 +14,6 @@
 		else {
             echo '<li><a href="/app/views/ConsultType.php">Recherche un emplacement selon son type</a></li>';
 			echo '<li><a href="/app/addNews.php">Ajouter des news</a></li>';
-			echo '<li><a href="/app/ConsultNews.php">Consulter les news</a></li>';
 			echo '<li><a href="/app/views/ConsultType.php">Consulter les emplacements par type</a></li>';
 			echo '<li><a href="/app/Deconnexion.php">Se déconnecter </a></li>';
 		}
