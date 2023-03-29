@@ -38,6 +38,11 @@
 		<section id="content">
             <div class="card">
                 <div class="card-headear">
+                    <?php
+                        if ($_GET['suppr'] == '1'){
+                            echo "<p>Emplacement supprimé !</p>";
+                        }
+                    ?>
                     <h1>Consulter les emplacements par type </h1>
                 </div>
                 <div class="card-body">
@@ -113,7 +118,7 @@
                                     <td>
                                         <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=1'>Modifier</a>
                                         <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=0'>Prévisualiser</a>
-                                        <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=2'>Supprimer</a>
+                                        <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=3'>Supprimer</a>
                                     </td>
                                 </tr>
                             ";
