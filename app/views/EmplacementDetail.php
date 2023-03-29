@@ -2,7 +2,6 @@
     session_start();
     error_reporting(E_ALL);
     ini_set('display_errors', 'on');
-    require('./../base/Functions.php');
     if (!isset($_SESSION['USER'])) {
         header('location: index.php');
         die();
@@ -147,6 +146,8 @@
                                     isset($_POST['prixSemaine']) &&
                                     isset($_POST['prixAnnee'])
                                 ){
+                                    require('./../base/Functions.php');
+                                    
                                     $name = $_POST['name'];
                                     $type = $_POST['listType'];
                                     $adresse = $_POST['adresse'];
