@@ -11,17 +11,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8" />
-	<link rel="stylesheet" href="./include/styles.css" />
-	<title>Mon site !</title>
+    <?php
+        include("./../../include/headfile.php");
+    ?>
 </head>
 <body>
 	<?php 
-		include("./include/header.php"); 
-		include("./include/connect.inc.php");
+		include("./../../include/header.php");
 	?>
 	<div class="wrapper">
-		<?php include("./include/menus.php"); ?>
+		<?php include("./../../include/menus.php"); ?>
 		<section id="content">
 		<?php
 			/********************
@@ -75,6 +74,6 @@
 		?>
 		</section>
 	</div>
-	<?php include("./include/footer.php"); ?>
+	<?php include("./../../include/footer.php"); ?>
 </body>
 </html>
