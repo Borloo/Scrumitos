@@ -39,7 +39,7 @@
             <div class="card">
                 <div class="card-headear">
                     <?php
-                        if ($_GET['suppr'] == '1'){
+                        if ($_GET['add'] == '-1'){
                             echo "<p>Emplacement supprimé !</p>";
                         }
                     ?>

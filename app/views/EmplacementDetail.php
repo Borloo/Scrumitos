@@ -12,7 +12,7 @@
     if ($_GET['edit'] == 3){
         deleteEmplacement($_GET['id']);
         echo "<script>
-                location.href='http://88.208.226.189/app/views/ConsultType.php?suppr=1'
+                location.href='http://88.208.226.189/app/views/ConsultType.php?add=-1'
             </script>";
         die();
     }
@@ -235,10 +235,9 @@
                                     $options = $_POST['options'];
                                     $id = $_GET['id'];
                                     if ("-1" == $id){
-                                        echo "ok";
                                         addEmplacement($name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options);
                                         echo "<script>
-                                            location.href='http://88.208.226.189/app/views/ConsultType.php'
+                                            location.href='http://88.208.226.189/app/views/ConsultType.php?add=1'
                                         </script>";
                                         die();
                                     }else{
