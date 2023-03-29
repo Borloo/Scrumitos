@@ -12,7 +12,7 @@
 		// si l'admin est connecté alors on lui affiche des liens particuliers
 		else {
             echo '<li><a href="../views/ConsultType.php">Recherche un emplacement selon son type</a></li>';
-			echo '<li><a href="../addNews.php">Ajouter des news</a></li>';
+			echo '<li><a href="../app/addNews.php">Ajouter des news</a></li>';
 			echo '<li><a href="../views/ConsultType.php">Consulter les emplacements par type</a></li>';
 			echo '<li><a href="../Deconnexion.php">Se déconnecter </a></li>';
 		}
