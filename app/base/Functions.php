@@ -48,6 +48,7 @@ function updateEmplacement(
            ";
     $query = $conn->prepare($sql);
     $query->execute([
+        'id' => $id,
         'name' => $name,
         'type' => $type,
         'adresse' => $adresse,
