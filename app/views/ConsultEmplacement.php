@@ -37,7 +37,7 @@ if (!isset($_SESSION['USER'])) {
     ?>
     <div class="wrapper">
         <?php include("./../../include/menus.php");
-        require("../functions/EmpByTypes.php") ?>
+        ?>
         <section id="content">
             <div class="card">
                 <div class="card-headear">
