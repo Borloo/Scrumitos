@@ -39,7 +39,7 @@ ini_set('display_errors', 'on');
                     <h1>Recherche d'emplacements </h1>
                 </div>
                 <div class="card-body">
-                    <a class="btn btn-secondary" href="ConsultType.php.php" role="button">Recherche emplacement par type</a>
+                    <a class="btn btn-secondary" href="ConsultType.php?suppr=0&add=0" role="button">Recherche emplacement par type</a>
                     <a class="btn btn-secondary" href="" role="button">Recherche emplacement par période</a>
                     <a class="btn btn-secondary" href="../ConsultEmplacementPrix.php" role="button">consulter emplacement année construction</a>
                     <a class="btn btn-secondary" href="../ConsultEmplacementPrix.php" role="button">Recherche emplacement prix</a>
