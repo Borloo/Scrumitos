@@ -43,11 +43,11 @@ if (!isset($_SESSION['USER'])) {
                 <div class="card-headear">
                     <h1>Recherche d'emplacements </h1>
                 </div>
+                <div class="card-body">
             <?php
 			echo "<BR/><BR/>";
 			echo "<form method='post'>";
 			echo "<fieldset>";
-			echo "<legend> Emplacements </legend><BR/>";
 			// BR_Choix = Bouton Radio du choix
 			echo "<input type='radio' name='BR_choix' value='byType' checked='checked'";
 			// on garde la sélection effectuée précédemment
@@ -91,6 +91,8 @@ if (!isset($_SESSION['USER'])) {
             }
                 
         ?>
+                </div>
+            </div>
         </section>
     </div>
     <?php include("./../../include/footer.php"); ?>
