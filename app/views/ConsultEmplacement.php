@@ -23,6 +23,9 @@ ini_set('display_errors', 'on');
         .btn {
             width: 100%;
         }
+        .row {
+            margin: 5%;
+        }
     </style>
 </head>
 
@@ -59,11 +62,11 @@ ini_set('display_errors', 'on');
                         <div class="col-md-2"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-5"></div>
-                        <div class="col-md-2">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
                             <a class="btn btn-secondary" href="#" role="button">Taille</a>
                         </div>
-                        <div class="col-md-5"></div>
+                        <div class="col-md-4"></div>
                     </div>
 
                 </div>
