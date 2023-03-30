@@ -40,7 +40,7 @@ ini_set('display_errors', 'on');
                 </div>
                 <div class="card-body">
                     <button type="button" class="btn btn-secondary btn-sm"><a href="../ConsultEmplacementPrix.php">consulter emplacement prix</a></button>
-                    <a class="btn btn-secondary" href="./ConsultEmplacementPrix.php" role="button">consulter emplacement prix</a>
+                    <a class="btn btn-secondary" href="ConsultEmplacementPrix.php" role="button">consulter emplacement prix</a>
             <?php
 			echo "<BR/><BR/>";
 			echo "<form method='post'>";
