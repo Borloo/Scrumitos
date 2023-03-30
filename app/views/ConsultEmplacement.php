@@ -26,6 +26,9 @@ ini_set('display_errors', 'on');
         .row {
             margin: 2%;
         }
+        .card {
+            margin-bottom: 2%;
+        }
     </style>
 </head>
 
