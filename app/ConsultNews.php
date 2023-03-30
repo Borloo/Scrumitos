@@ -30,15 +30,9 @@ include("../include/header.php");
              * ConsultNews.php
              *********************/
 
-            echo "<h1>les dernières news du camping</h1>";
+            echo "<h1>Les dernières news du camping</h1>";
             echo "<BR/><BR/>";
             ?>
-            <div class="grid gap-3">
-                <div class="p-2 g-col-6">Grid item 1</div>
-                <div class="p-2 g-col-6">Grid item 2</div>
-                <div class="p-2 g-col-6">Grid item 3</div>
-                <div class="p-2 g-col-6">Grid item 4</div>
-            </div>
 
             <?php
 
