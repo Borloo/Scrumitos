@@ -84,7 +84,7 @@ if (!isset($_SESSION['USER'])) {
 						break;
 
                     case "byYear" :
-                        header("location : ConsultDate.php");
+                        header('location : ConsultDate.php');
                         break;
 
 					case "byPeriod":
