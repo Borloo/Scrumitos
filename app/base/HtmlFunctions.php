@@ -56,7 +56,6 @@ function getHtmlPeriode()
                     <div class='card-body'>";
             $emplacements = getEmplacementByPeriode($dateDeb, $dateFin);
             if (!empty($emplacements)) {
-                print_r(sizeof($emplacements));
                 echo "<div class='card-body'>
                                     <center><table>
                                         <caption> Emplacement du " . $dateDeb . " - " . $dateFin . "</caption>
@@ -121,30 +120,33 @@ function getHtmlType()
                             <div class='row'>
                                 <div class='col-md-4'></div>
                                 <div class='col-md-4'>
-                                    <select name='listType'>";
-    $types = getTypes();
-    foreach ($types as $type) {
-        echo "<option value='" . $type['idType'] . "'>" . $type['nomType'] . "</option>";
-    }
-    echo "
-                                        </select>
+                                    <div class='dropdown'>
+                                        <button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton1' data-bs-toggle='dropdown' aria-expanded='false'>Types</button>
+                                        <ul class='dropdown-menu' id='listType' aria-labelledby='dropdownTypes'>";
+                                        $types = getTypes();
+                                        foreach ($types as $type) {
+                                            echo "<li><a class='dropdown-item'>" . $type['nomType'] . "</option>";
+                                        }
+                                        echo "
+                                        </ul>
                                     </div>
-                                    <div class='col-md-4'></div>
-                                </div><br>
-                                <div class='row'>
-                                    <div class='col-md-2'></div>
-                                    <div class='col-md-4'>
-                                        <input class='btn btn-secondary' type='submit' id='submit' name='submit' value='Afficher'>
-                                    </div>
-                                    <div class='col-md-4'>
-                                            <a href='./EmplacementDetail.php?maj=0&id=-1&edit=2'><input class='btn btn-info' id='ajouter' type='button' value='Ajouter'></a>
-                                    </div>
-                                    <div class='col-md-2'></div>
                                 </div>
-                            </fieldset>
-                        </form>
-                    </div>
-                </div>";
+                                <div class='col-md-4'></div>
+                            </div>
+                            <div class='row'>
+                                <div class='col-md-2'></div>
+                                <div class='col-md-4'>
+                                    <input class='btn btn-secondary' type='submit' id='submit' name='submit' value='Afficher'>
+                                </div>
+                                <div class='col-md-4'>
+                                        <a href='./EmplacementDetail.php?maj=0&id=-1&edit=2'><input class='btn btn-info' id='ajouter' type='button' value='Ajouter'></a>
+                                </div>
+                                <div class='col-md-2'></div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>";
     if (isset($_POST['submit'])) {
         if (isset($_POST['listType'])) {
             $typeId = $_POST['listType'];
