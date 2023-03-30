@@ -25,7 +25,6 @@ include("../include/header.php");
     <?php include("../include/menus.php"); ?>
     <section id="content">
         <div class="container">
-            <!--   <div class="card-body">-->
             <?php
             /********************
              * ConsultNews.php
@@ -63,7 +62,7 @@ include("../include/header.php");
                     $news = $reqnews->fetchAll();
 
                     foreach ($news as $new) {
-                        echo '<div class="card" style="width: 18rem"><div class="card-body">';
+                        echo '<div class="card"><div class="card-body">';
                         echo '<h5 class="card-title">' . $new['titre'] . '</h5>';
                         echo '<h6 class="card-subtitle mb-2 text-muted">' . $new['date'] . '</h6>';
                         echo '<p class="card-text">' . $new['body'] . '</p>';
@@ -77,7 +76,6 @@ include("../include/header.php");
 
                 ?>
             </div>
-            <!--   </div>-->
         </div>
     </section>
 </div>
