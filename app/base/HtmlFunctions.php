@@ -125,7 +125,7 @@ function getHtmlType()
                                         <ul class='dropdown-menu' id='listType' aria-labelledby='dropdownTypes'>";
                                         $types = getTypes();
                                         foreach ($types as $type) {
-                                            echo "<li><a class='dropdown-item'>" . $type['nomType'] . "</a></li>";
+                                            echo "<li><a class='dropdown-item' href='#'>" . $type['nomType'] . "</a></li>";
                                         }
                                         echo "
                                         </ul>
