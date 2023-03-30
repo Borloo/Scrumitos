@@ -39,7 +39,7 @@ ini_set('display_errors', 'on');
                     <h1>Recherche d'emplacements </h1>
                 </div>
                 <div class="card-body">
-                    <button type="button" class="btn btn-secondary btn-sm"><a href="app/ConsultEmplacementPrix.php">consulter emplacement prix</a></button>
+                    <button type="button" class="btn btn-secondary btn-sm"><a href="ConsultEmplacementPrix.php">consulter emplacement prix</a></button>
                     <a class="btn btn-secondary" href="app/ConsultEmplacementPrix.php" role="button">consulter emplacement prix</a>
             <?php
 			echo "<BR/><BR/>";
