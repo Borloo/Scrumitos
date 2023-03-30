@@ -31,9 +31,9 @@ if (!isset($_SESSION['USER'])) {
                 <form action="addNews.php" method="post">
                     <p>Titre : <input type="text" name="newsName" autocomplete="off"/></p>
                     <br>
-                    <p>News : <textarea" id="newsContent" name="newsContent" autocomplete="off"></p></textarea>
+                    <p>News : <textarea id="newsContent" name="newsContent" autocomplete="off"></p></textarea>
                     <br>
-                    <p>Date: <input type="date" name="newsDate"/></p>
+                    <p>Date: <input type="date" name="newsDate" class="form-control"/></p>
                     <br>
                     <p><input type="submit" value="Envoyer"></p>
                 </form>
