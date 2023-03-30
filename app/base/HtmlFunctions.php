@@ -82,9 +82,9 @@ function getHtmlPeriode()
                                         </div>
                                     </td>
                                 </tr>
-                                </table></center>
                             ";
                 }
+                echo "</table></center>";
             } else {
                 echo "<tr><td>Aucun résultat</td></tr>";
             }
