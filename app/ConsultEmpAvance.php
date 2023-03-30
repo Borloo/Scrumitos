@@ -21,7 +21,7 @@ include("../include/header.php");
     <?php include("../include/menus.php"); ?>
     <section id="content">
     <?php
-                        require('./../base/Functions.php');
+                        require('./base/Functions.php');
 
                         echo "
                             <form method='post'>
