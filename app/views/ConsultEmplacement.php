@@ -72,7 +72,7 @@ ini_set('display_errors', 'on');
             </div>
             <?php
 
-                require('ConsultType.php');
+                require('./../base/HtmlFunctions.php');
 
                 if ($_GET['c'] == "1"){
                     getHtmlType();
