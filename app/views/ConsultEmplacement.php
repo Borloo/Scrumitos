@@ -60,7 +60,7 @@ if (!isset($_SESSION['USER'])) {
 				echo "checked='checked'";
 			}
 			echo "/> Recherche d'emplacements par période<BR/><BR/>";
-
+            echo "<input type='radio' name='BR_choix' value='byYear' ";
             if (isset($_POST['Afficher']) && isset($_POST['BR_choix']) && $_POST['BR_choix'] == "byYear") {
                 echo "checked='checked'";
             }
