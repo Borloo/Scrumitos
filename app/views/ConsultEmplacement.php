@@ -42,7 +42,7 @@ ini_set('display_errors', 'on');
                     <div class="row">
                         <div class='col-md-2'></div>
                         <div class='col-md-3'>
-                            <a class="btn btn-secondary" href="ConsultType.php?suppr=0&add=0" role="button">Type</a>
+                            <a class="btn btn-secondary" href="ConsultEmplacement.php?c=1" role="button">Type</a>
                         </div>
                         <div class="col-md-2"></div>
                         <div class="col-md-3">
@@ -68,9 +68,16 @@ ini_set('display_errors', 'on');
                         </div>
                         <div class="col-md-4"></div>
                     </div>
-
                 </div>
             </div>
+            <?php
+
+                require('ConsultType.php');
+
+                if ($_GET['c'] == "1"){
+                    getHtmlType();
+                }
+            ?>
         </section>
     </div>
     <?php include("./../../include/footer.php"); ?>
