@@ -19,6 +19,7 @@ if (!isset($_SESSION['USER'])) {
 </head>
 <body>
 <?php include("../include/header.php"); ?>
+<?php include("../include/headfile.php"); ?>
 <!--include("../include/connect.inc.php"); -->
 
 <div class="wrapper">
@@ -31,7 +32,7 @@ if (!isset($_SESSION['USER'])) {
                 <form action="addNews.php" method="post">
                     <p>Titre : <input type="text" name="newsName" autocomplete="off"/></p>
                     <br>
-                    <p>News : <textarea id="newsContent" name="newsContent" autocomplete="off"></p></textarea>
+                    <p>News : <textarea id="newsContent" name="newsContent" autocomplete="off" class="form-control"></textarea></p>
                     <br>
                     <p>Date: <input type="date" name="newsDate" class="form-control"/></p>
                     <br>
