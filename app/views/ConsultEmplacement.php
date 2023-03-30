@@ -75,7 +75,7 @@ if (!isset($_SESSION['USER'])) {
 				//  on sélectionne les emplacements recherchés					
 				switch ($_POST['BR_choix']) {
 					case "byType":
-                        header('location: ConsultType.php');
+                        header('location: ConsultType.php?suppr=0&add=0');
 						break;
 
 					case "byPeriod":
