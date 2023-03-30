@@ -39,8 +39,10 @@ ini_set('display_errors', 'on');
                     <h1>Recherche d'emplacements </h1>
                 </div>
                 <div class="card-body">
-                    <button type="button" class="btn btn-secondary btn-sm"><a href="../ConsultEmplacementPrix.php">consulter emplacement prix</a></button>
-                    <a class="btn btn-secondary" href="ConsultEmplacementPrix.php" role="button">consulter emplacement prix</a>
+                    <a class="btn btn-secondary" href="ConsultType.php.php" role="button">Recherche emplacement par type</a>
+                    <a class="btn btn-secondary" href="" role="button">Recherche emplacement par période</a>
+                    <a class="btn btn-secondary" href="../ConsultEmplacementPrix.php" role="button">consulter emplacement année construction</a>
+                    <a class="btn btn-secondary" href="../ConsultEmplacementPrix.php" role="button">Recherche emplacement prix</a>
             <?php
 			echo "<BR/><BR/>";
 			echo "<form method='post'>";
@@ -53,7 +55,7 @@ ini_set('display_errors', 'on');
 			}
 			echo "/> Recherche d'emplacements par type<BR/><BR/>";
 			echo "<input type='radio' name='BR_choix' value='byType' ";
-			if (isset($_POST['Afficher']) && isset($_POST['BR_choix']) && $_POST['BR_choix'] == "byType") {
+			if (isset($_POST['Afficher']) && isset($_POST['BR_choix']) && $_POST['BR_choix'] == "byPeriod") {
 				echo "checked='checked'";
 			}
 			echo "/> Recherche d'emplacements par période<BR/><BR/>";
