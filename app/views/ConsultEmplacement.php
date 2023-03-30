@@ -80,7 +80,7 @@ if (!isset($_SESSION['USER'])) {
 						break;
 
 					case "byPeriod":
-                        header('location : index.php');
+                        header('location: index.php');
 						break;
 
 					case "bySize":
