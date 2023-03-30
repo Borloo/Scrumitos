@@ -53,20 +53,17 @@ include("../include/header.php");
                     $news = $reqnews->fetchAll();
 
                     foreach ($news as $new) {
-                        echo '<table class="table table-striped"><tr>';
-                        echo "<td>" . $new['date'] . " - </td>";
-                        echo "<td>" . $new['titre'] . "</td><br><br>";
-                        echo "<td>" . $new['body'] . "</td><br>";
-                        echo "</tr></table>";
+                        echo '<div class="card" style="width: 18rem"><div class="card-body">';
+                        echo '<h5 class="card-title">' . $new['titre'] . '</h5>';
+                        echo '<h6 class="card-subtitle mb-2 text-muted">' . $new['date'] . '</h6>';
+                        echo '<p class="card-text">' . $new['body'] . '</p>';
+                        echo "</div></div>";
                     }
                     $reqnews->closeCursor();
 
                 } catch (PDOException $e) {
                     echo "Erreur : " . $e->getMessage();
                 }
-
-                echo "</table>";
-
 
                 ?>
             </div>
