@@ -2,7 +2,8 @@
 
 require('Functions.php');
 
-function getHtmlPeriode(){
+function getHtmlPeriode()
+{
     echo "
         <div class='card'>
                     <div class='card-headear'>
@@ -16,18 +17,18 @@ function getHtmlPeriode(){
                                     <div class='col-md-4'>
                                         <div class='input-group mb-3'>
                                             <span class='input-group-text'>Date début</span>";
-                                                $dateDeb = new DateTime('now', new DateTimeZone('Europe/Berlin'));
-                                                $dateDeb = $dateDeb->format('Y-m-d H:i');
-                                                echo "<input class='form-control' name='dateDeb' type='datetime-local' value='" . $dateDeb . "'>";
-                                        echo "</div>
+    $dateDeb = new DateTime('now', new DateTimeZone('Europe/Berlin'));
+    $dateDeb = $dateDeb->format('Y-m-d H:i');
+    echo "<input class='form-control' name='dateDeb' type='datetime-local' value='" . $dateDeb . "'>";
+    echo "</div>
                                     </div>
                                     <div class='col-md-4'>
                                         <div class='input-group mb-3'>
-                                            <span class='input-group-text'>Date début</span>";
-                                        $dateFin = new DateTime('next week', new DateTimeZone('Europe/Berlin'));
-                                        $dateFin = $dateFin->format('Y-m-d H:i');
-                                        echo "<input class='form-control' name='dateFin' type='datetime-local' value='" . $dateFin . "'>";
-                                    echo "</div>
+                                            <span class='input-group-text'>Date fin</span>";
+    $dateFin = new DateTime('next week', new DateTimeZone('Europe/Berlin'));
+    $dateFin = $dateFin->format('Y-m-d H:i');
+    echo "<input class='form-control' name='dateFin' type='datetime-local' value='" . $dateFin . "'>";
+    echo "</div>
                                     </div>
                                     <div class='col-md-2'></div>
                                 </div>
@@ -43,6 +44,21 @@ function getHtmlPeriode(){
                     </div>
                 </div>
     ";
+    if (isset($_POST['submit'])){
+        if (isset($_POST['dateDeb']) && isset($_POST['dateFin'])){
+            echo "
+                <div class='card'>
+                    <div class='card-header'>
+                        <h4></h4>
+                    </div>
+                    <div class='card-body'>";
+                        $dateDeb = date_create_from_format('Y-m-d H:i:s', $_POST['dateDeb']);
+                        echo $dateDeb;
+                    echo "</div>
+                </div>
+            ";
+        }
+    }
 }
 
 function getHtmlType()
