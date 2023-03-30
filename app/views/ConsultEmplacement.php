@@ -24,7 +24,7 @@ ini_set('display_errors', 'on');
             width: 100%;
         }
         .row {
-            margin: 5%;
+            margin: 2%;
         }
     </style>
 </head>
