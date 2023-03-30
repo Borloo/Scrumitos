@@ -53,11 +53,11 @@ include("../include/header.php");
                     $news = $reqnews->fetchAll();
 
                     foreach ($news as $new) {
-                        echo "<tr>";
+                        echo '<table class="table table-striped"><tr>';
                         echo "<td>" . $new['date'] . " - </td>";
                         echo "<td>" . $new['titre'] . "</td><br><br>";
                         echo "<td>" . $new['body'] . "</td><br>";
-                        echo "</tr><br><br>";
+                        echo "</tr></table>";
                     }
                     $reqnews->closeCursor();
 
@@ -65,8 +65,7 @@ include("../include/header.php");
                     echo "Erreur : " . $e->getMessage();
                 }
 
-                echo "</table></center>";
-                echo "<BR/><BR/>";
+                echo "</table>";
 
 
                 ?>

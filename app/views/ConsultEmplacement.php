@@ -44,7 +44,7 @@ ini_set('display_errors', 'on');
                     <a class="btn btn-secondary" href="../ConsultEmplacementPrix.php" role="button">consulter emplacement année construction</a>
                     <a class="btn btn-secondary" href="../ConsultEmplacementPrix.php" role="button">Recherche emplacement prix</a>
                     <a class="btn btn-secondary" href="p" role="button">Recherche emplacement taille</a>
-           
+
                 </div>
             </div>
         </section>
