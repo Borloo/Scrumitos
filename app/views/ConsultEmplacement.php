@@ -75,8 +75,7 @@ if (!isset($_SESSION['USER'])) {
 				//  on sélectionne les emplacements recherchés					
 				switch ($_POST['BR_choix']) {
 					case "byType":
-						$titre = "Emplacements par types";
-						getEmpByType();
+                        header('location: ConsultType.php');
 						break;
 
 					case "byPeriod":
