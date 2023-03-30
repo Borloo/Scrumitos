@@ -24,26 +24,25 @@ include("../include/header.php");
 <div class="wrapper">
     <?php include("../include/menus.php"); ?>
     <section id="content">
-        <div class="card">
-            <div class="card-body">
+        <div class="container">
+            <!--   <div class="card-body">-->
+            <?php
+            /********************
+             * ConsultNews.php
+             *********************/
+
+            echo "<h1>les dernières news du camping</h1>";
+            echo "<BR/><BR/>";
+            ?>
+            <div class="grid gap-3">
+                <div class="p-2 g-col-6">Grid item 1</div>
+                <div class="p-2 g-col-6">Grid item 2</div>
+                <div class="p-2 g-col-6">Grid item 3</div>
+                <div class="p-2 g-col-6">Grid item 4</div>
+            </div>
+            <div class="d-flex justify-content-between">
+
                 <?php
-                /********************
-                 * ConsultNews.php
-                 *********************/
-
-                echo "<h1>les dernières news du camping</h1>";
-                echo "<BR/><BR/>";
-                ?>
-                <div class="grid gap-3">
-                    <div class="p-2 g-col-6">Grid item 1</div>
-                    <div class="p-2 g-col-6">Grid item 2</div>
-                    <div class="p-2 g-col-6">Grid item 3</div>
-                    <div class="p-2 g-col-6">Grid item 4</div>
-                </div>
-                <div class="d-flex justify-content-between">
-
-                <?php
-
 
 
                 try {
@@ -77,8 +76,8 @@ include("../include/header.php");
                 }
 
                 ?>
-                    </div>
             </div>
+            <!--   </div>-->
         </div>
     </section>
 </div>
