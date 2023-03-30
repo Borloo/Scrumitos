@@ -49,7 +49,7 @@ ini_set('display_errors', 'on');
                         </div>
                         <div class="col-md-2"></div>
                         <div class="col-md-3">
-                            <a class="btn btn-secondary" href="" role="button">Période</a>
+                            <a class="btn btn-secondary" href="ConsultEmplacement.php?c=2" role="button">Période</a>
                         </div>
                         <div class="col-md-2"></div>
                     </div>
@@ -79,6 +79,9 @@ ini_set('display_errors', 'on');
 
                 if ($_GET['c'] == "1"){
                     getHtmlType();
+                }
+                if ($_GET['c'] == "2"){
+                    getHtmlPeriode();
                 }
             ?>
         </section>

@@ -45,7 +45,7 @@
                             echo "<p>Emplacement ajouté !</p>";
                         }
                     ?>
-                    <h1>Consulter les emplacements par type </h1>
+                    <h1>Type</h1>
                 </div>
                 <div class="card-body">
                     <?php
