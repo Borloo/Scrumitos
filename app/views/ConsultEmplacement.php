@@ -39,6 +39,7 @@ ini_set('display_errors', 'on');
                     <h1>Recherche d'emplacements </h1>
                 </div>
                 <div class="card-body">
+                    <button type="button" class="btn btn-secondary btn-sm"><a href="app/ConsultEmplacementPrix.php">consulter emplacement prix</a></button>
             <?php
 			echo "<BR/><BR/>";
 			echo "<form method='post'>";
