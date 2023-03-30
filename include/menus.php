@@ -2,7 +2,7 @@
     <ul>
         <li><a href="/index.php">Accueil</a></li>
         <li><a href="/app/ConsultNews.php">News</a></li>
-        <li><a href="/app/views/ConsultEmplacement.php">Recherches d'emplacements</a></li>
+        <li><a href="/app/views/ConsultEmplacement.php?c=0">Recherches d'emplacements</a></li>
         <?php
         // si l'admin ne s'est pas déja connecté alors on affiche le lien pour cela
         if (!isset($_SESSION['USER'])) {
