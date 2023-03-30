@@ -121,7 +121,7 @@ function getHtmlType()
                                 <div class='col-md-4'></div>
                                 <div class='col-md-4'>
                                     <div class='dropdown'>
-                                        <button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton1' data-bs-toggle='dropdown' aria-expanded='false'>Types</button>
+                                        <button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownTypes' data-bs-toggle='dropdown' aria-expanded='false'>Types</button>
                                         <ul class='dropdown-menu' id='listType' aria-labelledby='dropdownTypes'>";
                                         $types = getTypes();
                                         foreach ($types as $type) {
