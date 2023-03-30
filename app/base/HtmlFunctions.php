@@ -54,8 +54,7 @@ function getHtmlPeriode()
                         <h4></h4>
                     </div>
                     <div class='card-body'>";
-            getEmplacementByPeriode($dateDeb, $dateFin);
-            $emplacements = [];
+            $emplacements = getEmplacementByPeriode($dateDeb, $dateFin);
             if (!empty($emplacements)) {
                 echo "<div class='card-body'>
                                     <center><table>
