@@ -146,7 +146,7 @@ function getTypeByName(string $name)
 
 function getTypeById(int $id){
     $conn = getBDConnexion();
-    $sql = "SELECT * FROM Type WHERE idType = :id":
+    $sql = "SELECT * FROM Type WHERE idType = :id";
     $query = $conn->prepare($sql);
     $query->execute(['id' => $id]);
     if ($query->rowCount() == 1) {
