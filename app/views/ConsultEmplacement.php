@@ -5,11 +5,8 @@ ini_set('display_errors', 'on');
 ?>
 <!DOCTYPE html>
 <html>
-
 <head>
-    <?php
-    include("./../../include/headfile.php");
-    ?>
+    <?php include("./../../include/headfile.php"); ?>
     <style>
         td {
             text-align: center;
@@ -27,23 +24,44 @@ ini_set('display_errors', 'on');
 </head>
 
 <body>
-    <?php
-    include("./../../include/header.php");
-    ?>
+    <?php include("./../../include/header.php"); ?>
     <div class="wrapper">
-        <?php include("./../../include/menus.php");
-        ?>
+        <?php include("./../../include/menus.php"); ?>
         <section id="content">
             <div class="card">
                 <div class="card-headear">
-                    <h1>Recherche d'emplacements </h1>
+                    <h1>Recherche d'emplacements par :</h1>
                 </div>
                 <div class="card-body">
-                    <a class="btn btn-secondary" href="ConsultType.php?suppr=0&add=0" role="button">Recherche emplacement par type</a>
-                    <a class="btn btn-secondary" href="" role="button">Recherche emplacement par période</a>
-                    <a class="btn btn-secondary" href="../ConsultEmplacementPrix.php" role="button">consulter emplacement année construction</a>
-                    <a class="btn btn-secondary" href="../ConsultEmplacementPrix.php" role="button">Recherche emplacement prix</a>
-                    <a class="btn btn-secondary" href="p" role="button">Recherche emplacement taille</a>
+                    <div class="row">
+                        <div class='col-md-2'></div>
+                        <div class='col-md-3'>
+                            <a class="btn btn-secondary" href="ConsultType.php?suppr=0&add=0" role="button">Type</a>
+                        </div>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3">
+                            <a class="btn btn-secondary" href="" role="button">Période</a>
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+                    <div class="row">
+                        <div class='col-md-2'></div>
+                        <div class='col-md-3'>
+                            <a class="btn btn-secondary" href="../ConsultEmplacementPrix.php" role="button">Année de construction</a>
+                        </div>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3">
+                            <a class="btn btn-secondary" href="../ConsultEmplacementPrix.php" role="button">Prix</a>
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5"></div>
+                        <div class="col-md-2">
+                            <a class="btn btn-secondary" href="#" role="button">Taille</a>
+                        </div>
+                        <div class="col-md-5"></div>
+                    </div>
 
                 </div>
             </div>
@@ -51,5 +69,4 @@ ini_set('display_errors', 'on');
     </div>
     <?php include("./../../include/footer.php"); ?>
 </body>
-
 </html>
