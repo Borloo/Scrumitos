@@ -93,7 +93,6 @@ if (!isset($_SESSION['USER'])) {
 						break;
 					case "bySize":
 						$titre = "Emplacements par taille";
-					
 						break;
 				}
             }
