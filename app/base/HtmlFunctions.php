@@ -53,7 +53,7 @@ function getHtmlPeriode()
                     </div>
                     <div class='card-body'>";
                         $dateDeb = date_create_from_format('d/m/Y H:i', $_POST['dateDeb']);
-                        print_r($dateDeb);
+                        print_r($dateDeb->getTimestamp());
                     echo "</div>
                 </div>
             ";
