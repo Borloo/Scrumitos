@@ -14,7 +14,7 @@ function getBDConnexion(): PDO
     return $conn;
 }
 
-function getEmplacementByPeriode(DateTime $dateDeb, DateTime $dateFin): array
+function getEmplacementByPeriode(string $dateDeb, string $dateFin): array
 {
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Emplacement 
