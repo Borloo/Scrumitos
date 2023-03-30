@@ -20,7 +20,7 @@ ini_set('display_errors', 'on');
         table {
             border: 1px solid black;
         }
-        btn {
+        .btn {
             width: 100%;
         }
     </style>
