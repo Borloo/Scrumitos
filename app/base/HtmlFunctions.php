@@ -9,6 +9,9 @@ function getHtmlType()
                 #ajouter, #submit {
                     width: 50%;
                 }
+                #actions {
+                    margin: 0;
+                }
             </style>
             <div class='card'>
                 <div class='card-headear'>
@@ -69,7 +72,7 @@ function getHtmlType()
                                     <td>" . $emplacement['adresseEmpl'] . "</td>
                                     <td>" . $emplacement['anneeConstruction'] . "</td>
                                     <td>
-                                        <div class='row'>
+                                        <div class='row' id='actions'>
                                             <div class='col-md-4'>
                                                 <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=1'><input type='button' class='btn btn-warning' value='Modifier'></a>
                                             </div>
