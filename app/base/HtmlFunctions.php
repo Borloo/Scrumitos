@@ -52,7 +52,7 @@ function getHtmlPeriode()
                         <h4></h4>
                     </div>
                     <div class='card-body'>";
-                        $dateDeb = date_create_from_format('Y-m-d H:i:s', $_POST['dateDeb']);
+                        $dateDeb = date_create_from_format('Y-m-d H:i', $_POST['dateDeb']);
                         print_r($dateDeb);
                     echo "</div>
                 </div>
