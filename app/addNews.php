@@ -36,7 +36,7 @@ if (!isset($_SESSION['USER'])) {
                     <br>
                     <p>Date: <input type="date" name="newsDate" class="form-control"/></p>
                     <br>
-                    <p><input type="submit" value="Envoyer"></p>
+                    <input type="submit" value="Envoyer" class="btn btn-primary"/>
                 </form>
 
                 <?php
