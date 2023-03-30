@@ -97,15 +97,13 @@
                                     <div class='row'>
                                         <h4>" . $typeName . "</h4>
                                     </div>
-                                </div>
-                                <div class='card-body'>
-                                    <center><table>
-                                        <caption> Emplacement du type " . $typeName . "</caption>
-                                        <tr><th>Nom de l'emplacement</th><th>Type de l'emplacement</th><th>Adresse Emplacement</th><th>Année de Construction</th><th>Actions</th></tr>
-                        ";
-
+                                </div>";
                         $emplacements = getEmplacementById($typeId);
                         if (!empty($emplacements)){
+                            echo "<div class='card-body'>
+                                    <center><table>
+                                        <caption> Emplacement du type " . $typeName . "</caption>
+                                        <tr><th>Nom de l'emplacement</th><th>Type de l'emplacement</th><th>Adresse Emplacement</th><th>Année de Construction</th><th>Actions</th></tr>";
                             foreach ($emplacements as $emplacement){
                                 echo "
                                 <tr>
@@ -127,17 +125,16 @@
                                         </div>
                                     </td>
                                 </tr>
+                                </table></center>
                             ";
                             }
                         }else{
                             echo "<tr><td>Aucun résultat</td></tr>";
                         }
                         echo "
-                                    </table></center>
-                                </div>
+                                </div>  
                             </div>
                         ";
-
                     }
                 }
             ?>

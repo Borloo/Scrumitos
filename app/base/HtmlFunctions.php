@@ -44,16 +44,55 @@ function getHtmlPeriode()
                     </div>
                 </div>
     ";
-    if (isset($_POST['submit'])){
-        if (isset($_POST['dateDeb']) && isset($_POST['dateFin'])){
+    if (isset($_POST['submit'])) {
+        if (isset($_POST['dateDeb']) && isset($_POST['dateFin'])) {
+            $dateDeb = $_POST['dateDeb'];
+            $dateFin = $_POST['dateFin'];
             echo "
                 <div class='card'>
                     <div class='card-header'>
                         <h4></h4>
                     </div>
                     <div class='card-body'>";
-                        print_r($dateDeb);
-                    echo "</div>
+            getEmplacementByPeriode($dateDeb, $dateFin);
+            $emplacements = [];
+            if (!empty($emplacements)) {
+                echo "<div class='card-body'>
+                                    <center><table>
+                                        <caption> Emplacement du " . $dateDeb . " - " . $dateFin . "</caption>
+                                        <tr><th>Nom de l'emplacement</th><th>Type de l'emplacement</th><th>Adresse Emplacement</th><th>Année de Construction</th><th>Actions</th></tr>";
+                foreach ($emplacements as $emplacement) {
+                    echo "
+                                <tr>
+                                    <td>" . $emplacement['Nom_Emplacement'] . "</td>
+                                    <td>" . $dateDeb . "</td>
+                                    <td>" . $emplacement['adresseEmpl'] . "</td>
+                                    <td>" . $emplacement['anneeConstruction'] . "</td>
+                                    <td>
+                                        <div class='row'>
+                                            <div class='col-md-4'>
+                                                <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=1'><input type='button' class='btn btn-warning' value='Modifier'></a>
+                                            </div>
+                                            <div class='col-md-4'>
+                                                <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=0'><input type='button' class='btn btn-info' value='Prévisualiser'></a>
+                                            </div>
+                                            <div class='col-md-4'>
+                                                <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=3'><input type='button' class='btn btn-danger' value='Supprimer'></a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </table></center>
+                            ";
+                }
+            } else {
+                echo "<tr><td>Aucun résultat</td></tr>";
+            }
+            echo "
+                                </div>  
+                            </div>
+                        ";
+            echo "</div>
                 </div>
             ";
         }
