@@ -59,14 +59,14 @@ function getHtmlPeriode()
                 echo "<div class='card-body'>
                                     <center><table>
                                         <caption> Emplacement du " . $dateDeb . " - " . $dateFin . "</caption>
-                                        <tr><th>Nom de l'emplacement</th><th>Type de l'emplacement</th><th>Adresse Emplacement</th><th>Année de Construction</th><th>Actions</th></tr>";
+                                        <tr><th>Nom de l'emplacement</th><th>Type de l'emplacement</th><th>Adresse Emplacement</th><th>Prix/semaine</th><th>Actions</th></tr>";
                 foreach ($emplacements as $emplacement) {
                     echo "
                                 <tr>
                                     <td>" . $emplacement['Nom_Emplacement'] . "</td>
-                                    <td>" . $dateDeb . "</td>
+                                    <td>" . $emplacement['Type'] . "</td>
                                     <td>" . $emplacement['adresseEmpl'] . "</td>
-                                    <td>" . $emplacement['anneeConstruction'] . "</td>
+                                    <td>" . $emplacement['Prix_Semaine'] . "</td>
                                     <td>
                                         <div class='row'>
                                             <div class='col-md-4'>
