@@ -119,10 +119,10 @@ function getHtmlType()
                         <fieldset>
                             <div class='row'>
                                 <div class='col-md-4'></div>
-                                <div class='col-md-4'>
+                                <div class='col-md-4'>  
                                     <div class='dropdown'>
-                                        <button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownTypes' data-bs-toggle='dropdown' aria-expanded='false'>Types</button>
-                                        <ul class='dropdown-menu' id='listType' aria-labelledby='dropdownTypes'>";
+                                        <button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton1' data-bs-toggle='dropdown' aria-expanded='false'>Types</button>
+                                        <ul class='dropdown-menu' id='listType' aria-labelledby='dropdownMenuButton1'>";
                                         $types = getTypes();
                                         foreach ($types as $type) {
                                             echo "<li><a class='dropdown-item' href='#'>" . $type['nomType'] . "</a></li>";
