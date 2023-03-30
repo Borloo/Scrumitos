@@ -60,6 +60,11 @@ if (!isset($_SESSION['USER'])) {
 				echo "checked='checked'";
 			}
 			echo "/> Recherche d'emplacements par période<BR/><BR/>";
+
+            if (isset($_POST['Afficher']) && isset($_POST['BR_choix']) && $_POST['BR_choix'] == "byYear") {
+                echo "checked='checked'";
+            }
+            echo "/> Recherche d'emplacements par années de construction<BR/><BR/>";
 			echo "<input type='radio' name='BR_choix' value='bySize' ";
 			if (isset($_POST['Afficher']) && isset($_POST['BR_choix']) && $_POST['BR_choix'] == "bySize") {
 				echo "checked='checked'";
@@ -77,6 +82,10 @@ if (!isset($_SESSION['USER'])) {
 					case "byType":
                         header('location: ConsultType.php?suppr=0&add=0');
 						break;
+
+                    case "byYear" :
+                        header("location : ../ConsultDate.php");
+                        break;
 
 					case "byPeriod":
 						$titre = "Emplacements par périodes";
