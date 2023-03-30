@@ -52,7 +52,6 @@ function getHtmlPeriode()
                         <h4></h4>
                     </div>
                     <div class='card-body'>";
-                        $dateDeb = strtotime($_POST['dateDeb']);
                         print_r($dateDeb);
                     echo "</div>
                 </div>
