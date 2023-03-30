@@ -36,7 +36,8 @@ if (!isset($_SESSION['USER'])) {
     include("./../../include/header.php");
     ?>
     <div class="wrapper">
-        <?php include("./../../include/menus.php"); ?>
+        <?php include("./../../include/menus.php");
+        require("../functions/EmpByTypes.php") ?>
         <section id="content">
             <div class="card">
                 <div class="card-headear">
@@ -67,6 +68,27 @@ if (!isset($_SESSION['USER'])) {
 			echo "<input type='submit' name='Afficher' value='Afficher'/><BR/><BR/>";
 			echo "</fieldset>";
 			echo "</form>";
+
+            // le formulaire a été soumis
+			if (isset($_POST['Afficher']) && isset($_POST['BR_choix'])) {
+				// echo $_POST['BR_choix'];	
+				//  on sélectionne les emplacements recherchés					
+				switch ($_POST['BR_choix']) {
+					case "byType":
+						$titre = "Emplacements par types";
+						getEmpByType();
+						break;
+
+					case "byPeriod":
+						$titre = "Emplacements par périodes";
+						
+						break;
+					case "bySize":
+						$titre = "Emplacements par taille";
+					
+						break;
+				}
+            }
                 
         ?>
         </section>
