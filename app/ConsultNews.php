@@ -62,11 +62,11 @@ include("../include/header.php");
                     $news = $reqnews->fetchAll();
 
                     foreach ($news as $new) {
-                        echo '<div class="card"><div class="card-body">';
+                        echo '<div class="row"></div><div class="col-6"></div><div class="card"><div class="card-body">';
                         echo '<h5 class="card-title">' . $new['titre'] . '</h5>';
                         echo '<h6 class="card-subtitle mb-2 text-muted">' . $new['date'] . '</h6>';
                         echo '<p class="card-text">' . $new['body'] . '</p>';
-                        echo "</div></div>";
+                        echo "</div></div></div></div>";
                     }
                     $reqnews->closeCursor();
 
