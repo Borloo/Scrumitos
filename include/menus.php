@@ -1,7 +1,7 @@
 <nav class="sidebar">
   <ul>
 	<li><a href="/app/ConsultNews.php">News</a></li>
-    <li><a href="/app/views/ConsultDate.php">Emplacements par année</a></li>
+    <li><a href="/app/ConsultDate.php">Emplacements par année</a></li>
 	<li><a href="/app/ConsultEmplacementPrix.php">Emplacement par prix</a></li>
     <li><a href="/app/ConsultEmpAvance.php">Consultation avancée des emplacements</a></li>
 <?php
