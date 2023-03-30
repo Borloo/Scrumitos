@@ -17,15 +17,18 @@ function getHtmlPeriode(){
                                         <div class='input-group mb-3'>
                                             <span class='input-group-text'>Date début</span>";
                                                 $dateDeb = new DateTime('now', new DateTimeZone('Europe/Berlin'));
-                                                $dateDeb = $dateDeb->format('Y-m-d');
+                                                $dateDeb = $dateDeb->format('Y-m-d H:i');
                                                 echo "<input class='form-control' name='dateDeb' type='datetime-local' value='" . $dateDeb . "'>";
                                         echo "</div>
                                     </div>
-                                    <div class='col-md-4'>";
+                                    <div class='col-md-4'>
+                                        <div class='input-group mb-3'>
+                                            <span class='input-group-text'>Date début</span>";
                                         $dateFin = new DateTime('next week', new DateTimeZone('Europe/Berlin'));
-                                        $dateFin = $dateFin->format('Y-m-d');
+                                        $dateFin = $dateFin->format('Y-m-d H:i');
                                         echo "<input class='form-control' name='dateFin' type='datetime-local' value='" . $dateFin . "'>";
                                     echo "</div>
+                                    </div>
                                     <div class='col-md-2'></div>
                                 </div>
                                 <div class='row'>
