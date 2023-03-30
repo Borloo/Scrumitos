@@ -2,7 +2,6 @@
   <ul>
 	<li><a href="/app/ConsultNews.php">News</a></li>
 	<li><a href="/app/ConsultEmplacementPrix.php">Emplacement par prix</a></li>
-    <li><a href="/app/ConsultEmpAvance.php">Consultation avancée des emplacements</a></li>
 <?php
 		// si l'admin ne s'est pas déja connecté alors on affiche le lien pour cela
 		if (!isset($_SESSION['USER'])) {
