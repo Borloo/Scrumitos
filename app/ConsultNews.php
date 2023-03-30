@@ -33,6 +33,11 @@ include("../include/header.php");
 
                 echo "<h1>les dernières news du camping</h1>";
                 echo "<BR/><BR/>";
+                ?>
+                <div class="d-flex justify-content-between">
+
+                <?php
+
 
 
                 try {
@@ -66,6 +71,7 @@ include("../include/header.php");
                 }
 
                 ?>
+                    </div>
             </div>
         </div>
     </section>
