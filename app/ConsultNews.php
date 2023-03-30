@@ -39,43 +39,41 @@ include("../include/header.php");
                 <div class="p-2 g-col-6">Grid item 3</div>
                 <div class="p-2 g-col-6">Grid item 4</div>
             </div>
-            <div class="d-flex justify-content-between">
 
-                <?php
+            <?php
 
 
-                try {
+            try {
 
-                    $sql = "SELECT titre, body, date FROM News order by date desc";
-                    $user = 'clmt';
-                    $pass = '130702';
-                    $conn = new PDO(
-                        'mysql:host=localhost;dbname=base_camping;charset=UTF8'
-                        ,
-                        $user,
-                        $pass,
-                        array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
-                    );
+                $sql = "SELECT titre, body, date FROM News order by date desc";
+                $user = 'clmt';
+                $pass = '130702';
+                $conn = new PDO(
+                    'mysql:host=localhost;dbname=base_camping;charset=UTF8'
+                    ,
+                    $user,
+                    $pass,
+                    array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
+                );
 
-                    $reqnews = $conn->prepare($sql);
-                    $reqnews->execute();
-                    $news = $reqnews->fetchAll();
+                $reqnews = $conn->prepare($sql);
+                $reqnews->execute();
+                $news = $reqnews->fetchAll();
 
-                    foreach ($news as $new) {
-                        echo '<div class="row"><div class="col-6"><div class="card"><div class="card-body">';
-                        echo '<h5 class="card-title">' . $new['titre'] . '</h5>';
-                        echo '<h6 class="card-subtitle mb-2 text-muted">' . $new['date'] . '</h6>';
-                        echo '<p class="card-text">' . $new['body'] . '</p>';
-                        echo "</div></div></div></div>";
-                    }
-                    $reqnews->closeCursor();
-
-                } catch (PDOException $e) {
-                    echo "Erreur : " . $e->getMessage();
+                foreach ($news as $new) {
+                    echo '<div class="row"><div class="col-6"><div class="card"><div class="card-body">';
+                    echo '<h5 class="card-title">' . $new['titre'] . '</h5>';
+                    echo '<h6 class="card-subtitle mb-2 text-muted">' . $new['date'] . '</h6>';
+                    echo '<p class="card-text">' . $new['body'] . '</p>';
+                    echo "</div></div></div></div>";
                 }
+                $reqnews->closeCursor();
 
-                ?>
-            </div>
+            } catch (PDOException $e) {
+                echo "Erreur : " . $e->getMessage();
+            }
+
+            ?>
         </div>
     </section>
 </div>
