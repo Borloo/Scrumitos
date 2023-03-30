@@ -65,8 +65,9 @@ include("../include/header.php");
                     echo '<h5 class="card-title">' . $new['titre'] . '</h5>';
                     echo '<h6 class="card-subtitle mb-2 text-muted">' . $new['date'] . '</h6>';
                     echo '<p class="card-text">' . $new['body'] . '</p>';
-                    echo "</div></div></div></div>";
+                    echo "</div></div></div>";
                 }
+                echo '</div>';
                 $reqnews->closeCursor();
 
             } catch (PDOException $e) {
