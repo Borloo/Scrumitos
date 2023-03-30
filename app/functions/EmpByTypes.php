@@ -1,6 +1,7 @@
 <?php
 function getEmpByType()
 {
+    require("../base/Functions.php");
     echo "
                             <form method='post'>
                                 <fieldset>
