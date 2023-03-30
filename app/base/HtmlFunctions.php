@@ -56,6 +56,7 @@ function getHtmlPeriode()
                     <div class='card-body'>";
             $emplacements = getEmplacementByPeriode($dateDeb, $dateFin);
             if (!empty($emplacements)) {
+                print_r(sizeof($emplacements));
                 echo "<div class='card-body'>
                                     <center><table>
                                         <caption> Emplacement du " . $dateDeb . " - " . $dateFin . "</caption>
