@@ -144,6 +144,17 @@ function getTypeByName(string $name)
     return null;
 }
 
+function getTypeById(int $id){
+    $conn = getBDConnexion();
+    $sql = "SELECT * FROM Type WHERE idType = :id":
+    $query = $conn->prepare($sql);
+    $query->execute(['id' => $id]);
+    if ($query->rowCount() == 1) {
+        return $query->fetch();
+    }
+    return null;
+}
+
 function getOneEmplacementById(int $id)
 {
     $conn = getBDConnexion();
