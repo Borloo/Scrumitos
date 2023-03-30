@@ -60,12 +60,12 @@ ini_set('display_errors', 'on');
                 echo "checked='checked'";
             }
             echo "/> Recherche d'emplacements par années de construction<BR/><BR/>";
-			echo "<input type='radio' name='BR_choix' value='bySize' ";
+			echo "<input type='radio' name='BR_choix' value='byPrice' ";
 			if (isset($_POST['Afficher']) && isset($_POST['BR_choix']) && $_POST['BR_choix'] == "bySize") {
 				echo "checked='checked'";
 			}
             echo "/> Recherche d'emplacements par prix<BR/><BR/>";
-            echo "<input type='radio' name='BR_choix' value='byPrice' ";
+            echo "<input type='radio' name='BR_choix' value='bySize' ";
             if (isset($_POST['Afficher']) && isset($_POST['BR_choix']) && $_POST['BR_choix'] == "byPrice") {
                 echo "checked='checked'";
             }
