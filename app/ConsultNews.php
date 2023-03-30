@@ -59,7 +59,7 @@ include("../include/header.php");
                 $reqnews = $conn->prepare($sql);
                 $reqnews->execute();
                 $news = $reqnews->fetchAll();
-                echo '<div class="row">';
+                echo '<div class="row mb-4">';
                 foreach ($news as $new) {
                     echo '<div class="col-6"><div class="card"><div class="card-body">';
                     echo '<h5 class="card-title">' . $new['titre'] . '</h5>';
