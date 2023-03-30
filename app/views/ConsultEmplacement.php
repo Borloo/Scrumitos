@@ -50,8 +50,8 @@ ini_set('display_errors', 'on');
 				echo "checked='checked'";
 			}
 			echo "/> Recherche d'emplacements par type<BR/><BR/>";
-			echo "<input type='radio' name='BR_choix' value='byPeriod' ";
-			if (isset($_POST['Afficher']) && isset($_POST['BR_choix']) && $_POST['BR_choix'] == "byPeriod") {
+			echo "<input type='radio' name='BR_choix' value='byType' ";
+			if (isset($_POST['Afficher']) && isset($_POST['BR_choix']) && $_POST['BR_choix'] == "byType") {
 				echo "checked='checked'";
 			}
 			echo "/> Recherche d'emplacements par période<BR/><BR/>";
