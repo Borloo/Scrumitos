@@ -77,16 +77,16 @@ function getHtmlAnnee()
             switch ($_POST['checkbox']) {
                 case 'moins2000':
                     $titre = 'Avant 2000';
-                    $emplacements = getEmplacementByAnnee('1990', '1999');
+                    $emplacements = getEmplacementByAnnee(1990, 1999);
                     break;
                 case 'moins2010' :
                     $titre = 'Avant 2010';
-                    $emplacements = getEmplacementByAnnee('2000', '2009');
+                    $emplacements = getEmplacementByAnnee(2000, 2009);
                     break;
                 case 'plus2010' :
                     $titre = 'Après 2010';
                     $dateFin = new DateTime('now', new DateTimeZone('Europe/Berlin'));
-                    $emplacements = getEmplacementByAnnee('2010', $dateFin->format('Y'));
+                    $emplacements = getEmplacementByAnnee(2010, (int)$dateFin->format('Y'));
                     break;
                 default:
                     $titre = "??";
