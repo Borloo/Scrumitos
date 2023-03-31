@@ -14,7 +14,7 @@ function getBDConnexion(): PDO
     return $conn;
 }
 
-function getEmplacementByAnnee(int $dateDeb, int $dateFin){
+function getEmplacementByAnnee(string $dateDeb, string $dateFin){
     print_r($dateDeb);
     print_r($dateFin);
     $conn = getBDConnexion();
