@@ -26,7 +26,7 @@ require('./../base/HtmlFunctions.php');
             $emplacements = getAllEmplacements();
             if (!empty($emplacements)) {
                 foreach ($emplacements as $emplacement) {
-                   $sonType = getTypeById($emplacement['id']);
+                   $sonType = getTypeById($emplacement['idType']);
 
                     echo "
                                 <tr>
