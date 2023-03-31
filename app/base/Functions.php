@@ -19,8 +19,8 @@ function getEmplacementByAnnee(int $dateDeb, int $dateFin){
     print_r($dateFin);
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Emplacement 
-         WHERE anneeConstruction <= :dateDeb
-         AND anneeConstruction >= :dateFin";
+         WHERE anneeConstruction >= :dateDeb
+         AND anneeConstruction <= :dateFin";
     $query = $conn->prepare($sql);
     $query->execute([
         'dateDeb' => $dateDeb,
