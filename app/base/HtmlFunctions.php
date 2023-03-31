@@ -11,16 +11,22 @@ function getHtmlPrix(){
             </div>
             <div class='card-body'>
                 <div class='row'>
-                    <div class='col-md-3'></div>
+                    <div class='col-md-2'></div>
+                    <div class='col-md-1'>
+                        <p>0</p>
+                    </div>
                     <div class='col-md-6'>
                         <input type='range' name='range' class='form-range' min='0' max='" . $maxSem . "'>
                     </div>
-                    <div class='col-md-3'></div>
+                    <div class='col-md-1'>
+                        <p>" . $maxSem . "</p>
+                    </div>
+                    <div class='col-md-2'></div>
                 </div>
                 <div class='row'>
                     <div class='col-md-5'></div>
                     <div class='col-md-2'>
-                        0<input class='btn btn-secondary' type='submit' name='submit' value='Afficher'>" . $maxSem . "
+                        <input class='btn btn-secondary' type='submit' name='submit' value='Afficher'>
                     </div>
                     <div class='col-md-5'></div>
                 </div>
