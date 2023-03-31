@@ -14,21 +14,6 @@ function getBDConnexion(): PDO
     return $conn;
 }
 
-function getLowerYearConstructionEmplacement(): int{
-    $conn = getBDConnexion();
-    $sql = "SELECT * FROM Emplacement";
-    $query = $conn->prepare($sql);
-    $query->execute();
-    $results = $query->fetchAll();
-    $year = 2023;
-    foreach ($results as $result){
-        if ($result['anneeConstruction'] < $year){
-            $year = $result['anneeConstruction'];
-        }
-    }
-    return $year;
-}
-
 function getEmplacementByPeriode(string $dateDeb, string $dateFin): array
 {
     $conn = getBDConnexion();

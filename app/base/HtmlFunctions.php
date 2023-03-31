@@ -10,9 +10,65 @@ function getHtmlAnnee()
                 <h1>Année de construction</h1>
             </div>
             <div class='card-body'>
-                <form method='post'>";
-                    echo getLowerYearConstructionEmplacement();
-                echo "</form>
+                <form method='post'>    
+                    <fieldset>
+                        <div class='row'>
+                            <div class='col-md-3'></div>
+                            <div class='col-md-6'>
+                                <div class='form-check'>
+                                    <input class='form-check-input' name='checkbox' type='checkbox' value='moins2000' id='flexCheckDefault'";
+                                    if (isset($_POST['submit']) && isset($_POST['checkbox']) && $_POST['checkbox'] == 'moins2000'){
+                                        echo "checked";
+                                    }
+                                    echo ">
+                                    <label class='form-check-label' for='flexCheckDefault'>
+                                    Date de construction/rénovation antérieure à 2000
+                                    </label>
+                                </div>
+                            </div>
+                            <div class='col-md-3'></div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-md-3'></div>
+                            <div class='col-md-6'>
+                                <div class='form-check'>
+                                    <input class='form-check-input' name='checkbox' type='checkbox' value='moins2010' id='flexCheckDefault'";
+                                    if (isset($_POST['submit']) && isset($_POST['checkbox']) && $_POST['checkbox'] == 'moins2010'){
+                                        echo "checked";
+                                    }
+                                    echo ">
+                                    <label class='form-check-label' for='flexCheckDefault'>
+                                    Date de construction/rénovation entre 2000 et 2009
+                                    </label>
+                                </div>
+                            </div>
+                            <div class='col-md-3'></div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-md-3'></div>
+                            <div class='col-md-6'>
+                                <div class='form-check'>
+                                    <input class='form-check-input' name='checkbox' type='checkbox' value='plus2010' id='flexCheckDefault'";
+                                    if (isset($_POST['submit']) && isset($_POST['checkbox']) && $_POST['checkbox'] == 'plus2010'){
+                                        echo "checked";
+                                    }
+                                    echo ">
+                                    <label class='form-check-label' for='flexCheckDefault'>
+                                    Date de construction/rénovation postérieure ou égale à 2010
+                                    </label>
+                                </div>
+                            </div>
+                            <div class='col-md-3'></div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-md-5'></div>
+                            <div class='col-md-2'>
+                                <input class='btn btn-secondary' type='submit' name='submit' value='Afficher'>
+                            </div>
+                            <div class='col-md-5'></div>
+                        </div>
+                    </fieldset>
+                </form>
             </div>
         </div>
     ";
