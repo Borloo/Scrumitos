@@ -118,8 +118,8 @@ function getHtmlType()
                     <form method='post'>
                         <fieldset>
                             <div class='row'>
-                                <div class='col-md-4'></div>
-                                <div class='col-md-4'>  
+                                <div class='col-md-5'></div>
+                                <div class='col-md-2'>  
                                     <select name='listType'>";
     $types = getTypes();
     foreach ($types as $type) {
@@ -128,7 +128,7 @@ function getHtmlType()
     echo "
                                     </select>
                                 </div>
-                                <div class='col-md-4'></div>
+                                <div class='col-md-5'></div>
                             </div>
                             <div class='row'>
                                 <div class='col-md-2'></div>
