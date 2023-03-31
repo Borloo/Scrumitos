@@ -44,10 +44,7 @@ if (!isset($_SESSION['USER'])) {
 
                 <?php
                 if ($_POST) {
-                    echo "Le titre de la news est: ", $_POST['newsName'], "<br>";
-                    echo "La date est: ", $_POST['newsDate'], "<br>";
-                    echo "Son contenu est: ", $_POST['newsContent'], "<br>";
-
+                    
                     try {
 
                         $sql = "SELECT titre, body, date FROM News order by id desc";
