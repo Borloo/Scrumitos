@@ -46,6 +46,32 @@ ini_set('display_errors', 'on');
 <div class="wrapper">
     <?php include("./../../include/menus.php");?>
     <section id="content">
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <?php
+                    if (isset($_SESSION['USER'])){
+                        echo "
+                        <div class='col-md-3'></div>
+                        <div class='col-md-4'>
+                            <h1>News du camping</h1>
+                        </div>
+                        <div class='col-md-2'></div>
+                        <div class='col-md-2'>
+                            <a href='ConsultNews.php?id=-1'><input class='btn btn-success' id='ajouter' type='button' value='Ajouter'></a>
+                        </div>
+                        <div class='col-md-1'></div>
+                        ";
+                    }else{
+                        echo "<h1>News du camping</h1>";
+                    }
+                    ?>
+                </div>
+            </div>
+            <div class="card-body">
+
+            </div>
+        </div>
         <div class="container">
             <?php
             /********************
