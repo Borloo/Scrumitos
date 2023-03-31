@@ -57,7 +57,7 @@ include("../include/header.php");
                 foreach ($news as $new) {
                     echo '<div class="col-6 mb-4"><div class="card"><div class="card-body">';
                     echo '<h5 class="card-title">' . $new['titre'] . '</h5>';
-                    echo '<h6 class="card-subtitle mb-2 text-muted">' . date_format($new['date'], 'd-m-Y') . '</h6>';
+                    echo '<h6 class="card-subtitle mb-2 text-muted">' . date_format(date($new['date']), 'd-m-Y') . '</h6>';
                     echo '<p class="card-text">' . $new['body'] . '</p>';
                     echo "</div></div></div>";
                 }
