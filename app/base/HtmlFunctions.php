@@ -13,13 +13,13 @@ function getHtmlPrix(){
                 <div class='row'>
                     <div class='col-md-2'></div>
                     <div class='col-md-1'>
-                        <p>0</p>
+                        <p>0€</p>
                     </div>
                     <div class='col-md-6'>
                         <input type='range' name='range' class='form-range' min='0' max='" . $maxSem . "'>
                     </div>
                     <div class='col-md-1'>
-                        <p>" . $maxSem . "</p>
+                        <p>" . $maxSem . "€</p>
                     </div>
                     <div class='col-md-2'></div>
                 </div>
@@ -35,7 +35,8 @@ function getHtmlPrix(){
     ";
     if (isset($_POST['submit'])){
         if (isset($_POST['range'])){
-            echo $_POST['range'];
+            echo "test";
+            print_r($_POST['range']);
         }
     }
 }
