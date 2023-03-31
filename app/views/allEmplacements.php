@@ -53,7 +53,8 @@ require('./../base/HtmlFunctions.php');
                                     <td>" . $emplacement['adresseEmpl'] . "</td>
                                     <td>" . $emplacement['anneeConstruction'] . "</td>
                                     <td>
-                                      <img src='../../$listimg[$compteur]'>
+                                    <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=0'>
+                                      <img src='../../$listimg[$compteur]'></a>
                                     </td>
                                 </tr>";
                         $compteur += 1;
