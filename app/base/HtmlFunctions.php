@@ -26,6 +26,11 @@ function getHtmlListNews(){
         }
         $i = 1;
         foreach ($news as $new){
+            $body = $new['body'];
+            if (strlen($body) > 100){
+                $body = substr($body, 0, 100);
+                $body .= "(...)";
+            }
             if ($i == 1){
                 echo "<div class='row'>";
             }
@@ -37,7 +42,7 @@ function getHtmlListNews(){
                 </div>
                 <div class='card-body'>
                     <p>" . $new['date'] . "</p>
-                    <p class='card-text'>" . $new['body'] . "</p>";
+                    <p class='card-text'>" . $body . "</p>";
                     if (isset($_SESSION['USER'])){
                         echo "<a href='./../views/ConsultNews.php?id=" . $new['id'] . "' class='btn btn-primary'>Go somewhere</a>";
                     }
