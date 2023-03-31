@@ -4,6 +4,7 @@ require('Functions.php');
 
 function getHtmlPrix(){
     $maxSem = getMaxPrixSemaineEmplacement();
+    $minSem = getMinPrixSemaineEmplacement();
     echo "
         <div class='card'>
             <div class='card-header'>
@@ -15,14 +16,14 @@ function getHtmlPrix(){
                         <div class='row'>
                             <div class='col-md-2'></div>
                             <div class='col-md-1'>
-                                <p>0€</p>
+                                <p>" . $minSem . "€</p>
                             </div>
                             <div class='col-md-6'>
                                 <input type='range'";
                                 if (isset($_POST['range'])){
                                     echo " value='" . $_POST['range'] . "'";
                                 }
-                                echo " name='range' class='form-range' min='0' max='" . $maxSem . "'>
+                                echo " name='range' class='form-range' min='" . $minSem . "' max='" . $maxSem . "'>
                             </div>
                             <div class='col-md-1'>
                                 <p>" . $maxSem . "€</p>
@@ -46,7 +47,7 @@ function getHtmlPrix(){
             echo "
                     <div class='card'>
                         <div class='card-header'>
-                            <h4>0€ - " . $_POST['range'] . "€</h4>
+                            <h4>" . $minSem . "€ - " . $_POST['range'] . "€</h4>
                         </div>
                         <div class='card-body'>";
             $emplacements = getEmplacementByPrice((int)$_POST['range']);
@@ -353,7 +354,7 @@ function getHtmlEmplacementTable(array $emplacements)
                                     <td>" . $emplacement['Nom_Emplacement'] . "</td>
                                     <td>" . $type['nomType'] . "</td>
                                     <td>" . $emplacement['adresseEmpl'] . "</td>
-                                    <td>" . $emplacement['Prix_Semaine'] . "</td>
+                                    <td>" . $emplacement['Prix_Semaine'] . "€</td>
                                     <td>
                                         <div class='row'>
                                             <div class='col-md-4'>

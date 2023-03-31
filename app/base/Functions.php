@@ -22,6 +22,21 @@ function getEmplacementByPrice(int $price){
     return $query->fetchAll();
 }
 
+function getMinPrixSemaineEmplacement(){
+    $conn = getBDConnexion();
+    $sql = "SELECT * FROM Emplacement";
+    $query = $conn->prepare($sql);
+    $query->execute();
+    $resultats = $query->fetchAll();
+    $price = getMaxPrixSemaineEmplacement();
+    foreach ($resultats as $resultat){
+        if ($resultat['Prix_Semaine'] < $price){
+            $price = $resultat['Prix_Semaine'];
+        }
+    }
+    return $price;
+}
+
 function getMaxPrixSemaineEmplacement(){
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Emplacement";
