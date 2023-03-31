@@ -132,6 +132,8 @@ function getHtmlPrix()
                 if (isset($_SESSION['USER'])) {
                     echo "<th scope='col'>Actions</th>";
                 }
+
+
                 echo "</tr>";
                 getHtmlEmplacementTable($emplacements, 'price');
                 echo "</table>
@@ -358,7 +360,7 @@ function getHtmlType()
                             <div class='row'>
                                 <div class='col-md-5'></div>
                                 <div class='col-md-2'>  
-                                    <select name='listType'>";
+                                    <select name='listType' class='form-select'>";
     $typesTemp = getTypes();
     $types = [];
     foreach ($typesTemp as $type) {
