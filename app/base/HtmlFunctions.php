@@ -28,8 +28,8 @@ function getHtmlListNews(){
         foreach ($news as $new){
             if ($i == 1){
                 echo "<div class='row'>";
-                echo $col;
             }
+            echo $col;
             echo "
             <div class='card'>
                 <div class='card-header'>
@@ -42,6 +42,7 @@ function getHtmlListNews(){
                 </div>
             </div>
             ";
+            echo "</div>";
             if ($i == $limit){
                 $i = 1;
                 echo "</div></div>";
