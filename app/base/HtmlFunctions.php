@@ -21,10 +21,10 @@ function getHtmlTaille()
                     <form method='post'>
                         <fieldset>
                             <input type='range'";
-                            if (isset($_POST['range'])) {
-                                echo " value='" . $_POST['range'] . "'";
-                            }
-                            echo " name='range' class='form-range' min='" . $sizeMin . "' max='" . $sizeMax . "'>
+    if (isset($_POST['range'])) {
+        echo " value='" . $_POST['range'] . "'";
+    }
+    echo " name='range' class='form-range' min='" . $sizeMin . "' max='" . $sizeMax . "'>
                         </fieldset>
                     </form>
                 </div>
@@ -48,7 +48,7 @@ function getHtmlTaille()
             echo "
                     <div class='card'>
                         <div class='card-header'>
-                            <h4>" .  $_POST['range'] . "m²</h4>
+                            <h4>" . $_POST['range'] . "m²</h4>
                         </div>
                         <div class='card-body'>";
             $emplacements = getEmplacementBySize((int)$_POST['range']);
@@ -319,12 +319,15 @@ function getHtmlPeriode()
                     <div class='card-body'>";
             $emplacements = getEmplacementByPeriode($dateDeb, $dateFin);
             if (!empty($emplacements)) {
-                echo "
-                                    <center><table class='table'>
-                                        <caption> Emplacement du " . $dateDeb . " - " . $dateFin . "</caption>
-                                        <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Prix/semaine</th><th scope='col'>Actions</th></tr>";
+                echo "<table class='table'>
+                        <caption> Emplacement du " . $dateDeb . " - " . $dateFin . "</caption>
+                        <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Prix/semaine</th>";
+                if (isset($_SESSION['USER'])) {
+                    echo "<th scope='col'>Actions</th>";
+                }
+                echo "</tr>";
                 getHtmlEmplacementTable($emplacements, 'date');
-                echo "</table></center>";
+                echo "</table>";
             } else {
                 echo "<p>Aucun résultat</p>";
             }
@@ -431,7 +434,7 @@ function getHtmlType()
 
 function getHtmlEmplacementTable(array $emplacements, string $specify = '')
 {
-    switch ($specify){
+    switch ($specify) {
         case 'size':
             $specify = 'Taille';
             $suffix = 'm²';
