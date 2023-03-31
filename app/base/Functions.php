@@ -16,6 +16,8 @@ function getBDConnexion(): PDO
 
 function getEmplacementByPeriode(string $dateDeb, string $dateFin): array
 {
+    print_r($dateDeb);
+    print_r($dateFin);
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Emplacement 
          WHERE Periode_Dispo_Debut <= :dateDeb
