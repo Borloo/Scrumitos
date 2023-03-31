@@ -24,8 +24,7 @@ include("./../include/headfile.php");
     <section id="content">
         <div class="card">
             <div class="card-body">
-                <h1>Consulter les emplacements par prix</h1>;
-
+                <h1>Consulter les emplacements par prix</h1>
                 <table class="table table-striped">
                     <thead>
                     <tr>
