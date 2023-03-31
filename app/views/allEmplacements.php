@@ -16,8 +16,14 @@ require('./../base/HtmlFunctions.php');
 <div class="wrapper">
     <?php
     include("./../../include/menus.php");
-    getAllEmplacements();
     ?>
+    <section id="content">
+        <div class="card">
+            <?php
+            getAllEmplacements();
+            ?>
+        </div>
+    </section>
 </div>
 <?php include("./../../include/footer.php"); ?>
 </body>
