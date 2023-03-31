@@ -121,8 +121,16 @@ function getHtmlType()
                                 <div class='col-md-5'></div>
                                 <div class='col-md-2'>  
                                     <select name='listType'>";
-    $types = getTypes();
-    foreach ($types as $type) {
+    $typesTemp = getTypes();
+    $types = [];
+    foreach ($typesTemp as $type) {
+        if ($type['idType'] == $_POST['listType']){
+            echo "<option value='" . $type['idType'] . "'>" . $type['nomType'] . "</option>";
+        }else{
+            array_push($types, $type);
+        }
+    }
+    foreach ($types as $type){
         echo "<option value='" . $type['idType'] . "'>" . $type['nomType'] . "</option>";
     }
     echo "
