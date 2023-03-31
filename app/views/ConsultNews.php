@@ -9,7 +9,7 @@ ini_set('display_errors', 'on');
 
 <head>
     <meta charset="utf-8"/>
-    <link rel="stylesheet" href="../include/styles.css"/>
+    <link rel="stylesheet" href="../../include/styles.css"/>
     <title>Les News</title>
     <?php
     include("../include/headfile.php");
