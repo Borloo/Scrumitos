@@ -22,8 +22,8 @@ ini_set('display_errors', 'on');
         <section id="content">
             <div class="card">
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-4"></div>
+                    <div class="row justify-content-center">
+
                         <div class="col-md-4">
                             <?php
                             require_once("./base/Functions.php");
