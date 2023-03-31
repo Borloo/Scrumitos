@@ -48,7 +48,7 @@ ini_set('display_errors', 'on');
         <?php include("./../../include/menus.php");?>
         <section id="content">
             <div class="card">
-                <form>
+                <form method="post">
                     <fieldset>
                         <?php
 
