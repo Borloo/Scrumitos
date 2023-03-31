@@ -6,6 +6,8 @@ function getHtmlListNews(){
     $news = getNews();
     if (!empty($news)){
         $size = sizeof($news) + 1;
+        print_r($size);
+        print_r($news);
         $params = [
             '3' => $size % 3,
             '2' => $size % 2
