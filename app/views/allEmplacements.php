@@ -40,17 +40,16 @@ require('./../base/HtmlFunctions.php');
                 if (!empty($emplacements)) {
                     foreach ($emplacements as $emplacement) {
                         $listType = getTypeById($emplacement['idType']);
-                        ?>
+                        echo "
                                 <tr>
-                                    <td><?php  $emplacement['Nom_Emplacement'] ?></td>
-                                    <td><?php $listType['nomType'] ?></td>
-                                    <td><?php $emplacement['adresseEmpl'] ?></td>
-                                    <td><?php $emplacement['anneeConstruction'] ?></td>
+                                    <td>" . $emplacement['Nom_Emplacement'] . "</td>
+                                    <td>" . $listType['nomType'] . "</td>
+                                    <td>" . $emplacement['adresseEmpl'] . "</td>
+                                    <td>" . $emplacement['anneeConstruction'] . "</td>
                                     <td>
-                                      <img src="../../<?php $listimg[$compteur]?>">
+                                      <img src='../../' . $listimg[$compteur] . ''';
                                     </td>
-                                </tr>
-                <?php
+                                </tr>";
                         $compteur+= $compteur;
                     }
                 }
