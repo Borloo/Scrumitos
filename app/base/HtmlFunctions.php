@@ -4,6 +4,8 @@ require('Functions.php');
 
 function getHtmlTaille()
 {
+    $sizeMin = getMinTailleEmplacement();
+    $sizeMax = getMaxTailleEmplacement();
     echo "
         <div class='card'>
             <div class='card-header'>
@@ -20,17 +22,17 @@ function getHtmlTaille()
                                 <div class='row'>
                             <div class='col-md-2'></div>
                             <div class='col-md-1'>
-                                <p>" . "" . "€</p>
+                                <p>" . $sizeMin . "/p>
                             </div>
                             <div class='col-md-6'>
                                 <input type='range'";
-    if (isset($_POST['range'])) {
-        echo " value='" . $_POST['range'] . "'";
-    }
-    echo " name='range' class='form-range' min='" . "" . "' max='" . "" . "'>
+                                if (isset($_POST['range'])) {
+                                    echo " value='" . $_POST['range'] . "'";
+                                }
+                                echo " name='range' class='form-range' min='" . $sizeMin . "' max='" . $sizeMax . "'>
                             </div>
                             <div class='col-md-1'>
-                                <p>" . "" . "€</p>
+                                <p>" . $sizeMax . "</p>
                             </div>
                             <div class='col-md-2'></div>
                         </div>
@@ -47,6 +49,35 @@ function getHtmlTaille()
                 <form>
             </div>
         </div>";
+    if (isset($_POST['submit'])) {
+        if (isset($_POST['range'])) {
+            echo "
+                    <div class='card'>
+                        <div class='card-header'>
+                            <h4>" .  $_POST['range'] . "</h4>
+                        </div>
+                        <div class='card-body'>";
+            $emplacements = getEmplacementBySize((int)$_POST['range']);
+            if (!empty($emplacements)) {
+                echo "
+                            <center>
+                                <table>
+                                    <tr><th>Nom de l'emplacement</th><th>Type de l'emplacement</th><th>Adresse Emplacement</th><th>Prix/semaine</th>";
+                if (isset($_SESSION['USER'])) {
+                    echo "<th>Actions</th>";
+                }
+                echo "</tr>";
+                getHtmlEmplacementTable($emplacements);
+                echo "</table>
+                            </center>";
+            } else {
+                echo "<p>Aucun résultat</p>";
+            }
+            echo "</div>
+                </div>
+            ";
+        }
+    }
 }
 
 function getHtmlPrix()

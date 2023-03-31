@@ -14,18 +14,42 @@ function getBDConnexion(): PDO
     return $conn;
 }
 
+function getEmplacementBySize(int $size){
+    $conn = getBDConnexion();
+    $sql = "SELECT * FROM Emplacement WHERE Taille <= :size";
+    $query = $conn->prepare($sql);
+    $query->execute(['size' => $size]);
+    return $query->fetchAll();
+}
+
+function getMinTailleEmplacement(){
+    $conn = getBDConnexion();
+    $sql = "SELECT * FROM Emplacement";
+    $query = $conn->prepare($sql);
+    $query->execute();
+    $resultats = $query->fetchAll();
+    $size = 0;
+    foreach ($resultats as $resultat){
+        if ($resultat['Taille'] < $size){
+            $size = $resultat['Taille'];
+        }
+    }
+    return $size;
+}
+
 function getMaxTailleEmplacement(){
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Emplacement";
     $query = $conn->prepare($sql);
     $query->execute();
     $resultats = $query->fetchAll();
-    $taille = 0;
+    $size = getMinTailleEmplacement();
     foreach ($resultats as $resultat){
-        if ($resultat['Taille'] > $taille){
-
+        if ($resultat['Taille'] > $size){
+            $size = $resultat['Taille'];
         }
     }
+    return $size;
 }
 
 function getEmplacementByPrice(int $price){
