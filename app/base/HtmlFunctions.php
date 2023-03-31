@@ -13,11 +13,11 @@ function getHtmlListNews(){
         switch ($params){
             case $params['3'] == 1:
                 $limit = 3;
-                $col = "<div class='col-md-4>";
+                $col = "<div class='col-md-4'>";
                 break;
             case $params['2'] == 1:
                 $limit = 2;
-                $col = "<div class='col-md-6>";
+                $col = "<div class='col-md-6'>";
                 break;
             default:
                 $limit = 1;
