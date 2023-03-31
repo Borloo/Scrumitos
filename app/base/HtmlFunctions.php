@@ -2,7 +2,8 @@
 
 require('Functions.php');
 
-function getHtmlPrix(){
+function getHtmlPrix()
+{
     $maxSem = getMaxPrixSemaineEmplacement();
     $minSem = getMinPrixSemaineEmplacement();
     echo "
@@ -20,10 +21,10 @@ function getHtmlPrix(){
                             </div>
                             <div class='col-md-6'>
                                 <input type='range'";
-                                if (isset($_POST['range'])){
-                                    echo " value='" . $_POST['range'] . "'";
-                                }
-                                echo " name='range' class='form-range' min='" . $minSem . "' max='" . $maxSem . "'>
+    if (isset($_POST['range'])) {
+        echo " value='" . $_POST['range'] . "'";
+    }
+    echo " name='range' class='form-range' min='" . $minSem . "' max='" . $maxSem . "'>
                             </div>
                             <div class='col-md-1'>
                                 <p>" . $maxSem . "€</p>
@@ -42,8 +43,8 @@ function getHtmlPrix(){
             </div>
         </div>
     ";
-    if (isset($_POST['submit'])){
-        if (isset($_POST['range'])){
+    if (isset($_POST['submit'])) {
+        if (isset($_POST['range'])) {
             echo "
                     <div class='card'>
                         <div class='card-header'>
@@ -167,7 +168,11 @@ function getHtmlAnnee()
                 echo "
                             <center>
                                 <table>
-                                    <tr><th>Nom de l'emplacement</th><th>Type de l'emplacement</th><th>Adresse Emplacement</th><th>Prix/semaine</th><th>Actions</th></tr>";
+                                    <tr><th>Nom de l'emplacement</th><th>Type de l'emplacement</th><th>Adresse Emplacement</th><th>Prix/semaine</th>";
+                if (isset($_SESSION['USER'])) {
+                    echo " <th>Actions</th>";
+                }
+                echo "</tr>";
                 getHtmlEmplacementTable($emplacements);
                 echo "</table>
                             </center>";
@@ -358,7 +363,7 @@ function getHtmlEmplacementTable(array $emplacements)
                                     <td>" . $emplacement['Prix_Semaine'] . "€</td>
                                     <td>" . $emplacement['Prix_Semaine'] . "</td>";
         if (isset($_SESSION['USER'])) {
-            echo"
+            echo "
                                     <td>
                                         <div class='row'>
                                             <div class='col-md-4'>
