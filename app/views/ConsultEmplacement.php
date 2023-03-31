@@ -41,7 +41,7 @@ ini_set('display_errors', 'on');
     <?php include("./../../include/menus.php"); ?>
     <section id="content">
         <div class="card">
-            <div class="card-headear">
+            <div class="card-header">
                 <h1>Recherche d'emplacements par :</h1>
             </div>
             <div class="card-body">
