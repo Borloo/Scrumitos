@@ -45,6 +45,8 @@ function getHtmlListNews(){
             if ($i == $limit){
                 $i = 1;
                 echo "</div></div></div>";
+            }else{
+                $i++;
             }
         }
     }else{
