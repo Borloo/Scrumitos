@@ -31,13 +31,13 @@ if (!isset($_SESSION['USER'])) {
 
                 <form action="addNews.php" method="post">
                     <label for="title">Titre :</label>
-                    <input type="text" id="title" name="newsName" autocomplete="off" class="form-control"/>
+                    <input type="text" id="title" name="newsName" autocomplete="off" class="form-control mb-4"/>
 
                     <label for="newsContent">Contenu :</label>
-                    <textarea id="newsContent" name="newsContent" autocomplete="off" class="form-control"></textarea>
+                    <textarea id="newsContent" name="newsContent" autocomplete="off" class="form-control mb-4"></textarea>
 
                     <label for="date_news">Date</label>
-                    <input type="date" id="date_news" name="newsDate" class="form-control"/>
+                    <input type="date" id="date_news" name="newsDate" class="form-control mb-4"/>
 
                     <input type="submit" value="Envoyer" class="btn btn-primary"/>
                 </form>
