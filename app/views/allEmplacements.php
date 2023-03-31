@@ -22,12 +22,22 @@ require('./../base/HtmlFunctions.php');
             <div class="card-header">
                 <h1>Nos emplacements :</h1>
             </div>
-            <?php
-            $emplacements = getAllEmplacements();
-            if (!empty($emplacements)) {
-                foreach ($emplacements as $emplacement) {
-                    $listType = getTypeById($emplacement['idType']);
-                    echo "
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <td>Nom</td>
+                    <td>Taille</td>
+                    <td>Nombre de personnes max</td>
+                    <td>Prix /semaine</td>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+                $emplacements = getAllEmplacements();
+                if (!empty($emplacements)) {
+                    foreach ($emplacements as $emplacement) {
+                        $listType = getTypeById($emplacement['idType']);
+                        echo "
                                 <tr>
                                     <td>" . $emplacement['Nom_Emplacement'] . "</td>
                                     <td>" . $listType['nomType'] . "</td>
@@ -37,9 +47,11 @@ require('./../base/HtmlFunctions.php');
                                        img ici
                                     </td>
                                 </tr>";
+                    }
                 }
-            }
-            ?>
+                ?>
+                </tbody>
+            </table>
         </div>
     </section>
 </div>
