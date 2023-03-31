@@ -66,7 +66,7 @@ ini_set('display_errors', 'on');
                                         <div class='input-group mb-3'>
                                             <span class='input-group-text' id='basic-addon1'>Titre</span>
                                             <input class='form-control' name='titre' type='text' value='" . $new['titre'] . "'";
-                                            if ($_GET['edit'] == 1){
+                                            if ($_GET['edit'] == 0){
                                                 echo "readonly";
                                             }
                                             echo ">
@@ -76,7 +76,7 @@ ini_set('display_errors', 'on');
                                         <div class='input-group mb-3'>
                                             <span class='input-group-text' id='basic-addon1'>Contenu</span>
                                             <input class='form-control' name='body' type='text' value='" . $new['body'] . "'";
-                                            if ($_GET['edit'] == 1){
+                                            if ($_GET['edit'] == 0){
                                                 echo "readonly";
                                             }
                                             echo ">
@@ -86,7 +86,7 @@ ini_set('display_errors', 'on');
                                         <div class='input-group mb-3'>
                                             <span class='input-group-text' id='basic-addon1'>Contenu</span>
                                             <input class='form-control' name='date' type='date' value='" . $new['date'] . "'";
-                                            if ($_GET['edit'] == 1){
+                                            if ($_GET['edit'] == 0){
                                                 echo "readonly";
                                             }
                                             echo ">
