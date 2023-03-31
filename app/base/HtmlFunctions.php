@@ -12,6 +12,8 @@ function getHtmlListNews(){
             '3' => $size % 3,
             '2' => $size % 2
         ];
+        echo "\n";
+        print_r($params);
         switch ($params){
             case $params['3'] == 0:
                 $limit = 3;
