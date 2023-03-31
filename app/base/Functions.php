@@ -178,6 +178,17 @@ function getEmplacementById(int $id, bool $onlyQb = false)
     }
     return $query->fetchAll();
 }
+function getAllEmplacements(int $id, bool $onlyQb = false)
+{
+    $conn = getBDConnexion();
+    $sql = "SELECT * FROM Emplacement";
+    $query = $conn->prepare($sql);
+    $query->execute();
+    if ($onlyQb) {
+        return $query;
+    }
+    return $query->fetchAll();
+}
 
 function getTypes(): array
 {

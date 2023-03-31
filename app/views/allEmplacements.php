@@ -16,7 +16,7 @@ require('./../base/HtmlFunctions.php');
 <div class="wrapper">
     <?php
     include("./../../include/menus.php");
-    getHtmlPeriode();
+    getAllEmplacements();
     ?>
 </div>
 <?php include("./../../include/footer.php"); ?>
