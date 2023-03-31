@@ -47,7 +47,7 @@ require('./../base/HtmlFunctions.php');
                                     <td>" . $emplacement['adresseEmpl'] . "</td>
                                     <td>" . $emplacement['anneeConstruction'] . "</td>
                                     <td>
-                                      <img src='../../' . $listimg[$compteur] . ''';
+                                      <img src='../../$listimg[$compteur]';
                                     </td>
                                 </tr>";
                         $compteur+= $compteur;
