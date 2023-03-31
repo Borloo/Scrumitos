@@ -26,7 +26,7 @@ include("./../include/headfile.php");
             <div class="card-body">
                 <?php
                 echo "<h1>Consulter les emplacements par prix</h1><br><br>";
-                echo "<table clas='table table-striped'>";
+                echo "<table class='table table-striped'>";
 
                 try {
 
