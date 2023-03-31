@@ -14,7 +14,7 @@ session_start();
 	?>
 	<div class="wrapper">
 		<?php include("./include/menus.php"); ?>
-		<section id="content" style="height: 100%">
+		<section id="content">
             <div class="card">
                 <div class="card-body">
                     <?php
