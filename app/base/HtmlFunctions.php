@@ -44,7 +44,19 @@ function getHtmlListNews(){
                     <p>" . $new['date'] . "</p>
                     <p class='card-text'>" . $body . "</p>";
                     if (isset($_SESSION['USER'])){
-                        echo "<a href='./../views/ConsultNews.php?id=" . $new['id'] . "' class='btn btn-primary'>Go somewhere</a>";
+                        echo "
+                        <div class='row'>
+                            <div class='col-md-2'></div>
+                            <div class='col-md-4'>
+                                <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=1' class='btn btn-primary'>Modifier</a>       
+                            </div>
+                            <div class='col-md-4'>
+                                <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary'>Détails</a>
+                            </div>
+                            <div class='col-md-2'></div>
+                        </div>";
+                    }else{
+                        echo "<a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary'>Détails</a>";
                     }
                 echo "</div>
             </div>
