@@ -2,7 +2,8 @@
 
 require('Functions.php');
 
-function getHtmlTaille(){
+function getHtmlTaille()
+{
     echo "
         <div class='card'>
             <div class='card-header'>
@@ -23,10 +24,10 @@ function getHtmlTaille(){
                             </div>
                             <div class='col-md-6'>
                                 <input type='range'";
-                            if (isset($_POST['range'])){
-                                echo " value='" . $_POST['range'] . "'";
-                            }
-                            echo " name='range' class='form-range' min='" . "" . "' max='" . "" . "'>
+    if (isset($_POST['range'])) {
+        echo " value='" . $_POST['range'] . "'";
+    }
+    echo " name='range' class='form-range' min='" . "" . "' max='" . "" . "'>
                             </div>
                             <div class='col-md-1'>
                                 <p>" . "" . "€</p>
@@ -48,7 +49,8 @@ function getHtmlTaille(){
         </div>";
 }
 
-function getHtmlPrix(){
+function getHtmlPrix()
+{
     $maxSem = getMaxPrixSemaineEmplacement();
     $minSem = getMinPrixSemaineEmplacement();
     echo "
@@ -382,10 +384,10 @@ function getHtmlType()
                                     <table>
                                         <caption> Emplacement du type " . $typeName . "</caption>
                                         <tr><th>Nom de l'emplacement</th><th>Type de l'emplacement</th><th>Adresse Emplacement</th><th>Année de Construction</th>";
-                                        if (isset($_SESSION['USER'])) {
-                                            echo "<th>Actions</th>";
-                                        }
-                                        echo "</tr>";
+            if (isset($_SESSION['USER'])) {
+                echo "<th>Actions</th>";
+            }
+            echo "</tr>";
             $emplacements = getEmplacementById($typeId);
             if (!empty($emplacements)) {
                 getHtmlEmplacementTable($emplacements);
@@ -406,32 +408,31 @@ function getHtmlEmplacementTable(array $emplacements)
         $type = getTypeById($emplacement['idType']);
 
         echo "
-                                <tr>
-                                    <td>" . $emplacement['Nom_Emplacement'] . "</td>
-                                    <td>" . $type['nomType'] . "</td>
-                                    <td>" . $emplacement['adresseEmpl'] . "</td>
-                                    <td>" . $emplacement['Prix_Semaine'] . "€</td>";
-                                    if (isset($_SESSION['USER'])) {
-                                        echo "
-                                        <td>
-                                            <div class='row'>
-                                                <div class='col-md-4'>
-                                                    <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=1'><input type='button' class='btn btn-warning' value='Modifier'></a>
-                                                </div>
-                                                <div class='col-md-4'>
-                                                    <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=0'><input type='button' class='btn btn-info' value='Prévisualiser'></a>
-                                                </div>
-                                                <div class='col-md-4'>
-                                                    <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=3'><input type='button' class='btn btn-danger' value='Supprimer'></a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        ";
-                                    }
-
-                                echo "</tr>
-                            ";
+        <tr>
+            <td>" . $emplacement['Nom_Emplacement'] . "</td>
+            <td>" . $type['nomType'] . "</td>
+            <td>" . $emplacement['adresseEmpl'] . "</td>
+            <td>" . $emplacement['Prix_Semaine'] . "€</td>";
+        if (isset($_SESSION['USER'])) {
+            echo "
+            <td>
+                <div class='row'>
+                    <div class='col-md-4'>
+                        <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=1'><input type='button' class='btn btn-warning' value='Modifier'></a>
+                    </div>
+                    <div class='col-md-4'>
+                        <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=0'><input type='button' class='btn btn-info' value='Prévisualiser'></a>
+                    </div>
+                    <div class='col-md-4'>
+                        <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=3'><input type='button' class='btn btn-danger' value='Supprimer'></a>
+                    </div>
+                </div>
+            </td>
+            ";
         }
+
+        echo "</tr>
+                            ";
     }
 }
 
