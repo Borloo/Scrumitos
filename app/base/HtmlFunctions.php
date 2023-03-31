@@ -74,6 +74,7 @@ function getHtmlAnnee()
     ";
     if (isset($_POST['submit'])) {
         if (isset($_POST['checkbox'])) {
+            $emplacements = [];
             switch ($_POST['checkbox']) {
                 case 'moins2000':
                     $titre = 'Avant 2000';
@@ -88,9 +89,6 @@ function getHtmlAnnee()
                     $dateFin = new DateTime('now', new DateTimeZone('Europe/Berlin'));
                     $emplacements = getEmplacementByAnnee(2010, (int)$dateFin->format('Y'));
                     break;
-                default:
-                    $titre = "??";
-                    $emplacements = [];
             }
             echo "
                     <div class='card'>
@@ -103,7 +101,7 @@ function getHtmlAnnee()
                             <center>
                                 <table>
                                     <tr><th>Nom de l'emplacement</th><th>Type de l'emplacement</th><th>Adresse Emplacement</th><th>Prix/semaine</th><th>Actions</th></tr>";
-
+                                        getHtmlEmplacementTable($emplacements);
                                 echo "</table>
                             </center>";
             }else{
