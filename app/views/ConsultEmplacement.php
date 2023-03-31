@@ -44,7 +44,7 @@ require('./../base/HtmlFunctions.php');
 <body>
 <?php include("./../../include/header.php"); ?>
 <div class="wrapper">
-    <?php getHtmlMenu(); ?>
+    <?php include("./../../include/menus.php");?>
     <section id="content">
         <div class="card">
             <div class="card-header">
