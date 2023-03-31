@@ -33,13 +33,15 @@ function getHtmlListNews(){
             echo "
             <div class='card'>
                 <div class='card-header'>
-                    <p>" . $new['titre'] . "</p>
+                    <h5 class='card-title'>" . $new['titre'] . "</h5>
                 </div>
                 <div class='card-body'>
-                    <h5 class='card-title'>Date</h5>
-                    <p class='card-text'>Content</p>
-                    <a href='#' class='btn btn-primary'>Go somewhere</a>
-                </div>
+                    <p>" . $new['date'] . "</p>
+                    <p class='card-text'>" . $new['body'] . "</p>";
+                    if (isset($_SESSION['USER'])){
+                        echo "<a href='./../views/ConsultNews.php?id=" . $new['id'] . "' class='btn btn-primary'>Go somewhere</a>";
+                    }
+                echo "</div>
             </div>
             ";
             echo "</div>";
