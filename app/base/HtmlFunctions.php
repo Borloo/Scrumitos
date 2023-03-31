@@ -54,7 +54,7 @@ function getHtmlTaille()
             echo "
                     <div class='card'>
                         <div class='card-header'>
-                            <h4>" .  $_POST['range'] . "</h4>
+                            <h4>" .  $_POST['range'] . "m²</h4>
                         </div>
                         <div class='card-body'>";
             $emplacements = getEmplacementBySize((int)$_POST['range']);
