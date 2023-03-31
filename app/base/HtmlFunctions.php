@@ -349,12 +349,16 @@ function getHtmlEmplacementTable(array $emplacements)
 {
     foreach ($emplacements as $emplacement) {
         $type = getTypeById($emplacement['idType']);
+
         echo "
                                 <tr>
                                     <td>" . $emplacement['Nom_Emplacement'] . "</td>
                                     <td>" . $type['nomType'] . "</td>
                                     <td>" . $emplacement['adresseEmpl'] . "</td>
                                     <td>" . $emplacement['Prix_Semaine'] . "€</td>
+                                    <td>" . $emplacement['Prix_Semaine'] . "</td>";
+        if (isset($_SESSION['USER'])) {
+            echo"
                                     <td>
                                         <div class='row'>
                                             <div class='col-md-4'>
@@ -370,6 +374,7 @@ function getHtmlEmplacementTable(array $emplacements)
                                     </td>
                                 </tr>
                             ";
+        }
     }
 }
 
