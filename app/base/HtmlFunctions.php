@@ -22,7 +22,7 @@ function getHtmlTaille()
                                 <div class='row'>
                             <div class='col-md-2'></div>
                             <div class='col-md-1'>
-                                <p>" . $sizeMin . "/p>
+                                <p>" . $sizeMin . "m²</p>
                             </div>
                             <div class='col-md-6'>
                                 <input type='range'";
@@ -32,7 +32,7 @@ function getHtmlTaille()
                                 echo " name='range' class='form-range' min='" . $sizeMin . "' max='" . $sizeMax . "'>
                             </div>
                             <div class='col-md-1'>
-                                <p>" . $sizeMax . "</p>
+                                <p>" . $sizeMax . "m²</p>
                             </div>
                             <div class='col-md-2'></div>
                         </div>
@@ -67,7 +67,7 @@ function getHtmlTaille()
                     echo "<th>Actions</th>";
                 }
                 echo "</tr>";
-                getHtmlEmplacementTable($emplacements);
+                getHtmlEmplacementTable($emplacements, 'size');
                 echo "</table>
                             </center>";
             } else {
@@ -139,7 +139,7 @@ function getHtmlPrix()
                     echo "<th>Actions</th>";
                 }
                 echo "</tr>";
-                getHtmlEmplacementTable($emplacements);
+                getHtmlEmplacementTable($emplacements, 'price');
                 echo "</table>
                             </center>";
             } else {
@@ -255,7 +255,7 @@ function getHtmlAnnee()
                     echo " <th>Actions</th>";
                 }
                 echo "</tr>";
-                getHtmlEmplacementTable($emplacements);
+                getHtmlEmplacementTable($emplacements, 'year');
                 echo "</table>
                             </center>";
             } else {
@@ -327,7 +327,7 @@ function getHtmlPeriode()
                                     <center><table>
                                         <caption> Emplacement du " . $dateDeb . " - " . $dateFin . "</caption>
                                         <tr><th>Nom de l'emplacement</th><th>Type de l'emplacement</th><th>Adresse Emplacement</th><th>Prix/semaine</th><th>Actions</th></tr>";
-                getHtmlEmplacementTable($emplacements);
+                getHtmlEmplacementTable($emplacements, 'date');
                 echo "</table></center>";
             } else {
                 echo "<p>Aucun résultat</p>";
@@ -433,8 +433,21 @@ function getHtmlType()
     }
 }
 
-function getHtmlEmplacementTable(array $emplacements)
+function getHtmlEmplacementTable(array $emplacements, string $specify = '')
 {
+    switch ($specify){
+        case 'size':
+            $specify = 'Taille';
+            $suffix = 'm²';
+            break;
+        case 'year':
+            $specify = 'anneeConstruction';
+            $suffix = '';
+            break;
+        default:
+            $specify = 'Prix_Semaine';
+            $suffix = "€";
+    }
     foreach ($emplacements as $emplacement) {
         $type = getTypeById($emplacement['idType']);
 
@@ -443,7 +456,7 @@ function getHtmlEmplacementTable(array $emplacements)
             <td>" . $emplacement['Nom_Emplacement'] . "</td>
             <td>" . $type['nomType'] . "</td>
             <td>" . $emplacement['adresseEmpl'] . "</td>
-            <td>" . $emplacement['Prix_Semaine'] . "€</td>";
+            <td>" . $emplacement[$specify] . $suffix . "</td>";
         if (isset($_SESSION['USER'])) {
             echo "
             <td>
