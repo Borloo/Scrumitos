@@ -250,7 +250,7 @@
                                 }
                             }
                         }else{
-                            echo "<p>Il semblerait il y avoir un problème, cliquez <a href='./../../index.php'>ici</a> pour retourner à l'acceuil</p>";
+                            echo "<p>Il semblerait y avoir un problème, cliquez <a href='./../../index.php'>ici</a> pour retourner à l'accueil</p>";
                         }
                     ?>
                 </div>

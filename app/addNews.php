@@ -44,7 +44,7 @@ if (!isset($_SESSION['USER'])) {
 
                 <?php
                 if ($_POST) {
-                    
+
                     try {
 
                         $sql = "SELECT titre, body, date FROM News order by id desc";
