@@ -27,7 +27,7 @@ require('./../base/HtmlFunctions.php');
             if (!empty($emplacements)) {
                 foreach ($emplacements as $emplacement) {
                    $sonType = getTypeById($emplacement['idType']);
-
+echo(gettype($sonType));
                     echo "
                                 <tr>
                                     <td>" . $emplacement['Nom_Emplacement'] . "</td>
@@ -35,17 +35,7 @@ require('./../base/HtmlFunctions.php');
                                     <td>" . $emplacement['adresseEmpl'] . "</td>
                                     <td>" . $emplacement['anneeConstruction'] . "</td>
                                     <td>
-                                        <div class='row' id='actions'>
-                                            <div class='col-md-4'>
-                                                <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=1'><input type='button' class='btn btn-warning' value='Modifier'></a>
-                                            </div>
-                                            <div class='col-md-4'>
-                                                <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=0'><input type='button' class='btn btn-info' value='Prévisualiser'></a>
-                                            </div>
-                                            <div class='col-md-4'>
-                                                <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=3'><input type='button' class='btn btn-danger' value='Supprimer'></a>
-                                            </div>
-                                        </div>
+                                       img ici
                                     </td>
                                 </tr>";
                 }
