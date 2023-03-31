@@ -23,7 +23,7 @@ ini_set('display_errors', 'on');
                 <div class="card-body">
                     <?php 
                     echo "<h1>Consulter les emplacements par prix</h1><br><br>";
-                    echo "<table>";
+                    echo "<table clas='table table-striped'>";
 
                     try {
 
@@ -48,10 +48,10 @@ ini_set('display_errors', 'on');
                             echo "<td>", $emplacement['Taille'], "m2 </td>";
                             echo "<td>", $emplacement['Max_Personnes'], " personnes maximum </td>";
                             echo "<td>", $emplacement['Prix_Semaine'], "€ par semaine </td>";
-                           
                             echo "</tr>";
-                            echo "</table>";
+
                         }
+                        echo "</table>";
                         $reqnews->closeCursor();
 
                     } catch (PDOException $e) {
