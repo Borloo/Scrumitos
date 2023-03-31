@@ -18,7 +18,11 @@ function getHtmlPrix(){
                                 <p>0€</p>
                             </div>
                             <div class='col-md-6'>
-                                <input type='range' name='range' class='form-range' min='0' max='" . $maxSem . "'>
+                                <input type='range'";
+                                if (isset($_POST['range'])){
+                                    echo " value='" . $_POST['range'] . "'";
+                                }
+                                echo " name='range' class='form-range' min='0' max='" . $maxSem . "'>
                             </div>
                             <div class='col-md-1'>
                                 <p>" . $maxSem . "€</p>
