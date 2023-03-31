@@ -35,41 +35,41 @@ include("./../include/headfile.php");
                         <td>Prix /semaine</td>
                     </tr>
                     </thead>
- <?php
-                try {
+                    <?php
+                    try {
 
-                    $sql = "SELECT * FROM Emplacement order by Prix_Semaine desc";
-                    $user = 'clmt';
-                    $pass = '130702';
-                    $conn = new PDO(
-                        'mysql:host=localhost;dbname=base_camping;charset=UTF8'
-                        ,
-                        $user,
-                        $pass,
-                        array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
-                    );
+                        $sql = "SELECT * FROM Emplacement order by Prix_Semaine desc";
+                        $user = 'clmt';
+                        $pass = '130702';
+                        $conn = new PDO(
+                            'mysql:host=localhost;dbname=base_camping;charset=UTF8'
+                            ,
+                            $user,
+                            $pass,
+                            array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
+                        );
 
-                    $reqnews = $conn->prepare($sql);
-                    $reqnews->execute();
-                    $emplacements = $reqnews->fetchAll();
+                        $reqnews = $conn->prepare($sql);
+                        $reqnews->execute();
+                        $emplacements = $reqnews->fetchAll();
 
-                    foreach ($emplacements as $emplacement) {
-                        echo "<tr>";
-                        echo "<td>", $emplacement['Nom_Emplacement'], "</td>";
-                        echo "<td>", $emplacement['Taille'], "m2 </td>";
-                        echo "<td>", $emplacement['Max_Personnes'], "</td>";
-                        echo "<td>", $emplacement['Prix_Semaine'], "</td>";
-                        echo "</tr>";
+                        foreach ($emplacements as $emplacement) {
+                            echo "<tbody><tr>";
+                            echo "<td>", $emplacement['Nom_Emplacement'], "</td>";
+                            echo "<td>", $emplacement['Taille'], "m2 </td>";
+                            echo "<td>", $emplacement['Max_Personnes'], "</td>";
+                            echo "<td>", $emplacement['Prix_Semaine'], "</td>";
+                            echo "</tr>";
 
+                        }
+                        echo "</tbody></table>";
+                        $reqnews->closeCursor();
+
+                    } catch (PDOException $e) {
+                        echo "Erreur : " . $e->getMessage();
                     }
-                    echo "</table>";
-                    $reqnews->closeCursor();
 
-                } catch (PDOException $e) {
-                    echo "Erreur : " . $e->getMessage();
-                }
-
-                ?>
+                    ?>
             </div>
         </div>
     </section>
