@@ -115,23 +115,25 @@ ini_set('display_errors', 'on');
                                 </div>
                             </div>
                             ";
-                            if (isset($_POST['submit'])){
-                                switch ($_POST['submit']){
-                                    case "Sauvegarder":
-                                        echo "sauve";
-                                        break;
-                                    default:
-                                        echo "<script>
-                                            location.href='http://88.208.226.189/app/views/ConsultNews.php'
-                                        </script>";
-                                        die();
-                                }
-                            }
                         }
                         ?>
                     </fieldset>
                 </form>
             </div>
+            <?php
+            if (isset($_POST['submit'])){
+                switch ($_POST['submit']){
+                    case "Sauvegarder":
+                        echo "sauve";
+                        break;
+                    default:
+                        echo "<script>
+                                location.href='http://88.208.226.189/app/views/ConsultNews.php'
+                            </script>";
+                        die();
+                }
+            }
+            ?>
         </section>
     </div>
 </body>
