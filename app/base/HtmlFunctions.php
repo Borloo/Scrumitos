@@ -2,6 +2,38 @@
 
 require('Functions.php');
 
+function getHtmlPrix(){
+    $maxSem = getMaxPrixSemaineEmplacement();
+    echo "
+        <div class='card'>
+            <div class='card-header'>
+                <h1>Prix par semaine</h1>
+            </div>
+            <div class='card-body'>
+                <div class='row'>
+                    <div class='col-md-3'></div>
+                    <div class='col-md-6'>
+                        <input type='range' name='range' class='form-range' min='0' max='" . $maxSem . "'>
+                    </div>
+                    <div class='col-md-3'></div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-5'></div>
+                    <div class='col-md-2'>
+                        <input class='btn btn-secondary' type='submit' name='submit' value='Afficher'>
+                    </div>
+                    <div class='col-md-5'></div>
+                </div>
+            </div>
+        </div>
+    ";
+    if (isset($_POST['submit'])){
+        if (isset($_POST['range'])){
+            echo $_POST['range'];
+        }
+    }
+}
+
 function getHtmlAnnee()
 {
     echo "
@@ -101,11 +133,11 @@ function getHtmlAnnee()
                             <center>
                                 <table>
                                     <tr><th>Nom de l'emplacement</th><th>Type de l'emplacement</th><th>Adresse Emplacement</th><th>Prix/semaine</th><th>Actions</th></tr>";
-                                        getHtmlEmplacementTable($emplacements);
-                                echo "</table>
+                getHtmlEmplacementTable($emplacements);
+                echo "</table>
                             </center>";
-            }else{
-                    echo "<p>Aucun résultat</p>";
+            } else {
+                echo "<p>Aucun résultat</p>";
             }
             echo "
                         </div>

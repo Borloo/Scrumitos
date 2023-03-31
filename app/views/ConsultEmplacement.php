@@ -95,6 +95,9 @@ ini_set('display_errors', 'on');
         if ($_GET['c'] == "3"){
             getHtmlAnnee();
         }
+        if ($_GET['c'] == "4"){
+            getHtmlPrix();
+        }
         ?>
     </section>
 </div>
