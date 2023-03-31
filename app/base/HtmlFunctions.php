@@ -6,20 +6,16 @@ function getHtmlListNews(){
     $news = getNews();
     if (!empty($news)){
         $size = sizeof($news) + 1;
-        print_r($size);
-        print_r($news);
         $params = [
             '3' => $size % 3,
             '2' => $size % 2
         ];
-        echo "\n";
-        print_r($params);
         switch ($params){
-            case $params['3'] == 0:
+            case $params['3'] == 1:
                 $limit = 3;
                 $col = "<div class='col-md-4>";
                 break;
-            case $params['2'] == 0:
+            case $params['2'] == 1:
                 $limit = 2;
                 $col = "<div class='col-md-6>";
                 break;
