@@ -31,7 +31,7 @@ function updateNew(
     $query->execute([
         'titre' => $titre,
         'body' => $body,
-        'date' => $date,
+        'date' => $date->format('Y-m-d'),
         'id' => $id
     ]);
     print_r($query->errorInfo());
