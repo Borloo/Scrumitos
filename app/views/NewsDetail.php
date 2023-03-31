@@ -48,7 +48,21 @@ ini_set('display_errors', 'on');
         <?php include("./../../include/menus.php");?>
         <section id="content">
             <div class="card">
-                <p>ok</p>
+                <?php
+                if (isset($_GET['id'])){
+                    $new = getNewById((int)$_GET['id']);
+                    echo "
+                    <div class='card-header'>
+                        <h4>" . $new['titre'] . "</h4>
+                    </div>
+                    <div class='card-body'>
+                    </div>
+                    <div class='card-footer'>
+                        <a class='btn btn-success' href='ConsultNews.php' role='button'>Sauvegarder</a>
+                    </div>
+                    ";
+                }
+                ?>
             </div>
         </section>
     </div>

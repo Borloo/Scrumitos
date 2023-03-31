@@ -14,6 +14,17 @@ function getBDConnexion(): PDO
     return $conn;
 }
 
+function getNewById(int $id): array{
+    $conn = getBDConnexion();
+    $sql = "SELECT * FROM News WHERE id = :id";
+    $query = $conn->prepare($sql);
+    $query->execute(['id' => $id]);
+    if ($query->rowCount() == 1){
+        return $query->fetch();
+    }
+    return [];
+}
+
 function getNews(){
     $conn = getBDConnexion();
     $sql = 'SELECT * FROM News ORDER BY date DESC';
