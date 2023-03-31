@@ -10,7 +10,7 @@ ini_set('display_errors', 'on');
 <head>
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="../include/styles.css"/>
-    <title>Mon site !</title>
+    <title>Les News</title>
     <?php
     include("../include/headfile.php");
     ?>
@@ -57,6 +57,7 @@ include("../include/header.php");
                 foreach ($news as $new) {
                     echo '<div class="col-6 mb-4"><div class="card"><div class="card-body">';
                     echo '<h5 class="card-title">' . $new['titre'] . '</h5>';
+                    echo(gettype($new['date']));
                     echo '<h6 class="card-subtitle mb-2 text-muted">' . date_format(DateTime::createFromFormat('d/m/Y',$new['date']), 'd-m-Y') . '</h6>';
                     echo '<p class="card-text">' . $new['body'] . '</p>';
                     echo "</div></div></div>";
