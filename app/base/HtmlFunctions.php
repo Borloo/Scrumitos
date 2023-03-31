@@ -38,8 +38,29 @@ function getHtmlPrix(){
         </div>
     ";
     if (isset($_POST['submit'])){
-        echo "test";
-        print_r($_POST['range']);
+        if (isset($_POST['range'])){
+            echo "
+                    <div class='card'>
+                        <div class='card-header'>
+                            <h4>0€ - " . $_POST['range'] . "€</h4>
+                        </div>
+                        <div class='card-body'>";
+            $emplacements = getEmplacementByPrice((int)$_POST['range']);
+            if (!empty($emplacements)) {
+                echo "
+                            <center>
+                                <table>
+                                    <tr><th>Nom de l'emplacement</th><th>Type de l'emplacement</th><th>Adresse Emplacement</th><th>Prix/semaine</th><th>Actions</th></tr>";
+                getHtmlEmplacementTable($emplacements);
+                echo "</table>
+                            </center>";
+            } else {
+                echo "<p>Aucun résultat</p>";
+            }
+            echo "</div>
+                </div>
+            ";
+        }
     }
 }
 
