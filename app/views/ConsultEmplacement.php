@@ -59,7 +59,7 @@ ini_set('display_errors', 'on');
                 <div class="row">
                     <div class='col-md-2'></div>
                     <div class='col-md-3'>
-                        <a class="btn btn-secondary" href="../ConsultEmplacementPrix.php" role="button">Année de
+                        <a class="btn btn-secondary" href="../ConsultDate.php" role="button">Année de
                             construction</a>
                     </div>
                     <div class="col-md-2"></div>
