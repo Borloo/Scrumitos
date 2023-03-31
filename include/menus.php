@@ -3,6 +3,7 @@
         <li class="list-group-item"><a href="/index.php">Accueil</a></li>
         <li class="list-group-item"><a href="/app/ConsultNews.php">News</a></li>
         <li class="list-group-item"><a href="/app/views/ConsultEmplacement.php?c=0">Recherches d'emplacements</a></li>
+        <li class="list-group-item"><a href="/app/views/allEmplacements.php">Consulter tous les emplacements</a></li>
         <?php
         // si l'admin ne s'est pas déja connecté alors on affiche le lien pour cela
         if (!isset($_SESSION['USER'])) {
