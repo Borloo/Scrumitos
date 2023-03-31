@@ -16,7 +16,7 @@ function getHtmlAnnee()
                             <div class='col-md-3'></div>
                             <div class='col-md-6'>
                                 <div class='form-check'>
-                                    <input class='form-check-input' name='checkbox' type='checkbox' value='moins2000' id='flexCheckDefault'";
+                                    <input class='form-check-input' name='checkbox' type='radio' value='moins2000' id='flexCheckDefault'";
                                     if (isset($_POST['submit']) && isset($_POST['checkbox']) && $_POST['checkbox'] == 'moins2000'){
                                         echo "checked";
                                     }
@@ -32,12 +32,12 @@ function getHtmlAnnee()
                             <div class='col-md-3'></div>
                             <div class='col-md-6'>
                                 <div class='form-check'>
-                                    <input class='form-check-input' name='checkbox' type='checkbox' value='moins2010' id='flexCheckDefault'";
+                                    <input class='form-check-input' name='checkbox' type='radio' value='moins2010' id='flexCheckDefault1'";
                                     if (isset($_POST['submit']) && isset($_POST['checkbox']) && $_POST['checkbox'] == 'moins2010'){
                                         echo "checked";
                                     }
                                     echo ">
-                                    <label class='form-check-label' for='flexCheckDefault'>
+                                    <label class='form-check-label' for='flexCheckDefault1'>
                                     Date de construction/rénovation entre 2000 et 2009
                                     </label>
                                 </div>
@@ -48,12 +48,12 @@ function getHtmlAnnee()
                             <div class='col-md-3'></div>
                             <div class='col-md-6'>
                                 <div class='form-check'>
-                                    <input class='form-check-input' name='checkbox' type='checkbox' value='plus2010' id='flexCheckDefault'";
+                                    <input class='form-check-input' name='checkbox' type='radio' value='plus2010' id='flexCheckDefault2'";
                                     if (isset($_POST['submit']) && isset($_POST['checkbox']) && $_POST['checkbox'] == 'plus2010'){
                                         echo "checked";
                                     }
                                     echo ">
-                                    <label class='form-check-label' for='flexCheckDefault'>
+                                    <label class='form-check-label' for='flexCheckDefault2'>
                                     Date de construction/rénovation postérieure ou égale à 2010
                                     </label>
                                 </div>
