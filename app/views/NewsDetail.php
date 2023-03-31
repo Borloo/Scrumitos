@@ -49,6 +49,9 @@ ini_set('display_errors', 'on');
         <section id="content">
             <div class="card">
                 <?php
+
+                require('./../base/Functions.php');
+
                 if (isset($_GET['id'])){
                     $new = getNewById((int)$_GET['id']);
                     echo "
