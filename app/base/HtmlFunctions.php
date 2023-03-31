@@ -62,7 +62,7 @@ function getHtmlTaille()
                 echo "
                             <center>
                                 <table>
-                                    <tr><th>Nom de l'emplacement</th><th>Type de l'emplacement</th><th>Adresse Emplacement</th><th>Prix/semaine</th>";
+                                    <tr><th>Nom</th><th>Type</th><th>Adresse</th><th>Taille</th>";
                 if (isset($_SESSION['USER'])) {
                     echo "<th>Actions</th>";
                 }
