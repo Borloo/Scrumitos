@@ -35,6 +35,7 @@ include("./../include/headfile.php");
                         <td>Prix /semaine</td>
                     </tr>
                     </thead>
+                    <tbody>
                     <?php
                     try {
 
@@ -54,7 +55,7 @@ include("./../include/headfile.php");
                         $emplacements = $reqnews->fetchAll();
 
                         foreach ($emplacements as $emplacement) {
-                            echo "<tbody><tr>";
+                            echo "<tr>";
                             echo "<td>", $emplacement['Nom_Emplacement'], "</td>";
                             echo "<td>", $emplacement['Taille'], "m2 </td>";
                             echo "<td>", $emplacement['Max_Personnes'], "</td>";
@@ -62,14 +63,13 @@ include("./../include/headfile.php");
                             echo "</tr>";
 
                         }
-                        echo "</tbody></table>";
                         $reqnews->closeCursor();
-
                     } catch (PDOException $e) {
                         echo "Erreur : " . $e->getMessage();
                     }
-
                     ?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
