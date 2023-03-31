@@ -21,7 +21,7 @@ ini_set('display_errors', 'on');
             border: 1px solid black;
         }
 
-        .btn {
+        .btn, select {
             width: 100%;
         }
 
