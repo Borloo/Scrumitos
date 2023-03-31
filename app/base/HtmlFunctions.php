@@ -56,7 +56,11 @@ function getHtmlPrix()
                 echo "
                             <center>
                                 <table>
-                                    <tr><th>Nom de l'emplacement</th><th>Type de l'emplacement</th><th>Adresse Emplacement</th><th>Prix/semaine</th><th>Actions</th></tr>";
+                                    <tr><th>Nom de l'emplacement</th><th>Type de l'emplacement</th><th>Adresse Emplacement</th><th>Prix/semaine</th>";
+                if (isset($_SESSION['USER'])) {
+                    echo "<th>Actions</th>";
+                }
+                echo "</tr>";
                 getHtmlEmplacementTable($emplacements);
                 echo "</table>
                             </center>";
