@@ -34,10 +34,8 @@ function getHtmlPrix(){
         </div>
     ";
     if (isset($_POST['submit'])){
-        if (isset($_POST['range'])){
-            echo "test";
-            print_r($_POST['range']);
-        }
+        echo "test";
+        print_r($_POST['range']);
     }
 }
 
