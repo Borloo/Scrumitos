@@ -24,10 +24,18 @@ include("./../include/headfile.php");
     <section id="content">
         <div class="card">
             <div class="card-body">
-                <?php
-                echo "<h1>Consulter les emplacements par prix</h1><br><br>";
-                echo "<table class='table table-striped'>";
+                <h1>Consulter les emplacements par prix</h1>;
 
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <td>Nom</td>
+                        <td>Taille</td>
+                        <td>Nombre de personnes max</td>
+                        <td>Prix /semaine</td>
+                    </tr>
+                    </thead>
+ <?php
                 try {
 
                     $sql = "SELECT * FROM Emplacement order by Prix_Semaine desc";
@@ -49,8 +57,8 @@ include("./../include/headfile.php");
                         echo "<tr>";
                         echo "<td>", $emplacement['Nom_Emplacement'], "</td>";
                         echo "<td>", $emplacement['Taille'], "m2 </td>";
-                        echo "<td>", $emplacement['Max_Personnes'], " personnes maximum </td>";
-                        echo "<td>", $emplacement['Prix_Semaine'], "€ par semaine </td>";
+                        echo "<td>", $emplacement['Max_Personnes'], "</td>";
+                        echo "<td>", $emplacement['Prix_Semaine'], "</td>";
                         echo "</tr>";
 
                     }
