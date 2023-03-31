@@ -26,12 +26,12 @@ require('./../base/HtmlFunctions.php');
             $emplacements = getAllEmplacements();
             if (!empty($emplacements)) {
                 foreach ($emplacements as $emplacement) {
-                   $sonType = getTypeById($emplacement['idType']);
+                   $listType = getTypeById($emplacement['idType']);
 echo(gettype($sonType));
                     echo "
                                 <tr>
                                     <td>" . $emplacement['Nom_Emplacement'] . "</td>
-                                    <td>" . $sonType . "</td>
+                                    <td>" . $listType['nomType']. "</td>
                                     <td>" . $emplacement['adresseEmpl'] . "</td>
                                     <td>" . $emplacement['anneeConstruction'] . "</td>
                                     <td>
