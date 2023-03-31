@@ -26,7 +26,7 @@ function getHtmlListNews(){
         }
         $i = 1;
         foreach ($news as $new){
-            if ($i % $limit == 0){
+            if ($i % $limit == 1){
                 echo "<div class='row'>";
                 echo $col;
             }
