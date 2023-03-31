@@ -1,6 +1,6 @@
 <nav class="sidebar">
     <ul class="list-group">
-        <li class="list-group-item"><a href="/index.php">Accueil</a></li>
+        <a href="/index.php"><li class="list-group-item">Accueil</li></a>
         <li class="list-group-item"><a href="/app/views/ConsultNews.php">News</a></li>
         <li class="list-group-item"><a href="/app/views/ConsultEmplacement.php?c=0">Recherches d'emplacements</a></li>
         <li class="list-group-item"><a href="/app/views/allEmplacements.php">Consulter tous les emplacements</a></li>
