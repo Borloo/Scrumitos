@@ -162,7 +162,10 @@ function getHtmlType()
                                 <div class='card-body'>
                                     <center><table>
                                         <caption> Emplacement du type " . $typeName . "</caption>
-                                        <tr><th>Nom de l'emplacement</th><th>Type de l'emplacement</th><th>Adresse Emplacement</th><th>Année de Construction</th><th>Actions</th></tr>";
+                                        <tr><th>Nom de l'emplacement</th><th>Type de l'emplacement</th><th>Adresse Emplacement</th><th>Année de Construction</th>";
+            if (isset($_SESSION['USER'])) {
+                echo"<th>Actions</th></tr>";
+            }
             $emplacements = getEmplacementById($typeId);
             if (!empty($emplacements)) {
                 foreach ($emplacements as $emplacement) {
@@ -171,7 +174,9 @@ function getHtmlType()
                                     <td>" . $emplacement['Nom_Emplacement'] . "</td>
                                     <td>" . $typeName . "</td>
                                     <td>" . $emplacement['adresseEmpl'] . "</td>
-                                    <td>" . $emplacement['anneeConstruction'] . "</td>
+                                    <td>" . $emplacement['anneeConstruction'] . "</td>";
+                    if (isset($_SESSION['USER'])) {
+                        echo "
                                     <td>
                                         <div class='row' id='actions'>
                                             <div class='col-md-4'>
@@ -186,6 +191,7 @@ function getHtmlType()
                                         </div>
                                     </td>
                                 </tr>";
+                    }
                 }
             } else {
                 echo "<tr><td>Aucun résultat</td></tr>";
