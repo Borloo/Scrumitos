@@ -14,6 +14,14 @@ function getBDConnexion(): PDO
     return $conn;
 }
 
+function getNews(){
+    $conn = getBDConnexion();
+    $sql = 'SELECT * FROM News ORDER BY date DESC';
+    $query = $conn->prepare($sql);
+    $query->execute();
+    return $query->fetchAll();
+}
+
 function getEmplacementBySize(int $size){
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Emplacement WHERE Taille <= :size";

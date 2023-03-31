@@ -2,6 +2,56 @@
 
 require('Functions.php');
 
+function getHtmlListNews(){
+    $news = getNews();
+    if (!empty($news)){
+        $size = sizeof($news);
+        $params = [
+            '3' => $size % 3,
+            '2' => $size % 2
+        ];
+        switch ($params){
+            case $params['3'] == 0:
+                $limit = 3;
+                $col = "<div class='col-md-4>";
+                break;
+            case $params['2'] == 0:
+                $limit = 2;
+                $col = "<div class='col-md-6>";
+                break;
+            default:
+                $limit = 1;
+                $col = "<div>";
+                break;
+        }
+        $i = 1;
+        foreach ($news as $new){
+            if ($i % $limit == 0){
+                echo "<div class='row'>";
+                echo $col;
+            }
+            echo "
+            <div class='card'>
+                <div class='card-header'>
+                    <p>Title</p>
+                </div>
+                <div class='card-body'>
+                    <h5 class='card-title'>Date</h5>
+                    <p class='card-text'>Content</p>
+                    <a href='#' class='btn btn-primary'>Go somewhere</a>
+                </div>
+            </div>
+            ";
+            if ($i == $limit){
+                $i = 1;
+                echo "</div></div>";
+            }
+        }
+    }else{
+        echo "<h4>Pas de News :(</h4>";
+    }
+}
+
 function getHtmlTaille()
 {
     $sizeMin = getMinTailleEmplacement();
