@@ -42,7 +42,7 @@ ini_set('display_errors', 'on');
 <body>
 <?php include("./../../include/header.php"); ?>
 <div class="wrapper">
-    <?php include("./../../include/menus.php"); ?>
+    <?php getHtmlMenu(); ?>
     <section id="content">
         <div class="card">
             <div class="card-header">
