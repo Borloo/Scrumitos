@@ -85,7 +85,7 @@ ini_set('display_errors', 'on');
                                     <div class='col-md-4'>
                                         <div class='input-group mb-3'>
                                             <span class='input-group-text' id='basic-addon1'>Contenu</span>
-                                            <input class='form-control' name='date' type='datetime-local' value='" . $new['date'] . "'";
+                                            <input class='form-control' name='date' type='date' value='" . $new['date'] . "'";
                                             if ($_GET['edit'] == 1){
                                                 echo "readonly";
                                             }
