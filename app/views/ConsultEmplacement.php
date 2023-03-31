@@ -75,7 +75,7 @@ ini_set('display_errors', 'on');
                 <div class="row">
                     <div class="col-md-4"></div>
                     <div class="col-md-4">
-                        <a class="btn btn-secondary" href="#" role="button">Taille</a>
+                        <a class="btn btn-secondary" href="ConsultEmplacement.php?c=5" role="button">Taille</a>
                     </div>
                     <div class="col-md-4"></div>
                 </div>
@@ -98,6 +98,9 @@ ini_set('display_errors', 'on');
                 break;
             case "4":
                 getHtmlPrix();
+                break;
+            case "5":
+                getHtmlTaille();
                 break;
         }
         ?>

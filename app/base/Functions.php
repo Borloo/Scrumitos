@@ -14,6 +14,20 @@ function getBDConnexion(): PDO
     return $conn;
 }
 
+function getMaxTailleEmplacement(){
+    $conn = getBDConnexion();
+    $sql = "SELECT * FROM Emplacement";
+    $query = $conn->prepare($sql);
+    $query->execute();
+    $resultats = $query->fetchAll();
+    $taille = 0;
+    foreach ($resultats as $resultat){
+        if ($resultat['Taille'] > $taille){
+
+        }
+    }
+}
+
 function getEmplacementByPrice(int $price){
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Emplacement WHERE Prix_Semaine <= :price";
