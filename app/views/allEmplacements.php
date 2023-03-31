@@ -35,7 +35,13 @@ require('./../base/HtmlFunctions.php');
                 <tbody>
                 <?php
                 $emplacements = getAllEmplacements();
-                $listimg = array("1" => "images/images/empl115.jpg");
+                $listimg = array(
+                    "1" => "images/images/empl115.jpg",
+                    "2" => "images/images/empl198.jpg",
+                    "3" => "images/images/empl231.jpg",
+                    "4" => "images/images/empl302.jpg",
+                    "5" => "images/images/empl357.jpg",
+                );
                 $compteur = 1;
                 if (!empty($emplacements)) {
                     foreach ($emplacements as $emplacement) {
@@ -50,7 +56,7 @@ require('./../base/HtmlFunctions.php');
                                       <img src='../../$listimg[$compteur]';
                                     </td>
                                 </tr>";
-                        $compteur+= $compteur;
+                        $compteur += $compteur;
                     }
                 }
                 ?>
