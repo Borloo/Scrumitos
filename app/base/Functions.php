@@ -15,6 +15,8 @@ function getBDConnexion(): PDO
 }
 
 function getEmplacementByAnnee(int $dateDeb, int $dateFin){
+    print_r($dateDeb);
+    print_r($dateFin);
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Emplacement 
          WHERE anneeConstruction <= :dateDeb
@@ -24,6 +26,7 @@ function getEmplacementByAnnee(int $dateDeb, int $dateFin){
         'dateDeb' => $dateDeb,
         'dateFin' => $dateFin
     ]);
+    print_r($query->fetchAll());
     return $query->fetchAll();
 }
 
