@@ -42,6 +42,7 @@ ini_set('display_errors', 'on');
                     <h1>Recherche d'emplacements par :</h1>
                 </div>
                 <div class="card-body">
+<<<<<<< Updated upstream
                     <div class="row">
                         <div class='col-md-2'></div>
                         <div class='col-md-3'>
@@ -71,6 +72,14 @@ ini_set('display_errors', 'on');
                         </div>
                         <div class="col-md-4"></div>
                     </div>
+=======
+                    <a class="btn btn-secondary" href="ConsultType.php?suppr=0&add=0" role="button">Recherche emplacement par type</a>
+                    <a class="btn btn-secondary" href="" role="button">Recherche emplacement par période</a>
+                    <a class="btn btn-secondary" href="../ConsultDate.php" role="button">consulter emplacement année construction</a>
+                    <a class="btn btn-secondary" href="../ConsultEmplacementPrix.php" role="button">Recherche emplacement prix</a>
+                    <a class="btn btn-secondary" href="" role="button">Recherche emplacement taille</a>
+
+>>>>>>> Stashed changes
                 </div>
             </div>
             <?php
