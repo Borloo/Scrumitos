@@ -63,7 +63,7 @@ ini_set('display_errors', 'on');
                 <div class="row">
                     <div class='col-md-2'></div>
                     <div class='col-md-3'>
-                        <a class="btn btn-secondary" href="../ConsultDate.php" role="button">Année de
+                        <a class="btn btn-secondary" href="ConsultEmplacement.php?c=3" role="button">Année de
                             construction</a>
                     </div>
                     <div class="col-md-2"></div>
@@ -91,6 +91,9 @@ ini_set('display_errors', 'on');
         }
         if ($_GET['c'] == "2") {
             getHtmlPeriode();
+        }
+        if ($_GET['c'] == "3"){
+            getHtmlAnnee();
         }
         ?>
     </section>

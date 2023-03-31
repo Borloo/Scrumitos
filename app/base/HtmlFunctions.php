@@ -2,6 +2,22 @@
 
 require('Functions.php');
 
+function getHtmlAnnee()
+{
+    echo "
+        <div class='card'>
+            <div class='card-header'>
+                <h1>Année de construction</h1>
+            </div>
+            <div class='card-body'>
+                <form method='post'>";
+                    echo getLowerYearConstructionEmplacement();
+                echo "</form>
+            </div>
+        </div>
+    ";
+}
+
 function getHtmlPeriode()
 {
     echo "
@@ -124,13 +140,13 @@ function getHtmlType()
     $typesTemp = getTypes();
     $types = [];
     foreach ($typesTemp as $type) {
-        if ($type['idType'] == $_POST['listType']){
+        if ($type['idType'] == $_POST['listType']) {
             echo "<option value='" . $type['idType'] . "'>" . $type['nomType'] . "</option>";
-        }else{
+        } else {
             array_push($types, $type);
         }
     }
-    foreach ($types as $type){
+    foreach ($types as $type) {
         echo "<option value='" . $type['idType'] . "'>" . $type['nomType'] . "</option>";
     }
     echo "
