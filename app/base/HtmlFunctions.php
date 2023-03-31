@@ -10,26 +10,30 @@ function getHtmlPrix(){
                 <h1>Prix par semaine</h1>
             </div>
             <div class='card-body'>
-                <div class='row'>
-                    <div class='col-md-2'></div>
-                    <div class='col-md-1'>
-                        <p>0€</p>
-                    </div>
-                    <div class='col-md-6'>
-                        <input type='range' name='range' class='form-range' min='0' max='" . $maxSem . "'>
-                    </div>
-                    <div class='col-md-1'>
-                        <p>" . $maxSem . "€</p>
-                    </div>
-                    <div class='col-md-2'></div>
-                </div>
-                <div class='row'>
-                    <div class='col-md-5'></div>
-                    <div class='col-md-2'>
-                        <input class='btn btn-secondary' type='submit' name='submit' value='Afficher'>
-                    </div>
-                    <div class='col-md-5'></div>
-                </div>
+                <form method='post'>
+                    <fieldset>
+                        <div class='row'>
+                            <div class='col-md-2'></div>
+                            <div class='col-md-1'>
+                                <p>0€</p>
+                            </div>
+                            <div class='col-md-6'>
+                                <input type='range' name='range' class='form-range' min='0' max='" . $maxSem . "'>
+                            </div>
+                            <div class='col-md-1'>
+                                <p>" . $maxSem . "€</p>
+                            </div>
+                            <div class='col-md-2'></div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-md-5'></div>
+                            <div class='col-md-2'>
+                                <input class='btn btn-secondary' type='submit' name='submit' value='Afficher'>
+                            </div>
+                            <div class='col-md-5'></div>
+                        </div>
+                    </fieldset>
+                </form>
             </div>
         </div>
     ";
