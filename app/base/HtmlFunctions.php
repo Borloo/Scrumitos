@@ -135,13 +135,13 @@ function getHtmlType()
                                 <div class='col-md-4'>
                                     <input class='btn btn-secondary' type='submit' id='submit' name='submit' value='Afficher'>
                                 </div>";
-                                if (isset($_SESSION['USER'])) {
-                                    echo "
+    if (isset($_SESSION['USER'])) {
+        echo "
                                     <div class='col-md-4'>
                                         <a href='./EmplacementDetail.php?maj=0&id=-1&edit=2'><input class='btn btn-info' id='ajouter' type='button' value='Ajouter'></a>
                                 </div>";
-                                }
-                                echo"
+    }
+    echo "
                                 <div class='col-md-2'></div>
                             </div>
                         </fieldset>
@@ -160,11 +160,11 @@ function getHtmlType()
                                     </div>
                                 </div>
                                 <div class='card-body'>
-                                    <center><table>
+                                    <table>
                                         <caption> Emplacement du type " . $typeName . "</caption>
                                         <tr><th>Nom de l'emplacement</th><th>Type de l'emplacement</th><th>Adresse Emplacement</th><th>Année de Construction</th>";
             if (isset($_SESSION['USER'])) {
-                echo"<th>Actions</th></tr>";
+                echo "<th>Actions</th></tr>";
             }
             $emplacements = getEmplacementById($typeId);
             if (!empty($emplacements)) {
