@@ -2,6 +2,8 @@
 session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
+
+require('./../base/HtmlFunctions.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -83,8 +85,6 @@ ini_set('display_errors', 'on');
             </div>
         </div>
         <?php
-
-        require('./../base/HtmlFunctions.php');
 
         switch ($_GET['c']){
             case "1":
