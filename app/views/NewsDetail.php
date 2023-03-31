@@ -95,7 +95,7 @@ ini_set('display_errors', 'on');
                                     </div>
                                     <div class='col-md-4'>
                                         <div class='input-group mb-3'>
-                                            <span class='input-group-text' id='basic-addon1'>Contenu</span>
+                                            <span class='input-group-text' id='basic-addon1'>Date</span>
                                             <input class='form-control' name='date' type='date' value='" . $new['date'] . "'";
                                             if ($_GET['edit'] == 0){
                                                 echo "readonly";
@@ -116,7 +116,16 @@ ini_set('display_errors', 'on');
                             </div>
                             ";
                             if (isset($_POST['submit'])){
-                                echo "ok";
+                                switch ($_POST['submit']){
+                                    case "Sauvegarder":
+                                        echo "sauve";
+                                        break;
+                                    default:
+                                        echo "<script>
+                                            location.href='http://88.208.226.189/app/views/ConsultNews.php'
+                                        </script>";
+                                        die();
+                                }
                             }
                         }
                         ?>
