@@ -26,14 +26,14 @@ function getHtmlListNews(){
         }
         $i = 1;
         foreach ($news as $new){
-            if ($i % $limit == 1){
+            if ($i == 1){
                 echo "<div class='row'>";
                 echo $col;
             }
             echo "
             <div class='card'>
                 <div class='card-header'>
-                    <p>Title</p>
+                    <p>" . $new['titre'] . "</p>
                 </div>
                 <div class='card-body'>
                     <h5 class='card-title'>Date</h5>
