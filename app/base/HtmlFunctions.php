@@ -25,8 +25,6 @@ function getHtmlTaille()
         echo " value='" . $_POST['range'] . "'";
     }
     echo " name='range' class='form-range' min='" . $sizeMin . "' max='" . $sizeMax . "'>
-                        </fieldset>
-                    </form>
                 </div>
                 <div class='col-md-1'>
                     <p>" . $sizeMax . "m²</p>
@@ -40,8 +38,10 @@ function getHtmlTaille()
                 </div>
                 <div class='col-md-5'></div>
             </div>
-                </div>
-            </div>
+             </fieldset>
+</form> 
+         </div>
+          </div>
             ";
     if (isset($_POST['submit'])) {
         if (isset($_POST['range'])) {
@@ -53,17 +53,14 @@ function getHtmlTaille()
                         <div class='card-body'>";
             $emplacements = getEmplacementBySize((int)$_POST['range']);
             if (!empty($emplacements)) {
-                echo "
-                            <center>
-                                <table class='table'>
+                echo "<table class='table'>
                                     <tr><th scope='col'>Nom</th><th scope='col'>Type</th><th scope='col'>Adresse</th><th scope='col'>Taille</th>";
                 if (isset($_SESSION['USER'])) {
                     echo "<th scope='col'>Actions</th>";
                 }
                 echo "</tr>";
                 getHtmlEmplacementTable($emplacements, 'size');
-                echo "</table>
-                            </center>";
+                echo "</table>";
             } else {
                 echo "<p>Aucun résultat</p>";
             }
