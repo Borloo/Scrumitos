@@ -42,22 +42,24 @@ function getHtmlListNews(){
                 </div>
                 <div class='card-body'>
                     <p>" . $new['date'] . "</p>
-                    <p class='card-text'>" . $body . "</p>";
-                    if (isset($_SESSION['USER'])){
-                        echo "
-                        <div class='row'>
-                            <div class='col-md-2'></div>
-                            <div class='col-md-4'>
-                                <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=1' class='btn btn-primary'>Modifier</a>       
-                            </div>
-                            <div class='col-md-4'>
-                                <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary'>Détails</a>
-                            </div>
-                            <div class='col-md-2'></div>
-                        </div>";
-                    }else{
-                        echo "<a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary'>Détails</a>";
-                    }
+                    <p class='card-text'>" . $body . "</p>
+                </div>
+                <div class='card-footer'>";
+                if (isset($_SESSION['USER'])){
+                    echo "
+                            <div class='row'>
+                                <div class='col-md-2'></div>
+                                <div class='col-md-4'>
+                                    <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=1' class='btn btn-primary'>Modifier</a>       
+                                </div>
+                                <div class='col-md-4'>
+                                    <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary'>Détails</a>
+                                </div>
+                                <div class='col-md-2'></div>
+                            </div>";
+                }else{
+                    echo "<a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary'>Détails</a>";
+                }
                 echo "</div>
             </div>
             ";
