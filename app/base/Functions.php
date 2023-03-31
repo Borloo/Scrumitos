@@ -14,10 +14,21 @@ function getBDConnexion(): PDO
     return $conn;
 }
 
+function getEmplacementByAnnee(int $dateDeb, int $dateFin){
+    $conn = getBDConnexion();
+    $sql = "SELECT * FROM Emplacement 
+         WHERE anneeConstruction <= :dateDeb
+         AND anneeConstruction >= :dateFin";
+    $query = $conn->prepare($sql);
+    $query->execute([
+        'dateDeb' => $dateDeb,
+        'dateFin' => $dateFin
+    ]);
+    return $query->fetchAll();
+}
+
 function getEmplacementByPeriode(string $dateDeb, string $dateFin): array
 {
-    print_r($dateDeb);
-    print_r($dateFin);
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Emplacement 
          WHERE Periode_Dispo_Debut <= :dateDeb
