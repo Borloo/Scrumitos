@@ -20,7 +20,7 @@ function getHtmlPrix(){
                 <div class='row'>
                     <div class='col-md-5'></div>
                     <div class='col-md-2'>
-                        <input class='btn btn-secondary' type='submit' name='submit' value='Afficher'>
+                        0<input class='btn btn-secondary' type='submit' name='submit' value='Afficher'>" . $maxSem . "
                     </div>
                     <div class='col-md-5'></div>
                 </div>
