@@ -55,6 +55,17 @@ ini_set('display_errors', 'on');
                         require('./../base/Functions.php');
 
                         if (isset($_GET['id'])){
+                            switch ($_GET['edit']){
+                                case "0":
+                                    $valueButton = "Retour";
+                                    break;
+                                case "1":
+                                    $valueButton = "Sauvegarder";
+                                    break;
+                                default:
+                                    $valueButton = "";
+                                    break;
+                            }
                             $new = getNewById((int)$_GET['id']);
                             echo "
                             <div class='card-header'>
@@ -95,7 +106,13 @@ ini_set('display_errors', 'on');
                                 </div>
                             </div>
                             <div class='card-footer'>
-                                <input class='btn btn-success' type='submit' name='submit' value='Sauvegarder'>   
+                                <div class='row'>
+                                    <div class='col-md-5'></div>
+                                    <div class='col-md-2'>
+                                        <input class='btn btn-success' type='submit' name='submit' value='" . $valueButton . "'>  
+                                    </div>
+                                    <div class='col-md-5'></div>
+                                </div>
                             </div>
                             ";
                             if (isset($_POST['submit'])){
