@@ -7,48 +7,42 @@ function getHtmlTaille()
     $sizeMin = getMinTailleEmplacement();
     $sizeMax = getMaxTailleEmplacement();
     echo "
-        <div class='card'>
-            <div class='card-header'>
-                <h1>Prix par semaine</h1>
+            <div class='card'>
+                <div class='card-header'>
+                    <h4>Taille</h4>
+                </div>
+                <div class='card-body'>
+                    <div class='row'>
+                <div class='col-md-2'></div>
+                <div class='col-md-1'>
+                    <p>" . $sizeMin . "m²</p>
+                </div>
+                <div class='col-md-6'>
+                    <form method='post'>
+                        <fieldset>
+                            <input type='range'";
+                            if (isset($_POST['range'])) {
+                                echo " value='" . $_POST['range'] . "'";
+                            }
+                            echo " name='range' class='form-range' min='" . $sizeMin . "' max='" . $sizeMax . "'>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class='col-md-1'>
+                    <p>" . $sizeMax . "m²</p>
+                </div>
+                <div class='col-md-2'></div>
             </div>
-            <div class='card-body'>
-                <form method='post'>
-                    <fieldset>
-                        <div class='card'>
-                            <div class='card-header'>
-                                <h4>Taille</h4>
-                            </div>
-                            <div class='card-body'>
-                                <div class='row'>
-                            <div class='col-md-2'></div>
-                            <div class='col-md-1'>
-                                <p>" . $sizeMin . "m²</p>
-                            </div>
-                            <div class='col-md-6'>
-                                <input type='range'";
-                                if (isset($_POST['range'])) {
-                                    echo " value='" . $_POST['range'] . "'";
-                                }
-                                echo " name='range' class='form-range' min='" . $sizeMin . "' max='" . $sizeMax . "'>
-                            </div>
-                            <div class='col-md-1'>
-                                <p>" . $sizeMax . "m²</p>
-                            </div>
-                            <div class='col-md-2'></div>
-                        </div>
-                        <div class='row'>
-                            <div class='col-md-5'></div>
-                            <div class='col-md-2'>
-                                <input class='btn btn-secondary' type='submit' name='submit' value='Afficher'>
-                            </div>
-                            <div class='col-md-5'></div>
-                        </div>
-                            </div>
-                        </div>
-                    </fieldset>
-                <form>
+            <div class='row'>
+                <div class='col-md-5'></div>
+                <div class='col-md-2'>
+                    <input class='btn btn-secondary' type='submit' name='submit' value='Afficher'>
+                </div>
+                <div class='col-md-5'></div>
             </div>
-        </div>";
+                </div>
+            </div>
+            ";
     if (isset($_POST['submit'])) {
         if (isset($_POST['range'])) {
             echo "
