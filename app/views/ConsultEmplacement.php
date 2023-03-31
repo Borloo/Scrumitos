@@ -20,12 +20,15 @@ ini_set('display_errors', 'on');
         table {
             border: 1px solid black;
         }
+
         .btn {
             width: 100%;
         }
+
         .row {
             margin: 2%;
         }
+
         .card {
             margin-bottom: 2%;
         }
@@ -33,68 +36,61 @@ ini_set('display_errors', 'on');
 </head>
 
 <body>
-    <?php include("./../../include/header.php"); ?>
-    <div class="wrapper">
-        <?php include("./../../include/menus.php"); ?>
-        <section id="content">
-            <div class="card">
-                <div class="card-headear">
-                    <h1>Recherche d'emplacements par :</h1>
-                </div>
-                <div class="card-body">
-<<<<<<< Updated upstream
-                    <div class="row">
-                        <div class='col-md-2'></div>
-                        <div class='col-md-3'>
-                            <a class="btn btn-secondary" href="ConsultEmplacement.php?c=1" role="button">Type</a>
-                        </div>
-                        <div class="col-md-2"></div>
-                        <div class="col-md-3">
-                            <a class="btn btn-secondary" href="ConsultEmplacement.php?c=2" role="button">Période</a>
-                        </div>
-                        <div class="col-md-2"></div>
-                    </div>
-                    <div class="row">
-                        <div class='col-md-2'></div>
-                        <div class='col-md-3'>
-                            <a class="btn btn-secondary" href="../ConsultEmplacementPrix.php" role="button">Année de construction</a>
-                        </div>
-                        <div class="col-md-2"></div>
-                        <div class="col-md-3">
-                            <a class="btn btn-secondary" href="../ConsultEmplacementPrix.php" role="button">Prix</a>
-                        </div>
-                        <div class="col-md-2"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4"></div>
-                        <div class="col-md-4">
-                            <a class="btn btn-secondary" href="#" role="button">Taille</a>
-                        </div>
-                        <div class="col-md-4"></div>
-                    </div>
-=======
-                    <a class="btn btn-secondary" href="ConsultType.php?suppr=0&add=0" role="button">Recherche emplacement par type</a>
-                    <a class="btn btn-secondary" href="" role="button">Recherche emplacement par période</a>
-                    <a class="btn btn-secondary" href="../ConsultDate.php" role="button">consulter emplacement année construction</a>
-                    <a class="btn btn-secondary" href="../ConsultEmplacementPrix.php" role="button">Recherche emplacement prix</a>
-                    <a class="btn btn-secondary" href="" role="button">Recherche emplacement taille</a>
-
->>>>>>> Stashed changes
-                </div>
+<?php include("./../../include/header.php"); ?>
+<div class="wrapper">
+    <?php include("./../../include/menus.php"); ?>
+    <section id="content">
+        <div class="card">
+            <div class="card-headear">
+                <h1>Recherche d'emplacements par :</h1>
             </div>
-            <?php
+            <div class="card-body">
+                <div class="row">
+                    <div class='col-md-2'></div>
+                    <div class='col-md-3'>
+                        <a class="btn btn-secondary" href="ConsultEmplacement.php?c=1" role="button">Type</a>
+                    </div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-3">
+                        <a class="btn btn-secondary" href="ConsultEmplacement.php?c=2" role="button">Période</a>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row">
+                    <div class='col-md-2'></div>
+                    <div class='col-md-3'>
+                        <a class="btn btn-secondary" href="../ConsultEmplacementPrix.php" role="button">Année de
+                            construction</a>
+                    </div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-3">
+                        <a class="btn btn-secondary" href="../ConsultEmplacementPrix.php" role="button">Prix</a>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <a class="btn btn-secondary" href="#" role="button">Taille</a>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
 
-                require('./../base/HtmlFunctions.php');
+            </div>
+        </div>
+        <?php
 
-                if ($_GET['c'] == "1"){
-                    getHtmlType();
-                }
-                if ($_GET['c'] == "2"){
-                    getHtmlPeriode();
-                }
-            ?>
-        </section>
-    </div>
-    <?php include("./../../include/footer.php"); ?>
+        require('./../base/HtmlFunctions.php');
+
+        if ($_GET['c'] == "1") {
+            getHtmlType();
+        }
+        if ($_GET['c'] == "2") {
+            getHtmlPeriode();
+        }
+        ?>
+    </section>
+</div>
+<?php include("./../../include/footer.php"); ?>
 </body>
 </html>
