@@ -17,10 +17,10 @@ function getHtmlAnnee()
                             <div class='col-md-6'>
                                 <div class='form-check'>
                                     <input class='form-check-input' name='checkbox' type='radio' value='moins2000' id='flexCheckDefault'";
-                                    if (isset($_POST['submit']) && isset($_POST['checkbox']) && $_POST['checkbox'] == 'moins2000'){
-                                        echo "checked";
-                                    }
-                                    echo ">
+    if (isset($_POST['submit']) && isset($_POST['checkbox']) && $_POST['checkbox'] == 'moins2000') {
+        echo "checked";
+    }
+    echo ">
                                     <label class='form-check-label' for='flexCheckDefault'>
                                     Date de construction/rénovation antérieure à 2000
                                     </label>
@@ -33,10 +33,10 @@ function getHtmlAnnee()
                             <div class='col-md-6'>
                                 <div class='form-check'>
                                     <input class='form-check-input' name='checkbox' type='radio' value='moins2010' id='flexCheckDefault1'";
-                                    if (isset($_POST['submit']) && isset($_POST['checkbox']) && $_POST['checkbox'] == 'moins2010'){
-                                        echo "checked";
-                                    }
-                                    echo ">
+    if (isset($_POST['submit']) && isset($_POST['checkbox']) && $_POST['checkbox'] == 'moins2010') {
+        echo "checked";
+    }
+    echo ">
                                     <label class='form-check-label' for='flexCheckDefault1'>
                                     Date de construction/rénovation entre 2000 et 2009
                                     </label>
@@ -49,10 +49,10 @@ function getHtmlAnnee()
                             <div class='col-md-6'>
                                 <div class='form-check'>
                                     <input class='form-check-input' name='checkbox' type='radio' value='plus2010' id='flexCheckDefault2'";
-                                    if (isset($_POST['submit']) && isset($_POST['checkbox']) && $_POST['checkbox'] == 'plus2010'){
-                                        echo "checked";
-                                    }
-                                    echo ">
+    if (isset($_POST['submit']) && isset($_POST['checkbox']) && $_POST['checkbox'] == 'plus2010') {
+        echo "checked";
+    }
+    echo ">
                                     <label class='form-check-label' for='flexCheckDefault2'>
                                     Date de construction/rénovation postérieure ou égale à 2010
                                     </label>
@@ -72,6 +72,49 @@ function getHtmlAnnee()
             </div>
         </div>
     ";
+    if (isset($_POST['submit'])) {
+        if (isset($_POST['checkbox'])) {
+            switch ($_POST['checkbox']) {
+                case 'moins2000':
+                    $titre = 'Avant 2000';
+                    $emplacements = getEmplacementByPeriode('1990-01-01 00:00:00', '1999-12-31 23:59:59');
+                    break;
+                case 'moins2010' :
+                    $titre = 'Avant 2010';
+                    $emplacements = getEmplacementByPeriode('2000-01-01 00:00:00', '2009-12-31 23:59:59');
+                    break;
+                case 'plus2010' :
+                    $titre = 'Après 2010';
+                    $dateFin = new DateTime('now', new DateTimeZone('Europe/Berlin'));
+                    $emplacements = getEmplacementByPeriode('2010-01-01 00:00:00', $dateFin->format('Y-m-d H:i:s'));
+                    break;
+                default:
+                    $titre = "??";
+                    $emplacements = [];
+            }
+            echo "
+                    <div class='card'>
+                        <div class='card-header'>
+                            <h4>" . $titre . "</h4>
+                        </div>
+                        <div class='card-body'>";
+            if (!empty($emplacements)) {
+                echo "
+                            <center>
+                                <table>
+                                    <tr><th>Nom de l'emplacement</th><th>Type de l'emplacement</th><th>Adresse Emplacement</th><th>Prix/semaine</th><th>Actions</th></tr>";
+
+                                echo "</table>
+                            </center>";
+            }else{
+                    echo "<p>Aucun résultat</p>";
+            }
+            echo "
+                        </div>
+                    </div>
+            ";
+        }
+    }
 }
 
 function getHtmlPeriode()
@@ -128,37 +171,14 @@ function getHtmlPeriode()
                     <div class='card-body'>";
             $emplacements = getEmplacementByPeriode($dateDeb, $dateFin);
             if (!empty($emplacements)) {
-                echo "<div class='card-body'>
+                echo "
                                     <center><table>
                                         <caption> Emplacement du " . $dateDeb . " - " . $dateFin . "</caption>
                                         <tr><th>Nom de l'emplacement</th><th>Type de l'emplacement</th><th>Adresse Emplacement</th><th>Prix/semaine</th><th>Actions</th></tr>";
-                foreach ($emplacements as $emplacement) {
-                    $type = getTypeById($emplacement['idType']);
-                    echo "
-                                <tr>
-                                    <td>" . $emplacement['Nom_Emplacement'] . "</td>
-                                    <td>" . $type['nomType'] . "</td>
-                                    <td>" . $emplacement['adresseEmpl'] . "</td>
-                                    <td>" . $emplacement['Prix_Semaine'] . "</td>
-                                    <td>
-                                        <div class='row'>
-                                            <div class='col-md-4'>
-                                                <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=1'><input type='button' class='btn btn-warning' value='Modifier'></a>
-                                            </div>
-                                            <div class='col-md-4'>
-                                                <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=0'><input type='button' class='btn btn-info' value='Prévisualiser'></a>
-                                            </div>
-                                            <div class='col-md-4'>
-                                                <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=3'><input type='button' class='btn btn-danger' value='Supprimer'></a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            ";
-                }
+                getHtmlEmplacementTable($emplacements);
                 echo "</table></center>";
             } else {
-                echo "<tr><td>Aucun résultat</td></tr>";
+                echo "<p>Aucun résultat</p>";
             }
             echo "
                                 </div>  
@@ -248,17 +268,30 @@ function getHtmlType()
             }
             $emplacements = getEmplacementById($typeId);
             if (!empty($emplacements)) {
-                foreach ($emplacements as $emplacement) {
-                    echo "
+                getHtmlEmplacementTable($emplacements);
+            } else {
+                echo "<tr><td>Aucun résultat</td></tr>";
+            }
+            echo "
+                                    </table></center>
+                                </div>
+                            </div>";
+        }
+    }
+}
+
+function getHtmlEmplacementTable(array $emplacements)
+{
+    foreach ($emplacements as $emplacement) {
+        $type = getTypeById($emplacement['idType']);
+        echo "
                                 <tr>
                                     <td>" . $emplacement['Nom_Emplacement'] . "</td>
-                                    <td>" . $typeName . "</td>
+                                    <td>" . $type['nomType'] . "</td>
                                     <td>" . $emplacement['adresseEmpl'] . "</td>
-                                    <td>" . $emplacement['anneeConstruction'] . "</td>";
-                    if (isset($_SESSION['USER'])) {
-                        echo "
+                                    <td>" . $emplacement['Prix_Semaine'] . "</td>
                                     <td>
-                                        <div class='row' id='actions'>
+                                        <div class='row'>
                                             <div class='col-md-4'>
                                                 <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=1'><input type='button' class='btn btn-warning' value='Modifier'></a>
                                             </div>
@@ -270,17 +303,8 @@ function getHtmlType()
                                             </div>
                                         </div>
                                     </td>
-                                </tr>";
-                    }
-                }
-            } else {
-                echo "<tr><td>Aucun résultat</td></tr>";
-            }
-            echo "
-                                    </table></center>
-                                </div>
-                            </div>";
-        }
+                                </tr>
+                            ";
     }
 }
 
