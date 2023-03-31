@@ -68,7 +68,7 @@ ini_set('display_errors', 'on');
                     </div>
                     <div class="col-md-2"></div>
                     <div class="col-md-3">
-                        <a class="btn btn-secondary" href="../ConsultEmplacementPrix.php" role="button">Prix</a>
+                        <a class="btn btn-secondary" href="ConsultEmplacement.php?c=4" role="button">Prix</a>
                     </div>
                     <div class="col-md-2"></div>
                 </div>
@@ -86,17 +86,19 @@ ini_set('display_errors', 'on');
 
         require('./../base/HtmlFunctions.php');
 
-        if ($_GET['c'] == "1") {
-            getHtmlType();
-        }
-        if ($_GET['c'] == "2") {
-            getHtmlPeriode();
-        }
-        if ($_GET['c'] == "3"){
-            getHtmlAnnee();
-        }
-        if ($_GET['c'] == "4"){
-            getHtmlPrix();
+        switch ($_GET['c']){
+            case "1":
+                getHtmlType();
+                break;
+            case "2":
+                getHtmlPeriode();
+                break;
+            case "3":
+                getHtmlAnnee();
+                break;
+            case "4":
+                getHtmlPrix();
+                break;
         }
         ?>
     </section>
