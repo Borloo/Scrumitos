@@ -126,6 +126,9 @@ ini_set('display_errors', 'on');
                     case "Sauvegarder":
                         $date = new DateTime($_POST['date']);
                         updateNew($_GET['id'], $_POST['titre'], $_POST['body'], $date);
+                        echo "<script>
+                                location.href='http://88.208.226.189/app/views/ConsultNews.php?msg=updated'
+                            </script>";
                         break;
                     default:
                         echo "<script>

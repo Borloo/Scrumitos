@@ -51,6 +51,11 @@ ini_set('display_errors', 'on');
             <div class="card-header">
                 <div class="row">
                     <?php
+                    if (isset($_GET['msg'])){
+                        if ($_GET['msg'] == 'updated'){
+                            echo "<p>News mise à jour !</p>";
+                        }
+                    }
                     if (isset($_SESSION['USER'])){
                         echo "
                         <div class='col-md-3'></div>
