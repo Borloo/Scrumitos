@@ -23,14 +23,15 @@ require('./../base/HtmlFunctions.php');
                 <h1>Nos emplacements :</h1>
             </div>
             <?php
-            getAllEmplacements();
             $emplacements = getAllEmplacements();
             if (!empty($emplacements)) {
                 foreach ($emplacements as $emplacement) {
+                   $sonType = getTypeById($emplacement['id']);
+
                     echo "
                                 <tr>
                                     <td>" . $emplacement['Nom_Emplacement'] . "</td>
-                                    <td>" . $emplacement . "</td>
+                                    <td>" . $sonType . "</td>
                                     <td>" . $emplacement['adresseEmpl'] . "</td>
                                     <td>" . $emplacement['anneeConstruction'] . "</td>
                                     <td>
