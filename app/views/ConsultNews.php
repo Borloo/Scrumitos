@@ -8,21 +8,43 @@ ini_set('display_errors', 'on');
 <html>
 
 <head>
-    <meta charset="utf-8"/>
-    <link rel="stylesheet" href="../../include/styles.css"/>
-    <title>Les News</title>
-    <?php
-    include("../include/headfile.php");
-    ?>
+    <?php include("./../../include/headfile.php"); ?>
+    <style>
+        td {
+            text-align: center;
+            padding: 5px;
+        }
+
+        th {
+            padding: 5px 20px 5px 20px;
+        }
+
+        table {
+            border: 1px solid black;
+        }
+
+        select {
+            width: 100%;
+        }
+
+        .btn {
+            width: 100%;
+        }
+
+        .row {
+            margin: 2%;
+        }
+
+        .card {
+            margin-bottom: 2%;
+        }
+    </style>
 </head>
 
 <body>
-<?php
-include("../include/header.php");
-// include("../include/connect.inc.php");
-?>
+<?php include("./../../include/header.php"); ?>
 <div class="wrapper">
-    <?php include("../include/menus.php"); ?>
+    <?php include("./../../include/menus.php");?>
     <section id="content">
         <div class="container">
             <?php
@@ -73,7 +95,7 @@ include("../include/header.php");
         </div>
     </section>
 </div>
-<?php include("../include/footer.php"); ?>
+<?php include("../../include/footer.php"); ?>
 </body>
 
 </html>
