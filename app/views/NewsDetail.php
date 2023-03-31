@@ -124,7 +124,8 @@ ini_set('display_errors', 'on');
             if (isset($_POST['submit'])){
                 switch ($_POST['submit']){
                     case "Sauvegarder":
-                        echo "sauve";
+                        $date = new DateTime($_POST['date']);
+                        updateNew($_GET['id'], $_POST['titre'], $_POST['body'], $date);
                         break;
                     default:
                         echo "<script>

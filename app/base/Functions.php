@@ -14,6 +14,29 @@ function getBDConnexion(): PDO
     return $conn;
 }
 
+function updateNew(
+    int $id,
+    string $titre,
+    string $body,
+    DateTime $date
+){
+    $conn = getBDConnexion();
+    $sql = "UPDATE News SET
+            titre = :titre,
+            body = :body,
+            date = :date
+            WHERE id = :id
+           ";
+    $query = $conn->prepare($sql);
+    $query->execute([
+        'titre' => $titre,
+        'body' => $body,
+        'date' => $date,
+        'id' => $id
+    ]);
+    print_r($query->errorInfo());
+}
+
 function getNewById(int $id): array{
     $conn = getBDConnexion();
     $sql = "SELECT * FROM News WHERE id = :id";
