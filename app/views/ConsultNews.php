@@ -64,7 +64,7 @@ ini_set('display_errors', 'on');
                         </div>
                         <div class='col-md-2'></div>
                         <div class='col-md-2'>
-                            <a href='ConsultNews.php?id=-1'><input class='btn btn-success' id='ajouter' type='button' value='Ajouter'></a>
+                            <a href='NewsDetail.php?id=-1&edit=1'><input class='btn btn-success' id='ajouter' type='button' value='Ajouter'></a>
                         </div>
                         <div class='col-md-1'></div>
                         ";

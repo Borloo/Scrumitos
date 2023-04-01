@@ -66,17 +66,29 @@ ini_set('display_errors', 'on');
                                     $valueButton = "";
                                     break;
                             }
-                            $new = getNewById((int)$_GET['id']);
+                            if ($_GET['id'] != -1){
+                                $new = getNewById((int)$_GET['id']);
+                                $titre = $new['titre'];
+                                $body = $new['body'];
+                                $date = $new['date'];
+                                $titrePage = 'Modification de ' . $titre;
+                            }else{
+                                $titre = '';
+                                $body = '';
+                                $date = new DateTime('now', new DateTimeZone('Europe/Berlin'));
+                                $date = $date->format('Y-m-d');
+                                $titrePage = 'Nouvelle news';
+                            }
                             echo "
                             <div class='card-header'>
-                                <h4>" . $new['titre'] . "</h4>
+                                <h4>" . $titrePage . "</h4>
                             </div>
                             <div class='card-body'>
                                 <div class='row'>
                                     <div class='col-md-4'>
                                         <div class='input-group mb-3'>
                                             <span class='input-group-text' id='basic-addon1'>Titre</span>
-                                            <input class='form-control' name='titre' type='text' value='" . $new['titre'] . "'";
+                                            <input class='form-control' name='titre' type='text' value='" . $titre . "'";
                                             if ($_GET['edit'] == 0){
                                                 echo "readonly";
                                             }
@@ -86,7 +98,7 @@ ini_set('display_errors', 'on');
                                     <div class='col-md-4'>
                                         <div class='input-group mb-3'>
                                             <span class='input-group-text' id='basic-addon1'>Contenu</span>
-                                            <input class='form-control' name='body' type='text' value='" . $new['body'] . "'";
+                                            <input class='form-control' name='body' type='text' value='" . $body . "'";
                                             if ($_GET['edit'] == 0){
                                                 echo "readonly";
                                             }
@@ -96,7 +108,7 @@ ini_set('display_errors', 'on');
                                     <div class='col-md-4'>
                                         <div class='input-group mb-3'>
                                             <span class='input-group-text' id='basic-addon1'>Date</span>
-                                            <input class='form-control' name='date' type='date' value='" . $new['date'] . "'";
+                                            <input class='form-control' name='date' type='date' value='" . $date . "'";
                                             if ($_GET['edit'] == 0){
                                                 echo "readonly";
                                             }
@@ -125,7 +137,11 @@ ini_set('display_errors', 'on');
                 switch ($_POST['submit']){
                     case "Sauvegarder":
                         $date = new DateTime($_POST['date']);
-                        updateNew($_GET['id'], $_POST['titre'], $_POST['body'], $date);
+                        if ($_GET['id'] != '-1'){
+                            updateNew($_GET['id'], $_POST['titre'], $_POST['body'], $date);
+                        }else{
+                            addNew($_POST['titre'], $_POST['body'], $date);
+                        }
                         echo "<script>
                                 location.href='http://88.208.226.189/app/views/ConsultNews.php?msg=updated'
                             </script>";

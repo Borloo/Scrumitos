@@ -14,6 +14,23 @@ function getBDConnexion(): PDO
     return $conn;
 }
 
+function addNew(
+    string $titre,
+    string $body,
+    DateTime $date
+){
+    $conn = getBDConnexion();
+    $sql = 'INSERT INTO News(titre, body, date)
+            VALUES (:titre, :body, :date)';
+    $query = $conn->prepare($sql);
+    $query->execute([
+        'titre' => $titre,
+        'body' => $body,
+        'date' => $date->format('Y-m-d')
+    ]);
+    print_r($query->errorInfo());
+}
+
 function updateNew(
     int $id,
     string $titre,
