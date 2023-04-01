@@ -14,14 +14,17 @@ function getHtmlListNews(){
             case $params['3'] == 1:
                 $limit = 3;
                 $col = "<div class='col-md-4'>";
+                $colFin = "</div></div>";
                 break;
             case $params['2'] == 1:
                 $limit = 2;
                 $col = "<div class='col-md-6'>";
+                $colFin = "</div></div>";
                 break;
             default:
                 $limit = 1;
                 $col = "<div>";
+                $colFin = "</div>";
                 break;
         }
         $i = 1;
@@ -66,7 +69,7 @@ function getHtmlListNews(){
             echo "</div>";
             if ($i == $limit){
                 $i = 1;
-                echo "</div></div>";
+                echo $colFin;
             }else{
                 $i++;
             }

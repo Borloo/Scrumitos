@@ -139,11 +139,13 @@ ini_set('display_errors', 'on');
                         $date = new DateTime($_POST['date']);
                         if ($_GET['id'] != '-1'){
                             updateNew($_GET['id'], $_POST['titre'], $_POST['body'], $date);
+                            $msg = 'updated';
                         }else{
                             addNew($_POST['titre'], $_POST['body'], $date);
+                            $msg = 'created';
                         }
                         echo "<script>
-                                location.href='http://88.208.226.189/app/views/ConsultNews.php?msg=updated'
+                                location.href='http://88.208.226.189/app/views/ConsultNews.php?msg=' + $msg
                             </script>";
                         break;
                     default:
