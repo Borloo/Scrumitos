@@ -147,7 +147,7 @@ ini_set('display_errors', 'on');
                         echo "<script>
                                 location.href='http://88.208.226.189/app/views/ConsultNews.php?msg=' + $msg
                             </script>";
-                        break;
+                        die();
                     default:
                         echo "<script>
                                 location.href='http://88.208.226.189/app/views/ConsultNews.php'

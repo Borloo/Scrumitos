@@ -19,7 +19,7 @@ function getHtmlListNews(){
             case $params['2'] == 1:
                 $limit = 2;
                 $col = "<div class='col-md-6'>";
-                $colFin = "</div></div>";
+                $colFin = "</div>";
                 break;
             default:
                 $limit = 1;
