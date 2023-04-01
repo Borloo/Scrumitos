@@ -52,24 +52,24 @@ ini_set('display_errors', 'on');
                 <div class="row">
                     <?php
                     if (isset($_GET['msg'])){
-                        if ($_GET['msg'] == 'updated'){
-                            echo "<p>News mise à jour !</p>";
+                        switch ($_GET['msg']){
+                            case 'updated':
+                                echo "<p>News mise à jour !</p>";
+                                break;
+                            case 'created' :
+                                echo "<p>News ajoutée !</p>";
+                                break;
                         }
                     }
+                    echo "
+                    <div class='row'>
+                        <h1>News du camping</h1>
+                    </div>";
                     if (isset($_SESSION['USER'])){
                         echo "
-                        <div class='col-md-3'></div>
-                        <div class='col-md-4'>
-                            <h1>News du camping</h1>
-                        </div>
-                        <div class='col-md-2'></div>
-                        <div class='col-md-2'>
+                        <div class='row'>
                             <a href='NewsDetail.php?id=-1&edit=1'><input class='btn btn-success' id='ajouter' type='button' value='Ajouter'></a>
-                        </div>
-                        <div class='col-md-1'></div>
-                        ";
-                    }else{
-                        echo "<h1>News du camping</h1>";
+                        </div>";
                     }
                     ?>
                 </div>
