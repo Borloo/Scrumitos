@@ -68,7 +68,10 @@ ini_set('display_errors', 'on');
                     if (isset($_SESSION['USER'])){
                         echo "
                         <div class='row'>
-                            <a href='NewsDetail.php?id=-1&edit=1'><input class='btn btn-success' id='ajouter' type='button' value='Ajouter'></a>
+                            <div class='col-md-5'></div>
+                            <div class='col-md-2'>
+                                <a href='NewsDetail.php?id=-1&edit=1'><input class='btn btn-success' id='ajouter' type='button' value='Ajouter'></a></div>
+                            <div class='col-md-5'></div>
                         </div>";
                     }
                     ?>
