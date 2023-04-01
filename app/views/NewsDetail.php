@@ -62,11 +62,17 @@ ini_set('display_errors', 'on');
                                 case "1":
                                     $valueButton = "Sauvegarder";
                                     break;
+                                case "-1":
+                                    deleteNew((int)$_GET['id']);
+                                    echo "<script>
+                                            location.href='http://88.208.226.189/app/views/ConsultNews.php?msg=deleted'
+                                        </script>";
+                                    die();
                                 default:
                                     $valueButton = "";
                                     break;
                             }
-                            if ($_GET['id'] != -1){
+                            if ($_GET['id'] == '1'){
                                 $new = getNewById((int)$_GET['id']);
                                 $titre = $new['titre'];
                                 $body = $new['body'];

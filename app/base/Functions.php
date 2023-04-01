@@ -14,6 +14,14 @@ function getBDConnexion(): PDO
     return $conn;
 }
 
+function deleteNew(int $id){
+    $conn = getBDConnexion();
+    $sql = "DELETE FROM News WHERE id = :id";
+    $query = $conn->prepare($sql);
+    $query->execute(['id' => $id]);
+    print_r($query->errorInfo());
+}
+
 function addNew(
     string $titre,
     string $body,

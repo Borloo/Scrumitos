@@ -51,14 +51,15 @@ function getHtmlListNews(){
                 if (isset($_SESSION['USER'])){
                     echo "
                             <div class='row'>
-                                <div class='col-md-2'></div>
-                                <div class='col-md-4'>
-                                    <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=1' class='btn btn-primary'>Modifier</a>       
-                                </div>
-                                <div class='col-md-4'>
+                                <div class='col-md-4'>      
                                     <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary'>Détails</a>
                                 </div>
-                                <div class='col-md-2'></div>
+                                <div class='col-md-4'>
+                                    <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=1' class='btn btn-warning'>Modifier</a> 
+                                </div>
+                                <div class='col-md-4'>
+                                    <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=-1' class='btn btn-danger'>Supprimer</a>
+                                </div>
                             </div>";
                 }else{
                     echo "<a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary'>Détails</a>";
