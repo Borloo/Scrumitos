@@ -48,8 +48,8 @@ function getHtmlListNews(){
                     <p class='card-text'>" . $body . "</p>
                 </div>
                 <div class='card-footer'>";
-                if (isset($_SESSION['USER'])){
-                    echo "
+            if (isset($_SESSION['USER'])){
+                echo "
                             <div class='row'>
                                 <div class='col-md-4'>      
                                     <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary'>Détails</a>
@@ -61,10 +61,10 @@ function getHtmlListNews(){
                                     <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=-1' class='btn btn-danger'>Supprimer</a>
                                 </div>
                             </div>";
-                }else{
-                    echo "<a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary'>Détails</a>";
-                }
-                echo "</div>
+            }else{
+                echo "<a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary'>Détails</a>";
+            }
+            echo "</div>
             </div>
             ";
             echo "</div>";
