@@ -31,7 +31,7 @@ include("./../../include/menus.php");
     <input type="password" id="password" name="password" required><br>
     <label for="telephone">Téléphone:</label>
     <input type="text" id="telephone" name="telephone" required><br>
-    <input class='btn btn-success' type="submit" role="button" name='submit'>S'inscrire</input>
+    <input class='btn btn-success' type="submit" role="button" name='submit' value="S\'inscrire"/>
 
 </form>
 <?php
