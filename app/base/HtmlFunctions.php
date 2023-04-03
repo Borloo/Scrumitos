@@ -429,7 +429,7 @@ function getHtmlPeriode()
             echo "
                 <div class='card'>
                     <div class='card-header'>
-                        <h4>" . $dateDeb->format('Y-m-d') . " - " . $dateFin->format('Y-m-d') . "</h4>
+                        <h4>" . $dateDeb . " - " . $dateFin . "</h4>
                     </div>
                     <div class='card-body'>";
             $emplacements = getEmplacementByPeriode($dateDeb, $dateFin);
@@ -536,7 +536,7 @@ function getHtmlType()
                 echo "
                     <table class='table'>
                         <caption> Emplacement du type " . $typeName . "</caption>
-                        <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Année de Construction</th>";
+                        <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Prix par semaine</th>";
                 if (isset($_SESSION['USER'])) {
                     if ($_SESSION['USER']['isAdmin']) {
                         echo "<th scope='col'>Actions</th>";
