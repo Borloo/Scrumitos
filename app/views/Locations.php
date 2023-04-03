@@ -63,15 +63,32 @@ if (isset($_GET['user'])){
                         echo 'Location validée !';
                     }
                 }
+                if (isset($_GET['new'])){
+                    switch ($_GET['new']){
+                        case '0':
+                            echo "<h1>Locations en attente de validation</h1>";
+                            break;
+                        case '1':
+                            echo "<h1>Demande de location</h1>";
+                            break;
+                    }
+                }
                 ?>
-                <h1>Locations en attente de validation</h1>
             </div>
             <div class="card-body">
                 <?php
 
-                require('./../base/HtmlFunctions.php');
-
-                getHtmlLocationsValidation();
+                if (isset($_GET['new'])){
+                    require('./../base/HtmlFunctions.php');
+                    switch ($_GET['new']){
+                        case '0':
+                            getHtmlLocationsValidation();
+                            break;
+                        case '1':
+                            getHtmlNewLocation();
+                            break;
+                    }
+                }
 
                 ?>
             </div>

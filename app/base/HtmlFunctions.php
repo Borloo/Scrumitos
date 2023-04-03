@@ -4,6 +4,10 @@ require("Functions.php");
 
 require("../bd/Utilisateur.php");
 
+function getHtmlNewLocation(){
+    echo "ok";
+}
+
 function getHtmlLocationsValidation()
 {
     $locations = getLocations(false);

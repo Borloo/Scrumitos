@@ -198,22 +198,20 @@
                     }else{
                         $userId = '-1';
                     }
-                    print_r($_SESSION);
-                    print_r($userId);
                     if ($_GET['edit'] == 1 || $_GET['edit'] == 2){
                         echo "
                         <div class='col-md-2'>
                             <input class='btn btn-success' type='submit' name='submit' value='Sauvegarder'>
                         </div>
                         <div class='col-md-2'>
-                            <a href='Locations.php?id=" . $_GET['id'] . "&user=" . $userId . "'><input class='btn btn-info' type='button' value='Louer'></a>
+                            <a href='Locations.php?new=1&id=" . $_GET['id'] . "&user=" . $userId . "'><input class='btn btn-info' type='button' value='Louer'></a>
                         </div>
                         ";
                     }else{
                         echo "
                         <div class='col-md-1'></div>
                         <div class='col-md-2'>
-                            <a href='Locations.php?id=" . $_GET['id'] . "&user=" . $userId . "'><input class='btn btn-info' type='button' value='Louer'></a>
+                            <a href='Locations.php?new=1&id=" . $_GET['id'] . "&user=" . $userId . "'><input class='btn btn-info' type='button' value='Louer'></a>
                         </div>
                         <div class='col-md-1'></div>
                         ";
