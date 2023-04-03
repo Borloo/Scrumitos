@@ -22,7 +22,7 @@ function getHtmlLocationsValidation(){
                         <td>" . $emplacement['Nom_Emplacement'] . "</td>
                         <td>" . $type['nomType'] . "</td>
                         <td>" . $date . "</td>
-                        <td><input class='btn btn-success' type='submit' name='submit' value='Valider'></td>
+                        <td><input class='btn btn-success' type='submit' name='" . $location['id'] . "' value='Valider'></td>
                     </tr>
                 ";
             }
@@ -30,6 +30,9 @@ function getHtmlLocationsValidation(){
         ";
     }else{
         echo "<p>Pas de locations à valider</p>";
+    }
+    if (isset($_POST['submit'])){
+        print_r($_POST);
     }
 }
 
