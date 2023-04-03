@@ -532,14 +532,11 @@ function getHtmlType()
             echo "
             <div class='card'>
                 <div class='card-header'>
-                    <div class='row'>
-                        <h4>" . $typeName . "</h4>
-                    </div>
+                    <h4>" . $typeName . "</h4>
                 </div>
                 <div class='card-body>";
             if (!empty($emplacements)) {
                 echo "
-                            
                     <table class='table'>
                         <caption> Emplacement du type " . $typeName . "</caption>
                         <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Année de Construction</th>";
@@ -550,7 +547,7 @@ function getHtmlType()
                 }
                 echo "</tr>";
                 getHtmlEmplacementTable($emplacements);
-                echo "</table></center>";
+                echo "</table>";
             } else {
                 echo "<p>Aucun résultat</p>";
             }
