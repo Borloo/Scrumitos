@@ -38,8 +38,7 @@ function getHtmlListNews(){
                 echo "<div class='row'>";
             }
             echo $col;
-            echo "
-            <div class='card'>
+            echo "<div class='card'>
                 <div class='card-header'>
                     <h5 class='card-title'>" . $new['titre'] . "</h5>
                 </div>
@@ -49,8 +48,7 @@ function getHtmlListNews(){
                 </div>
                 <div class='card-footer'>";
             if (isset($_SESSION['USER'])){
-                echo "
-                            <div class='row'>
+                echo "<div class='row'>
                                 <div class='col-md-4'>      
                                     <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary'>Détails</a>
                                 </div>
@@ -64,10 +62,7 @@ function getHtmlListNews(){
             }else{
                 echo "<a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary'>Détails</a>";
             }
-            echo "</div>
-            </div>
-            ";
-            echo "</div>";
+            echo "</div></div></div>";
             if ($i == $limit){
                 $i = 1;
                 echo $colFin;
@@ -84,8 +79,7 @@ function getHtmlTaille()
 {
     $sizeMin = getMinTailleEmplacement();
     $sizeMax = getMaxTailleEmplacement();
-    echo "
-            <div class='card'>
+    echo "<div class='card'>
                 <div class='card-header'>
                     <h4>Taille</h4>
                 </div>
