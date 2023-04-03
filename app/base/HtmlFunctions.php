@@ -735,11 +735,17 @@ function inscription(int $idUtilisateur = null){
         ){
             if (null !== $idUtilisateur){
                 updateUser((int)$_SESSION['USER']['id'], $_POST['login'], $_POST['password'], $_POST['adresse'], $_POST['email'], $_POST['telephone']);
+                $isAdmin = $_SESSION['USER']['isAdmin'];
             }else{
                 registerUser($_POST['login'], $_POST['password'], $_POST['adresse'], $_POST['email'], $_POST['telephone']);
+                $isAdmin = false;
             }
             $user = getUser($_POST['login'], $_POST['password']);
-            $_SESSION['USER'] = $user;
+            $_SESSION['USER'] = [
+                'id' => $user['id'],
+                'login' => $user['login'],
+                'isAdmin' => $isAdmin
+            ];
             echo "<script>
                     location.href='http://88.208.226.189/app/views/Compte.php'
                 </script>";
