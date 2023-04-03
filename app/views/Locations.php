@@ -5,12 +5,11 @@ ini_set('display_errors', 'on');
 
 if (isset($_GET['user'])){
     if ($_GET['user'] == '-1'){
-        echo 'ok';
-//        echo "
-//        <script>
-//            location.href='Connexion.php?conn=0'
-//        </script>";
-//        die();
+        echo "
+        <script>
+            location.href='Connexion.php?conn=0'
+        </script>";
+        die();
     }
 }
 ?>
