@@ -3,6 +3,9 @@ $emplacement_id = isset($_GET['emplacement_id']) ? $_GET['emplacement_id'] : '';
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 if (isset($_POST['submit'])){
+    echo "Formulaire soumis"; // Ajoutez cette ligne pour vérifier que la soumission du formulaire est détectée
+
+
     registerUser($_POST['username'], $_POST['password'], $_POST['adresse'], $_POST['email'], $_POST['telephone']);
 
 
@@ -35,7 +38,7 @@ include("./../../include/menus.php");
     <input type="password" id="password" name="password" required><br>
     <label for="telephone">Téléphone:</label>
     <input type="text" id="telephone" name="telephone" required><br>
-    <input class='btn btn-success' type="submit" href="../Connexion.php" role="button" name='submit'>S'inscrire</input>
+    <input class='btn btn-success' type="submit" role="button" name='submit'>S'inscrire</input>
 
 </form>
 <?php include("./../../include/footer.php"); ?>
