@@ -55,12 +55,18 @@ ini_set('display_errors', 'on');
                         require('./../base/Functions.php');
 
                         if (isset($_GET['id'])){
+                            $new = getNewById((int)$_GET['id']);
+                            $titre = $new['titre'];
+                            $body = $new['body'];
+                            $date = $new['date'];
                             switch ($_GET['edit']){
                                 case "0":
                                     $valueButton = "Retour";
+                                    $titrePage = 'Prévisualisation de ' . $titre;
                                     break;
                                 case "1":
                                     $valueButton = "Sauvegarder";
+                                    $titrePage = 'Modification de ' . $titre;
                                     break;
                                 case "-1":
                                     deleteNew((int)$_GET['id']);
@@ -70,20 +76,8 @@ ini_set('display_errors', 'on');
                                     die();
                                 default:
                                     $valueButton = "";
+                                    $titrePage = '';
                                     break;
-                            }
-                            if ($_GET['edit'] == '0'){
-                                $new = getNewById((int)$_GET['id']);
-                                $titre = $new['titre'];
-                                $body = $new['body'];
-                                $date = $new['date'];
-                                $titrePage = 'Modification de ' . $titre;
-                            }else{
-                                $titre = '';
-                                $body = '';
-                                $date = new DateTime('now', new DateTimeZone('Europe/Berlin'));
-                                $date = $date->format('Y-m-d');
-                                $titrePage = 'Nouvelle news';
                             }
                             echo "
                             <div class='card-header'>
