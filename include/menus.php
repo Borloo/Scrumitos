@@ -7,7 +7,7 @@
         <?php
         // si l'admin ne s'est pas déja connecté alors on affiche le lien pour cela
         if (!isset($_SESSION['USER'])) {
-            echo '<li class="list-group-item"><a href="/app/Connexion.php" class="text-decoration-none">Se connecter comme admin </a></li>';
+            echo '<li class="list-group-item"><a href="/app/Connexion.php" class="text-decoration-none">Se connecter ou S'inscrire</a></li>';
         } // si l'admin est connecté alors on lui affiche des liens particuliers
         else {
             echo '<li class="list-group-item"><a href="/app/addNews.php" class="text-decoration-none">Ajouter des news</a></li>';
