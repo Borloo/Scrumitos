@@ -50,7 +50,7 @@ ini_set('display_errors', 'on');
         <div class="card">
             <div class="card-body">
                 <?php
-                    echo $_SESSION['USER_ID'];
+                    echo $_SESSION['USER']['id'];
                 ?>
 
                 <form method="post">

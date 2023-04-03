@@ -417,8 +417,11 @@ function connection()
             $isAdmin = isAdmin($user);
             if ($isAdmin || null !== $user) {
                 unset($_SESSION['ERRORCO']);
-                $_SESSION['USER'] = $user['login'];
-                $_SESSION['USER_ID'] = $user['id'];
+                $_SESSION['USER'] = [
+                    'id' => $user['id'],
+                    'login' => $user['login'],
+                    'isAdmin' => true
+                ];
                 header('location: http://88.208.226.189/index.php');
                 die();
             } else {
