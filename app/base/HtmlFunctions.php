@@ -525,7 +525,7 @@ function getHtmlType()
         if (isset($_POST['listType'])) {
             $typeId = $_POST['listType'];
             $typeName = getEmplacementNameById($typeId)['nomType'];
-            $emplacements = getEmplacementById($typeId);
+            $emplacements = getEmplacementByIdType($typeId);
             print_r($emplacements);
             echo "
             <div class='card'>

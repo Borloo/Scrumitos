@@ -352,16 +352,13 @@ function getOneEmplacementById(int $id)
     return null;
 }
 
-function getEmplacementById(int $id)
+function getEmplacementByIdType(int $id)
 {
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Emplacement WHERE idType = :id";
     $query = $conn->prepare($sql);
     $query->execute(['id' => $id]);
-    if ($query->rowCount() == 1) {
-        return $query->fetch();
-    }
-    return null;
+    return $query->fetchAll();
 }
 function getAllEmplacements()
 {
