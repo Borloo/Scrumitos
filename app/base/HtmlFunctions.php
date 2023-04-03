@@ -54,7 +54,6 @@ function getHtmlNewLocation(){
 
 function getHtmlLocationsValidation()
 {
-    print_r($_SESSION['USER']);
     $locations = getLocations(false);
     if (!empty($locations)) {
         echo "
@@ -142,7 +141,7 @@ function getHtmlListNews()
                     <p class='card-text'>" . $body . "</p>
                 </div>
                 <div class='card-footer'>";
-            if ($_SESSION['USER']['isAdmin']) {
+            if ($_SESSION['USER']['isAdmin'] == 1) {
                 echo "<div class='row'>
                                 <div class='col-md-4'>      
                                     <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary'>Détails</a>
@@ -222,7 +221,7 @@ function getHtmlTaille()
             if (!empty($emplacements)) {
                 echo "<table class='table'>
                                     <tr><th scope='col'>Nom</th><th scope='col'>Type</th><th scope='col'>Adresse</th><th scope='col'>Taille</th>";
-                if ($_SESSION['USER']['isAdmin']) {
+                if ($_SESSION['USER']['isAdmin'] == 1 {
                     echo "<th scope='col'>Actions</th>";
                 }
                 echo "</tr>";
@@ -293,7 +292,7 @@ function getHtmlPrix()
                             <center>
                                 <table class='table'>
                                     <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Prix/semaine</th>";
-                if ($_SESSION['USER']['isAdmin']) {
+                if ($_SESSION['USER']['isAdmin'] == 1) {
                     echo "<th scope='col'>Actions</th>";
                 }
 
@@ -411,7 +410,7 @@ function getHtmlAnnee()
                             <center>
                                 <table class='table'>
                                     <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Date de construction</th>";
-                if ($_SESSION['USER']['isAdmin']) {
+                if ($_SESSION['USER']['isAdmin'] == 1) {
                     echo " <th scope='col'>Actions</th>";
                 }
                 echo "</tr>";
@@ -486,7 +485,7 @@ function getHtmlPeriode()
                 echo "<table class='table'>
                         <caption> Emplacement du " . $dateDeb . " - " . $dateFin . "</caption>
                         <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Prix/semaine</th>";
-                if ($_SESSION['USER']['isAdmin']) {
+                if ($_SESSION['USER']['isAdmin'] == 1) {
                     echo "<th scope='col'>Actions</th>";
                 }
                 echo "</tr>";
@@ -545,7 +544,7 @@ function getHtmlType()
                             <div class='row'>
                                 <div class='col-md-4'></div>";
     if (isset($_SESSION['USER'])) {
-        if ($_SESSION['USER']['isAdmin']) {
+        if ($_SESSION['USER']['isAdmin'] == 1) {
             echo "
                                 <div class='col-md-2'>
                                     <input class='btn btn-secondary' type='submit' id='submit' name='submit' value='Afficher'>
@@ -627,7 +626,7 @@ function getHtmlEmplacementTable(array $emplacements, string $specify = '')
             <td>" . $emplacement[$specify] . $suffix . "</td>
             <td>";
         if (isset($_SESSION['USER'])) {
-            if ($_SESSION['USER']['isAdmin']) {
+            if ($_SESSION['USER']['isAdmin'] == 1) {
                 echo "
                 <div class='row'>
                     <div class='col-md-4'>

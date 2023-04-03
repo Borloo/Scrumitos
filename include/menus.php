@@ -10,7 +10,7 @@
             echo "<li class='list-group-item'><a href='/app/views/Connexion.php?conn=1' class='text-decoration-none'>Se connecter ou S'inscrire</a></li>";
         } // si l'admin est connecté alors on lui affiche des liens particuliers
         else {
-            if ($_SESSION['USER']['isAdmin']){
+            if ($_SESSION['USER']['isAdmin'] == 1){
                 echo "<li class='list-group-item'><a href='/app/views/Locations.php' class='text-decoration-none'>Locations à valider</a></li>";
             }
             echo '<li class="list-group-item"><a href="/app/Deconnexion.php" class="text-decoration-none">Se déconnecter </a></li>';

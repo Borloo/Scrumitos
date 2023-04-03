@@ -67,7 +67,7 @@ ini_set('display_errors', 'on');
                 <div class='row'>
                     <h1>News du camping</h1>
                 </div>";
-                if ($_SESSION['USER']['isAdmin']){
+                if ($_SESSION['USER']['isAdmin'] == 1){
                     echo "
                     <div class='row'>
                         <div class='col-md-5'></div>
