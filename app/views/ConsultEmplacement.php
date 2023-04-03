@@ -52,34 +52,34 @@ require('./../base/HtmlFunctions.php');
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class='col-md-2'></div>
-                    <div class='col-md-3'>
+                    <div class='col-md-3'></div>
+                    <div class='col-md-2'>
                         <a class="btn btn-secondary" href="ConsultEmplacement.php?c=1" role="button">Type</a>
                     </div>
                     <div class="col-md-2"></div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <a class="btn btn-secondary" href="ConsultEmplacement.php?c=2" role="button">Période</a>
                     </div>
-                    <div class="col-md-2"></div>
+                    <div class="col-md-3"></div>
                 </div>
                 <div class="row">
-                    <div class='col-md-2'></div>
-                    <div class='col-md-3'>
+                    <div class='col-md-3'></div>
+                    <div class='col-md-2'>
                         <a class="btn btn-secondary" href="ConsultEmplacement.php?c=3" role="button">Année de
                             construction</a>
                     </div>
                     <div class="col-md-2"></div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <a class="btn btn-secondary" href="ConsultEmplacement.php?c=4" role="button">Prix</a>
                     </div>
-                    <div class="col-md-2"></div>
+                    <div class="col-md-3"></div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-2">
                         <a class="btn btn-secondary" href="ConsultEmplacement.php?c=5" role="button">Taille</a>
                     </div>
-                    <div class="col-md-4"></div>
+                    <div class="col-md-5"></div>
                 </div>
 
             </div>
