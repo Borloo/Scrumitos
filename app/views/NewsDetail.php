@@ -134,9 +134,9 @@ ini_set('display_errors', 'on');
             </div>
             <?php
             if (isset($_POST['submit'])){
-                print_r($_POST);
                 switch ($_POST['submit']){
                     case "Sauvegarder":
+                        echo "ok";
                         $date = new DateTime($_POST['date']);
                         if ($_GET['id'] != '-1'){
                             updateNew($_GET['id'], $_POST['titre'], $_POST['body'], $date);
