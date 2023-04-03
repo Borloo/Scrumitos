@@ -194,6 +194,7 @@
                                     <div class='row'>
                                         <div class='col-md-4'></div>";
                     if (isset($_SESSION['USER'])){
+                        echo "ok";
                         $userId = $_SESSION['USER']['id'];
                     }else{
                         $userId = -1;
