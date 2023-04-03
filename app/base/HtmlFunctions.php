@@ -536,13 +536,7 @@ function getHtmlType()
                 echo "
                     <table class='table'>
                         <caption> Emplacement du type " . $typeName . "</caption>
-                        <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Prix par semaine</th>";
-                if (isset($_SESSION['USER'])) {
-                    if ($_SESSION['USER']['isAdmin']) {
-                        echo "<th scope='col'>Actions</th>";
-                    }
-                }
-                echo "</tr>";
+                        <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Prix par semaine</th><th scope='col'>Actions</th></tr>";
                 getHtmlEmplacementTable($emplacements);
                 echo "</table>";
             } else {
