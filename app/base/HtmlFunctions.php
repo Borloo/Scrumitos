@@ -93,7 +93,7 @@ function getHtmlListNews()
                     <p class='card-text'>" . $body . "</p>
                 </div>
                 <div class='card-footer'>";
-            if ($_SESSION['USER'] == "ADMIN") {
+            if ($_SESSION['USER']['isAdmin']) {
                 echo "<div class='row'>
                                 <div class='col-md-4'>      
                                     <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary'>Détails</a>
@@ -173,7 +173,7 @@ function getHtmlTaille()
             if (!empty($emplacements)) {
                 echo "<table class='table'>
                                     <tr><th scope='col'>Nom</th><th scope='col'>Type</th><th scope='col'>Adresse</th><th scope='col'>Taille</th>";
-                if ($_SESSION['USER'] == "ADMIN") {
+                if ($_SESSION['USER']['isAdmin']) {
                     echo "<th scope='col'>Actions</th>";
                 }
                 echo "</tr>";
@@ -244,7 +244,7 @@ function getHtmlPrix()
                             <center>
                                 <table class='table'>
                                     <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Prix/semaine</th>";
-                if ($_SESSION['USER'] == "ADMIN") {
+                if ($_SESSION['USER']['isAdmin']) {
                     echo "<th scope='col'>Actions</th>";
                 }
 
@@ -362,7 +362,7 @@ function getHtmlAnnee()
                             <center>
                                 <table class='table'>
                                     <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Prix/semaine</th>";
-                if ($_SESSION['USER'] == "ADMIN") {
+                if ($_SESSION['USER']['isAdmin']) {
                     echo " <th scope='col'>Actions</th>";
                 }
                 echo "</tr>";
@@ -437,7 +437,7 @@ function getHtmlPeriode()
                 echo "<table class='table'>
                         <caption> Emplacement du " . $dateDeb . " - " . $dateFin . "</caption>
                         <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Prix/semaine</th>";
-                if ($_SESSION['USER'] == "ADMIN") {
+                if ($_SESSION['USER']['isAdmin']) {
                     echo "<th scope='col'>Actions</th>";
                 }
                 echo "</tr>";
@@ -500,7 +500,7 @@ function getHtmlType()
                                 <div class='col-md-2'></div>";
     if (isset($_SESSION['USER'])) {
         print_r($_SESSION);
-        if ($_SESSION['USER'] == "ADMIN") {
+        if ($_SESSION['USER']['isAdmin']) {
             echo "
                                 <div class='col-md-4'>
                                     <input class='btn btn-secondary' type='submit' id='submit' name='submit' value='Afficher'>
@@ -545,7 +545,7 @@ function getHtmlType()
                         <caption> Emplacement du type " . $typeName . "</caption>
                         <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Année de Construction</th>";
                 if (isset($_SESSION['USER'])) {
-                    if ($_SESSION['USER'] == "ADMIN") {
+                    if ($_SESSION['USER']['isAdmin']) {
                         echo "<th scope='col'>Actions</th>";
                     }
                 }
@@ -587,7 +587,7 @@ function getHtmlEmplacementTable(array $emplacements, string $specify = '')
             <td>" . $emplacement['adresseEmpl'] . "</td>
             <td>" . $emplacement[$specify] . $suffix . "</td>";
         if (isset($_SESSION['USER'])) {
-            if ($_SESSION['USER'] == "ADMIN") {
+            if ($_SESSION['USER']['isAdmin']) {
                 echo "
             <td>
                 <div class='row'>
