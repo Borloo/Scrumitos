@@ -13,7 +13,7 @@
             if ($_SESSION['USER']['isAdmin'] == "1"){
                 echo "<li class='list-group-item'><a href='/app/views/Locations.php' class='text-decoration-none'>Locations à valider</a></li>";
             }
-            echo '<li class="list-group-item"><a href="/app/Deconnexion.php" class="text-decoration-none">Se déconnecter </a></li>';
+            echo '<li class="list-group-item"><a href="/app/views/Deconnexion.php" class="text-decoration-none">Se déconnecter </a></li>';
         }
         ?>
     </ul>
