@@ -1,6 +1,6 @@
 <?php
 
-require('Functions.php');
+require("Functions.php");
 
 function getHtmlListNews(){
     $news = getNews();
