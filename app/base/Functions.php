@@ -389,6 +389,7 @@ function connection()
             if ($isAdmin || null !== $user) {
                 unset($_SESSION['ERRORCO']);
                 $_SESSION['USER'] = $user['login'];
+                $_SESSION['USER_ID'] = $user['id'];
                 header('location: http://88.208.226.189/index.php');
                 die();
             } else {
