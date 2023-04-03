@@ -194,7 +194,10 @@
                             
                                     <div class='row'>
                                                 <div class='col-md-4'>
-                                                <a href=''><input class='btn btn-info' id='ajouter' type='button' value='Louer'></a>
+                                                <?php
+                                                
+                                                ?>
+                                                <a href='./inscription.php'><input class='btn btn-info' id='ajouter' type='button' value='Louer'></a>
                                         </div>
                                                 </div>
                                             </div>
