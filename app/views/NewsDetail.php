@@ -55,10 +55,12 @@ ini_set('display_errors', 'on');
                         require('./../base/Functions.php');
 
                         if (isset($_GET['id'])){
-                            $new = getNewById((int)$_GET['id']);
-                            $titre = $new['titre'];
-                            $body = $new['body'];
-                            $date = $new['date'];
+                            if ($_GET['id'] != "-1"){
+                                $new = getNewById((int)$_GET['id']);
+                                $titre = $new['titre'];
+                                $body = $new['body'];
+                                $date = $new['date'];
+                            }
                             switch ($_GET['edit']){
                                 case "0":
                                     $valueButton = "Retour";
