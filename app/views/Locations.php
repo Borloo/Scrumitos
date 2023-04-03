@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 
 if (isset($_GET['user'])){
-    if ($_GET['user'] = '-1'){
+    if ($_GET['user'] == '-1'){
         echo 'ok';
 //        echo "
 //        <script>
