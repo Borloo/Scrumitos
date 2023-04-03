@@ -29,14 +29,12 @@ include("./../../include/menus.php");
     <input type="password" id="password" name="password" required><br>
     <label for="telephone">Téléphone:</label>
     <input type="text" id="telephone" name="telephone" required><br>
-    <a class="btn btn-primary" href="inscription.php" role="button" name='submit' value="inscription">S'inscrire</a>
+    <a class="btn btn-primary" href="inscription.php" role="button" name='submit'>S'inscrire</a>
     <?php
     if (isset($_POST['submit'])){
-                switch ($_POST['submit']){
-                    case "inscription":
-                        registerUser($_POST['username'], $_POST['password'], $_POST['adresse'], $_POST['email'], $_POST['telephone']);
-                        break;
-                }
+               registerUser($_POST['username'], $_POST['password'], $_POST['adresse'], $_POST['email'], $_POST['telephone']);
+
+
     }
 
     ?>
