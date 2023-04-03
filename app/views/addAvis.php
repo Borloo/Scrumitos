@@ -45,17 +45,23 @@ ini_set('display_errors', 'on');
 <body>
 <?php include("./../../include/header.php"); ?>
 <div class="wrapper">
-    <?php include("./include/menus.php"); ?>
+    <?php include("./../../include/menus.php"); ?>
     <section id="content">
         <div class="card">
             <div class="card-body">
                 <?php
                     var_dump($_SESSION);
                 ?>
+
+                <form method="post">
+                <span class='input-group-text' id='basic-addon1'>Votre avis : </span>
+                <input class='form-control' type="text"  name="avisTtx" placeholder="Ecrivez votre avis...">
+                <input type="submit" id="submit" value="Valider">
+                </form>
             </div>
         </div>
     </section>
 </div>
 </body>
-<?php include("../../include/footer.php"); ?>
+<?php include("./../../include/footer.php"); ?>
 </html>
