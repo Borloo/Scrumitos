@@ -499,11 +499,13 @@ function getHtmlType()
                                 <div class='col-md-4'>
                                     <input class='btn btn-secondary' type='submit' id='submit' name='submit' value='Afficher'>
                                 </div>";
-    if ($_SESSION['USER'] =="ADMIN") {
-        echo "
+    if(isset($_SESSION['USER'])){
+        if ($_SESSION['USER'] =="ADMIN") {
+            echo "
                                     <div class='col-md-4'>
                                         <a href='./EmplacementDetail.php?maj=0&id=-1&edit=2'><input class='btn btn-info' id='ajouter' type='button' value='Ajouter'></a>
                                 </div>";
+        }
     }
     echo "
                                 <div class='col-md-2'></div>
@@ -527,8 +529,11 @@ function getHtmlType()
                                     <table class='table'>
                                         <caption> Emplacement du type " . $typeName . "</caption>
                                         <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Année de Construction</th>";
-            if ($_SESSION['USER'] == "ADMIN") {
-                echo "<th scope='col'>Actions</th>";
+
+            if(isset($_SESSION['USER'])){
+                if ($_SESSION['USER'] == "ADMIN") {
+                    echo "<th scope='col'>Actions</th>";
+                }
             }
             echo "</tr>";
             $emplacements = getEmplacementById($typeId);
@@ -569,8 +574,9 @@ function getHtmlEmplacementTable(array $emplacements, string $specify = '')
             <td>" . $type['nomType'] . "</td>
             <td>" . $emplacement['adresseEmpl'] . "</td>
             <td>" . $emplacement[$specify] . $suffix . "</td>";
-        if ($_SESSION['USER'] == "ADMIN") {
-            echo "
+        if(isset($_SESSION['USER'])){
+            if ($_SESSION['USER'] == "ADMIN") {
+                echo "
             <td>
                 <div class='row'>
                     <div class='col-md-4'>
@@ -585,6 +591,7 @@ function getHtmlEmplacementTable(array $emplacements, string $specify = '')
                 </div>
             </td>
             ";
+            }
         }
         echo "</tr>
                             ";
