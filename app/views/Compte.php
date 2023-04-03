@@ -38,7 +38,7 @@ require('./../base/HtmlFunctions.php');
                     $dateFin = new DateTime($location['dateFin']);
                     $emplacement = getOneEmplacementById($location['idEmplacement']);
                     echo "
-                    <input type='hidden'name='id' value='" . $location['id'] . "'>
+                    <input type='hidden' name='id' value='" . $location['id'] . "'>
                     <tr>
                         <th scope='row'>" . $emplacement['Nom_Emplacement'] . "</th>
                         <td>" . $dateDeb->format('Y-m-d H:i:s') . "</td>
