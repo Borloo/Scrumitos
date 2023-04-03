@@ -61,7 +61,7 @@ require('./../base/HtmlFunctions.php');
             </form>
             ";
             if (isset($_POST['submit'])){
-                print_r($_POST['submit']);
+                print_r($_POST);
                 removeLocation((int)$_POST['id']);
 //                echo "
 //                <script>
