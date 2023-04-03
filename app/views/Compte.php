@@ -4,7 +4,6 @@ error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 
 require('./../base/HtmlFunctions.php');
-require('./../base/Functions.php');
 ?>
 <!DOCTYPE html>
 <html>
