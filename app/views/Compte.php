@@ -25,6 +25,14 @@ if (isset($_GET['deletedLocId'])){
     <?php include("./../../include/menus.php"); ?>
     <section id="content">
         <h1>Mon compte <?php echo $_SESSION['USER']['login']?></h1>
+        <div class="card">
+            <div class="card-header">
+                <h4>Mes informations</h4>
+            </div>
+            <div class="card-body">
+                <?php inscription((int)$_SESSION['USER']['id']); ?>
+            </div>
+        </div>
         <?php
         $locations = getLocationsByUser((int)$_SESSION['USER']['id']);
         if (!empty($locations)){

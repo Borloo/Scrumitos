@@ -656,7 +656,21 @@ function getHtmlEmplacementTable(array $emplacements, string $specify = '')
     }
 }
 
-function inscription(){
+function inscription(int $idUtilisateur = null){
+    if (null !== $idUtilisateur){
+        $user = getUserById($idUtilisateur);
+        $tel = $user['telephone'];
+        $email = $user['mail'];
+        $adresse = $user['adresse'];
+        $login = $user['login'];
+        $password = $user['password'];
+    }else{
+        $tel = '';
+        $email = '';
+        $adresse = '';
+        $login = '';
+        $password = '';
+    }
     echo "
     <div class='card'>
         <div class='card-header'>
@@ -669,33 +683,33 @@ function inscription(){
                     <div class='col-md-6'>
                         <div class='input-group mb-3'>
                             <span class='input-group-text'>Téléphone</span>
-                            <input class='form-control' name='telephone' type='number'>
+                            <input class='form-control' name='telephone' type='number' value='" . $tel . "'>
                         </div>
                     </div>
                     <div class='col-md-6'>
                         <div class='input-group mb-3'>
                             <span class='input-group-text'>Email</span>
-                            <input class='form-control' name='email' type='email'>
+                            <input class='form-control' name='email' type='email' value='" . $email . "'>
                         </div>
                     </div>
                 </div>
                 <div class='row'>
                     <div class='input-group mb-3'>
                         <span class='input-group-text'>Adresse</span>
-                        <input class='form-control' name='adresse' type='text'>
+                        <input class='form-control' name='adresse' type='text' value='" . $adresse . "'>
                     </div>
                 </div>
                 <div class='row'>
                     <div class='col-md-6'>
                         <div class='input-group mb-3'>
                             <span class='input-group-text'>Login</span>
-                            <input class='form-control' name='login' type='text'>
+                            <input class='form-control' name='login' type='text' value='" . $login . "'>
                         </div>
                     </div>
                     <div class='col-md-6'>
                         <div class='input-group mb-3'>
                             <span class='input-group-text'>Password</span>
-                            <input class='form-control' name='password' type='password'>
+                            <input class='form-control' name='password' type='password' value='" . $password . "'>
                         </div>
                     </div>
                 </div>
