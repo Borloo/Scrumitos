@@ -56,7 +56,7 @@ if (isset($_GET['deletedLocId'])){
                 if ($location['isValidated'] == 1){
                     echo "<a href='#'><input class='btn btn-info' type='button' name='avis' value='Avis'></a>";
                 }else{
-                    echo "<a href='Compte.php?deletedLocId=" . $location['id'] . "' <input class='btn btn-danger' type='button' name='cancel' value='Annuler'></a>";
+                    echo "<a href='Compte.php?deletedLocId=" . $location['id'] . "' <input class='btn btn-danger' type='button' name='cancel'>Annuler</a>";
                 }
                     echo "</td>
                 </tr>
