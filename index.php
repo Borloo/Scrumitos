@@ -14,14 +14,14 @@ session_start();
 	?>
 	<div class="wrapper">
 		<?php include("./include/menus.php"); ?>
-		<section id="content" style="height: 100%">
+		<section id="content">
             <div class="card">
                 <div class="card-body">
                     <?php
                         if (isset($_SESSION['USER'])){
-                            echo "<p>Bonjour " . $_SESSION['USER'] . " !</p>";
+                            echo "<p>Bonjour " . $_SESSION['USER'] . " ! Et bienvenue à la Grande Bleue le meilleur camping de France</p>";
                         }else{
-                            echo "<p>Bonjour</p>";
+                            echo "<p>Bonjour, vous pouvez vous connecter ou vous inscrire via le menu !</p>";
                         }
                     ?>
                 </div>

@@ -1,22 +1,18 @@
 <nav class="sidebar">
-  <ul>
-    <li><a href="/index.php">Accueil</a></li>
-    <li><a href="/app/ConsultDate.php">Consulter les emplacements par année de construction/rénovation</a></li>
-	<li><a href="/app/ConsultDetails.php">Consulter les détails d'un emplacement</a></li>
-
-<?php
-		// si l'admin ne s'est pas déja connecté alors on affiche le lien pour cela
-		if (!isset($_SESSION['USER'])) {
-			echo '<li><a href="/app/Connexion.php">Se connecter comme admin </a></li>';
-		}
-		// si l'admin est connecté alors on lui affiche des liens particuliers
-		else {
-            echo '<li><a href="/app/views/ConsultType.php">Recherche un emplacement selon son type</a></li>';
-			echo '<li><a href="/app/addNews.php">Ajouter des news</a></li>';
-			echo '<li><a href="/app/ConsultNews.php">Consulter les news</a></li>';
-			echo '<li><a href="/app/views/ConsultType.php">Consulter les emplacements par type</a></li>';
-			echo '<li><a href="/app/Deconnexion.php">Se déconnecter </a></li>';
-		}
-?>
-  </ul>
+    <ul class="list-group">
+        <li class="list-group-item"><a href="/index.php" class="text-decoration-none">Accueil</a></li>
+        <li class="list-group-item"><a href="/app/views/ConsultNews.php" class="text-decoration-none">News</a></li>
+        <li class="list-group-item"><a href="/app/views/ConsultEmplacement.php?c=0" class="text-decoration-none">Recherches d'emplacements</a></li>
+        <li class="list-group-item"><a href="/app/views/allEmplacements.php" class="text-decoration-none">Consulter tous les emplacements</a></li>
+        <?php
+        // si l'admin ne s'est pas déja connecté alors on affiche le lien pour cela
+        if (!isset($_SESSION['USER'])) {
+            echo '<li class="list-group-item"><a href="/app/Connexion.php" class="text-decoration-none">Se connecter comme admin </a></li>';
+        } // si l'admin est connecté alors on lui affiche des liens particuliers
+        else {
+            echo '<li class="list-group-item"><a href="/app/addNews.php" class="text-decoration-none">Ajouter des news</a></li>';
+            echo '<li class="list-group-item"><a href="/app/Deconnexion.php" class="text-decoration-none">Se déconnecter </a></li>';
+        }
+        ?>
+    </ul>
 </nav>
