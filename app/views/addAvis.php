@@ -51,6 +51,7 @@ ini_set('display_errors', 'on');
             <div class="card-body">
                 <?php
                     var_dump($_SESSION);
+                    echo $_SESSION['USER_ID'];
                 ?>
 
                 <form method="post">
