@@ -22,7 +22,8 @@ ini_set('display_errors', 'on');
         <section id="content">
             <div class="row justify-content-center">
 
-                <div class="col-md-4">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
                     <?php
                     require_once("./../base/HtmlFunctions.php");
 
@@ -36,8 +37,8 @@ ini_set('display_errors', 'on');
                         }
                     }
                     ?>
-
-                <div class="col-md-4"></div>
+                </div>
+                <div class="col-md-3"></div>
             </div>
         </section>
     </div>
