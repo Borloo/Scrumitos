@@ -141,6 +141,7 @@ ini_set('display_errors', 'on');
                         ?>
                     </fieldset>
                 </form>
+                <?php var_dump($_SESSION); ?>
             </div>
             <?php
             if (isset($_POST['submit'])){
