@@ -709,7 +709,7 @@ function connection()
     }
     if (isset($_POST['submit'])) {
         if (isset($_POST['login']) && isset($_POST['password'])) {
-            require('./bd/Utilisateur.php');
+            require('./../bd/Utilisateur.php');
             $login = $_POST['login'];
             $password = $_POST['password'];
             $user = getUser($login, $password);
