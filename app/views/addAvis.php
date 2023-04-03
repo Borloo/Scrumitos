@@ -89,11 +89,11 @@ ini_set('display_errors', 'on');
 
                         if ($avis == "" )
                         {
-                            echo '<script> alert("Entrez un avis")</script>';
+                            echo '<p> alert("Entrez un avis")</p>';
                         }
                         else
                         {
-                            echo '<script> alert("Avis valide")</script>';
+                            echo '<p> alert("Avis valide")</p>';
                             // $requeteAjout = $linkpdo ->query("INSERT INTO t_serie (nomSerie, nbSaisonTot, nbSaisonVues)
                             //                                 VALUES ('$nomSerie', '$nbSaisonTot', '$nbSaisonVues')");
                                 
