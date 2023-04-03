@@ -14,6 +14,7 @@ function getHtmlLocationsValidation(){
             foreach ($locations as $location){
                 $user = getUserById((int)$location['idUtilisateur']);
                 $emplacement = getEmplacementById((int)$location['idEmplacement']);
+                print_r($emplacement);
                 $type = getTypeById($emplacement['idType']);
                 echo "
                     <tr>
