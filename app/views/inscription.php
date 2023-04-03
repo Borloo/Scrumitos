@@ -2,15 +2,8 @@
 $emplacement_id = isset($_GET['emplacement_id']) ? $_GET['emplacement_id'] : '';
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
-if (isset($_POST['submit'])){
-    echo "Formulaire soumis"; // Ajoutez cette ligne pour vérifier que la soumission du formulaire est détectée
-
-
-    registerUser($_POST['username'], $_POST['password'], $_POST['adresse'], $_POST['email'], $_POST['telephone']);
-
-
-}
-
+include("../base/Functions.php");
+include("../base/HtmlFunctions.php.php");
 ?>
 
 <!DOCTYPE html>
@@ -41,6 +34,17 @@ include("./../../include/menus.php");
     <input class='btn btn-success' type="submit" role="button" name='submit'>S'inscrire</input>
 
 </form>
+<?php
+if (isset($_POST['submit'])){
+echo "Formulaire soumis"; // Ajoutez cette ligne pour vérifier que la soumission du formulaire est détectée
+
+
+registerUser($_POST['username'], $_POST['password'], $_POST['adresse'], $_POST['email'], $_POST['telephone']);
+
+
+}
+
+?>
 <?php include("./../../include/footer.php"); ?>
 </body>
 </html>

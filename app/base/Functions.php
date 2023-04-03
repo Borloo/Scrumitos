@@ -426,7 +426,7 @@ function registerUser(
 )";
     $query = $conn->prepare($sql);
     $query->execute([
-        'username' => $username,
+        'login' => $username,
         'password' => $password,
         'adresse' => $adresse,
         'email' => $email,
