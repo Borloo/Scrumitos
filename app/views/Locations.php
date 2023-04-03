@@ -44,6 +44,20 @@ ini_set('display_errors', 'on');
 <div class="wrapper">
     <?php include("./../../include/menus.php");?>
     <section id="content">
+        <div class="card">
+            <div class="card-header">
+                <h1>Locations en attente de validation</h1>
+            </div>
+            <div class="card-body">
+                <?php
+
+                require('./../base/HtmlFunctions.php');
+
+                getHtmlLocationsValidation();
+
+                ?>
+            </div>
+        </div>
     </section>
 </div>
 <?php include("../../include/footer.php"); ?>

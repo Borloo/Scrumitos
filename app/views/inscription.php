@@ -1,5 +1,7 @@
 <?php
 $emplacement_id = isset($_GET['emplacement_id']) ? $_GET['emplacement_id'] : '';
+error_reporting(E_ALL);
+ini_set('display_errors', 'on');
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +17,7 @@ $emplacement_id = isset($_GET['emplacement_id']) ? $_GET['emplacement_id'] : '';
 <?php
 include("./../../include/menus.php");
 ?>
-<form action="valider_inscription.php" method="post">
+<form action="inscription.php" method="post">
     <input type="hidden" name="emplacement_id" value="<?php echo $emplacement_id; ?>">
     <label for="username">Nom:</label>
     <input type="text" id="username" name="username" required><br>
@@ -27,15 +29,14 @@ include("./../../include/menus.php");
     <input type="password" id="password" name="password" required><br>
     <label for="telephone">Téléphone:</label>
     <input type="text" id="telephone" name="telephone" required><br>
-    <a class="btn btn-primary" href="inscription.php" role="button" value="inscription">S'inscrire</a>
+    <a class="btn btn-primary" href="../Connexion.php" role="button" name='submit'>S'inscrire</a>
     <?php
     if (isset($_POST['submit'])){
-                switch ($_POST['submit']){
-                    case "inscription":
-                        registerUser($_POST['username'], $_POST['password'], $_POST['adresse'], $_POST['email'], $_POST['telephone']);
-                        break;
-                }
+               registerUser($_POST['username'], $_POST['password'], $_POST['adresse'], $_POST['email'], $_POST['telephone']);
+
+
     }
+
     ?>
 </form>
 <?php include("./../../include/footer.php"); ?>
