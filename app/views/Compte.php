@@ -55,6 +55,8 @@ if (isset($_GET['deletedLocId'])){
                 if ($location['isValidated'] == 1){
                     if ($today >= $dateDeb && $today <= $dateFin){
                         $status = "En cours";
+                    }elseif ($today <= $dateFin){
+                        $status = "A venir";
                     }else{
                         $status = "Fini";
                     }
@@ -75,6 +77,9 @@ if (isset($_GET['deletedLocId'])){
                         break;
                     case "Fini":
                         echo "<a href='#'><input class='btn btn-info' type='button' name='avis' value='Avis'></a>";
+                        break;
+                    case "A venir":
+                        echo "<a href='#'><input class='btn btn-info' type='button' name='aVenir' value='A venir'></a>";
                         break;
                     default:
                         echo "<a href='Compte.php?deletedLocId=" . $location['id'] . "' <input class='btn btn-danger' type='button' name='cancel'>Annuler</a>";
