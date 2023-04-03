@@ -499,6 +499,7 @@ function getHtmlType()
                             <div class='row'>
                                 <div class='col-md-2'></div>";
     if (isset($_SESSION['USER'])) {
+        print_r($_SESSION);
         if ($_SESSION['USER'] == "ADMIN") {
             echo "
                                 <div class='col-md-4'>
