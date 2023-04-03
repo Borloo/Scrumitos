@@ -765,15 +765,28 @@ function connection()
             $password = $_POST['password'];
             $user = getUser($login, $password);
             $isAdmin = isAdmin($user);
+            if (null !== $user){
+                if ($isAdmin){
+                    unset($_SESSION['ERROR']);
+                    $_SESSION['USER'] = [
+                        'id' => $user['id'],
+                        'login' => $user['login'],
+                        'isAdmin' => true
+                    ];
+                    header('location: http://88.208.226.189/index.php');
+                    die();
+                }else{
+                    unset($_SESSION['ERROR']);
+                    $_SESSION['USER'] = [
+                        'id' => $user['id'],
+                        'login' => $user['login'],
+                        'isAdmin' => false
+                    ];
+                    header('location: http://88.208.226.189/index.php');
+                    die();
+                }
+            }
             if ($isAdmin || null !== $user) {
-                unset($_SESSION['ERROR']);
-                $_SESSION['USER'] = [
-                    'id' => $user['id'],
-                    'login' => $user['login'],
-                    'isAdmin' => true
-                ];
-                header('location: http://88.208.226.189/index.php');
-                die();
             } else {
                 $_SESSION['ERROR'] = 'Inconnu';
             }
