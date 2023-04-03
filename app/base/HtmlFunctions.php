@@ -25,14 +25,10 @@ function getHtmlNewLocation(){
                 </div>
             </div>
             <div class='row'>
-                <div class='col-md-5'></div>
-                <div class='col-md-2'>
-                    <div class='input-group mb-3'>
-                        <span class='input-group-text'>Options</span>
-                        <input class='form-control' name='options' type='text' value='" . $emplacement['Options'] . "'>
-                    </div>
+                <div class='input-group mb-3'>
+                    <span class='input-group-text'>Options</span>
+                    <input class='form-control' name='options' type='text' value='" . $emplacement['Options'] . "'>
                 </div>
-                <div class='col-md-5'></div>
             </div>
             <div class='row'>
                 <div class='col-md-5'></div>
