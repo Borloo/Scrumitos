@@ -35,7 +35,7 @@ include("./../../include/menus.php");
     <input type="password" id="password" name="password" required><br>
     <label for="telephone">Téléphone:</label>
     <input type="text" id="telephone" name="telephone" required><br>
-    <a class="btn btn-primary" type="submit" href="../Connexion.php" role="button" name='submit'>S'inscrire</a>
+    <input class='btn btn-success' type="submit" href="../Connexion.php" role="button" name='submit'>S'inscrire</input>
 
 </form>
 <?php include("./../../include/footer.php"); ?>
