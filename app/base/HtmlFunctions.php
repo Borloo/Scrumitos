@@ -606,6 +606,7 @@ function getHtmlEmplacementTable(array $emplacements, string $specify = '')
 
 function inscription(){
     echo "
+    <?php require('../bd/Utilisateur.php') ?>
     <div class='card'>
         <div class='card-header'>
             <h1>Incription</h1>
