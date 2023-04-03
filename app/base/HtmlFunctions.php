@@ -159,7 +159,7 @@ function getHtmlTaille()
             if (!empty($emplacements)) {
                 echo "<table class='table'>
                                     <tr><th scope='col'>Nom</th><th scope='col'>Type</th><th scope='col'>Adresse</th><th scope='col'>Taille</th>";
-                if (isset($_SESSION['USER'])) {
+                if ($_SESSION['USER'] == "ADMIN") {
                     echo "<th scope='col'>Actions</th>";
                 }
                 echo "</tr>";
@@ -230,7 +230,7 @@ function getHtmlPrix()
                             <center>
                                 <table class='table'>
                                     <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Prix/semaine</th>";
-                if (isset($_SESSION['USER'])) {
+                if ($_SESSION['USER'] == "ADMIN") {
                     echo "<th scope='col'>Actions</th>";
                 }
 
@@ -348,7 +348,7 @@ function getHtmlAnnee()
                             <center>
                                 <table class='table'>
                                     <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Prix/semaine</th>";
-                if (isset($_SESSION['USER'])) {
+                if ($_SESSION['USER'] == "ADMIN") {
                     echo " <th scope='col'>Actions</th>";
                 }
                 echo "</tr>";
@@ -423,7 +423,7 @@ function getHtmlPeriode()
                 echo "<table class='table'>
                         <caption> Emplacement du " . $dateDeb . " - " . $dateFin . "</caption>
                         <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Prix/semaine</th>";
-                if (isset($_SESSION['USER'])) {
+                if ($_SESSION['USER'] == "ADMIN") {
                     echo "<th scope='col'>Actions</th>";
                 }
                 echo "</tr>";
@@ -487,7 +487,7 @@ function getHtmlType()
                                 <div class='col-md-4'>
                                     <input class='btn btn-secondary' type='submit' id='submit' name='submit' value='Afficher'>
                                 </div>";
-    if (isset($_SESSION['USER'])) {
+    if ($_SESSION['USER'] =="ADMIN") {
         echo "
                                     <div class='col-md-4'>
                                         <a href='./EmplacementDetail.php?maj=0&id=-1&edit=2'><input class='btn btn-info' id='ajouter' type='button' value='Ajouter'></a>
@@ -515,7 +515,7 @@ function getHtmlType()
                                     <table class='table'>
                                         <caption> Emplacement du type " . $typeName . "</caption>
                                         <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Année de Construction</th>";
-            if (isset($_SESSION['USER'])) {
+            if ($_SESSION['USER'] == "ADMIN") {
                 echo "<th scope='col'>Actions</th>";
             }
             echo "</tr>";
@@ -557,7 +557,7 @@ function getHtmlEmplacementTable(array $emplacements, string $specify = '')
             <td>" . $type['nomType'] . "</td>
             <td>" . $emplacement['adresseEmpl'] . "</td>
             <td>" . $emplacement[$specify] . $suffix . "</td>";
-        if (isset($_SESSION['USER'])) {
+        if ($_SESSION['USER'] == "ADMIN") {
             echo "
             <td>
                 <div class='row'>
