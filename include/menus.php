@@ -10,8 +10,8 @@
             echo "<li class='list-group-item'><a href='/app/Connexion.php' class='text-decoration-none'>Se connecter ou S'inscrire</a></li>";
         } // si l'admin est connecté alors on lui affiche des liens particuliers
         else {
+            echo "<li class='list-group-item'><a href='/app/views/Locations.php' class='text-decoration-none'>Locations à valider</a></li>";
             echo '<li class="list-group-item"><a href="/app/Deconnexion.php" class="text-decoration-none">Se déconnecter </a></li>';
-            echo "<li class='list-group-item'><a href='/app/views/Locations.php'";
         }
         ?>
     </ul>
