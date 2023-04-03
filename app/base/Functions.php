@@ -13,6 +13,13 @@ function getBDConnexion(): PDO
     }
     return $conn;
 }
+function getLocationsByUser(int $idUtilisateur){
+    $conn = getBDConnexion();
+    $sql = "SELECT * FROM Locations WHERE idUtilisateur = :idUtilisateur";
+    $query = $conn->prepare($sql);
+    $query->execute(['idUtilisateur' => $idUtilisateur]);
+    return $query->fetchAll();
+}
 
 function addLocation(
     int $idEmplacement,
