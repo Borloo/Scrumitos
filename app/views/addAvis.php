@@ -50,7 +50,6 @@ ini_set('display_errors', 'on');
         <div class="card">
             <div class="card-body">
                 <?php
-                    var_dump($_SESSION);
                     echo $_SESSION['USER_ID'];
                 ?>
 
@@ -81,6 +80,36 @@ ini_set('display_errors', 'on');
                                 </div>
                     </fieldset>
                 </form>
+
+                <?php
+
+                    if (isset($_POST['submit'])){
+                        $avis = $_POST['avisTtx'];
+                        echo "l'avis est: " + $avis;
+
+                        if ($avis == "" )
+                        {
+                            echo '<script> alert("Entrez un avis")</script>';
+                        }
+                        else
+                        {
+                            echo '<script> alert("Avis valide")</script>';
+                            // $requeteAjout = $linkpdo ->query("INSERT INTO t_serie (nomSerie, nbSaisonTot, nbSaisonVues)
+                            //                                 VALUES ('$nomSerie', '$nbSaisonTot', '$nbSaisonVues')");
+                                
+                            // if ($requeteAjout === false) 
+                            // {
+                            //     var_dump($linkpdo->errorInfo());
+                            //     die("<script>alert('ERREUR')</script>");
+                            // } 
+                            // else
+                            // {
+                            //     header('Location: index.php');
+                            //     exit();
+                            // }
+                        }
+                    }
+                ?>
             </div>
         </div>
     </section>
