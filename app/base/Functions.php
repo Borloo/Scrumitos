@@ -18,7 +18,7 @@ function validateLocation(int $id){
     $location = getLocationById($id);
     if (null != $location){
         $conn = getBDConnexion();
-        $sql = 'UPDATE Location SET isValidate = true WHERE id = :id';
+        $sql = 'UPDATE Location SET isValidated = true WHERE id = :id';
         $query = $conn->prepare($sql);
         $query->execute(['id' => $id]);
     }
