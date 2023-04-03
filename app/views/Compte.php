@@ -67,7 +67,7 @@ require('./../base/HtmlFunctions.php');
                 removeLocation((int)$_POST['id']);
                 echo "
                 <script>
-                    location.href='http://88.208.226.189/app/views/Locations.php?msg=cancelLocation'
+                    location.href='http://88.208.226.189/app/views/Compte.php?msg=cancelLocation'
                 </script>";
                 die();
             }
