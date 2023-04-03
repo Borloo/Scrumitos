@@ -15,6 +15,17 @@
         return $conn;
     }
 
+    function getUserById(int $id){
+        $conn = getBDConnexion();
+        $sql = "SELECT * FROM Utilisateur WHERE id = :id";
+        $query = $conn->prepare($sql);
+        $query->execute(['id' => $id]);
+        if ($query->rowCount() == 1){
+            return $query->fetch();
+        }
+        return null;
+    }
+
     function getUser(string $login, string $password)
     {
         $conn = getConnexion();
@@ -24,12 +35,7 @@
         $query = $conn->prepare($sql);
         $query->execute(['login' => $login, 'password' => $password]);
         if ($query->rowCount() == 1){
-            $user = $query->fetch();
-            return [
-                'id' => $user['id'],
-                'login' => $user['login'],
-                'roles' => $user['roles'],
-            ];
+            return $query->fetch();
         }
         return null;
     }

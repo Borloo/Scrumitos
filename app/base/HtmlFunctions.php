@@ -2,6 +2,36 @@
 
 require("Functions.php");
 
+require('../bd/Utilisateur.php');
+
+function getHtmlLocationsValidation(){
+    $locations = getLocations(false);
+    if (!empty($locations)){
+        echo "
+        <table class='table'>
+            <caption>Locations à valider</caption>
+            <tr><th scope='col'>Utilisateur</th><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th>Actions</th></tr>";
+            foreach ($locations as $location){
+                $user = getUserById((int)$location['idUtilisateur']);
+                $emplacement = getEmplacementById((int)$location['idEmplacement']);
+                $type = getTypeById($emplacement['idType']);
+                echo "
+                    <tr>
+                        <th scope='row'>" . $user['login'] . "</th>
+                        <td>" . $emplacement['Nom_Emplacement'] . "</td>
+                        <td>" . $type . "</td>
+                        <td>" . $emplacement['adresseEmpl'] . "</td>
+                        <td><input class='btn btn-success' type='submit' name='submit' value='Valider'></td>
+                    </tr>
+                ";
+            }
+        echo "</table>
+        ";
+    }else{
+        echo "<p>Pas de locations à valider</p>";
+    }
+}
+
 function getHtmlListNews(){
     $news = getNews();
     if (!empty($news)){

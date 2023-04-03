@@ -14,6 +14,14 @@ function getBDConnexion(): PDO
     return $conn;
 }
 
+function getLocations(bool $isValidated): array{
+    $conn = getBDConnexion();
+    $sql = 'SELECT * FROM Location WHERE isValidated = :isValidated';
+    $query = $conn->prepare($sql);
+    $query->execute(['isValidated' => $isValidated]);
+    return $query->fetchAll();
+}
+
 function deleteNew(int $id){
     $conn = getBDConnexion();
     $sql = "DELETE FROM News WHERE id = :id";
