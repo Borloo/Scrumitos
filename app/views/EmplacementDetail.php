@@ -206,7 +206,7 @@
                         echo "
                         <div class='col-md-1'></div>
                         <div class='col-md-2'>
-                            <a href='EmplacementDetail.php?location=1&id=" . $_GET['id'] . "&user=-1'><input class='btn btn-info' value='Louer'></a>
+                            <a href='EmplacementDetail.php?location=1&id=" . $_GET['id'] . "&user=-1'><input class='btn btn-info' type='button' value='Louer'></a>
                         </div>
                         <div class='col-md-1'></div>
                         ";
