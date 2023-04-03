@@ -79,10 +79,10 @@ if (isset($_GET['deletedLocId'])){
                         echo "<a href='#'><input class='btn btn-info' type='button' name='avis' value='Avis'></a>";
                         break;
                     case "A venir":
-                        echo "<a href='#'><input class='btn btn-info' type='button' name='aVenir' value='A venir'></a>";
+                        echo "<a href='Compte.php?deletedLocId=" . $location['id'] . "'><input class='btn btn-info' type='button' name='cancel'>Anuuler</a>";
                         break;
                     default:
-                        echo "<a href='Compte.php?deletedLocId=" . $location['id'] . "' <input class='btn btn-danger' type='button' name='cancel'>Annuler</a>";
+                        echo "<a href='Compte.php?deletedLocId=" . $location['id'] . "'><input class='btn btn-danger' type='button' name='cancel'>Annuler</a>";
                         break;
                 }
                     echo "</td>
