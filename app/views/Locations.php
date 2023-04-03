@@ -46,6 +46,13 @@ ini_set('display_errors', 'on');
     <section id="content">
         <div class="card">
             <div class="card-header">
+                <?php
+                if (isset($_GET['msg'])){
+                    if ($_GET['msg'] == 'validated') {
+                        echo 'Location validée !';
+                    }
+                }
+                ?>
                 <h1>Locations en attente de validation</h1>
             </div>
             <div class="card-body">

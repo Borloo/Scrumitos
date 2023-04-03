@@ -40,7 +40,7 @@ function getHtmlLocationsValidation(){
         validateLocation((int)$_POST['id']);
         echo "
         <script>
-            location.href='http://88.208.226.189/app/views/Locations.php'
+            location.href='http://88.208.226.189/app/views/Locations.php?msg=validated'
         </script>";
         die();
     }
