@@ -429,6 +429,7 @@ function registerUser(
     $query->execute([
         'login' => $username,
         'password' => $password,
+        'roles' => "USER",
         'adresse' => $adresse,
         'email' => $email,
         'telephone' => $tel
