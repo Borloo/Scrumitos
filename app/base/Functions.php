@@ -418,12 +418,12 @@ function registerUser(
     $conn = getBDConnexion();
 
     $sql = "insert into Utilisateur(login, password,roles, adresse, mail, telephone) values (
-                                :username,
+                                :login,
                                 :password,
                                 :roles,
                                 :adresse,
                                 :mail,
-                                :tel
+                                :telephone
 )";
     $query = $conn->prepare($sql);
     $query->execute([
