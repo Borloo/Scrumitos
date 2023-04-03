@@ -417,7 +417,7 @@ function registerUser(
 ){
     $conn = getBDConnexion();
 
-    $sql = "insert into Utilisateur(login, password, adresse, mail, telephone) values (
+    $sql = "insert into Utilisateur(login, password,roles, adresse, mail, telephone) values (
                                 :username,
                                 :password,
                                 :adresse,
