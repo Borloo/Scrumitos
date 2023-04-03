@@ -198,6 +198,7 @@
                     }else{
                         $userId = -1;
                     }
+                    print_r($_SESSION);
                     if ($_GET['edit'] == 1 || $_GET['edit'] == 2){
                         echo "
                         <div class='col-md-2'>
