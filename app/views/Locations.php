@@ -76,9 +76,8 @@ if (isset($_GET['user'])){
             </div>
             <div class="card-body">
                 <?php
-
+                require('./../base/HtmlFunctions.php');
                 if (isset($_GET['new'])){
-                    require('./../base/HtmlFunctions.php');
                     switch ($_GET['new']){
                         case '0':
                             getHtmlLocationsValidation();
