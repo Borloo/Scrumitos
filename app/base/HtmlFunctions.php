@@ -37,7 +37,12 @@ function getHtmlLocationsValidation(){
         echo "<p>Pas de locations à valider</p>";
     }
     if (isset($_POST['submit'])){
-        print_r($_POST);
+        validateLocation((int)$_POST['id']);
+        echo "
+        <script>
+            location.href='http://88.208.226.189/app/views/Locations.php'
+        </script>";
+        die();
     }
 }
 

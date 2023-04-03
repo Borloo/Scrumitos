@@ -14,6 +14,27 @@ function getBDConnexion(): PDO
     return $conn;
 }
 
+function validateLocation(int $id){
+    $location = getLocationById($id);
+    if (null != $location){
+        $conn = getBDConnexion();
+        $sql = 'UPDATE Location SET isValidate = true WHERE id = :id';
+        $query = $conn->prepare($sql);
+        $query->execute(['id' => $id]);
+    }
+}
+
+function getLocationById(int $id){
+    $conn = getBDConnexion();
+    $sql = 'SELECT * FROM Location WHERE id = :id';
+    $query = $conn->prepare($sql);
+    $query->execute(['id' => $id]);
+    if ($query->rowCount() == 1){
+        return $query->fetch();
+    }
+    return [];
+}
+
 function getLocations(bool $isValidated): array{
     $conn = getBDConnexion();
     $sql = 'SELECT * FROM Location WHERE isValidated = :isValidated';
