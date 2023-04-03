@@ -430,7 +430,7 @@ function registerUser(
         'password' => $password,
         'adresse' => $adresse,
         'email' => $email,
-        'tel' => $tel
+        'telephone' => $tel
     ]);
     print_r($query->errorInfo());
 }
