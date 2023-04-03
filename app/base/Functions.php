@@ -14,9 +14,24 @@ function getBDConnexion(): PDO
     return $conn;
 }
 
-function newLocation(){
+function addLocation(
+    int $idEmplacement,
+    int $idUtilisateur,
+    DateTime $dateDeb,
+    DateTime $dateFin,
+    string $options
+){
     $conn = getBDConnexion();
-//    $sql = 'INSERT INTO Location(idEmplacement, idUtilisateur, dateDeb)'
+    $sql = "INSERT INTO Location(idEmplacement, idUtilisateur, dateDeb, dateFin, options, isValidated, avis)
+            VALUES (:idEmplacement, :idUtilisateur, :dateDeb, :dateFin, :options, false, '')";
+    $query = $conn->prepare($sql);
+    $query->execute([
+        'idEmplacement' => $idEmplacement,
+        'idUtilisateur' => $idUtilisateur,
+        'dateDeb' => $dateDeb->format('y-m-d H:i:s'),
+        'dateFin' => $dateFin->format('Y-m-d H:i:s'),
+        'options' => $options
+    ]);
 }
 
 function validateLocation(int $id){

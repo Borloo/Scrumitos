@@ -5,7 +5,55 @@ require("Functions.php");
 require("../bd/Utilisateur.php");
 
 function getHtmlNewLocation(){
-    echo "ok";
+    $emplacement = getOneEmplacementById((int)$_GET['id']);
+    $dateDeb = $emplacement['Periode_Dispo_Debut'];
+    $dateFin = $emplacement['Periode_Dispo_Fin'];
+    echo "
+        <form method='post'>
+            <div class='row'>
+                <div class='col-md-6'>
+                    <div class='input-group mb-3'>
+                        <span class='input-group-text'>Date de début</span>
+                        <input class='form-control' name='dateDeb' type='datetime-local' min='" . $dateDeb . "' max='" . $dateFin . "' value='" . $dateDeb . "'>
+                    </div>
+                </div>
+                <div class='col-md-6'>
+                    <div class='input-group mb-3'>
+                        <span class='input-group-text'>Date de fin</span>
+                        <input class='form-control' name='dateFin' type='datetime-local' min='" . $dateDeb . "' max='" . $dateFin . "' value='" . $dateDeb . "'>
+                    </div>
+                </div>
+            </div>
+            <div class='row'>
+                <div class='col-md-5'></div>
+                <div class='col-md-2'>
+                    <div class='input-group mb-3'>
+                        <span class='input-group-text'>Options</span>
+                        <input class='form-control' name='options' type='text' value='" . $emplacement['Options'] . "'>
+                    </div>
+                </div>
+                <div class='col-md-5'></div>
+            </div>
+            <div class='row'>
+                <div class='col-md-5'></div>
+                <div class='col-md-2'>
+                    <input class='btn btn-success' type='submit' name='submit' value='Demander'>
+                </div>
+                <div class='col-md-5'></div>
+            </div>
+        </form>
+    ";
+    if (isset($_POST['submit'])){
+        if (isset($_POST['dateDeb']) && isset($_POST['dateFin']) && isset($_POST['options'])){
+            $dateDeb = new DateTime($_POST['dateDeb'], new DateTimeZone('Europe/Berlin'));
+            $dateFin = new DateTime($_POST['dateFin'], new DateTimeZone('Europe/Berlin'));
+            addLocation((int)$_GET['id'], (int)$_GET['user'], $dateDeb, $dateFin, $_POST['options']);
+            echo "<script>
+                    location.href='http://88.208.226.189/index.pgp?msg=addLocation
+                </script>";
+            die();
+        }
+    }
 }
 
 function getHtmlLocationsValidation()
