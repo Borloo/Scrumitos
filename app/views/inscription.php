@@ -27,12 +27,14 @@ include("./../../include/menus.php");
     <input type="password" id="password" name="password" required><br>
     <label for="telephone">Téléphone:</label>
     <input type="text" id="telephone" name="telephone" required><br>
-    <a class="btn btn-primary" href="inscription.php?c=1" role="button">Taille</a>
+    <a class="btn btn-primary" href="inscription.php" role="button" value="inscription">S'inscrire</a>
     <?php
-
-    if($_GET['c'] == '1'){
-
-        registerUser($_POST['username'], $_POST['password'], $_POST['adresse'], $_POST['email'], $_POST['telephone']);
+    if (isset($_POST['submit'])){
+                switch ($_POST['submit']){
+                    case "inscription":
+                        registerUser($_POST['username'], $_POST['password'], $_POST['adresse'], $_POST['email'], $_POST['telephone']);
+                        break;
+                }
     }
     ?>
 </form>
