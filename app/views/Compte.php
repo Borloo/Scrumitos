@@ -18,6 +18,7 @@ require('./../base/HtmlFunctions.php');
         <h1>Mon compte <?php echo $_SESSION['USER']['login']?></h1>
         <?php
         $locations = getLocationsByUser((int)$_SESSION['USER']['id']);
+        print_r($locations);
         if (!empty($locations)){
             echo "
             <div class='card'>
