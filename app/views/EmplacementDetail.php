@@ -196,7 +196,7 @@
                     if (isset($_SESSION['USER'])){
                         $userId = $_SESSION['USER']['id'];
                     }else{
-                        $userId = -1;
+                        $userId = '-1';
                     }
                     print_r($_SESSION);
                     print_r($userId);
@@ -206,14 +206,14 @@
                             <input class='btn btn-success' type='submit' name='submit' value='Sauvegarder'>
                         </div>
                         <div class='col-md-2'>
-                            <a href='Locations.php?location=1&id=" . $_GET['id'] . "&user=" . $userId . "'><input class='btn btn-info' type='button' value='Louer'></a>
+                            <a href='Locations.php?id=" . $_GET['id'] . "&user=" . $userId . "'><input class='btn btn-info' type='button' value='Louer'></a>
                         </div>
                         ";
                     }else{
                         echo "
                         <div class='col-md-1'></div>
                         <div class='col-md-2'>
-                            <a href='Locations.php?location=1&id=" . $_GET['id'] . "&user=" . $userId . "'><input class='btn btn-info' type='button' value='Louer'></a>
+                            <a href='Locations.php?id=" . $_GET['id'] . "&user=" . $userId . "'><input class='btn btn-info' type='button' value='Louer'></a>
                         </div>
                         <div class='col-md-1'></div>
                         ";
