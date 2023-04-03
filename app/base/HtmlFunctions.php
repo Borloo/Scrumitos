@@ -744,7 +744,8 @@ function inscription(int $idUtilisateur = null){
             $_SESSION['USER'] = [
                 'id' => $user['id'],
                 'login' => $user['login'],
-                'isAdmin' => $isAdmin
+                'isAdmin' => $isAdmin,
+                'user' => $user
             ];
             echo "<script>
                     location.href='http://88.208.226.189/app/views/Compte.php'
@@ -788,28 +789,25 @@ function connection()
             $user = getUser($login, $password);
             $isAdmin = isAdmin($user);
             if (null !== $user){
+                unset($_SESSION['ERROR']);
                 if ($isAdmin){
-                    unset($_SESSION['ERROR']);
                     $_SESSION['USER'] = [
                         'id' => $user['id'],
                         'login' => $user['login'],
-                        'isAdmin' => true
+                        'isAdmin' => true,
+                        'user' => $user
                     ];
-                    header('location: http://88.208.226.189/index.php');
-                    die();
                 }else{
-                    unset($_SESSION['ERROR']);
                     $_SESSION['USER'] = [
                         'id' => $user['id'],
                         'login' => $user['login'],
-                        'isAdmin' => false
+                        'isAdmin' => false,
+                        'user' => $user
                     ];
-                    header('location: http://88.208.226.189/index.php');
-                    die();
                 }
-            }
-            if ($isAdmin || null !== $user) {
-            } else {
+                header('location: http://88.208.226.189/index.php');
+                die();
+            }else {
                 $_SESSION['ERROR'] = 'Inconnu';
             }
         }
