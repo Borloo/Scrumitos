@@ -429,7 +429,7 @@ function getHtmlPeriode()
             echo "
                 <div class='card'>
                     <div class='card-header'>
-                        <h4>" . $dateDeb . " - " . $dateFin . "</h4>
+                        <h4>" . $dateDeb->format('Y-m-d') . " - " . $dateFin->format('Y-m-d') . "</h4>
                     </div>
                     <div class='card-body'>";
             $emplacements = getEmplacementByPeriode($dateDeb, $dateFin);
@@ -526,6 +526,7 @@ function getHtmlType()
             $typeId = $_POST['listType'];
             $typeName = getEmplacementNameById($typeId)['nomType'];
             $emplacements = getEmplacementById($typeId);
+            print_r($emplacements);
             echo "
             <div class='card'>
                 <div class='card-header'>
