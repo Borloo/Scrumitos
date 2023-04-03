@@ -191,31 +191,30 @@
                                                     echo ">
                                         </div>
                                     </div>
-                            
                                     <div class='row'>
-                                                <div class='col-md-4'>
-                                                <?php
-                                                
-                                                ?>
-                                                <a href='./inscription.php'><input class='btn btn-info' id='ajouter' type='button' value='Louer'></a>
-                                        </div>
-                                                </div>
-                                            </div>
-                                            ";
-                                    if ($_GET['edit'] == 1 || $_GET['edit'] == 2){
-                                        echo "
-                                        <div class='row'>
-                                            <div class='col-md-5'></div>
-                                                <div class='col-md-2'>
-                                                    <input class='btn btn-success' type='submit' name='submit' value='Sauvegarder'>
-                                                </div>
-                                            <div class='col-md-5'></div>
-                                        </div>";
-                                    }
-                                    echo "
-                                </div>
-                            </form>
-                            ";
+                                        <div class='col-md-4'></div>";
+                    if ($_GET['edit'] == 1 || $_GET['edit'] == 2){
+                        echo "
+                        <div class='col-md-2'>
+                            <input class='btn btn-success' type='submit' name='submit' value='Sauvegarder'>
+                        </div>
+                        <div class='col-md-2'>
+                            <a href='./../views/EmplacementDetail.php?location=1&id=" . $_GET['id'] . "'><input class='btn btn-info' value='Louer'></a>
+                        </div>
+                        ";
+                    }else{
+                        echo "
+                        <div class='col-md-1'></div>
+                        <div class='col-md-2'>
+                            <input class='btn btn-success' type='submit' name='submit' value='Sauvegarder'>
+                        </div>
+                        <div class='col-md-1'></div>
+                        ";
+                    }
+                    echo "
+                                    <div class='col-md-4'></div>
+                            </div>
+                        </form>";
                             if (isset($_POST['submit'])){
                                 if (
                                     isset($_POST['name']) &&

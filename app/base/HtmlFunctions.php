@@ -361,7 +361,7 @@ function getHtmlAnnee()
                 echo "
                             <center>
                                 <table class='table'>
-                                    <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Prix/semaine</th>";
+                                    <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Date de construction</th>";
                 if ($_SESSION['USER']['isAdmin']) {
                     echo " <th scope='col'>Actions</th>";
                 }
