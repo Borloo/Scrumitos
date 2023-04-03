@@ -26,7 +26,7 @@ require('./../base/HtmlFunctions.php');
                 </div>
                 <div class='card-body'>
                     <table class='table'>
-                        <tr><th scope='col'>Emplacement</th><th scope='col'>Date de début</th><th scope='col'>Date de fin</th><th scope='col'>Options</th><th scope='col'>Status</th><th scope='col'>Actions</th></tr>";
+                        <tr><th scope='col'>Emplacement</th><th scope='col'>Date de début</th><th scope='col'>Date de fin</th><th scope='col'>Options</th><th scope='col'>Status</th><th></th></tr>";
             foreach ($locations as $location){
                 if ($location['isValidated'] == 1){
                     $status = "Validée";
@@ -37,6 +37,7 @@ require('./../base/HtmlFunctions.php');
                 $dateFin = new DateTime($location['dateFin']);
                 $emplacement = getOneEmplacementById($location['idEmplacement']);
                 echo "
+                <input type='hidden' name='id' value='" . $location['id'] . "'>
                 <tr>
                     <th scope='row'>" . $emplacement['Nom_Emplacement'] . "</th>
                     <td>" . $dateDeb->format('Y-m-d H:i:s') . "</td>
@@ -57,6 +58,17 @@ require('./../base/HtmlFunctions.php');
                 </div>
             </div>
             ";
+        }
+        if (isset($_POST['submit'])){
+            print_r($_POST['submit']);
+            if ($_POST['submit']['submit']){
+                removeLocation((int)$_POST['id']);
+                echo "
+                <script>
+                    location.href='http://88.208.226.189/app/views/Locations.php?msg=cancelLocation'
+                </script>";
+                die();
+            }
         }
         ?>
     </section>

@@ -13,6 +13,14 @@ function getBDConnexion(): PDO
     }
     return $conn;
 }
+
+function removeLocation(int $id){
+    $conn = getBDConnexion();
+    $sql = "DELETE FROM Location WHERE id = :id";
+    $query = $conn->prepare($sql);
+    $query->execute(['id' => $id]);
+}
+
 function getLocationsByUser(int $idUtilisateur){
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Location WHERE idUtilisateur = :idUtilisateur";
