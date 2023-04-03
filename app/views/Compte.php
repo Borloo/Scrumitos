@@ -68,7 +68,6 @@ require('./../base/HtmlFunctions.php');
 //                    location.href='http://88.208.226.189/app/views/Compte.php?msg=cancelLocation'
 //                </script>";
 //                die();
-                }
             }
         }
         ?>
