@@ -54,6 +54,7 @@ function getHtmlNewLocation(){
 
 function getHtmlLocationsValidation()
 {
+    print_r($_SESSION['USER']);
     $locations = getLocations(false);
     if (!empty($locations)) {
         echo "
