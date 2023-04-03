@@ -76,7 +76,7 @@ if (isset($_GET['deletedLocId'])){
                         echo "<input class='btn btn-success' type='button' name='enCours' value='En cours'>";
                         break;
                     case "Fini":
-                        echo "<a href='addAvis.php?id" . $location['id'] . "'><input class='btn btn-info' type='button' name='avis' value='Avis'></a>";
+                        echo "<a href='addAvis.php?id=" . $location['id'] . "'><input class='btn btn-info' type='button' name='avis' value='Avis'></a>";
                         break;
                     case "A venir":
                         echo "<a href='Compte.php?deletedLocId=" . $location['id'] . "'<input class='btn btn-info' type='button' name='cancel'>Annuler</a>";
