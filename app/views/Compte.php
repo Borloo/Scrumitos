@@ -45,14 +45,22 @@ if (isset($_GET['deletedLocId'])){
                     <table class='table'>
                         <tr><th scope='col'>Emplacement</th><th scope='col'>Date de début</th><th scope='col'>Date de fin</th><th scope='col'>Options</th><th scope='col'>Status</th><th></th></tr>";
             foreach ($locations as $location){
+                $emplacement = getOneEmplacementById($location['idEmplacement']);
+                $today = new DateTime('now', new DateTimeZone('Europe/Berlin'));
+                $today = $today->format('Y-m-d H:i:s');
+                $dateDeb = new DateTime($location['dateDeb']);
+                $dateFin = new DateTime($location['dateFin']);
+                $dateDeb = $dateDeb->format('Y-m-d H:i:s');
+                $dateFin = $dateFin->format('Y-m-d H:i:s');
                 if ($location['isValidated'] == 1){
-                    $status = "Validée";
+                    if ($today >= $dateDeb && $today <= $dateFin){
+                        $status = "En cours";
+                    }else{
+                        $status = "Fini";
+                    }
                 }else{
                     $status = "En attente";
                 }
-                $dateDeb = new DateTime($location['dateDeb']);
-                $dateFin = new DateTime($location['dateFin']);
-                $emplacement = getOneEmplacementById($location['idEmplacement']);
                 echo "
                 <tr>
                     <th scope='row'>" . $emplacement['Nom_Emplacement'] . "</th>
@@ -61,10 +69,16 @@ if (isset($_GET['deletedLocId'])){
                     <td>" . $location['options'] . "</td>
                     <td>" . $status . "</td>
                     <td>";
-                if ($location['isValidated'] == 1){
-                    echo "<a href='#'><input class='btn btn-info' type='button' name='avis' value='Avis'></a>";
-                }else{
-                    echo "<a href='Compte.php?deletedLocId=" . $location['id'] . "' <input class='btn btn-danger' type='button' name='cancel'>Annuler</a>";
+                switch ($status){
+                    case "En cours":
+                        echo "<input class='btn btn-success' type='button' name='enCours' value='En cours'>";
+                        break;
+                    case "Fini":
+                        echo "<a href='#'><input class='btn btn-info' type='button' name='avis' value='Avis'></a>";
+                        break;
+                    default:
+                        echo "<a href='Compte.php?deletedLocId=" . $location['id'] . "' <input class='btn btn-danger' type='button' name='cancel'>Annuler</a>";
+                        break;
                 }
                     echo "</td>
                 </tr>
