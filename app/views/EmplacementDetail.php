@@ -194,12 +194,12 @@
                                     <div class='row'>
                                         <div class='col-md-4'></div>";
                     if (isset($_SESSION['USER'])){
-                        echo "ok";
                         $userId = $_SESSION['USER']['id'];
                     }else{
                         $userId = -1;
                     }
                     print_r($_SESSION);
+                    print_r($userId);
                     if ($_GET['edit'] == 1 || $_GET['edit'] == 2){
                         echo "
                         <div class='col-md-2'>
