@@ -2,6 +2,16 @@
 session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
+
+if (isset($_GET['user'])){
+    if ($_GET['user'] = '-1'){
+        echo "
+        <script>
+            location.href='http://88.208.226.189/app/Connexion.php?conn=0'
+        </script>";
+        die();
+    }
+}
 ?>
 <!DOCTYPE html>
 <html>
