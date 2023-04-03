@@ -779,16 +779,13 @@ function connection()
                 </div>
             </form>
         </div>";
-    if (isset($_SESSION['ERROR'])) {
-        echo "<p style='background-color: red'>" . $_SESSION['ERROR'] . "</p><br/>";
-    }
     if (isset($_POST['submit'])) {
         if (isset($_POST['login']) && isset($_POST['password'])) {
             $login = $_POST['login'];
             $password = $_POST['password'];
             $user = getUser($login, $password);
-            $isAdmin = isAdmin($user);
             if (null !== $user){
+                $isAdmin = isAdmin($user);
                 unset($_SESSION['ERROR']);
                 if ($isAdmin){
                     $_SESSION['USER'] = [
@@ -808,6 +805,7 @@ function connection()
                 header('location: http://88.208.226.189/index.php');
                 die();
             }else {
+                echo "<p style='background-color: red'>Utilisateur inconnu</p>";
                 $_SESSION['ERROR'] = 'Inconnu';
             }
         }
