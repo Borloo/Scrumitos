@@ -19,7 +19,7 @@ function getHtmlLocationsValidation(){
                     <tr>
                         <th scope='row'>" . $user['login'] . "</th>
                         <td>" . $emplacement['Nom_Emplacement'] . "</td>
-                        <td>" . $type . "</td>
+                        <td>" . $type['nomType'] . "</td>
                         <td>" . $emplacement['adresseEmpl'] . "</td>
                         <td><input class='btn btn-success' type='submit' name='submit' value='Valider'></td>
                     </tr>
