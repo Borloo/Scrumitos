@@ -2,7 +2,7 @@
 
 require("Functions.php");
 
-require('app/bd/Utilisateur.php');
+require('./bd/Uilisateur.php');
 
 function getHtmlLocationsValidation()
 {
