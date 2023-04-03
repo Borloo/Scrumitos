@@ -4,6 +4,15 @@ error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 
 require('./../base/HtmlFunctions.php');
+
+if (isset($_GET['deletedLocId'])){
+    removeLocation((int)$_GET['deletedLocId']);
+    echo "
+    <script>
+        location.href='http://88.208.226.189/app/views/Compte.php?msg=cancelLocation'
+    </script>";
+    die();
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,55 +29,43 @@ require('./../base/HtmlFunctions.php');
         $locations = getLocationsByUser((int)$_SESSION['USER']['id']);
         if (!empty($locations)){
             echo "
-            <form method='post'>
-                <div class='card'>
-                    <div class='card-header'>
-                        <h4>Mes locations</h4>
-                    </div>
-                    <div class='card-body'>
-                        <table class='table'>
-                            <tr><th scope='col'>Emplacement</th><th scope='col'>Date de début</th><th scope='col'>Date de fin</th><th scope='col'>Options</th><th scope='col'>Status</th><th></th></tr>";
-                foreach ($locations as $location){
-                    if ($location['isValidated'] == 1){
-                        $status = "Validée";
-                    }else{
-                        $status = "En attente";
-                    }
-                    $dateDeb = new DateTime($location['dateDeb']);
-                    $dateFin = new DateTime($location['dateFin']);
-                    $emplacement = getOneEmplacementById($location['idEmplacement']);
-                    echo "
-                    <input type='hidden' name='id' value='" . $location['id'] . "'>
-                    <tr>
-                        <th scope='row'>" . $emplacement['Nom_Emplacement'] . "</th>
-                        <td>" . $dateDeb->format('Y-m-d H:i:s') . "</td>
-                        <td>" . $dateFin->format('Y-m-d H:i:s') . "</td>
-                        <td>" . $location['options'] . "</td>
-                        <td>" . $status . "</td>
-                        <td>";
-                    if ($location['isValidated'] == 1){
-                        echo "<a href='#'><input class='btn btn-info' type='button' name='avis' value='Avis'></a>";
-                    }else{
-                        echo "<input class='btn btn-danger' type='submit' name='submit' value='Annuler'>";
-                    }
-                        echo "</td>
-                    </tr>
-                    ";
-                }
-                        echo "</table>
-                    </div>
+            <div class='card'>
+                <div class='card-header'>
+                    <h4>Mes locations</h4>
                 </div>
-            </form>
-            ";
-            if (isset($_POST['submit'])){
-                print_r($_POST);
-                removeLocation((int)$_POST['id']);
-//                echo "
-//                <script>
-//                    location.href='http://88.208.226.189/app/views/Compte.php?msg=cancelLocation'
-//                </script>";
-//                die();
+                <div class='card-body'>
+                    <table class='table'>
+                        <tr><th scope='col'>Emplacement</th><th scope='col'>Date de début</th><th scope='col'>Date de fin</th><th scope='col'>Options</th><th scope='col'>Status</th><th></th></tr>";
+            foreach ($locations as $location){
+                if ($location['isValidated'] == 1){
+                    $status = "Validée";
+                }else{
+                    $status = "En attente";
+                }
+                $dateDeb = new DateTime($location['dateDeb']);
+                $dateFin = new DateTime($location['dateFin']);
+                $emplacement = getOneEmplacementById($location['idEmplacement']);
+                echo "
+                <tr>
+                    <th scope='row'>" . $emplacement['Nom_Emplacement'] . "</th>
+                    <td>" . $dateDeb->format('Y-m-d H:i:s') . "</td>
+                    <td>" . $dateFin->format('Y-m-d H:i:s') . "</td>
+                    <td>" . $location['options'] . "</td>
+                    <td>" . $status . "</td>
+                    <td>";
+                if ($location['isValidated'] == 1){
+                    echo "<a href='#'><input class='btn btn-info' type='button' name='avis' value='Avis'></a>";
+                }else{
+                    echo "<a href='Compte.php?deletedLocId=" . $location['id'] . "' <input class='btn btn-danger' type='button' name='cancel' value='Annuler'></a>";
+                }
+                    echo "</td>
+                </tr>
+                ";
             }
+                    echo "</table>
+                </div>
+            </div>
+            ";
         }
         ?>
     </section>
