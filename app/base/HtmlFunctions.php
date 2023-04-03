@@ -4,20 +4,21 @@ require("Functions.php");
 
 require('../bd/Utilisateur.php');
 
-function getHtmlLocationsValidation(){
+function getHtmlLocationsValidation()
+{
     $locations = getLocations(false);
-    if (!empty($locations)){
+    if (!empty($locations)) {
         echo "
         <form method='post'>
             <table class='table'>
                 <caption>Locations à valider</caption>
                 <tr><th scope='col'>Utilisateur</th><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Date de réservation</th><th>Actions</th></tr>";
-                foreach ($locations as $location){
-                    $date = $location['dateDeb'] . ' - ' . $location['dateFin'];
-                    $user = getUserById((int)$location['idUtilisateur']);
-                    $emplacement = getOneEmplacementById((int)$location['idEmplacement']);
-                    $type = getTypeById((int)$emplacement['idType']);
-                    echo "
+        foreach ($locations as $location) {
+            $date = $location['dateDeb'] . ' - ' . $location['dateFin'];
+            $user = getUserById((int)$location['idUtilisateur']);
+            $emplacement = getOneEmplacementById((int)$location['idEmplacement']);
+            $type = getTypeById((int)$emplacement['idType']);
+            echo "
                         <tr>
                             <th scope='row'>" . $user['login'] . "</th>
                             <td>" . $emplacement['Nom_Emplacement'] . "</td>
@@ -29,14 +30,14 @@ function getHtmlLocationsValidation(){
                             </td>
                         </tr>
                     ";
-                }
-            echo "</table>
+        }
+        echo "</table>
             </form>
         ";
-    }else{
+    } else {
         echo "<p>Pas de locations à valider</p>";
     }
-    if (isset($_POST['submit'])){
+    if (isset($_POST['submit'])) {
         validateLocation((int)$_POST['id']);
         echo "
         <script>
@@ -46,15 +47,16 @@ function getHtmlLocationsValidation(){
     }
 }
 
-function getHtmlListNews(){
+function getHtmlListNews()
+{
     $news = getNews();
-    if (!empty($news)){
+    if (!empty($news)) {
         $size = sizeof($news) + 1;
         $params = [
             '3' => $size % 3,
             '2' => $size % 2
         ];
-        switch ($params){
+        switch ($params) {
             case $params['3'] == 1:
                 $limit = 3;
                 $col = "<div class='col-md-4'>";
@@ -72,13 +74,13 @@ function getHtmlListNews(){
                 break;
         }
         $i = 1;
-        foreach ($news as $new){
+        foreach ($news as $new) {
             $body = $new['body'];
-            if (strlen($body) > 100){
+            if (strlen($body) > 100) {
                 $body = substr($body, 0, 100);
                 $body .= "(...)";
             }
-            if ($i == 1){
+            if ($i == 1) {
                 echo "<div class='row'>";
             }
             echo $col;
@@ -91,7 +93,7 @@ function getHtmlListNews(){
                     <p class='card-text'>" . $body . "</p>
                 </div>
                 <div class='card-footer'>";
-            if ($_SESSION['USER'] == "ADMIN"){
+            if ($_SESSION['USER'] == "ADMIN") {
                 echo "<div class='row'>
                                 <div class='col-md-4'>      
                                     <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary'>Détails</a>
@@ -103,18 +105,18 @@ function getHtmlListNews(){
                                     <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=-1' class='btn btn-danger'>Supprimer</a>
                                 </div>
                             </div>";
-            }else{
+            } else {
                 echo "<a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary'>Détails</a>";
             }
             echo "</div></div></div>";
-            if ($i == $limit){
+            if ($i == $limit) {
                 $i = 1;
                 echo $colFin;
-            }else{
+            } else {
                 $i++;
             }
         }
-    }else{
+    } else {
         echo "<h4>Pas de News :(</h4>";
     }
 }
@@ -496,8 +498,8 @@ function getHtmlType()
                             </div>
                             <div class='row'>
                                 <div class='col-md-2'></div>";
-    if(isset($_SESSION['USER'])){
-        if ($_SESSION['USER'] =="ADMIN") {
+    if (isset($_SESSION['USER'])) {
+        if ($_SESSION['USER'] == "ADMIN") {
             echo "
                                 <div class='col-md-4'>
                                     <input class='btn btn-secondary' type='submit' id='submit' name='submit' value='Afficher'>
@@ -506,7 +508,7 @@ function getHtmlType()
                                         <a href='./EmplacementDetail.php?maj=0&id=-1&edit=2'><input class='btn btn-info' id='ajouter' type='button' value='Ajouter'></a>
                                 </div>";
         }
-    }else{
+    } else {
         echo "
             <div class='col-md-3'></div>
             <div class='col-md-2'>
@@ -527,32 +529,34 @@ function getHtmlType()
             $typeId = $_POST['listType'];
             $typeName = getEmplacementNameById($typeId)['nomType'];
             $emplacements = getEmplacementById($typeId);
+            echo "
+            <div class='card'>
+                <div class='card-header'>
+                    <div class='row'>
+                        <h4>" . $typeName . "</h4>
+                    </div>
+                </div>
+                <div class='card-body>";
             if (!empty($emplacements)) {
                 echo "
-                            <div class='card'>
-                                <div class='card-header'>
-                                    <div class='row'>
-                                        <h4>" . $typeName . "</h4>
-                                    </div>
-                                </div>
-                                <div class='card-body'>
-                                    <table class='table'>
-                                        <caption> Emplacement du type " . $typeName . "</caption>
-                                        <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Année de Construction</th>";
-                if(isset($_SESSION['USER'])){
+                            
+                    <table class='table'>
+                        <caption> Emplacement du type " . $typeName . "</caption>
+                        <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Année de Construction</th>";
+                if (isset($_SESSION['USER'])) {
                     if ($_SESSION['USER'] == "ADMIN") {
                         echo "<th scope='col'>Actions</th>";
                     }
                 }
-                echo                    "</tr>";
+                echo "</tr>";
                 getHtmlEmplacementTable($emplacements);
-                echo "
-                                    </table></center>
-                                </div>
-                            </div>";
+                echo "</table></center>";
             } else {
-                echo "<tr><td>Aucun résultat</td></tr>";
+                echo "<p>Aucun résultat</p>";
             }
+            echo "
+                    </div>
+                </div>";
         }
     }
 }
@@ -581,7 +585,7 @@ function getHtmlEmplacementTable(array $emplacements, string $specify = '')
             <td>" . $type['nomType'] . "</td>
             <td>" . $emplacement['adresseEmpl'] . "</td>
             <td>" . $emplacement[$specify] . $suffix . "</td>";
-        if(isset($_SESSION['USER'])){
+        if (isset($_SESSION['USER'])) {
             if ($_SESSION['USER'] == "ADMIN") {
                 echo "
             <td>
