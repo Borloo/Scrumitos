@@ -64,8 +64,8 @@ if (isset($_GET['deletedLocId'])){
                 echo "
                 <tr>
                     <th scope='row'>" . $emplacement['Nom_Emplacement'] . "</th>
-                    <td>" . $dateDeb->format('Y-m-d H:i:s') . "</td>
-                    <td>" . $dateFin->format('Y-m-d H:i:s') . "</td>
+                    <td>" . $dateDeb . "</td>
+                    <td>" . $dateFin . "</td>
                     <td>" . $location['options'] . "</td>
                     <td>" . $status . "</td>
                     <td>";
