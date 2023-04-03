@@ -15,7 +15,7 @@ function getBDConnexion(): PDO
 }
 function getLocationsByUser(int $idUtilisateur){
     $conn = getBDConnexion();
-    $sql = "SELECT * FROM Locations WHERE idUtilisateur = :idUtilisateur";
+    $sql = "SELECT * FROM Location WHERE idUtilisateur = :idUtilisateur";
     $query = $conn->prepare($sql);
     $query->execute(['idUtilisateur' => $idUtilisateur]);
     return $query->fetchAll();
