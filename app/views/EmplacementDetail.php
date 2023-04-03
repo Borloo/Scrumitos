@@ -206,7 +206,7 @@
                         echo "
                         <div class='col-md-1'></div>
                         <div class='col-md-2'>
-                            <input class='btn btn-success' type='submit' name='submit' value='Sauvegarder'>
+                            <a href='./../views/EmplacementDetail.php?location=1&id=" . $_GET['id'] . "'><input class='btn btn-info' value='Louer'></a>
                         </div>
                         <div class='col-md-1'></div>
                         ";
