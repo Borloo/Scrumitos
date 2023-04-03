@@ -733,13 +733,13 @@ function inscription(int $idUtilisateur = null){
             isset($_POST['login']) &&
             isset($_POST['password'])
         ){
-            registerUser($_POST['login'], $_POST['password'], $_POST['adresse'], $_POST['email'], $_POST['telephone']);
+            if (null !== $idUtilisateur){
+                updateUser((int)$_SESSION['USER']['id'], $_POST['login'], $_POST['password'], $_POST['adresse'], $_POST['email'], $_POST['telephone']);
+            }else{
+                registerUser($_POST['login'], $_POST['password'], $_POST['adresse'], $_POST['email'], $_POST['telephone']);
+            }
             $user = getUser($_POST['login'], $_POST['password']);
-            $_SESSION['USER'] = [
-                'id' => $user['id'],
-                'login' => $user['login'],
-                'isAdmin' => false
-            ];
+            $_SESSION['USER'] = $user;
             header('location: http://88.208.226.189/index.php');
             die();
         }
