@@ -24,7 +24,7 @@ ini_set('display_errors', 'on');
 
                 <div class="col-md-4">
                     <?php
-                    require_once("./base/Functions.php");
+                    require_once("./base/HtmlFunctions.php");
 
                     if (empty($_SESSION['token'])) {
                         if (isset($_GET['conn'])){

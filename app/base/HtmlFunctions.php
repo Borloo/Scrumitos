@@ -604,4 +604,131 @@ function getHtmlEmplacementTable(array $emplacements, string $specify = '')
     }
 }
 
+function inscription(){
+    echo "
+    <div class='card'>
+        <div class='card-header'>
+            <h1>Incription</h1>
+        </div>
+        <div class='card-body'>
+        <form method='post'>
+            <fieldset>
+                <div class='row'>
+                    <div class='col-md-6'>
+                        <div class='input-group mb-3'>
+                            <span class='input-group-text'>Téléphone</span>
+                            <input class='form-control' name='telephone' type='number'>
+                        </div>
+                    </div>
+                    <div class='col-md-6'>
+                        <div class='input-group mb-3'>
+                            <span class='input-group-text'>Email</span>
+                            <input class='form-control' name='email' type='email'>
+                        </div>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='input-group mb-3'>
+                        <span class='input-group-text'>Adresse</span>
+                        <input class='form-control' name='adresse' type='text'>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-6'>
+                        <div class='input-group mb-3'>
+                            <span class='input-group-text'>Login</span>
+                            <input class='form-control' name='login' type='text'>
+                        </div>
+                    </div>
+                    <div class='col-md-6'>
+                        <div class='input-group mb-3'>
+                            <span class='input-group-text'>Password</span>
+                            <input class='form-control' name='password' type='password'>
+                        </div>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-5'></div>
+                    <div class='col-md-2'>
+                        <input class='btn btn-success' type='submit' name='submit' value='Enregistrer'>
+                    </div>
+                    <div class='col-md-5'></div>
+                </div>
+            </fieldset>
+        </form>
+        </div>
+    </div>
+    ";
+    if (isset($_POST['submit'])){
+        if (
+            isset($_POST['telephone']) &&
+            isset($_POST['email']) &&
+            isset($_POST['adresse']) &&
+            isset($_POST['login']) &&
+            isset($_POST['password'])
+        ){
+            registerUser($_POST['login'], $_POST['password'], $_POST['adresse'], $_POST['email'], $_POST['telephone']);
+            $user = getUser($_POST['login'], $_POST['password']);
+            $_SESSION['USER'] = [
+                'id' => $user['id'],
+                'login' => $user['login'],
+                'isAdmin' => false
+            ];
+            header('location: http://88.208.226.189/index.php');
+            die();
+        }
+    }
+}
+
+function connection()
+{
+    echo "
+    <div class='card'>
+        <div class='card-header'>
+            <h2>Connexion</h2>
+        </div>
+        <div class='card-body'>
+            <form method='post'>
+                <div class='row'>
+                    <p>Login : <input type='text' name='login'></p>
+                </div>
+                <div class='row'>
+                    <p>Password : <input type='password' name='password'></p>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'></div>
+                    <div class='col-md-4'>
+                        <input class='btn btn-success' type='submit' name='submit' value='Se connecter'>
+                    </div>
+                    <div class='col-md-4'></div>
+                </div>
+            </form>
+        </div>";
+    if (isset($_SESSION['ERRORCO'])) {
+        echo "<p style='background-color: red'>" . $_SESSION['ERRORCO'] . "</p><br/>";
+    }
+    if (isset($_POST['submit'])) {
+        if (isset($_POST['login']) && isset($_POST['password'])) {
+            require('./bd/Utilisateur.php');
+            $login = $_POST['login'];
+            $password = $_POST['password'];
+            $user = getUser($login, $password);
+            $isAdmin = isAdmin($user);
+            if ($isAdmin || null !== $user) {
+                unset($_SESSION['ERROR']);
+                $_SESSION['USER'] = [
+                    'id' => $user['id'],
+                    'login' => $user['login'],
+                    'isAdmin' => true
+                ];
+                header('location: http://88.208.226.189/index.php');
+                die();
+            } else {
+                $_SESSION['ERROR'] = 'Inconnu';
+            }
+        }
+    }
+    echo "</div>";
+}
+
 ?>
