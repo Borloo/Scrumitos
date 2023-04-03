@@ -581,11 +581,11 @@ function getHtmlEmplacementTable(array $emplacements, string $specify = '')
             <th scope='row'>" . $emplacement['Nom_Emplacement'] . "</th>
             <td>" . $type['nomType'] . "</td>
             <td>" . $emplacement['adresseEmpl'] . "</td>
-            <td>" . $emplacement[$specify] . $suffix . "</td>";
+            <td>" . $emplacement[$specify] . $suffix . "</td>
+            <td>";
         if (isset($_SESSION['USER'])) {
             if ($_SESSION['USER']['isAdmin']) {
                 echo "
-            <td>
                 <div class='row'>
                     <div class='col-md-4'>
                         <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=1'><input type='button' class='btn btn-warning' value='Modifier'></a>
@@ -597,12 +597,16 @@ function getHtmlEmplacementTable(array $emplacements, string $specify = '')
                         <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=3'><input type='button' class='btn btn-danger' value='Supprimer'></a>
                     </div>
                 </div>
-            </td>
             ";
             }
+        }else{
+            echo "
+                <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=0'><input type='button' class='btn btn-info' value='Détails'></a>
+            ";
         }
-        echo "</tr>
-                            ";
+        echo "
+            </td>
+        </tr>";
     }
 }
 
