@@ -17,7 +17,7 @@ ini_set('display_errors', 'on');
 <?php
 include("./../../include/menus.php");
 ?>
-<form action="valider_inscription.php" method="post">
+<form action="../Connexion.php" method="post">
     <input type="hidden" name="emplacement_id" value="<?php echo $emplacement_id; ?>">
     <label for="username">Nom:</label>
     <input type="text" id="username" name="username" required><br>
@@ -32,12 +32,14 @@ include("./../../include/menus.php");
     <a class="btn btn-primary" href="inscription.php" role="button" value="inscription">S'inscrire</a>
     <?php
     if (isset($_POST['submit'])){
+        print_r($_POST['submit']);
                 switch ($_POST['submit']){
                     case "inscription":
                         registerUser($_POST['username'], $_POST['password'], $_POST['adresse'], $_POST['email'], $_POST['telephone']);
                         break;
                 }
     }
+
     ?>
 </form>
 <?php include("./../../include/footer.php"); ?>
