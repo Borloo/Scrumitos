@@ -20,7 +20,6 @@ if (!isset($_SESSION['USER'])) {
 <body>
 <?php include("../include/header.php"); ?>
 <?php include("../include/headfile.php"); ?>
-<!--include("../include/connect.inc.php"); -->
 
 <div class="wrapper">
     <?php include("../include/menus.php"); ?>

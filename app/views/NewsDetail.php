@@ -72,7 +72,7 @@ ini_set('display_errors', 'on');
                                     $valueButton = "";
                                     break;
                             }
-                            if ($_GET['id'] == '1'){
+                            if ($_GET['edit'] == '0'){
                                 $new = getNewById((int)$_GET['id']);
                                 $titre = $new['titre'];
                                 $body = $new['body'];
