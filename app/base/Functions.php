@@ -399,10 +399,32 @@ function connection()
     echo "</div>";
 }
 
-function registerUser(){
+function registerUser(
+    string $username,
+    string $password,
+    string $adresse,
+    string $email,
+    string $tel
+){
     $conn = getBDConnexion();
 
-    $query = "insert into Utilisateur values ()";
+    $sql = "insert into Utilisateur(login, password, adresse, mail, telephone) values (
+                                :username,
+                                :password,
+                                :adresse,
+                                :email,
+                                :tel
+)";
+    $query = $conn->prepare($sql);
+    $query->execute([
+        'name' => $username,
+        'type' => $password,
+        'adresse' => $adresse,
+        'annee' => $email,
+        'taille' => $tel
+
+    ]);
+    print_r($query->errorInfo());
 }
 
 ?>
