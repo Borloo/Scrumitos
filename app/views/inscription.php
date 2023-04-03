@@ -19,7 +19,7 @@ include("./../../include/menus.php");
     <input type="hidden" name="emplacement_id" value="<?php echo $emplacement_id; ?>">
     <label for="username">Nom:</label>
     <input type="text" id="username" name="username" required><br>
-    <label for="adresse">Email:</label>
+    <label for="adresse">Adresse:</label>
     <input type="adresse" id="adresse" name="adresse" required><br>
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" required><br>
