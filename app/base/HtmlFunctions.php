@@ -512,7 +512,7 @@ function getHtmlType()
             </div>
             <div class='col-md-1'></div>
         ";
-        } 
+        }
     }
     echo "
                                 <div class='col-md-4'></div>
@@ -591,6 +591,10 @@ function getHtmlEmplacementTable(array $emplacements, string $specify = '')
                         <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=3'><input type='button' class='btn btn-danger' value='Supprimer'></a>
                     </div>
                 </div>
+            ";
+            }else{
+                echo "
+                <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=0'><input type='button' class='btn btn-info' value='Détails'></a>
             ";
             }
         }else{
