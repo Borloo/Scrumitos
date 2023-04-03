@@ -65,11 +65,11 @@ require('./../base/HtmlFunctions.php');
             print_r($_POST['submit']);
             if ($_POST['submit']['submit']){
                 removeLocation((int)$_POST['id']);
-                echo "
-                <script>
-                    location.href='http://88.208.226.189/app/views/Compte.php?msg=cancelLocation'
-                </script>";
-                die();
+//                echo "
+//                <script>
+//                    location.href='http://88.208.226.189/app/views/Compte.php?msg=cancelLocation'
+//                </script>";
+//                die();
             }
         }
         ?>
