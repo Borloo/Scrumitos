@@ -72,7 +72,11 @@ ini_set('display_errors', 'on');
                                     break;
                                 case "1":
                                     $valueButton = "Sauvegarder";
-                                    $titrePage = 'Modification de ' . $titre;
+                                    if ($_GET['id'] != "-1"){
+                                        $titrePage = 'Modification de ' . $titre;
+                                    }else{
+                                        $titrePage = "Ajout d'une news";
+                                    }
                                     break;
                                 case "-1":
                                     deleteNew((int)$_GET['id']);
