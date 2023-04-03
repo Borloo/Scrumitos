@@ -89,30 +89,30 @@ ini_set('display_errors', 'on');
                                         <div class='input-group mb-3'>
                                             <span class='input-group-text' id='basic-addon1'>Titre</span>
                                             <input class='form-control' name='titre' type='text' value='" . $titre . "'";
-                                            if ($_GET['edit'] == 0){
-                                                echo "readonly";
-                                            }
-                                            echo ">
+                            if ($_GET['edit'] == 0){
+                                echo "readonly";
+                            }
+                            echo ">
                                         </div>
                                     </div>
                                     <div class='col-md-4'>
                                         <div class='input-group mb-3'>
                                             <span class='input-group-text' id='basic-addon1'>Contenu</span>
                                             <input class='form-control' name='body' type='text' value='" . $body . "'";
-                                            if ($_GET['edit'] == 0){
-                                                echo "readonly";
-                                            }
-                                            echo ">
+                            if ($_GET['edit'] == 0){
+                                echo "readonly";
+                            }
+                            echo ">
                                         </div>
                                     </div>
                                     <div class='col-md-4'>
                                         <div class='input-group mb-3'>
                                             <span class='input-group-text' id='basic-addon1'>Date</span>
                                             <input class='form-control' name='date' type='date' value='" . $date . "'";
-                                            if ($_GET['edit'] == 0){
-                                                echo "readonly";
-                                            }
-                                            echo ">
+                            if ($_GET['edit'] == 0){
+                                echo "readonly";
+                            }
+                            echo ">
                                         </div>
                                     </div>
                                 </div>
