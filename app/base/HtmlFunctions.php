@@ -10,8 +10,9 @@ function getHtmlLocationsValidation(){
         echo "
         <table class='table'>
             <caption>Locations à valider</caption>
-            <tr><th scope='col'>Utilisateur</th><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th>Actions</th></tr>";
+            <tr><th scope='col'>Utilisateur</th><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Date de réservation</th><th>Actions</th></tr>";
             foreach ($locations as $location){
+                $date = $location['dateDeb'] . ' - ' . $location['dateFin'];
                 $user = getUserById((int)$location['idUtilisateur']);
                 $emplacement = getOneEmplacementById((int)$location['idEmplacement']);
                 $type = getTypeById((int)$emplacement['idType']);
@@ -20,7 +21,7 @@ function getHtmlLocationsValidation(){
                         <th scope='row'>" . $user['login'] . "</th>
                         <td>" . $emplacement['Nom_Emplacement'] . "</td>
                         <td>" . $type['nomType'] . "</td>
-                        <td>" . $emplacement['adresseEmpl'] . "</td>
+                        <td>" . $date . "</td>
                         <td><input class='btn btn-success' type='submit' name='submit' value='Valider'></td>
                     </tr>
                 ";
