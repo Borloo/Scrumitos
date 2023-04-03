@@ -38,7 +38,7 @@ require('./../base/HtmlFunctions.php');
                     $dateFin = new DateTime($location['dateFin']);
                     $emplacement = getOneEmplacementById($location['idEmplacement']);
                     echo "
-                    <input type='hidden' name='id' value='" . $location['id'] . "'>
+                    <input type='hidden'name='id' value='" . $location['id'] . "'>
                     <tr>
                         <th scope='row'>" . $emplacement['Nom_Emplacement'] . "</th>
                         <td>" . $dateDeb->format('Y-m-d H:i:s') . "</td>
@@ -60,16 +60,15 @@ require('./../base/HtmlFunctions.php');
                 </div>
             </form>
             ";
-        }
-        if (isset($_POST['submit'])){
-            print_r($_POST['submit']);
-            if ($_POST['submit'] == 'Annuler'){
+            if (isset($_POST['submit'])){
+                print_r($_POST['submit']);
                 removeLocation((int)$_POST['id']);
 //                echo "
 //                <script>
 //                    location.href='http://88.208.226.189/app/views/Compte.php?msg=cancelLocation'
 //                </script>";
 //                die();
+                }
             }
         }
         ?>
