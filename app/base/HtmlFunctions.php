@@ -45,7 +45,7 @@ function getHtmlNewLocation(){
             $dateFin = new DateTime($_POST['dateFin'], new DateTimeZone('Europe/Berlin'));
             addLocation((int)$_GET['id'], (int)$_GET['user'], $dateDeb, $dateFin, $_POST['options']);
             echo "<script>
-                    location.href='http://88.208.226.189/index.pgp?msg=addLocation
+                    location.href='http://88.208.226.189/index.php?msg=addLocation
                 </script>";
             die();
         }

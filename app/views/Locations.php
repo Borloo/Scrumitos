@@ -80,11 +80,11 @@ if (isset($_GET['user'])){
                 if (isset($_GET['new'])){
                     require('./../base/HtmlFunctions.php');
                     switch ($_GET['new']){
-                        case '0':
-                            getHtmlLocationsValidation();
-                            break;
                         case '1':
                             getHtmlNewLocation();
+                            break;
+                        default:
+                            getHtmlLocationsValidation();
                             break;
                     }
                 }
