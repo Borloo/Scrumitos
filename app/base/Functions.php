@@ -399,4 +399,10 @@ function connection()
     echo "</div>";
 }
 
+function registerUser(){
+    $conn = getBDConnexion();
+
+    $query = "insert into Utilisateur values ()";
+}
+
 ?>
