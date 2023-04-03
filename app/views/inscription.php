@@ -2,7 +2,7 @@
 $emplacement_id = isset($_GET['emplacement_id']) ? $_GET['emplacement_id'] : '';
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
-include("../base/Functions.php");
+
 include("../base/HtmlFunctions.php");
 ?>
 
