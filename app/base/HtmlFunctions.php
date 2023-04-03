@@ -531,7 +531,7 @@ function getHtmlType()
                 <div class='card-header'>
                     <h4>" . $typeName . "</h4>
                 </div>
-                <div class='card-body>";
+                <div class='card-body'>";
             if (!empty($emplacements)) {
                 echo "
                     <table class='table'>
