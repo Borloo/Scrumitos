@@ -526,7 +526,9 @@ function getHtmlType()
         if (isset($_POST['listType'])) {
             $typeId = $_POST['listType'];
             $typeName = getEmplacementNameById($typeId)['nomType'];
-            echo "
+            $emplacements = getEmplacementById($typeId);
+            if (!empty($emplacements)) {
+                echo "
                             <div class='card'>
                                 <div class='card-header'>
                                     <div class='row'>
@@ -537,23 +539,20 @@ function getHtmlType()
                                     <table class='table'>
                                         <caption> Emplacement du type " . $typeName . "</caption>
                                         <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Année de Construction</th>";
-
-            if(isset($_SESSION['USER'])){
-                if ($_SESSION['USER'] == "ADMIN") {
-                    echo "<th scope='col'>Actions</th>";
+                if(isset($_SESSION['USER'])){
+                    if ($_SESSION['USER'] == "ADMIN") {
+                        echo "<th scope='col'>Actions</th>";
+                    }
                 }
-            }
-            echo "</tr>";
-            $emplacements = getEmplacementById($typeId);
-            if (!empty($emplacements)) {
+                echo                    "</tr>";
                 getHtmlEmplacementTable($emplacements);
-            } else {
-                echo "<tr><td>Aucun résultat</td></tr>";
-            }
-            echo "
+                echo "
                                     </table></center>
                                 </div>
                             </div>";
+            } else {
+                echo "<tr><td>Aucun résultat</td></tr>";
+            }
         }
     }
 }

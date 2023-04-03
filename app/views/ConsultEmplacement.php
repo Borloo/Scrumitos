@@ -44,7 +44,7 @@ require('./../base/HtmlFunctions.php');
 <body>
 <?php include("./../../include/header.php"); ?>
 <div class="wrapper">
-    <?php include("./../../include/menus.php");?>
+    <?php include("./../../include/menus.php"); ?>
     <section id="content">
         <div class="card">
             <div class="card-header">
@@ -65,8 +65,7 @@ require('./../base/HtmlFunctions.php');
                 <div class="row">
                     <div class='col-md-3'></div>
                     <div class='col-md-2'>
-                        <a class="btn btn-secondary" href="ConsultEmplacement.php?c=3" role="button">Année de
-                            construction</a>
+                        <a class="btn btn-secondary" href="ConsultEmplacement.php?c=3" role="button">Année</a>
                     </div>
                     <div class="col-md-2"></div>
                     <div class="col-md-2">
@@ -86,7 +85,7 @@ require('./../base/HtmlFunctions.php');
         </div>
         <?php
 
-        switch ($_GET['c']){
+        switch ($_GET['c']) {
             case "1":
                 getHtmlType();
                 break;
