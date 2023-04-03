@@ -19,7 +19,7 @@ include("../base/HtmlFunctions.php.php");
 <?php
 include("./../../include/menus.php");
 ?>
-<form action="inscription.php" method="post">
+<form method="post">
     <input type="hidden" name="emplacement_id" value="<?php echo $emplacement_id; ?>">
     <label for="username">Nom:</label>
     <input type="text" id="username" name="username" required><br>
@@ -36,7 +36,7 @@ include("./../../include/menus.php");
 </form>
 <?php
 if (isset($_POST['submit'])){
-echo "Formulaire soumis"; // Ajoutez cette ligne pour vérifier que la soumission du formulaire est détectée
+echo "Formulaire soumis";
 
 
 registerUser($_POST['username'], $_POST['password'], $_POST['adresse'], $_POST['email'], $_POST['telephone']);
