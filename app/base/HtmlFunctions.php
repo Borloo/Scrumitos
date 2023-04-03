@@ -741,7 +741,7 @@ function inscription(int $idUtilisateur = null){
             $user = getUser($_POST['login'], $_POST['password']);
             $_SESSION['USER'] = $user;
             echo "<script>
-                    location.href='http://88.208.226.189/Compte.php'
+                    location.href='http://88.208.226.189/app/views/Compte.php'
                 </script>";
             die();
         }
