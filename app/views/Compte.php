@@ -38,7 +38,7 @@ require('./../base/HtmlFunctions.php');
                 $emplacement = getOneEmplacementById($location['idEmplacement']);
                 echo "
                 <tr>
-                    <th scope='row'>" . $emplacement['nomType'] . "</th>
+                    <th scope='row'>" . $emplacement['Nom_Emplacement'] . "</th>
                     <td>" . $dateDeb->format('Y-m-d H:i:s') . "</td>
                     <td>" . $dateFin->format('Y-m-d H:i:s') . "</td>
                     <td>" . $location['options'] . "</td>
