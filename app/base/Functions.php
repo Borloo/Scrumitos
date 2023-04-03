@@ -331,7 +331,7 @@ function getOneEmplacementById(int $id)
     return null;
 }
 
-function getEmplacementById(int $id, bool $onlyQb = false)
+function getEmplacementById(int $id)
 {
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Emplacement WHERE idType = :id";
