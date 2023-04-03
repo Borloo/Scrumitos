@@ -22,7 +22,7 @@ function getHtmlLocationsValidation(){
                         <td>" . $emplacement['Nom_Emplacement'] . "</td>
                         <td>" . $type['nomType'] . "</td>
                         <td>" . $date . "</td>
-                        <td><input class='btn btn-success' type='submit' name='" . $location['id'] . "' value='Valider'></td>
+                        <td><input class='btn btn-success' type='submit' name='submit' value='Valider'></td>
                     </tr>
                 ";
             }
