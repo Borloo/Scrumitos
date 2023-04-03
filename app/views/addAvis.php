@@ -54,9 +54,31 @@ ini_set('display_errors', 'on');
                 ?>
 
                 <form method="post">
-                <span class='input-group-text' id='basic-addon1'>Votre avis : </span>
-                <input class='form-control' type="text"  name="avisTtx" placeholder="Ecrivez votre avis...">
-                <input type="submit" id="submit" value="Valider">
+                    <fieldset>
+                    <div class='card-header'>
+                        <h4>Ajout d'un avis</h4>
+                    </div>
+
+                    <div class='card-body'>
+                        <div class='row'>
+                            <div class='col-md-4'>
+                                <div class='input-group mb-3'>
+                                    <span class='input-group-text' id='basic-addon1'>Votre avis : </span>
+                                    <input class='form-control' type="text"  name="avisTtx" placeholder="Ecrivez votre avis...">
+                                </div>
+                            </div>
+                        </div>
+                    </div>       
+                    <div class='card-footer'>
+                                    <div class='row'>
+                                        <div class='col-md-5'></div>
+                                        <div class='col-md-2'>
+                                            <input class='btn btn-success' type="submit" name='submit' value="Valider">
+                                        </div>
+                                        <div class='col-md-5'></div>
+                                    </div>
+                                </div>
+                    </fieldset>
                 </form>
             </div>
         </div>
