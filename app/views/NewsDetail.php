@@ -55,12 +55,28 @@ ini_set('display_errors', 'on');
                         require('./../base/Functions.php');
 
                         if (isset($_GET['id'])){
+                            $titre = '';
+                            $body = '';
+                            $date = new DateTime('now', new DateTimeZone('Europe/Berlin'));
+                            $date = $date->format('Y-m-d');
+                            if ($_GET['id'] != "-1"){
+                                $new = getNewById((int)$_GET['id']);
+                                $titre = $new['titre'];
+                                $body = $new['body'];
+                                $date = $new['date'];
+                            }
                             switch ($_GET['edit']){
                                 case "0":
                                     $valueButton = "Retour";
+                                    $titrePage = 'Prévisualisation de ' . $titre;
                                     break;
                                 case "1":
                                     $valueButton = "Sauvegarder";
+                                    if ($_GET['id'] != "-1"){
+                                        $titrePage = 'Modification de ' . $titre;
+                                    }else{
+                                        $titrePage = "Ajout d'une news";
+                                    }
                                     break;
                                 case "-1":
                                     deleteNew((int)$_GET['id']);
@@ -70,20 +86,8 @@ ini_set('display_errors', 'on');
                                     die();
                                 default:
                                     $valueButton = "";
+                                    $titrePage = '';
                                     break;
-                            }
-                            if ($_GET['id'] == '1'){
-                                $new = getNewById((int)$_GET['id']);
-                                $titre = $new['titre'];
-                                $body = $new['body'];
-                                $date = $new['date'];
-                                $titrePage = 'Modification de ' . $titre;
-                            }else{
-                                $titre = '';
-                                $body = '';
-                                $date = new DateTime('now', new DateTimeZone('Europe/Berlin'));
-                                $date = $date->format('Y-m-d');
-                                $titrePage = 'Nouvelle news';
                             }
                             echo "
                             <div class='card-header'>
@@ -95,30 +99,30 @@ ini_set('display_errors', 'on');
                                         <div class='input-group mb-3'>
                                             <span class='input-group-text' id='basic-addon1'>Titre</span>
                                             <input class='form-control' name='titre' type='text' value='" . $titre . "'";
-                                            if ($_GET['edit'] == 0){
-                                                echo "readonly";
-                                            }
-                                            echo ">
+                            if ($_GET['edit'] == 0){
+                                echo "readonly";
+                            }
+                            echo ">
                                         </div>
                                     </div>
                                     <div class='col-md-4'>
                                         <div class='input-group mb-3'>
                                             <span class='input-group-text' id='basic-addon1'>Contenu</span>
                                             <input class='form-control' name='body' type='text' value='" . $body . "'";
-                                            if ($_GET['edit'] == 0){
-                                                echo "readonly";
-                                            }
-                                            echo ">
+                            if ($_GET['edit'] == 0){
+                                echo "readonly";
+                            }
+                            echo ">
                                         </div>
                                     </div>
                                     <div class='col-md-4'>
                                         <div class='input-group mb-3'>
                                             <span class='input-group-text' id='basic-addon1'>Date</span>
                                             <input class='form-control' name='date' type='date' value='" . $date . "'";
-                                            if ($_GET['edit'] == 0){
-                                                echo "readonly";
-                                            }
-                                            echo ">
+                            if ($_GET['edit'] == 0){
+                                echo "readonly";
+                            }
+                            echo ">
                                         </div>
                                     </div>
                                 </div>
@@ -146,13 +150,16 @@ ini_set('display_errors', 'on');
                         if ($_GET['id'] != '-1'){
                             updateNew($_GET['id'], $_POST['titre'], $_POST['body'], $date);
                             $msg = 'updated';
+                            echo "<script>
+                                location.href='http://88.208.226.189/app/views/ConsultNews.php?msg=updated'
+                                </script>";
                         }else{
                             addNew($_POST['titre'], $_POST['body'], $date);
                             $msg = 'created';
+                            echo "<script>
+                                location.href='http://88.208.226.189/app/views/ConsultNews.php?msg=created'
+                                </script>";
                         }
-                        echo "<script>
-                                location.href='http://88.208.226.189/app/views/ConsultNews.php?msg=' + $msg
-                            </script>";
                         die();
                     default:
                         echo "<script>

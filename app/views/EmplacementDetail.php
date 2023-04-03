@@ -142,8 +142,8 @@
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text'>Date début</span>
                                                 <input class='form-control' name='dateDeb' type='datetime-local' value='" . $dateDeb . "'";
-                                                    if ($_GET['edit'] == 0){
-                                                        echo "readonly";
+                                                    if ($_GET['edit'] == 1){
+                                                        echo "write";
                                                     }
                                                     echo ">
                                             </div>
@@ -152,8 +152,8 @@
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text'>Date fin</span>
                                                 <input class='form-control' name='dateFin' type='datetime-local' value='" . $dateFin . "'";
-                                                    if ($_GET['edit'] == 0){
-                                                        echo "readonly";
+                                                    if ($_GET['edit'] == 1){
+                                                        echo "write";
                                                     }
                                                     echo ">
                                             </div>
@@ -190,7 +190,15 @@
                                                     }
                                                     echo ">
                                         </div>
-                                    </div>";
+                                    </div>
+                            
+                                    <div class='row'>
+                                                <div class='col-md-4'>
+                                                <a href=''><input class='btn btn-info' id='ajouter' type='button' value='Louer'></a>
+                                        </div>
+                                                </div>
+                                            </div>
+                                            ";
                                     if ($_GET['edit'] == 1 || $_GET['edit'] == 2){
                                         echo "
                                         <div class='row'>
