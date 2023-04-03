@@ -55,6 +55,10 @@ ini_set('display_errors', 'on');
                         require('./../base/Functions.php');
 
                         if (isset($_GET['id'])){
+                            $titre = '';
+                            $body = '';
+                            $date = new DateTime('now', new DateTimeZone('Europe/Berlin'));
+                            $date = $date->format('Y-m-d');
                             if ($_GET['id'] != "-1"){
                                 $new = getNewById((int)$_GET['id']);
                                 $titre = $new['titre'];
