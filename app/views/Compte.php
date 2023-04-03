@@ -35,10 +35,10 @@ require('./../base/HtmlFunctions.php');
                 }
                 $dateDeb = new DateTime($location['dateDeb']);
                 $dateFin = new DateTime($location['dateFin']);
-                $emplacement = getEmplacementNameById($location['idEmplacement'])['nomType'];
+                $emplacement = getOneEmplacementById($location['idEmplacement']);
                 echo "
                 <tr>
-                    <th scope='row'>" . $emplacement . "</th>
+                    <th scope='row'>" . $emplacement['nomType'] . "</th>
                     <td>" . $dateDeb->format('Y-m-d H:i:s') . "</td>
                     <td>" . $dateFin->format('Y-m-d H:i:s') . "</td>
                     <td>" . $location['options'] . "</td>
