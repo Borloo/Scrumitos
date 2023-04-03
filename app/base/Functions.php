@@ -337,10 +337,10 @@ function getEmplacementById(int $id, bool $onlyQb = false)
     $sql = "SELECT * FROM Emplacement WHERE idType = :id";
     $query = $conn->prepare($sql);
     $query->execute(['id' => $id]);
-    if ($onlyQb) {
-        return $query;
+    if ($query->rowCount() == 1) {
+        return $query->fetch();
     }
-    return $query->fetchAll();
+    return null;
 }
 function getAllEmplacements()
 {

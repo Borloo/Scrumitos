@@ -16,7 +16,7 @@ function getHtmlLocationsValidation(){
                 print_r($location);
                 $emplacement = getEmplacementById((int)$location['idEmplacement']);
                 print_r($emplacement);
-                $type = getTypeById($emplacement['idType']);
+                $type = getTypeById((int)$emplacement['idType']);
                 echo "
                     <tr>
                         <th scope='row'>" . $user['login'] . "</th>
