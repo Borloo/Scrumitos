@@ -420,6 +420,7 @@ function registerUser(
     $sql = "insert into Utilisateur(login, password,roles, adresse, mail, telephone) values (
                                 :username,
                                 :password,
+                                :roles,
                                 :adresse,
                                 :email,
                                 :tel
