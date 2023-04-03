@@ -2,6 +2,12 @@
 $emplacement_id = isset($_GET['emplacement_id']) ? $_GET['emplacement_id'] : '';
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
+if (isset($_POST['submit'])){
+    registerUser($_POST['username'], $_POST['password'], $_POST['adresse'], $_POST['email'], $_POST['telephone']);
+
+
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -29,15 +35,8 @@ include("./../../include/menus.php");
     <input type="password" id="password" name="password" required><br>
     <label for="telephone">Téléphone:</label>
     <input type="text" id="telephone" name="telephone" required><br>
-    <a class="btn btn-primary" href="../Connexion.php" role="button" name='submit'>S'inscrire</a>
-    <?php
-    if (isset($_POST['submit'])){
-               registerUser($_POST['username'], $_POST['password'], $_POST['adresse'], $_POST['email'], $_POST['telephone']);
+    <a class="btn btn-primary" type="submit" href="../Connexion.php" role="button" name='submit'>S'inscrire</a>
 
-
-    }
-
-    ?>
 </form>
 <?php include("./../../include/footer.php"); ?>
 </body>
