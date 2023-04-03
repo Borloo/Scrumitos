@@ -13,7 +13,8 @@ function getHtmlLocationsValidation(){
             <tr><th scope='col'>Utilisateur</th><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th>Actions</th></tr>";
             foreach ($locations as $location){
                 $user = getUserById((int)$location['idUtilisateur']);
-                print_r($location . "\n");
+                print_r($location);
+                echo "\n";
                 $emplacement = getEmplacementById($location['idEmplacement']);
                 print_r($emplacement);
                 $type = getTypeById((int)$emplacement['idType']);
