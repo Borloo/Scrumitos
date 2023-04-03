@@ -1,8 +1,8 @@
 <?php
 
-require("Functions.php");
+require_once("Functions.php");
 
-require('../bd/Utilisateur.php');
+require_once('../bd/Utilisateur.php');
 
 function getHtmlLocationsValidation()
 {
@@ -606,7 +606,6 @@ function getHtmlEmplacementTable(array $emplacements, string $specify = '')
 
 function inscription(){
     echo "
-    <?php require('../bd/Utilisateur.php') ?>
     <div class='card'>
         <div class='card-header'>
             <h1>Incription</h1>
@@ -705,8 +704,8 @@ function connection()
                 </div>
             </form>
         </div>";
-    if (isset($_SESSION['ERRORCO'])) {
-        echo "<p style='background-color: red'>" . $_SESSION['ERRORCO'] . "</p><br/>";
+    if (isset($_SESSION['ERROR'])) {
+        echo "<p style='background-color: red'>" . $_SESSION['ERROR'] . "</p><br/>";
     }
     if (isset($_POST['submit'])) {
         if (isset($_POST['login']) && isset($_POST['password'])) {

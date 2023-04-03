@@ -391,7 +391,6 @@ function registerUser(
     string $tel
 ){
     $conn = getBDConnexion();
-
     $sql = "insert into Utilisateur(login, password,roles, adresse, mail, telephone) values (
                                 :login,
                                 :password,
