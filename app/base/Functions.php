@@ -14,6 +14,11 @@ function getBDConnexion(): PDO
     return $conn;
 }
 
+function newLocation(){
+    $conn = getBDConnexion();
+//    $sql = 'INSERT INTO Location(idEmplacement, idUtilisateur, dateDeb)'
+}
+
 function validateLocation(int $id){
     $location = getLocationById($id);
     if (null != $location){

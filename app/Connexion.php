@@ -20,22 +20,24 @@ ini_set('display_errors', 'on');
     <div class="wrapper">
         <?php include("./../include/menus.php"); ?>
         <section id="content">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row justify-content-center">
+            <div class="row justify-content-center">
 
-                        <div class="col-md-4">
-                            <?php
-                            require_once("./base/Functions.php");
+                <div class="col-md-4">
+                    <?php
+                    require_once("./base/Functions.php");
 
-                            if (empty($_SESSION['token'])) {
+                    if (empty($_SESSION['token'])) {
+                        if (isset($_GET['conn'])){
+                            if ($_GET['conn'] == 1){
                                 connection();
+                            }else{
+                                inscription();
                             }
-                            ?>
+                        }
+                    }
+                    ?>
 
-                        <div class="col-md-4"></div>
-                    </div>
-                </div>
+                <div class="col-md-4"></div>
             </div>
         </section>
     </div>

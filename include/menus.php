@@ -7,7 +7,7 @@
         <?php
         // si l'admin ne s'est pas déja connecté alors on affiche le lien pour cela
         if (!isset($_SESSION['USER'])) {
-            echo "<li class='list-group-item'><a href='/app/Connexion.php' class='text-decoration-none'>Se connecter ou S'inscrire</a></li>";
+            echo "<li class='list-group-item'><a href='/app/Connexion.php?conn=1' class='text-decoration-none'>Se connecter ou S'inscrire</a></li>";
         } // si l'admin est connecté alors on lui affiche des liens particuliers
         else {
             echo "<li class='list-group-item'><a href='/app/views/Locations.php' class='text-decoration-none'>Locations à valider</a></li>";
