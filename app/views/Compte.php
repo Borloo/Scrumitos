@@ -43,7 +43,13 @@ require('./../base/HtmlFunctions.php');
                     <td>" . $dateFin->format('Y-m-d H:i:s') . "</td>
                     <td>" . $location['options'] . "</td>
                     <td>" . $status . "</td>
-                    <td></td>
+                    <td>";
+                if ($location['isValidated'] == 1){
+                    echo "<a href='#'><input class='btn btn-info' type='button' name='avis' value='Avis'></a>";
+                }else{
+                    echo "<input class='btn btn-danger' type='submit' name='submit' value='Annuler'>";
+                }
+                    echo "</td>
                 </tr>
                 ";
             }
