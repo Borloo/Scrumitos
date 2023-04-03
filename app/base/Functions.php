@@ -14,6 +14,19 @@ function getBDConnexion(): PDO
     return $conn;
 }
 
+function addAvis(
+    int $idLocation,
+    string $avis
+){
+    $conn = getBDConnexion();
+    $sql = "UPDATE Location SET avis = :avis WHERE id = :id";
+    $query = $conn->prepare($sql);
+    $query->execute([
+        'avis' => $avis,
+        'id' => $idLocation
+    ]);
+}
+
 function removeLocation(int $id){
     $conn = getBDConnexion();
     $sql = "DELETE FROM Location WHERE id = :id";

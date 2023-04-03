@@ -26,19 +26,6 @@ ini_set('display_errors', 'on');
         select {
             width: 100%;
         }
-
-        .btn {
-            width: 100%;
-        }
-
-        .row {
-            margin: 2%;
-        }
-
-        .card {
-            margin-bottom: 2%;
-            height: 100%;
-        }
     </style>
 </head>
 
@@ -47,71 +34,46 @@ ini_set('display_errors', 'on');
 <div class="wrapper">
     <?php include("./../../include/menus.php"); ?>
     <section id="content">
-        <div class="card">
-            <div class="card-body">
-                <?php
-                    echo $_SESSION['USER']['id'];
-                ?>
-
-                <form method="post">
-                    <fieldset>
-                    <div class='card-header'>
-                        <h4>Ajout d'un avis</h4>
-                    </div>
-
-                    <div class='card-body'>
-                        <div class='row'>
-                            <div class='col-md-4'>
-                                <div class='input-group mb-3'>
-                                    <span class='input-group-text' id='basic-addon1'>Votre avis : </span>
-                                    <input class='form-control' type="text"  name="avisTtx" placeholder="Ecrivez votre avis...">
+            <?php
+            if (isset($_GET['id'])){
+                $location = getLocationById($_GET['id']);
+                $emplacement = getEmplacementNameById($location['idEmplacement']);
+                echo "
+                <form method='post'>
+                    <div class='card'>
+                        <div class='card-header'>
+                            <h1>Avis de <em>" . $emplacement['Nom_Emplacement'] . "</em></h1>
+                        </div>
+                        <div class='card-body'>
+                            <div class='row'>
+                                <div class='col-md-2'></div>
+                                <div class='col-md-8'>
+                                    <textarea class='form-control' rows='3' name='avis' placeholder='Votres avis nous intéresse' required></textarea>
                                 </div>
+                                <div class='col-md-2'></div>
+                            </div>
+                            <div class='row'>
+                                <div class='col-md-5'></div>
+                                <div class='col-md-2'>
+                                    <input class='btn btn-success' name='submit' type='submit' value='Enregistrer'>
+                                </div>
+                                <div class='col-md-5'></div>
                             </div>
                         </div>
-                    </div>       
-                    <div class='card-footer'>
-                                    <div class='row'>
-                                        <div class='col-md-5'></div>
-                                        <div class='col-md-2'>
-                                            <input class='btn btn-success' type="submit" name='submit' value="Valider">
-                                        </div>
-                                        <div class='col-md-5'></div>
-                                    </div>
-                                </div>
-                    </fieldset>
+                    </div>
                 </form>
-
-                <?php
-
-                    if (isset($_POST['submit'])){
-                        $avis = $_POST['avisTtx'];
-                        echo $avis;
-
-                        if ($avis == "" )
-                        {
-                            echo '<p> alert("Entrez un avis")</p>';
-                        }
-                        else
-                        {
-                            echo '<p> alert("Avis valide")</p>';
-                            // $requeteAjout = $linkpdo ->query("INSERT INTO t_serie (nomSerie, nbSaisonTot, nbSaisonVues)
-                            //                                 VALUES ('$nomSerie', '$nbSaisonTot', '$nbSaisonVues')");
-                                
-                            // if ($requeteAjout === false) 
-                            // {
-                            //     var_dump($linkpdo->errorInfo());
-                            //     die("<script>alert('ERREUR')</script>");
-                            // } 
-                            // else
-                            // {
-                            //     header('Location: index.php');
-                            //     exit();
-                            // }
-                        }
+                ";
+                if (isset($_POST['submit'])){
+                    if (isset($_POST['avis'])){
+                        addAvis($_GET['id'], $_POST['avis']);
+                        echo "<script>
+                                location.href='http://88.208.226.189/app/views/Compte.php?msg=addAvis'
+                            </script>";
+                        die();
                     }
-                ?>
-            </div>
-        </div>
+                }
+            }
+            ?>
     </section>
 </div>
 </body>
