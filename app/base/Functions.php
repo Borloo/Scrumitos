@@ -426,14 +426,14 @@ function registerUser(
 )";
     $query = $conn->prepare($sql);
     $query->execute([
-        'name' => $username,
-        'type' => $password,
+        'username' => $username,
+        'password' => $password,
         'adresse' => $adresse,
-        'annee' => $email,
-        'taille' => $tel
-
+        'email' => $email,
+        'tel' => $tel
     ]);
     print_r($query->errorInfo());
 }
+
 
 ?>
