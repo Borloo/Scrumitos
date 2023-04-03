@@ -20,43 +20,45 @@ require('./../base/HtmlFunctions.php');
         $locations = getLocationsByUser((int)$_SESSION['USER']['id']);
         if (!empty($locations)){
             echo "
-            <div class='card'>
-                <div class='card-header'>
-                    <h4>Mes locations</h4>
-                </div>
-                <div class='card-body'>
-                    <table class='table'>
-                        <tr><th scope='col'>Emplacement</th><th scope='col'>Date de début</th><th scope='col'>Date de fin</th><th scope='col'>Options</th><th scope='col'>Status</th><th></th></tr>";
-            foreach ($locations as $location){
-                if ($location['isValidated'] == 1){
-                    $status = "Validée";
-                }else{
-                    $status = "En attente";
+            <form method='post'>
+                <div class='card'>
+                    <div class='card-header'>
+                        <h4>Mes locations</h4>
+                    </div>
+                    <div class='card-body'>
+                        <table class='table'>
+                            <tr><th scope='col'>Emplacement</th><th scope='col'>Date de début</th><th scope='col'>Date de fin</th><th scope='col'>Options</th><th scope='col'>Status</th><th></th></tr>";
+                foreach ($locations as $location){
+                    if ($location['isValidated'] == 1){
+                        $status = "Validée";
+                    }else{
+                        $status = "En attente";
+                    }
+                    $dateDeb = new DateTime($location['dateDeb']);
+                    $dateFin = new DateTime($location['dateFin']);
+                    $emplacement = getOneEmplacementById($location['idEmplacement']);
+                    echo "
+                    <input type='hidden' name='id' value='" . $location['id'] . "'>
+                    <tr>
+                        <th scope='row'>" . $emplacement['Nom_Emplacement'] . "</th>
+                        <td>" . $dateDeb->format('Y-m-d H:i:s') . "</td>
+                        <td>" . $dateFin->format('Y-m-d H:i:s') . "</td>
+                        <td>" . $location['options'] . "</td>
+                        <td>" . $status . "</td>
+                        <td>";
+                    if ($location['isValidated'] == 1){
+                        echo "<a href='#'><input class='btn btn-info' type='button' name='avis' value='Avis'></a>";
+                    }else{
+                        echo "<input class='btn btn-danger' type='submit' name='submit' value='Annuler'>";
+                    }
+                        echo "</td>
+                    </tr>
+                    ";
                 }
-                $dateDeb = new DateTime($location['dateDeb']);
-                $dateFin = new DateTime($location['dateFin']);
-                $emplacement = getOneEmplacementById($location['idEmplacement']);
-                echo "
-                <input type='hidden' name='id' value='" . $location['id'] . "'>
-                <tr>
-                    <th scope='row'>" . $emplacement['Nom_Emplacement'] . "</th>
-                    <td>" . $dateDeb->format('Y-m-d H:i:s') . "</td>
-                    <td>" . $dateFin->format('Y-m-d H:i:s') . "</td>
-                    <td>" . $location['options'] . "</td>
-                    <td>" . $status . "</td>
-                    <td>";
-                if ($location['isValidated'] == 1){
-                    echo "<a href='#'><input class='btn btn-info' type='button' name='avis' value='Avis'></a>";
-                }else{
-                    echo "<input class='btn btn-danger' type='submit' name='submit' value='Annuler'>";
-                }
-                    echo "</td>
-                </tr>
-                ";
-            }
-                    echo "</table>
+                        echo "</table>
+                    </div>
                 </div>
-            </div>
+            </form>
             ";
         }
         if (isset($_POST['submit'])){
