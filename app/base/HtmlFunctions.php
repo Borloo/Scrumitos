@@ -14,13 +14,13 @@ function getHtmlNewLocation(){
                 <div class='col-md-6'>
                     <div class='input-group mb-3'>
                         <span class='input-group-text'>Date de début</span>
-                        <input class='form-control' name='dateDeb' type='datetime-local' min='" . $dateDeb . "' max='" . $dateFin . "' value='" . $dateDeb . "'>
+                        <input class='form-control' name='dateDeb' type='datetime-local' value='" . $dateDeb . "'>
                     </div>
                 </div>
                 <div class='col-md-6'>
                     <div class='input-group mb-3'>
                         <span class='input-group-text'>Date de fin</span>
-                        <input class='form-control' name='dateFin' type='datetime-local' min='" . $dateDeb . "' max='" . $dateFin . "' value='" . $dateDeb . "'>
+                        <input class='form-control' name='dateFin' type='datetime-local' value='" . $dateDeb . "'>
                     </div>
                 </div>
             </div>
