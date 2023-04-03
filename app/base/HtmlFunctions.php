@@ -77,7 +77,7 @@ function getHtmlListNews(){
                     <p class='card-text'>" . $body . "</p>
                 </div>
                 <div class='card-footer'>";
-            if (isset($_SESSION['USER'])){
+            if ($_SESSION['USER'] == "ADMIN"){
                 echo "<div class='row'>
                                 <div class='col-md-4'>      
                                     <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary'>Détails</a>
