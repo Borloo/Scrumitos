@@ -504,15 +504,15 @@ function getHtmlType()
                                     <div class='col-md-2'>
                                         <a href='./EmplacementDetail.php?maj=0&id=-1&edit=2'><input class='btn btn-info' id='ajouter' type='button' value='Ajouter'></a>
                                 </div>";
-        }
-    } else {
-        echo "
+        }else {
+            echo "
             <div class='col-md-1'></div>
             <div class='col-md-2'>
                 <input class='btn btn-secondary' type='submit' id='submit' name='submit' value='Afficher'>
             </div>
             <div class='col-md-1'></div>
         ";
+        } 
     }
     echo "
                                 <div class='col-md-4'></div>
