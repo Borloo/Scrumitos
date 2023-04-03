@@ -1,8 +1,8 @@
 <?php
 
-require_once("Functions.php");
+require("Functions.php");
 
-require_once('../bd/Utilisateur.php');
+require("../bd/Utilisateur.php");
 
 function getHtmlLocationsValidation()
 {
