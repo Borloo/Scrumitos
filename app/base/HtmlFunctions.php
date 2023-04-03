@@ -526,7 +526,6 @@ function getHtmlType()
             $typeId = $_POST['listType'];
             $typeName = getEmplacementNameById($typeId)['nomType'];
             $emplacements = getEmplacementByIdType($typeId);
-            print_r($emplacements);
             echo "
             <div class='card'>
                 <div class='card-header'>
