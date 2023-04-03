@@ -422,7 +422,7 @@ function registerUser(
                                 :password,
                                 :roles,
                                 :adresse,
-                                :email,
+                                :mail,
                                 :tel
 )";
     $query = $conn->prepare($sql);
@@ -431,7 +431,7 @@ function registerUser(
         'password' => $password,
         'roles' => "USER",
         'adresse' => $adresse,
-        'email' => $email,
+        'mail' => $email,
         'telephone' => $tel
     ]);
     print_r($query->errorInfo());
