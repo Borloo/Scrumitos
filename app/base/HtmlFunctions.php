@@ -221,7 +221,7 @@ function getHtmlTaille()
             if (!empty($emplacements)) {
                 echo "<table class='table'>
                                     <tr><th scope='col'>Nom</th><th scope='col'>Type</th><th scope='col'>Adresse</th><th scope='col'>Taille</th>";
-                if ($_SESSION['USER']['isAdmin'] == 1 {
+                if ($_SESSION['USER']['isAdmin'] == 1) {
                     echo "<th scope='col'>Actions</th>";
                 }
                 echo "</tr>";
