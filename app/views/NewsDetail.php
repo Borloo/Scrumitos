@@ -134,6 +134,7 @@ ini_set('display_errors', 'on');
             </div>
             <?php
             if (isset($_POST['submit'])){
+                print_r($_POST);
                 switch ($_POST['submit']){
                     case "Sauvegarder":
                         $date = new DateTime($_POST['date']);
