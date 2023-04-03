@@ -85,7 +85,7 @@ ini_set('display_errors', 'on');
 
                     if (isset($_POST['submit'])){
                         $avis = $_POST['avisTtx'];
-                        echo "l'avis est: " + $avis;
+                        echo $avis;
 
                         if ($avis == "" )
                         {
