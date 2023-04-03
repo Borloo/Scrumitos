@@ -20,8 +20,7 @@ ini_set('display_errors', 'on');
     <div class="wrapper">
         <?php include("./../../include/menus.php"); ?>
         <section id="content">
-            <div class="row justify-content-center">
-
+            <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
                     <?php
