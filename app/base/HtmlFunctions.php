@@ -429,7 +429,7 @@ function getHtmlPeriode()
             echo "
                 <div class='card'>
                     <div class='card-header'>
-                        <h4></h4>
+                        <h4>" . $dateDeb . " - " . $dateFin . "</h4>
                     </div>
                     <div class='card-body'>";
             $emplacements = getEmplacementByPeriode($dateDeb, $dateFin);
@@ -450,9 +450,6 @@ function getHtmlPeriode()
                                 </div>  
                             </div>
                         ";
-            echo "</div>
-                </div>
-            ";
         }
     }
 }
@@ -554,6 +551,9 @@ function getHtmlType()
             echo "
                     </div>
                 </div>";
+            echo "</div>
+                </div>
+            ";
         }
     }
 }
