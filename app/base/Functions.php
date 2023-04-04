@@ -14,6 +14,14 @@ function getBDConnexion(): PDO
     return $conn;
 }
 
+function getAllUsers(){
+    $conn = getBDConnexion();
+    $sql = "SELECT * FROM Utilisateur";
+    $query = $conn->prepare($sql);
+    $query->execute();
+    return $query->fetchAll();
+}
+
 function getAvisLocation(int $id){
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Location WHERE idEmplacement = :id";
