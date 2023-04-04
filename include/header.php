@@ -9,7 +9,7 @@
         if (isset($_SESSION['USER'])) {
             ?>
             <div class="col-md-2">
-                <a href="Deconnexion.php" class="text-decoration-none"><input class="btn btn-success" type="button"
+                <a href="http://88.208.226.189/app/views/Deconnexion.php" class="text-decoration-none"><input class="btn btn-success" type="button"
                                                                               value="Déconnexion"></a>
             </div>
             <?php
