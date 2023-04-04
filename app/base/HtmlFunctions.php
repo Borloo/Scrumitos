@@ -413,8 +413,10 @@ function getHtmlAnnee()
                             <center>
                                 <table class='table'>
                                     <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Date de construction</th>";
-                if ($_SESSION['USER']['isAdmin'] == 1) {
-                    echo " <th scope='col'>Actions</th>";
+                if (isset($_SESSION['USER'])) {
+                    if ($_SESSION['USER']['isAdmin'] == 1) {
+                        echo " <th scope='col'>Actions</th>";
+                    }
                 }
                 echo "</tr>";
                 getHtmlEmplacementTable($emplacements, 'year');
@@ -564,7 +566,7 @@ function getHtmlType()
             <div class='col-md-1'></div>
         ";
         }
-    }else {
+    } else {
         echo "
             <div class='col-md-1'></div>
             <div class='col-md-2'>
