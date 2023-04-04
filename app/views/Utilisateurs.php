@@ -23,6 +23,7 @@ require('./../base/HtmlFunctions.php');
                     $users = getAllUsers();
                     $roleString = "";
                     foreach ($users as $user){
+                        print_r($user);
                         $roles = explode(', ', $user['roles']);
                         foreach ($roles as $role){
                             $roleString .= "<span class='badge badge-info'>" . $role . "</span>";
