@@ -17,7 +17,16 @@ require('./../base/HtmlFunctions.php');
     <section id="content">
         <div class="card">
             <div class="card-header">
-                <a href='/app/views/UtilisateurDetails.php?id=-1'><input type='button' class='btn btn-success' value='Ajouter'></a>
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-5">
+                        <h1>Utilisateurs</h1>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                        <a href='/app/views/UtilisateurDetails.php?id=-1'><input type='button' class='btn btn-success' value='Ajouter'></a>
+                    </div>
+                </div>
             </div>
             <div class="card-body">
                 <form method="post">
