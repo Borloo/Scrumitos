@@ -83,28 +83,8 @@ require('./../base/HtmlFunctions.php');
 
             </div>
         </div>
-        <div class="card">
-            <div class="card-header">
-                <h4>Tous les emplacements</h4>
-            </div>
-            <div class="card-body">
-                <?php
-                    $emplacements = getAllEmplacements();
-                    if (!empty($emplacements)){
-                        echo "
-                        <table class='table'>
-                            <tr><th scope='col'>Nom</th><th scope='col'>Type</th><th scope='col'>Adresse</th><th scope='col'>Prix par semaine</th></tr>";
-                            getHtmlEmplacementTable($emplacements);
-                        echo "</table>
-                        ";
-                    }else{
-                        echo "<p>Aucun emplacements</p>";
-                    }
-                ?>
-            </div>
-        </div>
         <?php
-        if (isset($_GET['c'])){
+        if (isset($_GET['c'])) {
             switch ($_GET['c']) {
                 case "1":
                     getHtmlType();
@@ -122,6 +102,26 @@ require('./../base/HtmlFunctions.php');
                     getHtmlTaille();
                     break;
             }
+        } else {
+            echo "
+            <div class='card'>
+                <div class='card-header'>
+                    <h4>Tous les emplacements</h4>
+                </div>
+                <div class='card-body'>";
+            $emplacements = getAllEmplacements();
+            if (!empty($emplacements)) {
+                echo "
+                    <table class='table'>
+                        <tr><th scope='col'>Nom</th><th scope='col'>Type</th><th scope='col'>Adresse</th><th scope='col'>Prix par semaine</th></tr>";
+                getHtmlEmplacementTable($emplacements);
+                echo "</table>";
+            } else {
+                echo "<p>Aucun emplacements</p>";
+            }
+            echo "</div>
+                    </div>
+                    ";
         }
         ?>
     </section>
