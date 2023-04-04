@@ -25,7 +25,7 @@ require('./../base/HtmlFunctions.php');
                         echo "
                         <tr>
                             <th scope='row'>" . $user['login'] . "</th>
-                            <td><span class='badge badge-info'>" . $user['roles'] . "</span></td>
+                            <td><span class='badge text-bg-info'>" . $user['roles'] . "</span></td>
                             <td>" . $user['mail'] . "</td>
                             <td>" . $user['telephone'] . "</td>
                             <td>";
