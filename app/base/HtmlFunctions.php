@@ -787,15 +787,19 @@ function connection()
                     <p>Password : <input type='password' name='password'></p>
                 </div>
                 <div class='row'>
-                    <div class='col-md-4'></div>
+                    <div class='col-md-2'></div>
                     <div class='col-md-4'>
                         <input class='btn btn-success' type='submit' name='submit' value='Se connecter'>
                     </div>
-                    <div class='col-md-4'></div>
+                    <div class='col-md-4'>
+                        <input class='btn btn-success' type='submit' name='incription' value='Inscription'>
+                    </div>
+                    <div class='col-md-2'></div>
                 </div>
             </form>
         </div>";
     if (isset($_POST['submit'])) {
+        print_r($_POST);
         if (isset($_POST['login']) && isset($_POST['password'])) {
             $login = $_POST['login'];
             $password = $_POST['password'];

@@ -59,7 +59,7 @@ require('./../base/HtmlFunctions.php');
                                         echo "
                                         <div class='row'>
                                             <div class='col-md-6'>
-                                                <a href='#'><input type='button' class='btn btn-warning' value='Modifier'></a>
+                                                <a href='/app/views/UtilisateurDetails.php?id=" . $user['id'] . "'><input type='button' class='btn btn-warning' value='Modifier'></a>
                                             </div>
                                             <div class='col-md-6'>
                                                 <a href='#'><input type='button' class='btn btn-danger' value='Supprimer'></a>

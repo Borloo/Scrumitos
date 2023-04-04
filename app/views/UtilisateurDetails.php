@@ -18,7 +18,11 @@ $user = getUserById((int)$_GET['id']);
             <div class="card">
                 <?php
                 if (isset($_GET['id'])){
-                    inscription();
+                    if ($_GET['id'] == '-1'){
+                        inscription();
+                    }else{
+                        inscription((int)$_GET['id']);
+                    }
                 }else{
                     echo "<p>Utilisateur inconnu</p>";
                 }
