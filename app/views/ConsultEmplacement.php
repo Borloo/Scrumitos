@@ -83,24 +83,45 @@ require('./../base/HtmlFunctions.php');
 
             </div>
         </div>
+        <div class="card">
+            <div class="card-header">
+                <h4>Tous les emplacements</h4>
+            </div>
+            <div class="card-body">
+                <?php
+                    $emplacements = getAllEmplacements();
+                    if (!empty($emplacements)){
+                        echo "
+                        <table class='table'>
+                            <tr><th scope='col'>Nom</th><th scope='col'>Type</th><th scope='col'>Adresse</th><th scope='col'>Prix par semaine</th></tr>";
+                            getHtmlEmplacementTable($emplacements);
+                        echo "</table>
+                        ";
+                    }else{
+                        echo "<p>Aucun emplacements</p>";
+                    }
+                ?>
+            </div>
+        </div>
         <?php
-
-        switch ($_GET['c']) {
-            case "1":
-                getHtmlType();
-                break;
-            case "2":
-                getHtmlPeriode();
-                break;
-            case "3":
-                getHtmlAnnee();
-                break;
-            case "4":
-                getHtmlPrix();
-                break;
-            case "5":
-                getHtmlTaille();
-                break;
+        if (isset($_GET['c'])){
+            switch ($_GET['c']) {
+                case "1":
+                    getHtmlType();
+                    break;
+                case "2":
+                    getHtmlPeriode();
+                    break;
+                case "3":
+                    getHtmlAnnee();
+                    break;
+                case "4":
+                    getHtmlPrix();
+                    break;
+                case "5":
+                    getHtmlTaille();
+                    break;
+            }
         }
         ?>
     </section>
