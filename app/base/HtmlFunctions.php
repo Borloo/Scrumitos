@@ -4,7 +4,8 @@ require("Functions.php");
 
 require("../bd/Utilisateur.php");
 
-function getHtmlNewLocation(){
+function getHtmlNewLocation()
+{
     $emplacement = getOneEmplacementById((int)$_GET['id']);
     $dateDeb = $emplacement['Periode_Dispo_Debut'];
     $dateFin = $emplacement['Periode_Dispo_Fin'];
@@ -39,8 +40,8 @@ function getHtmlNewLocation(){
             </div>
         </form>
     ";
-    if (isset($_POST['submit'])){
-        if (isset($_POST['dateDeb']) && isset($_POST['dateFin']) && isset($_POST['options'])){
+    if (isset($_POST['submit'])) {
+        if (isset($_POST['dateDeb']) && isset($_POST['dateFin']) && isset($_POST['options'])) {
             $dateDeb = new DateTime($_POST['dateDeb'], new DateTimeZone('Europe/Berlin'));
             $dateFin = new DateTime($_POST['dateFin'], new DateTimeZone('Europe/Berlin'));
             addLocation((int)$_GET['id'], (int)$_GET['user'], $dateDeb, $dateFin, $_POST['options']);
@@ -221,8 +222,10 @@ function getHtmlTaille()
             if (!empty($emplacements)) {
                 echo "<table class='table'>
                                     <tr><th scope='col'>Nom</th><th scope='col'>Type</th><th scope='col'>Adresse</th><th scope='col'>Taille</th>";
-                if ($_SESSION['USER']['isAdmin'] == 1) {
-                    echo "<th scope='col'>Actions</th>";
+                if (isset($_SESSION['USER'])) {
+                    if ($_SESSION['USER']['isAdmin'] == 1) {
+                        echo "<th scope='col'>Actions</th>";
+                    }
                 }
                 echo "</tr>";
                 getHtmlEmplacementTable($emplacements, 'size');
@@ -552,7 +555,7 @@ function getHtmlType()
                                     <div class='col-md-2'>
                                         <a href='./EmplacementDetail.php?maj=0&id=-1&edit=2'><input class='btn btn-info' id='ajouter' type='button' value='Ajouter'></a>
                                 </div>";
-        }else {
+        } else {
             echo "
             <div class='col-md-1'></div>
             <div class='col-md-2'>
@@ -640,12 +643,12 @@ function getHtmlEmplacementTable(array $emplacements, string $specify = '')
                     </div>
                 </div>
             ";
-            }else{
+            } else {
                 echo "
                 <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=0'><input type='button' class='btn btn-info' value='Détails'></a>
             ";
             }
-        }else{
+        } else {
             echo "
                 <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=0'><input type='button' class='btn btn-info' value='Détails'></a>
             ";
@@ -656,15 +659,16 @@ function getHtmlEmplacementTable(array $emplacements, string $specify = '')
     }
 }
 
-function inscription(int $idUtilisateur = null){
-    if (null !== $idUtilisateur){
+function inscription(int $idUtilisateur = null)
+{
+    if (null !== $idUtilisateur) {
         $user = getUserById($idUtilisateur);
         $tel = $user['telephone'];
         $email = $user['mail'];
         $adresse = $user['adresse'];
         $login = $user['login'];
         $password = $user['password'];
-    }else{
+    } else {
         $tel = '';
         $email = '';
         $adresse = '';
@@ -725,18 +729,18 @@ function inscription(int $idUtilisateur = null){
         </div>
     </div>
     ";
-    if (isset($_POST['submit'])){
+    if (isset($_POST['submit'])) {
         if (
             isset($_POST['telephone']) &&
             isset($_POST['email']) &&
             isset($_POST['adresse']) &&
             isset($_POST['login']) &&
             isset($_POST['password'])
-        ){
-            if (null !== $idUtilisateur){
+        ) {
+            if (null !== $idUtilisateur) {
                 updateUser((int)$_SESSION['USER']['id'], $_POST['login'], $_POST['password'], $_POST['adresse'], $_POST['email'], $_POST['telephone']);
                 $isAdmin = $_SESSION['USER']['isAdmin'];
-            }else{
+            } else {
                 registerUser($_POST['login'], $_POST['password'], $_POST['adresse'], $_POST['email'], $_POST['telephone']);
                 $isAdmin = false;
             }
@@ -784,17 +788,17 @@ function connection()
             $login = $_POST['login'];
             $password = $_POST['password'];
             $user = getUser($login, $password);
-            if (null !== $user){
+            if (null !== $user) {
                 $isAdmin = isAdmin($user);
                 unset($_SESSION['ERROR']);
-                if ($isAdmin){
+                if ($isAdmin) {
                     $_SESSION['USER'] = [
                         'id' => $user['id'],
                         'login' => $user['login'],
                         'isAdmin' => true,
                         'user' => $user
                     ];
-                }else{
+                } else {
                     $_SESSION['USER'] = [
                         'id' => $user['id'],
                         'login' => $user['login'],
@@ -804,7 +808,7 @@ function connection()
                 }
                 header('location: http://88.208.226.189/index.php');
                 die();
-            }else {
+            } else {
                 echo "<p style='background-color: red'>Utilisateur inconnu</p>";
                 $_SESSION['ERROR'] = 'Inconnu';
             }
