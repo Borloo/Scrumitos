@@ -22,16 +22,10 @@ require('./../base/HtmlFunctions.php');
                     <?php
                     $users = getAllUsers();
                     foreach ($users as $user){
-                        $roleString = "";
-                        print_r($user);
-                        $roles = explode(', ', $user['roles']);
-                        foreach ($roles as $role){
-                            $roleString .= "<span class='badge badge-info'>" . $role . "</span>";
-                        }
                         echo "
                         <tr>
                             <th scope='row'>" . $user['login'] . "</th>
-                            <td>" . $roleString . "</td>
+                            <td><span class='badge badge-info'>" . $user['roles'] . "</span></td>
                             <td>" . $user['mail'] . "</td>
                             <td>" . $user['telephone'] . "</td>
                             <td>";
