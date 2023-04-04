@@ -47,13 +47,13 @@ require('./../base/HtmlFunctions.php');
                             <h1>Avis de <em>" . $emplacement['Nom_Emplacement'] . "</em></h1>
                         </div>
                         <div class='card-body'>
-                            <div class='row space-b-2'>
+                            <div class='row'>
                                 <div class='col-md-2'></div>
                                 <div class='col-md-8'>
                                     <textarea class='form-control' rows='3' name='avis' placeholder='Votres avis nous intéresse' required>" . $location['avis'] . "</textarea>
                                 </div>
                                 <div class='col-md-2'></div>
-                            </div>
+                            </div><br/>
                             <div class='row'>
                                 <div class='col-md-5'></div>
                                 <div class='col-md-2'>
