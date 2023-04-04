@@ -3,7 +3,17 @@ session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 require('./../base/HtmlFunctions.php');
-$user = getUserById((int)$_GET['id']);
+$id = $_GET['id'];
+if (isset($_GET['del'])){
+    if ($_GET['del'] == "1"){
+        deleteUser((int)$id);
+        echo "<script>
+                location.href='http://88.208.226.189/app/views/Utilisateurs.php?msg=del'
+            </script>";
+        die();
+    }
+}
+$user = getUserById((int)$id);
 ?>
 <!DOCTYPE html>
 <html>

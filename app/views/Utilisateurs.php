@@ -62,19 +62,10 @@ require('./../base/HtmlFunctions.php');
                                                 <a href='/app/views/UtilisateurDetails.php?id=" . $user['id'] . "'><input type='button' class='btn btn-warning' value='Modifier'></a>
                                             </div>
                                             <div class='col-md-6'>
-                                                <a href='#'><input type='button' class='btn btn-danger' value='Supprimer'></a>
+                                                <a href='/app/views/UtilisateurDetails.php?id=" . $user['id'] . "&del=1'><input type='button' class='btn btn-danger' value='Supprimer'></a>
                                             </div>
-                                        </div>
-                                        ";
-                                    } else {
-                                        echo "
-                                            <a href='#'><input type='button' class='btn btn-info' value='Détails'></a>
-                                        ";
+                                        </div>";
                                     }
-                                } else {
-                                    echo "
-                                        <a href='#'><input type='button' class='btn btn-info' value='Détails'></a>
-                                    ";
                                 }
                                 echo "</td>
                             </tr>";

@@ -14,6 +14,13 @@ function getBDConnexion(): PDO
     return $conn;
 }
 
+function deleteUser(int $id){
+    $conn = getBDConnexion();
+    $sql = "DELETE FROM Utilisateur WHERE id = :id";
+    $query = $conn->prepare($sql);
+    $query->execute(['id' => $id]);
+}
+
 function getAllUsers(){
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Utilisateur";
