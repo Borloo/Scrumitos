@@ -792,7 +792,7 @@ function connection()
                         <input class='btn btn-success' type='submit' name='submit' value='Se connecter'>
                     </div>
                     <div class='col-md-4'>
-                        <input class='btn btn-success' type='submit' name='incription' value='Inscription'>
+                        <input class='btn btn-success' type='submit' name='submit' value='Inscription'>
                     </div>
                     <div class='col-md-2'></div>
                 </div>
