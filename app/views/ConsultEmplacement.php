@@ -113,7 +113,7 @@ require('./../base/HtmlFunctions.php');
             if (!empty($emplacements)) {
                 echo "
                     <table class='table'>
-                        <tr><th scope='col'>Nom</th><th scope='col'>Type</th><th scope='col'>Adresse</th><th scope='col'>Prix par semaine</th></tr>";
+                        <tr><th scope='col'>Nom</th><th scope='col'>Type</th><th scope='col'>Adresse</th><th scope='col'>Prix par semaine</th><th scope='col'>Aperçu</th></tr>";
                 getHtmlEmplacementTable($emplacements);
                 echo "</table>";
             } else {
