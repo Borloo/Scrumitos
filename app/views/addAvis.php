@@ -38,11 +38,8 @@ require('./../base/HtmlFunctions.php');
     <section id="content">
             <?php
             if (isset($_GET['id'])){
-                print_r($_GET);
                 $location = getLocationById($_GET['id']);
-                print_r($location);
-                $emplacement = getEmplacementNameById($location['idEmplacement']);
-                print_r($emplacement);
+                $emplacement = getOneEmplacementById($location['idEmplacement']);
                 echo "
                 <form method='post'>
                     <div class='card'>
