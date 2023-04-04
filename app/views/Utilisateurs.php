@@ -22,6 +22,10 @@ require('./../base/HtmlFunctions.php');
                     switch ($_GET['msg']){
                         case "del":
                             echo "<p>Utilisateur supprimé !</p>";
+                            break;
+                        case "up":
+                            echo "<p>Utilisateur modifié !</p>";
+                            break;
                     }
                 }
                 ?>

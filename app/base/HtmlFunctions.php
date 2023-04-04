@@ -770,7 +770,7 @@ function inscription(int $idUtilisateur = null, bool $coToUser = true)
                 die();
             }else{
                 echo "<script>
-                    location.href='http://88.208.226.189/app/views/Utilisateurs.php'
+                    location.href='http://88.208.226.189/app/views/Utilisateurs.php?msg=up'
                 </script>";
                 die();
             }
