@@ -21,8 +21,8 @@ require('./../base/HtmlFunctions.php');
                     <tr><th scope="col">Login</th><th scope="col">Rôles</th><th scope="col">Email</th><th scope="col">Téléphone</th><th></th></tr>
                     <?php
                     $users = getAllUsers();
-                    $roleString = "";
                     foreach ($users as $user){
+                        $roleString = "";
                         print_r($user);
                         $roles = explode(', ', $user['roles']);
                         foreach ($roles as $role){
@@ -31,7 +31,7 @@ require('./../base/HtmlFunctions.php');
                         echo "
                         <tr>
                             <th scope='row'>" . $user['login'] . "</th>
-                            <td>" . print_r($roleString) . "</td>
+                            <td>" . $roleString . "</td>
                             <td>" . $user['mail'] . "</td>
                             <td>" . $user['telephone'] . "</td>
                             <td>";
