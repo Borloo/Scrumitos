@@ -800,9 +800,11 @@ function connection()
         </div>";
     if (isset($_POST['submit'])) {
         if (isset($_POST['login']) && isset($_POST['password'])) {
+            print_r($_POST);
             $login = $_POST['login'];
             $password = $_POST['password'];
             $user = getUser($login, $password);
+            print_r($user);
             if (null !== $user) {
                 $isAdmin = isAdmin($user);
                 unset($_SESSION['ERROR']);
@@ -827,6 +829,7 @@ function connection()
                 echo "<p style='background-color: red'>Utilisateur inconnu</p>";
                 $_SESSION['ERROR'] = 'Inconnu';
             }
+            echo "<p style='background-color: red'>Remplissez les champs nécéssaires</p>";
         }
     }
     echo "</div>";
