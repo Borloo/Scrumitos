@@ -142,8 +142,9 @@ function getHtmlListNews()
                     <p class='card-text'>" . $body . "</p>
                 </div>
                 <div class='card-footer'>";
-            if ($_SESSION['USER']['isAdmin'] == 1) {
-                echo "<div class='row'>
+            if (isset($_SESSION['USER'])) {
+                if ($_SESSION['USER']['isAdmin'] == 1) {
+                    echo "<div class='row'>
                                 <div class='col-md-4'>      
                                     <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary'>Détails</a>
                                 </div>
@@ -154,8 +155,9 @@ function getHtmlListNews()
                                     <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=-1' class='btn btn-danger'>Supprimer</a>
                                 </div>
                             </div>";
-            } else {
-                echo "<a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary'>Détails</a>";
+                } else {
+                    echo "<a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary'>Détails</a>";
+                }
             }
             echo "</div></div></div>";
             if ($i == $limit) {
