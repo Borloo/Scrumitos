@@ -671,7 +671,7 @@ function getHtmlEmplacementTable(array $emplacements, string $specify = '')
     }
 }
 
-function inscription(int $idUtilisateur = null)
+function inscription(int $idUtilisateur = null, bool $coToUser = true)
 {
     if (null !== $idUtilisateur) {
         $user = getUserById($idUtilisateur);
@@ -756,17 +756,24 @@ function inscription(int $idUtilisateur = null)
                 registerUser($_POST['login'], $_POST['password'], $_POST['adresse'], $_POST['email'], $_POST['telephone']);
                 $isAdmin = false;
             }
-            $user = getUser($_POST['login'], $_POST['password']);
-            $_SESSION['USER'] = [
-                'id' => $user['id'],
-                'login' => $user['login'],
-                'isAdmin' => $isAdmin,
-                'user' => $user
-            ];
-            echo "<script>
+            if ($coToUser){
+                $user = getUser($_POST['login'], $_POST['password']);
+                $_SESSION['USER'] = [
+                    'id' => $user['id'],
+                    'login' => $user['login'],
+                    'isAdmin' => $isAdmin,
+                    'user' => $user
+                ];
+                echo "<script>
                     location.href='http://88.208.226.189/app/views/Compte.php'
                 </script>";
-            die();
+                die();
+            }else{
+                echo "<script>
+                    location.href='http://88.208.226.189/app/views/Utilisateurs.php'
+                </script>";
+                die();
+            }
         }
     }
 }

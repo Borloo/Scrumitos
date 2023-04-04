@@ -21,7 +21,7 @@ $user = getUserById((int)$_GET['id']);
                     if ($_GET['id'] == '-1'){
                         inscription();
                     }else{
-                        inscription((int)$_GET['id']);
+                        inscription((int)$_GET['id'], false);
                     }
                 }else{
                     echo "<p>Utilisateur inconnu</p>";
