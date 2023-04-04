@@ -829,6 +829,7 @@ function connection()
                 echo "<p style='background-color: red'>Utilisateur inconnu</p>";
                 $_SESSION['ERROR'] = 'Inconnu';
             }
+        }else{
             echo "<p style='background-color: red'>Remplissez les champs nécéssaires</p>";
         }
     }
