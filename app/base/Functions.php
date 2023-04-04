@@ -14,6 +14,21 @@ function getBDConnexion(): PDO
     return $conn;
 }
 
+function getAvisLocation(int $id){
+    $conn = getBDConnexion();
+    $sql = "SELECT * FROM Location WHERE idEmplacement = :id";
+    $query = $conn->prepare($sql);
+    $query->execute(['id' => $id]);
+    $res = $query->fetchAll();
+    $tab = [];
+    foreach ($res as $resultat){
+        if ($resultat['avis'] != ''){
+            $tab[] = $resultat;
+        }
+    }
+    return $tab;
+}
+
 function addAvis(
     int $idLocation,
     string $avis

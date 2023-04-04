@@ -12,6 +12,7 @@
             </script>";
         die();
     }
+    $emplacement = getOneEmplacementById((int)$_GET['id']);
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,7 +26,6 @@
             <section id="content">
                 <div class="card">
                     <?php
-                        $emplacement = getOneEmplacementById((int)$_GET['id']);
                         if ($_GET['edit'] != "3"){
                             if ($_GET['id'] == "-1"){
                                 $dateDeb = new DateTime('now', new DateTimeZone('Europe/Berlin'));
@@ -248,13 +248,13 @@
                                     if ("-1" == $id){
                                         addEmplacement($name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options);
                                         echo "<script>
-//                                            location.href='http://88.208.226.189/app/views/ConsultType.php?add=1'
+                                            location.href='http://88.208.226.189/app/views/ConsultType.php?add=1'
                                         </script>";
                                         die();
                                     }else{
                                         updateEmplacement((string)$_GET['id'], $name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options);
                                         echo "<script>
-//                                            location.href='http://88.208.226.189/app/views/EmplacementDetail.php?edit=1&maj=1&id=' + $id
+                                            location.href='http://88.208.226.189/app/views/EmplacementDetail.php?edit=1&maj=1&id=' + $id
                                         </script>";
                                         die();
                                     }
@@ -265,6 +265,34 @@
                         }
                     ?>
                 </div>
+                <?php
+                if (isset($_GET['id'])){
+                    $avis = getAvisLocation((int)$_GET['id']);
+                    if (!empty($avis)){
+                        echo "
+                        <div class='card'>
+                            <div class='card-header'>
+                                <h4>Avis de l'emplacement " . $emplacement['Nom_Emplacement'] . "</h4>
+                            </div>
+                            <div class='card-body'>
+                                <table class='table'>
+                                <tr><th scope='col'>Date</th><th scope='col'>Avis</th></tr>";
+                                foreach ($avis as $avi){
+                                    $date = $avi['dateDeb'] . ' - ' . $avi['dateFin'];
+                                    echo "
+                                        <tr>
+                                            <th scope='row'>" . $date . "</th>
+                                            <th>" . $avi['avis'] . "</th>
+                                        </tr>
+                                    ";
+                                }
+                            echo "</table>
+                            </div>
+                        </div>
+                        ";
+                    }
+                }
+                ?>
             </section>
         </div>
         <?php include("./../../include/footer.php"); ?>
