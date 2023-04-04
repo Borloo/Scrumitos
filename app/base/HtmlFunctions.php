@@ -561,6 +561,14 @@ function getHtmlType()
             <div class='col-md-1'></div>
         ";
         }
+    }else {
+        echo "
+            <div class='col-md-1'></div>
+            <div class='col-md-2'>
+                <input class='btn btn-secondary' type='submit' id='submit' name='submit' value='Afficher'>
+            </div>
+            <div class='col-md-1'></div>
+        ";
     }
     echo "
                                 <div class='col-md-4'></div>
