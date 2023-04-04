@@ -17,8 +17,16 @@ require('./../base/HtmlFunctions.php');
     <section id="content">
         <div class="card">
             <div class="card-header">
+                <?php
+                if (isset($_GET['msg'])){
+                    switch ($_GET['msg']){
+                        case "del":
+                            echo "<p>Utilisateur supprimé !</p>";
+                    }
+                }
+                ?>
                 <div class="row">
-                    <div class="col-md-4"></div>
+                    <div class="col-md-3"></div>
                     <div class="col-md-5">
                         <h1>Utilisateurs</h1>
                     </div>
