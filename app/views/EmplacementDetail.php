@@ -282,7 +282,7 @@
                                     echo "
                                         <tr>
                                             <th scope='row'>" . $date . "</th>
-                                            <th>" . $avi['avis'] . "</th>
+                                            <td>" . $avi['avis'] . "</td>
                                         </tr>
                                     ";
                                 }
