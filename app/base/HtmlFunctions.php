@@ -799,36 +799,46 @@ function connection()
             </form>
         </div>";
     if (isset($_POST['submit'])) {
-        print_r($_POST);
-        if (isset($_POST['login']) && isset($_POST['password'])) {
-            $login = $_POST['login'];
-            $password = $_POST['password'];
-            $user = getUser($login, $password);
-            if (null !== $user) {
-                $isAdmin = isAdmin($user);
-                unset($_SESSION['ERROR']);
-                if ($isAdmin) {
-                    $_SESSION['USER'] = [
-                        'id' => $user['id'],
-                        'login' => $user['login'],
-                        'isAdmin' => true,
-                        'user' => $user
-                    ];
-                } else {
-                    $_SESSION['USER'] = [
-                        'id' => $user['id'],
-                        'login' => $user['login'],
-                        'isAdmin' => false,
-                        'user' => $user
-                    ];
+        switch ($_POST['submit']){
+            case 'Se connecter':
+                if (isset($_POST['login']) && isset($_POST['password'])) {
+                    $login = $_POST['login'];
+                    $password = $_POST['password'];
+                    $user = getUser($login, $password);
+                    if (null !== $user) {
+                        $isAdmin = isAdmin($user);
+                        unset($_SESSION['ERROR']);
+                        if ($isAdmin) {
+                            $_SESSION['USER'] = [
+                                'id' => $user['id'],
+                                'login' => $user['login'],
+                                'isAdmin' => true,
+                                'user' => $user
+                            ];
+                        } else {
+                            $_SESSION['USER'] = [
+                                'id' => $user['id'],
+                                'login' => $user['login'],
+                                'isAdmin' => false,
+                                'user' => $user
+                            ];
+                        }
+                        header('location: http://88.208.226.189/index.php');
+                        die();
+                    } else {
+                        echo "<p style='background-color: red'>Utilisateur inconnu</p>";
+                        $_SESSION['ERROR'] = 'Inconnu';
+                    }
                 }
-                header('location: http://88.208.226.189/index.php');
+                break;
+            case 'Incription':
+                echo "
+                <script>
+                    location.href='Connexion.php?conn=0'
+                </script>";
                 die();
-            } else {
-                echo "<p style='background-color: red'>Utilisateur inconnu</p>";
-                $_SESSION['ERROR'] = 'Inconnu';
-            }
         }
+
     }
     echo "</div>";
 }
