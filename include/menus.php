@@ -11,6 +11,7 @@
         else {
             if ($_SESSION['USER']['isAdmin'] == "1"){
                 echo "<li class='list-group-item'><a href='/app/views/Locations.php' class='text-decoration-none'>Locations à valider</a></li>";
+                echo "<li class='list-group-item'><a href='/app/views/Utilisateurs.php' class='text-decoration-none'>Utilisateurs</a></li>";
             }
             echo '<li class="list-group-item"><a href="/app/views/Compte.php" class="text-decoration-none">Mon compte</a></li>';
         }
