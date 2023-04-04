@@ -30,7 +30,7 @@ require('./../base/HtmlFunctions.php');
                         echo "
                         <tr>
                             <th scope='row'>" . $user['login'] . "</th>
-                            <td>" . $roleString . "</td>
+                            <td>" . print_r($roleString) . "</td>
                             <td>" . $user['mail'] . "</td>
                             <td>" . $user['telephone'] . "</td>
                             <td>";
