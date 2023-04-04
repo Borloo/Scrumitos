@@ -14,14 +14,16 @@ function getBDConnexion(): PDO
     return $conn;
 }
 
-function deleteUser(int $id){
+function deleteUser(int $id)
+{
     $conn = getBDConnexion();
     $sql = "DELETE FROM Utilisateur WHERE id = :id";
     $query = $conn->prepare($sql);
     $query->execute(['id' => $id]);
 }
 
-function getAllUsers(){
+function getAllUsers()
+{
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Utilisateur";
     $query = $conn->prepare($sql);
@@ -29,15 +31,16 @@ function getAllUsers(){
     return $query->fetchAll();
 }
 
-function getAvisLocation(int $id){
+function getAvisLocation(int $id)
+{
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Location WHERE idEmplacement = :id";
     $query = $conn->prepare($sql);
     $query->execute(['id' => $id]);
     $res = $query->fetchAll();
     $tab = [];
-    foreach ($res as $resultat){
-        if ($resultat['avis'] != ''){
+    foreach ($res as $resultat) {
+        if ($resultat['avis'] != '') {
             $tab[] = $resultat;
         }
     }
@@ -45,9 +48,10 @@ function getAvisLocation(int $id){
 }
 
 function addAvis(
-    int $idLocation,
+    int    $idLocation,
     string $avis
-){
+)
+{
     $conn = getBDConnexion();
     $sql = "UPDATE Location SET avis = :avis WHERE id = :id";
     $query = $conn->prepare($sql);
@@ -57,14 +61,16 @@ function addAvis(
     ]);
 }
 
-function removeLocation(int $id){
+function removeLocation(int $id)
+{
     $conn = getBDConnexion();
     $sql = "DELETE FROM Location WHERE id = :id";
     $query = $conn->prepare($sql);
     $query->execute(['id' => $id]);
 }
 
-function getLocationsByUser(int $idUtilisateur){
+function getLocationsByUser(int $idUtilisateur)
+{
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Location WHERE idUtilisateur = :idUtilisateur";
     $query = $conn->prepare($sql);
@@ -73,12 +79,13 @@ function getLocationsByUser(int $idUtilisateur){
 }
 
 function addLocation(
-    int $idEmplacement,
-    int $idUtilisateur,
+    int      $idEmplacement,
+    int      $idUtilisateur,
     DateTime $dateDeb,
     DateTime $dateFin,
-    string $options
-){
+    string   $options
+)
+{
     $conn = getBDConnexion();
     $sql = "INSERT INTO Location(idEmplacement, idUtilisateur, dateDeb, dateFin, options, isValidated, avis)
             VALUES (:idEmplacement, :idUtilisateur, :dateDeb, :dateFin, :options, false, '')";
@@ -92,9 +99,10 @@ function addLocation(
     ]);
 }
 
-function validateLocation(int $id){
+function validateLocation(int $id)
+{
     $location = getLocationById($id);
-    if (null != $location){
+    if (null != $location) {
         $conn = getBDConnexion();
         $sql = 'UPDATE Location SET isValidated = true WHERE id = :id';
         $query = $conn->prepare($sql);
@@ -102,18 +110,20 @@ function validateLocation(int $id){
     }
 }
 
-function getLocationById(int $id){
+function getLocationById(int $id)
+{
     $conn = getBDConnexion();
     $sql = 'SELECT * FROM Location WHERE id = :id';
     $query = $conn->prepare($sql);
     $query->execute(['id' => $id]);
-    if ($query->rowCount() == 1){
+    if ($query->rowCount() == 1) {
         return $query->fetch();
     }
     return [];
 }
 
-function getLocations(bool $isValidated): array{
+function getLocations(bool $isValidated): array
+{
     $conn = getBDConnexion();
     $sql = 'SELECT * FROM Location WHERE isValidated = :isValidated';
     $query = $conn->prepare($sql);
@@ -121,7 +131,8 @@ function getLocations(bool $isValidated): array{
     return $query->fetchAll();
 }
 
-function deleteNew(int $id){
+function deleteNew(int $id)
+{
     $conn = getBDConnexion();
     $sql = "DELETE FROM News WHERE id = :id";
     $query = $conn->prepare($sql);
@@ -130,10 +141,11 @@ function deleteNew(int $id){
 }
 
 function addNew(
-    string $titre,
-    string $body,
+    string   $titre,
+    string   $body,
     DateTime $date
-){
+)
+{
     $conn = getBDConnexion();
     $sql = 'INSERT INTO News(titre, body, date)
             VALUES (:titre, :body, :date)';
@@ -147,11 +159,12 @@ function addNew(
 }
 
 function updateNew(
-    int $id,
-    string $titre,
-    string $body,
+    int      $id,
+    string   $titre,
+    string   $body,
     DateTime $date
-){
+)
+{
     $conn = getBDConnexion();
     $sql = "UPDATE News SET
             titre = :titre,
@@ -169,18 +182,20 @@ function updateNew(
     print_r($query->errorInfo());
 }
 
-function getNewById(int $id): array{
+function getNewById(int $id): array
+{
     $conn = getBDConnexion();
     $sql = "SELECT * FROM News WHERE id = :id";
     $query = $conn->prepare($sql);
     $query->execute(['id' => $id]);
-    if ($query->rowCount() == 1){
+    if ($query->rowCount() == 1) {
         return $query->fetch();
     }
     return [];
 }
 
-function getNews(){
+function getNews()
+{
     $conn = getBDConnexion();
     $sql = 'SELECT * FROM News ORDER BY date DESC';
     $query = $conn->prepare($sql);
@@ -188,7 +203,8 @@ function getNews(){
     return $query->fetchAll();
 }
 
-function getEmplacementBySize(int $size){
+function getEmplacementBySize(int $size)
+{
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Emplacement WHERE Taille <= :size";
     $query = $conn->prepare($sql);
@@ -196,37 +212,40 @@ function getEmplacementBySize(int $size){
     return $query->fetchAll();
 }
 
-function getMinTailleEmplacement(){
+function getMinTailleEmplacement()
+{
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Emplacement";
     $query = $conn->prepare($sql);
     $query->execute();
     $resultats = $query->fetchAll();
     $size = 0;
-    foreach ($resultats as $resultat){
-        if ($resultat['Taille'] < $size){
+    foreach ($resultats as $resultat) {
+        if ($resultat['Taille'] < $size) {
             $size = $resultat['Taille'];
         }
     }
     return $size;
 }
 
-function getMaxTailleEmplacement(){
+function getMaxTailleEmplacement()
+{
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Emplacement";
     $query = $conn->prepare($sql);
     $query->execute();
     $resultats = $query->fetchAll();
     $size = getMinTailleEmplacement();
-    foreach ($resultats as $resultat){
-        if ($resultat['Taille'] > $size){
+    foreach ($resultats as $resultat) {
+        if ($resultat['Taille'] > $size) {
             $size = $resultat['Taille'];
         }
     }
     return $size;
 }
 
-function getEmplacementByPrice(int $price){
+function getEmplacementByPrice(int $price)
+{
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Emplacement WHERE Prix_Semaine <= :price";
     $query = $conn->prepare($sql);
@@ -234,37 +253,40 @@ function getEmplacementByPrice(int $price){
     return $query->fetchAll();
 }
 
-function getMinPrixSemaineEmplacement(){
+function getMinPrixSemaineEmplacement()
+{
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Emplacement";
     $query = $conn->prepare($sql);
     $query->execute();
     $resultats = $query->fetchAll();
     $price = getMaxPrixSemaineEmplacement();
-    foreach ($resultats as $resultat){
-        if ($resultat['Prix_Semaine'] < $price){
+    foreach ($resultats as $resultat) {
+        if ($resultat['Prix_Semaine'] < $price) {
             $price = $resultat['Prix_Semaine'];
         }
     }
     return $price;
 }
 
-function getMaxPrixSemaineEmplacement(){
+function getMaxPrixSemaineEmplacement()
+{
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Emplacement";
     $query = $conn->prepare($sql);
     $query->execute();
     $resultats = $query->fetchAll();
     $price = 0;
-    foreach ($resultats as $resultat){
-        if ($resultat['Prix_Semaine'] > $price){
+    foreach ($resultats as $resultat) {
+        if ($resultat['Prix_Semaine'] > $price) {
             $price = $resultat['Prix_Semaine'];
         }
     }
     return $price;
 }
 
-function getEmplacementByAnnee(int $dateDeb, int $dateFin){
+function getEmplacementByAnnee(int $dateDeb, int $dateFin)
+{
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Emplacement 
          WHERE anneeConstruction >= :dateDeb
@@ -302,12 +324,13 @@ function addEmplacement(
     DateTime $dateFin,
     int      $prixSemaine,
     int      $prixAnnee,
-    string   $options
+    string   $options,
+    string   $image
 )
 {
     $conn = getBDConnexion();
     $sql = "INSERT INTO `Emplacement`(`Nom_Emplacement`, `idType`, `adresseEmpl`, `anneeConstruction`, `Taille`, `Max_Personnes`, `Periode_Dispo_Debut`, `Periode_Dispo_Fin`, `Prix_Semaine`, `Prix_Periode_Annee`, `Options`, `PathImage`) 
-            VALUES (:name, :type, :adresse, :annee, :taille, :maxPersonne, :dateDeb, :dateFin, :prixSemaine, :prixAnnee, :options, '')";
+            VALUES (:name, :type, :adresse, :annee, :taille, :maxPersonne, :dateDeb, :dateFin, :prixSemaine, :prixAnnee, :options, :image)";
     $query = $conn->prepare($sql);
     $query->execute([
         'name' => $name,
@@ -321,6 +344,7 @@ function addEmplacement(
         'prixSemaine' => $prixSemaine,
         'prixAnnee' => $prixAnnee,
         'options' => $options,
+        'image' => $image,
     ]);
     print_r($query->errorInfo());
 }
@@ -346,7 +370,8 @@ function updateEmplacement(
     DateTime $dateFin,
     int      $prixSemaine,
     int      $prixAnnee,
-    string   $options
+    string   $options,
+    string   $image
 )
 {
     $conn = getBDConnexion();
@@ -362,7 +387,7 @@ function updateEmplacement(
             Prix_Semaine = :prixSemaine,
             Prix_Periode_Annee = :prixAnnee,
             Options = :options,
-            PathImage = ''
+            PathImage = :image
             WHERE idEmpl = :id
            ";
     $query = $conn->prepare($sql);
@@ -378,9 +403,9 @@ function updateEmplacement(
         'prixSemaine' => $prixSemaine,
         'prixAnnee' => $prixAnnee,
         'options' => $options,
+        'image' => $image,
         'id' => $id,
     ]);
-    print_r($query->errorInfo());
 }
 
 function getEmplacementNameById(int $id)
@@ -407,7 +432,8 @@ function getTypeByName(string $name)
     return null;
 }
 
-function getTypeById(int $id){
+function getTypeById(int $id)
+{
     $conn = getBDConnexion();
     $sql = "SELECT * FROM Type WHERE idType = :id";
     $query = $conn->prepare($sql);
@@ -438,6 +464,7 @@ function getEmplacementByIdType(int $id)
     $query->execute(['id' => $id]);
     return $query->fetchAll();
 }
+
 function getAllEmplacements()
 {
     $conn = getBDConnexion();
@@ -457,13 +484,14 @@ function getTypes(): array
 }
 
 function updateUser(
-    int $id,
+    int    $id,
     string $login,
     string $password,
     string $adresse,
     string $email,
     string $tel
-){
+)
+{
     $conn = getBDConnexion();
     $sql = "UPDATE Utilisateur SET
             login = :login,
@@ -489,7 +517,8 @@ function registerUser(
     string $adresse,
     string $email,
     string $tel
-){
+)
+{
     $conn = getBDConnexion();
     $sql = "insert into Utilisateur(login, password,roles, adresse, mail, telephone) values (
                                 :login,

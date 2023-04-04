@@ -46,6 +46,7 @@
                             $prixSemaine = $emplacement['Prix_Semaine'];
                             $prixAnnee = $emplacement['Prix_Periode_Annee'];
                             $options = $emplacement['Options'];
+                            $image = $emplacement['PathImage'];
                             if ($_GET['maj'] == 1){
                                 echo "<h4>Emplacement mise à jour</h4><br/>";
                             }
@@ -62,7 +63,7 @@
                                         <div class='col-md-6'>
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text' id='basic-addon1'>Nom</span>
-                                                <input class='form-control' name='name' type='text' value='" . $name . "'";
+                                                <input class='form-control' required name='name' type='text' value='" . $name . "'";
                                                     if ($_GET['edit'] == 0){
                                                         echo "readonly";
                                                     }
@@ -72,7 +73,7 @@
                                         <div class='col-md-6'>
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text' id='basic-addon2'>Type</span>
-                                                <select class='form-select' name='listType'";
+                                                <select class='form-select' required name='listType'";
                                                     if ($_GET['edit'] == 0){
                                                         echo "readonly";
                                                     }
@@ -97,7 +98,7 @@
                                         <div class='col-md-6'>
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text'>Adresse</span>
-                                                <input class='form-control' name='adresse' type='text' value='" . $adresse . "'";
+                                                <input class='form-control' required name='adresse' type='text' value='" . $adresse . "'";
                                                     if ($_GET['edit'] == 0){
                                                         echo "readonly";
                                                     }
@@ -107,7 +108,7 @@
                                         <div class='col-md-6'>
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text'>Année construction</span>
-                                                <input class='form-control' name='annee' type='number' value='" . $annee . "'";
+                                                <input class='form-control' required name='annee' type='number' value='" . $annee . "'";
                                                     if ($_GET['edit'] == 0){
                                                         echo "readonly";
                                                     }
@@ -119,7 +120,7 @@
                                         <div class='col-md-6'>
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text'>Taille</span>
-                                                <input class='form-control' name='taille' type='string' value='" . $taille . "'";
+                                                <input class='form-control' required name='taille' type='string' value='" . $taille . "'";
                                                     if ($_GET['edit'] == 0){
                                                         echo "readonly";
                                                     }
@@ -129,7 +130,7 @@
                                         <div class='col-md-6'>
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text'>Max personne</span>
-                                                <input class='form-control' name='maxPersonne' type='number' value='" . $maxPersonne . "'";
+                                                <input class='form-control' required name='maxPersonne' type='number' value='" . $maxPersonne . "'";
                                                     if ($_GET['edit'] == 0){
                                                         echo "readonly";
                                                     }
@@ -141,7 +142,7 @@
                                         <div class='col-md-6'>
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text'>Date début</span>
-                                                <input class='form-control' name='dateDeb' type='datetime-local' value='" . $dateDeb . "'";
+                                                <input class='form-control' required name='dateDeb' type='datetime-local' value='" . $dateDeb . "'";
                                                     if ($_GET['edit'] == 1){
                                                         echo "write";
                                                     }
@@ -151,7 +152,7 @@
                                         <div class='col-md-6'>
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text'>Date fin</span>
-                                                <input class='form-control' name='dateFin' type='datetime-local' value='" . $dateFin . "'";
+                                                <input class='form-control' required name='dateFin' type='datetime-local' value='" . $dateFin . "'";
                                                     if ($_GET['edit'] == 1){
                                                         echo "write";
                                                     }
@@ -163,7 +164,7 @@
                                         <div class='col-md-6'>
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text'>Prix semaine</span>
-                                                <input class='form-control' name='prixSemaine' type='number' value='" . $prixSemaine . "'";
+                                                <input class='form-control' required name='prixSemaine' type='number' value='" . $prixSemaine . "'";
                                                     if ($_GET['edit'] == 0){
                                                         echo "readonly";
                                                     }
@@ -173,7 +174,7 @@
                                         <div class='col-md-6'>
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text'>Prix année</span>
-                                                <input class='form-control' name='prixAnnee' type='number' value='" . $prixAnnee . "'";
+                                                <input class='form-control' required name='prixAnnee' type='number' value='" . $prixAnnee . "'";
                                                     if ($_GET['edit'] == 0){
                                                         echo "readonly";
                                                     }
@@ -182,13 +183,25 @@
                                         </div>
                                     </div>
                                     <div class='row'>
-                                        <div class='input-group mb-3'>
-                                            <span class='input-group-text'>Options</span>
-                                            <input class='form-control' name='options' type='text' value='" . $options . "'";
-                                                    if ($_GET['edit'] == 0){
-                                                        echo "readonly";
-                                                    }
-                                                    echo ">
+                                        <div class='col-md-6'>
+                                            <div class='input-group mb-3'>
+                                                <span class='input-group-text'>Options</span>
+                                                <input class='form-control' name='options' type='text' value='" . $options . "'";
+                                                if ($_GET['edit'] == 0){
+                                                    echo "readonly";
+                                                }
+                                                echo ">
+                                            </div>
+                                        </div>
+                                        <div class='col-md-6'>
+                                            <div class='input-group mb-3'>
+                                                <span class='input-group-text'>Image</span>
+                                                <input class='form-control' name='image' type='file' accept='image/*' value='" . $image . "'";
+                                                if ($_GET['edit'] == 0){
+                                                    echo "readonly";
+                                                }
+                                                echo ">
+                                            </div>
                                         </div>
                                     </div>
                                     <div class='row'>
@@ -244,19 +257,21 @@
                                     $prixSemaine = $_POST['prixSemaine'];
                                     $prixAnnee = $_POST['prixAnnee'];
                                     $options = $_POST['options'];
+                                    $image = $_POST['image'];
                                     $id = $_GET['id'];
                                     if ("-1" == $id){
-                                        addEmplacement($name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options);
+                                        addEmplacement($name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options, $image);
                                         echo "<script>
                                             location.href='http://88.208.226.189/app/views/ConsultType.php?add=1'
                                         </script>";
                                         die();
                                     }else{
-                                        updateEmplacement((string)$_GET['id'], $name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options);
-                                        echo "<script>
-                                            location.href='http://88.208.226.189/app/views/EmplacementDetail.php?edit=1&maj=1&id=' + $id
-                                        </script>";
-                                        die();
+                                        print_r($_POST);
+                                        updateEmplacement((string)$_GET['id'], $name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options, $image);
+//                                        echo "<script>
+//                                            location.href='http://88.208.226.189/app/views/EmplacementDetail.php?edit=1&maj=1&id=' + $id
+//                                        </script>";
+//                                        die();
                                     }
                                 }
                             }
