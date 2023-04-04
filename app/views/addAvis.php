@@ -50,7 +50,7 @@ require('./../base/HtmlFunctions.php');
                             <div class='row'>
                                 <div class='col-md-2'></div>
                                 <div class='col-md-8'>
-                                    <textarea class='form-control' rows='3' name='avis' placeholder='Votres avis nous intéresse' required></textarea>
+                                    <textarea class='form-control' rows='3' name='avis' placeholder='Votres avis nous intéresse' required>" . $location['avis'] . "</textarea>
                                 </div>
                                 <div class='col-md-2'></div>
                             </div>
