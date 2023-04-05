@@ -196,7 +196,11 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                                         <div class='col-md-6'>
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text'>Image</span>
+<<<<<<< Updated upstream
                                                  <input class='form-control' name='image' type='file' accept='image/*' value='" . $image . "'";
+=======
+                                                <input class='form-control' id='image' name='image' type='file' value='" . $image . "'";
+>>>>>>> Stashed changes
                 if ($_GET['edit'] == 0) {
                     echo "readonly";
                 }
