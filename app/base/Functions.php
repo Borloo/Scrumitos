@@ -14,6 +14,44 @@ function getBDConnexion(): PDO
     return $conn;
 }
 
+function getMinYear(){
+    $year = new DateTime('now', new DateTimeZone('Europe/Berlin'));
+    $year = $year->format('Y');
+    $locations = getAllLocations();
+    foreach ($locations as $location){
+        $dateDeb = new DateTime($location['dateDeb']);
+        $dateDeb = $dateDeb->format('Y');
+        if ($dateDeb >= $year){
+            $year = $dateDeb;
+        }
+    }
+    $news = getAllNews();
+    foreach ($news as $new){
+        $date = new DateTime($new['date']);
+        $date = $date->format('Y');
+        if ($date >= $year){
+            $year = $date;
+        }
+    }
+    return $year;
+}
+
+function getAllNews(){
+    $conn = getBDConnexion();
+    $sql = "SELECT * FROM News";
+    $query = $conn->prepare($sql);
+    $query->execute();
+    return $query->fetchAll();
+}
+
+function getAllLocations(){
+    $conn = getBDConnexion();
+    $sql = "SELECT * FROM Location";
+    $query = $conn->prepare($sql);
+    $query->execute();
+    return $query->fetchAll();
+}
+
 function deleteUser(int $id)
 {
     $conn = getBDConnexion();
