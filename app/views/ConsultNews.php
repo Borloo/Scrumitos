@@ -67,14 +67,16 @@ ini_set('display_errors', 'on');
                 <div class='row'>
                     <h1>News du camping</h1>
                 </div>";
-                if ($_SESSION['USER']['isAdmin'] == 1){
-                    echo "
+                if(isset($_SESSION['USER'])) {
+                    if ($_SESSION['USER']['isAdmin'] == 1) {
+                        echo "
                     <div class='row'>
                         <div class='col-md-5'></div>
                         <div class='col-md-2'>
                             <a href='NewsDetail.php?id=-1&edit=1'><input class='btn btn-success' id='ajouter' type='button' value='Ajouter'></a></div>
                         <div class='col-md-5'></div>
                     </div>";
+                    }
                 }
                 ?>
             </div>
