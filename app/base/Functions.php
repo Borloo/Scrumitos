@@ -17,7 +17,6 @@ function getBDConnexion(): PDO
 function getMinYear(){
     $year = new DateTime('now', new DateTimeZone('Europe/Berlin'));
     $year = $year->format('Y');
-    print_r($year);
     $locations = getAllLocations();
     foreach ($locations as $location){
         $dateDeb = new DateTime($location['dateDeb']);
@@ -26,7 +25,6 @@ function getMinYear(){
             $year = $dateDeb;
         }
     }
-    print_r($year);
     $news = getAllNews();
     foreach ($news as $new){
         $date = new DateTime($new['date']);
