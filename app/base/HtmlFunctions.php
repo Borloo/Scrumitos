@@ -158,6 +158,8 @@ function getHtmlListNews()
                 } else {
                     echo "<a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary'>Détails</a>";
                 }
+            }else{
+                echo "<a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary'>Détails</a>";
             }
             echo "</div></div></div>";
             if ($i == $limit) {

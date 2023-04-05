@@ -238,42 +238,42 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                                     <div class='col-md-4'></div>
                             </div>
                         </form>";
-                if (isset($_POST['submit'])) {
-                    if (
-                        isset($_POST['name']) &&
-                        isset($_POST['listType']) &&
-                        isset($_POST['adresse']) &&
-                        isset($_POST['annee']) &&
-                        isset($_POST['taille']) &&
-                        isset($_POST['maxPersonne']) &&
-                        isset($_POST['dateDeb']) &&
-                        isset($_POST['dateFin']) &&
-                        isset($_POST['prixSemaine']) &&
-                        isset($_POST['prixAnnee'])
-                    ) {
-                        $name = $_POST['name'];
-                        $type = getTypeByName($_POST['listType'])['idType'];
-                        $adresse = $_POST['adresse'];
-                        $annee = $_POST['annee'];
-                        $taille = $_POST['taille'];
-                        $maxPersonne = $_POST['maxPersonne'];
-                        $dateDeb = new DateTime($_POST['dateDeb']);
-                        $dateFin = new DateTime($_POST['dateFin']);
-                        $prixSemaine = $_POST['prixSemaine'];
-                        $prixAnnee = $_POST['prixAnnee'];
-                        $options = $_POST['options'];
-                        $image = $_POST['image'];
-                        $id = $_GET['id'];
-                        if ("-1" == $id) {
-                            addEmplacement($name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options, $image);
-                            echo "<script>
+                            if (isset($_POST['submit'])){
+                                if (
+                                    isset($_POST['name']) &&
+                                    isset($_POST['listType']) &&
+                                    isset($_POST['adresse']) &&
+                                    isset($_POST['annee']) &&
+                                    isset($_POST['taille']) &&
+                                    isset($_POST['maxPersonne']) &&
+                                    isset($_POST['dateDeb']) &&
+                                    isset($_POST['dateFin']) &&
+                                    isset($_POST['prixSemaine']) &&
+                                    isset($_POST['prixAnnee'])
+                                ){
+                                    $name = $_POST['name'];
+                                    $type = getTypeByName($_POST['listType'])['idType'];
+                                    $adresse = $_POST['adresse'];
+                                    $annee = $_POST['annee'];
+                                    $taille = $_POST['taille'];
+                                    $maxPersonne = $_POST['maxPersonne'];
+                                    $dateDeb = new DateTime($_POST['dateDeb']);
+                                    $dateFin = new DateTime($_POST['dateFin']);
+                                    $prixSemaine = $_POST['prixSemaine'];
+                                    $prixAnnee = $_POST['prixAnnee'];
+                                    $options = $_POST['options'];
+                                    $image = $_POST['image'];
+                                    $id = $_GET['id'];
+                                    print_r($_POST);
+                                    print_r($_FILES);
+                                    if ("-1" == $id){
+                                        addEmplacement($name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options, $image);
+                                        echo "<script>
                                             location.href='http://88.208.226.189/app/views/ConsultType.php?add=1'
                                         </script>";
-                            die();
-                        } else {
-                            print_r($_POST);
-                            print_r($_FILES);
-                            updateEmplacement((string)$_GET['id'], $name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options, $image);
+                                        die();
+                                    }else{
+                                        updateEmplacement((string)$_GET['id'], $name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options, $image);
 //                                        echo "<script>
 //                                            location.href='http://88.208.226.189/app/views/EmplacementDetail.php?edit=1&maj=1&id=' + $id
 //                                        </script>";
