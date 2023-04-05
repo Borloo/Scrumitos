@@ -259,11 +259,9 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                                     $prixSemaine = $_POST['prixSemaine'];
                                     $prixAnnee = $_POST['prixAnnee'];
                                     $options = $_POST['options'];
-                                    $image = $_POST['image'];
+                                    $image = $_FILES['file']['image'];
                                     $id = $_GET['id'];
-                                    print_r($_POST);
-                                    print_r($_FILES);
-                                    print_r($_FILES['file']['image']);
+                                    print_r($image);
                                     if ("-1" == $id){
                                         addEmplacement($name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options, $image);
                                         echo "<script>
