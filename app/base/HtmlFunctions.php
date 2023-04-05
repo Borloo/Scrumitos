@@ -133,7 +133,7 @@ function getHtmlListNews()
                 echo "<div class='row'>";
             }
             echo $col;
-            echo "<div class='card'>
+            echo "<div class='card' style='margin-bottom: 2%; height: 100%'>
                 <div class='card-header'>
                     <h5 class='card-title'>" . $new['titre'] . "</h5>
                 </div>
@@ -144,22 +144,22 @@ function getHtmlListNews()
                 <div class='card-footer'>";
             if (isset($_SESSION['USER'])) {
                 if ($_SESSION['USER']['isAdmin'] == 1) {
-                    echo "<div class='row'>
-                                <div class='col-md-4'>      
-                                    <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary'>Détails</a>
-                                </div>
-                                <div class='col-md-4'>
-                                    <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=1' class='btn btn-warning'>Modifier</a> 
-                                </div>
-                                <div class='col-md-4'>
-                                    <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=-1' class='btn btn-danger'>Supprimer</a>
-                                </div>
-                            </div>";
+                    echo "<div class='row' style='margin: 2%'>
+                            <div class='col-md-4'>      
+                                <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary' style='width: 100%'>Détails</a>
+                            </div>
+                            <div class='col-md-4'>
+                                <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=1' class='btn btn-warning' style='width: 100%'>Modifier</a> 
+                            </div>
+                            <div class='col-md-4'>
+                                <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=-1' class='btn btn-danger' style='width: 100%'>Supprimer</a>
+                            </div>
+                        </div>";
                 } else {
-                    echo "<a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary'>Détails</a>";
+                    echo "<a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary' style='width: 50%'>Détails</a>";
                 }
             }else{
-                echo "<a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary'>Détails</a>";
+                echo "<a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary' style='width: 50%'>Détails</a>";
             }
             echo "</div></div></div>";
             if ($i == $limit) {
@@ -169,39 +169,6 @@ function getHtmlListNews()
                 $i++;
             }
         }
-        echo "
-        <style>
-            td {
-                text-align: center;
-                padding: 5px;
-            }
-    
-            th {
-                padding: 5px 20px 5px 20px;
-            }
-    
-            table {
-                border: 1px solid black;
-            }
-    
-            select {
-                width: 100%;
-            }
-    
-            .btn {
-                width: 100%;
-            }
-    
-            .row {
-                margin: 2%;
-            }
-    
-            .card {
-                margin-bottom: 2%;
-                height: 100%;
-            }
-        </style>
-        ";
     } else {
         echo "<h4>Pas de News :(</h4>";
     }
