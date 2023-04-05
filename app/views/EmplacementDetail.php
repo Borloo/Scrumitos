@@ -196,7 +196,7 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                                         <div class='col-md-6'>
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text'>Image</span>
-                                                <input class='form-control' name='image' type='file' accept='image/*' value='" . $image . "'";
+                                                <input class='form-control' id='image' name='image' type='file' accept='image/*' value='" . $image . "'";
                 if ($_GET['edit'] == 0) {
                     echo "readonly";
                 }
@@ -266,6 +266,7 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                                     $id = $_GET['id'];
                                     print_r($_POST);
                                     print_r($_FILES);
+                                    print_r($_FILES['image']);
                                     if ("-1" == $id){
                                         addEmplacement($name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options, $image);
                                         echo "<script>
