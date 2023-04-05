@@ -493,8 +493,10 @@ function getHtmlPeriode()
                 echo "<table class='table'>
                         <caption> Emplacement du " . $dateDeb . " - " . $dateFin . "</caption>
                         <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Prix/semaine</th>";
-                if ($_SESSION['USER']['isAdmin'] == 1) {
-                    echo "<th scope='col'>Actions</th>";
+                if (isset($_SESSION['USER'])) {
+                    if ($_SESSION['USER']['isAdmin'] == 1) {
+                        echo "<th scope='col'>Actions</th>";
+                    }
                 }
                 echo "</tr>";
                 getHtmlEmplacementTable($emplacements, 'date');
@@ -757,7 +759,7 @@ function inscription(int $idUtilisateur = null, bool $coToUser = true)
                 registerUser($_POST['login'], $_POST['password'], $_POST['adresse'], $_POST['email'], $_POST['telephone']);
                 $isAdmin = false;
             }
-            if ($coToUser){
+            if ($coToUser) {
                 $user = getUser($_POST['login'], $_POST['password']);
                 $_SESSION['USER'] = [
                     'id' => $user['id'],
@@ -769,7 +771,7 @@ function inscription(int $idUtilisateur = null, bool $coToUser = true)
                     location.href='http://88.208.226.189/app/views/Compte.php'
                 </script>";
                 die();
-            }else{
+            } else {
                 echo "<script>
                     location.href='http://88.208.226.189/app/views/Utilisateurs.php?msg=up'
                 </script>";
@@ -835,10 +837,11 @@ function connection()
                 echo "<p style='background-color: red'>Utilisateur inconnu</p>";
                 $_SESSION['ERROR'] = 'Inconnu';
             }
-        }else{
+        } else {
             echo "<p style='background-color: red'>Remplissez les champs nécéssaires</p>";
         }
     }
     echo "</div>";
 }
+
 ?>
