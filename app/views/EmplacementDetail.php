@@ -261,6 +261,7 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                                     $options = $_POST['options'];
                                     $image = $_FILES['image'];
                                     $id = $_GET['id'];
+                                    print_r($image);
                                     if ("-1" == $id){
                                         addEmplacement($name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options, $image['name']);
                                         echo "<script>
@@ -268,10 +269,10 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                                         </script>";
                                         die();
                                     }else{
-                                        try {
-                                            move_uploaded_file($image['tmp_name'], '/uploads/images/' . $image['name']);
-                                        }catch (Exception $exception){
-                                            echo $exception->getMessage();
+                                        if (move_uploaded_file($image["tmp_name"], '/uploads/images' . $image)) {
+                                            echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                                        } else {
+                                            echo "Sorry, there was an error uploading your file.";
                                         }
                                         updateEmplacement((string)$_GET['id'], $name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options, $image['name']);
 //                                        echo "<script>
