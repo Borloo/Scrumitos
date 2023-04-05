@@ -130,10 +130,10 @@ function getHtmlListNews()
                 $body .= "(...)";
             }
             if ($i == 1) {
-                echo "<div class='row'>";
+                echo "<div class='row' style='margin-bottom: 2%'>";
             }
             echo $col;
-            echo "<div class='card' style='margin-bottom: 2%; height: 100%'>
+            echo "<div class='card' style='height: 100%'>
                 <div class='card-header'>
                     <h5 class='card-title'>" . $new['titre'] . "</h5>
                 </div>
