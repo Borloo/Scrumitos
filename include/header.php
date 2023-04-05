@@ -7,12 +7,10 @@
         <div class="col-md-1"></div>
         <?php
         if (isset($_SESSION['USER'])) {
-            ?>
-            <div class="col-md-2">
-                <a href="http://88.208.226.189/app/views/Deconnexion.php" class="text-decoration-none"><input class="btn btn-success" type="button"
-                                                                              value="Déconnexion"></a>
-            </div>
-            <?php
+            echo "
+            <div class='col-md-2'>
+                <a href='http://88.208.226.189/app/views/Deconnexion.php' class='text-decoration-none'><input class='btn btn-success' type='button' value='Déconnexion'></a>
+            </div>";
         }
         ?>
     </div>
