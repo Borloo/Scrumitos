@@ -100,7 +100,7 @@ ini_set('display_errors', 'on');
                                 <div class='row'>
                                     <div class='col-md-5'></div>
                                     <div class='col-md-2'>
-                                        <input class='btn btn-success' type='submit' name='submit' value='" . $valueButton . "'>  
+                                        <input class='btn btn-success' type='submit' name='submit' value='" . $valueButton . "' style='width: 100%'>  
                                     </div>
                                     <div class='col-md-5'></div>
                                 </div>
