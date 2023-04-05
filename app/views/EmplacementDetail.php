@@ -268,7 +268,11 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                                         </script>";
                                         die();
                                     }else{
-                                        move_uploaded_file($image['tmp_name'], '/uploads/images/' . $image['name']);
+                                        try {
+                                            move_uploaded_file($image['tmp_name'], '/uploads/images/' . $image['name']);
+                                        }catch (Exception $exception){
+                                            echo $exception->getMessage();
+                                        }
                                         updateEmplacement((string)$_GET['id'], $name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options, $image['name']);
 //                                        echo "<script>
 //                                            location.href='http://88.208.226.189/app/views/EmplacementDetail.php?edit=1&maj=1&id=' + $id
