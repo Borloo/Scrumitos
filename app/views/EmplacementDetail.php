@@ -259,7 +259,7 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                                     $prixSemaine = $_POST['prixSemaine'];
                                     $prixAnnee = $_POST['prixAnnee'];
                                     $options = $_POST['options'];
-                                    $image = $_FILES['name'];
+                                    $image = $_FILES['image'];
                                     $id = $_GET['id'];
                                     print_r($_FILES);
                                     print_r($image);
