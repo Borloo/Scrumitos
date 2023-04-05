@@ -261,16 +261,15 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                                     $options = $_POST['options'];
                                     $image = $_FILES['image'];
                                     $id = $_GET['id'];
-                                    print_r($_FILES);
-                                    print_r($image);
                                     if ("-1" == $id){
-                                        addEmplacement($name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options, $_POST['image']);
+                                        addEmplacement($name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options, $image['name']);
                                         echo "<script>
                                             location.href='http://88.208.226.189/app/views/ConsultType.php?add=1'
                                         </script>";
                                         die();
                                     }else{
-                                        updateEmplacement((string)$_GET['id'], $name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options, $_POST['image']);
+                                        move_uploaded_file($image['tmp_name'], '/uploads/images/' . $image['name']);
+                                        updateEmplacement((string)$_GET['id'], $name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options, $image['name']);
 //                                        echo "<script>
 //                                            location.href='http://88.208.226.189/app/views/EmplacementDetail.php?edit=1&maj=1&id=' + $id
 //                                        </script>";
