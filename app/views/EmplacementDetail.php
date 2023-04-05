@@ -197,12 +197,12 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text'>Image</span>
                                                 <input class='form-control' id='image' name='image' type='file' accept='image/*' value='" . $image . "'>
-                                                 <input class='form-control' name='image' type='file' accept='image/*' value='" . $image . "'>"
+                                                 <input class='form-control' name='image' type='file' accept='image/*' value='" . $image . "'"
                 . $image;
                 if ($_GET['edit'] == 0) {
                     echo "readonly";
                 }
-                echo "
+                echo ">
                                             </div>
                                         </div>
                                     </div>
