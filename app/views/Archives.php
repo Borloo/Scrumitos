@@ -26,7 +26,7 @@ require('./../base/HtmlFunctions.php');
                         <div class='col-md-2'>
                             <div class='input-group mb-3'>
                                 <span class='input-group-text' id='basic-addon2'>Type</span>
-                                <select class='form-select' required name='listType'";
+                                <select class='form-select' required name='listYear'>";
                                 $year = getMinYear();
                                 print_r($year);
                                 $todayYear = new DateTime('now', new DateTimeZone('Europe/Berlin'));
