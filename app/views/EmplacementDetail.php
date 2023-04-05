@@ -58,7 +58,7 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                                     ";
                 }
                 echo "<div class='card-body'>
-                                <form method='post'>
+                                <form method='post' enctype='multipart/form-data'>
                                     <div class='row'>
                                         <div class='col-md-6'>
                                             <div class='input-group mb-3'>
@@ -263,7 +263,7 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                                     $id = $_GET['id'];
                                     print_r($_POST);
                                     print_r($_FILES);
-                                    print_r($_FILES['image']['image']);
+                                    print_r($_FILES['file']['image']);
                                     if ("-1" == $id){
                                         addEmplacement($name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options, $image);
                                         echo "<script>
