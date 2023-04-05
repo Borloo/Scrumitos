@@ -21,17 +21,24 @@ require('./../base/HtmlFunctions.php');
                 <?php
                 echo "
                 <div class='card'>
-                    <div class='input-group mb-3'>
-                        <span class='input-group-text' id='basic-addon2'>Type</span>
-                        <select class='form-select' required name='listType'";
-                (int) $year = getMinYear();
-                $todayYear = new DateTime('now', new DateTimeZone('Europe/Berlin'));
-                (int)$todayYear = $todayYear->format('Y');
-                for ($i = $todayYear; $i > $year; $i--){
-                    echo "<option value='" . $i . "'>" . $i . "</option>";
-                }
-                echo "
-                        </select>
+                    <div class='row'>
+                        <div class='col-md-5'></div>
+                        <div class='col-md-2'>
+                            <div class='input-group mb-3'>
+                                <span class='input-group-text' id='basic-addon2'>Type</span>
+                                <select class='form-select' required name='listType'";
+                                $year = getMinYear();
+                                print_r($year);
+                                $todayYear = new DateTime('now', new DateTimeZone('Europe/Berlin'));
+                                $todayYear = $todayYear->format('Y');
+                                for ($i = (int)$todayYear; $i > (int)$year; $i--){
+                                    echo "<option value='" . $i . "'>" . $i . "</option>";
+                                }
+                                echo "
+                                </select>
+                            </div>
+                        </div>
+                        <div class='col-md-5'></div>
                     </div>
                 </div>
                 ";
