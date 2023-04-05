@@ -262,6 +262,7 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                                     $image = $_FILES['file']['image'];
                                     $id = $_GET['id'];
                                     print_r($image);
+                                    print_r($_FILES['file']['image']);
                                     if ("-1" == $id){
                                         addEmplacement($name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options, $_POST['image']);
                                         echo "<script>
