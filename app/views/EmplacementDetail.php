@@ -196,8 +196,7 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                                         <div class='col-md-6'>
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text'>Image</span>
-                                                 <input class='form-control' name='image' type='file' accept='image/*' value='" . $image . "'"
-                . $image;
+                                                 <input class='form-control' name='image' type='file' accept='image/*' value='" . $image . "'";
                 if ($_GET['edit'] == 0) {
                     echo "readonly";
                 }
@@ -205,6 +204,7 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                                             </div>
                                         </div>
                                     </div>
+                                    $image
                                     <div class='row'>
                                         <div class='col-md-4'></div>";
                 if (isset($_SESSION['USER'])) {
