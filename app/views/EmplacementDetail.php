@@ -196,11 +196,16 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                                         <div class='col-md-6'>
                                             <div class='input-group mb-3'>
                                                 <span class='input-group-text'>Image</span>
+<<<<<<< Updated upstream
                                                 <input class='form-control' id='image' name='image' type='file' accept='image/*' value='" . $image . "'";
+=======
+                                                <input class='form-control' name='image' type='file' accept='image/*' value='" . $image . "'>"
+                . $image;
+>>>>>>> Stashed changes
                 if ($_GET['edit'] == 0) {
                     echo "readonly";
                 }
-                echo ">
+                echo "
                                             </div>
                                         </div>
                                     </div>
@@ -219,7 +224,7 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                     if ($_SESSION['USER'] != "ADMIN") {
                         echo "
                         <div class='col-md-2'>
-                            <a href='Locations.php?new=1&id=" . $_GET['id'] . "&user=" . $userId . "'><input class='btn btn-info' type='button' value='Louer'></a>
+                            <a href='Locations.php?new=1&id=" . $_GET['id'] . "&user=" . $userId . "'><input class='btn btn-info' type='button' value=''></a>
                         </div>
                         ";
                     }
