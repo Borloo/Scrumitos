@@ -50,19 +50,19 @@ ini_set('display_errors', 'on');
         <div class="card">
             <div class="card-header">
                 <?php
-                if (isset($_GET['msg'])){
-                    switch ($_GET['msg']){
-                        case 'updated':
-                            echo "<p>News mise à jour !</p>";
-                            break;
-                        case 'created' :
-                            echo "<p>News ajoutée !</p>";
-                            break;
-                        case 'deleted' :
-                            echo "<p>News supprimée !</p>";
-                            break;
-                    }
-                }
+//                if (isset($_GET['msg'])){
+//                    switch ($_GET['msg']){
+//                        case 'updated':
+//                            echo "<p>News mise à jour !</p>";
+//                            break;
+//                        case 'created' :
+//                            echo "<p>News ajoutée !</p>";
+//                            break;
+//                        case 'deleted' :
+//                            echo "<p>News supprimée !</p>";
+//                            break;
+//                    }
+//                }
                 echo "
                 <div class='row'>
                     <h1>News du camping</h1>
