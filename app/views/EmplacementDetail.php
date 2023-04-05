@@ -200,7 +200,7 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                                             </div>
                                         </div>
                                     </div>
-                                    <img src='http://88.208.226.189/images/$image'>
+                                    <img src='88.208.226.189/images/$image'>
                                     <div class='row'>
                                         <div class='col-md-4'></div>";
                 if (isset($_SESSION['USER'])) {
