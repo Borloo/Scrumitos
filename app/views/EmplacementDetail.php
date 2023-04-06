@@ -270,7 +270,7 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                                         die();
                                     }else{
                                         echo __DIR__;
-                                        if (move_uploaded_file($image["tmp_name"], __DIR__ . "/../../uploads/images" . $image['name'])) {
+                                        if (move_uploaded_file($image["tmp_name"], __DIR__ . "/../uploads/images" . $image['name'])) {
                                             echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
                                         } else {
                                             echo "Sorry, there was an error uploading your file.";
