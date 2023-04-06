@@ -859,7 +859,7 @@ function getAnnee(){
 
 function archivage(string $lastYear){
     $conn = getBDConnexion();
-    $sql = "delete from location where YEAR(dateFin) = '$lastYear'";
+    $sql = "delete from Location where YEAR(dateFin) = '$lastYear'";
     $query = $conn->prepare($sql);
     $query->execute();
     return $query->fetchAll();
