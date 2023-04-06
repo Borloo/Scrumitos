@@ -2,17 +2,20 @@
 	margin: 0;
 	padding: 0;
 	--dark-blue: #05668D;
+	--blue: #427AA1;
+	--light-blue: #EBF2FA;
 	--dark-green: #679436;
+	--light-green: #A5BE00;
 }
 
 html, body {
 	height: 100%;
 	font-family: sans-serif;
-	background-color: #ECECEC;
+	background-color: var(--light-blue);
 }
 
 .globalHeader {
-	background-color: var(--dark-green);
+	background-color: var(--dark-blue);
 }
 
 .globalHeader a {
