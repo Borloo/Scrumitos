@@ -200,7 +200,7 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                                             </div>
                                         </div>
                                     </div>
-                                    <img src='../../images/images/$image'>
+                                   <div class='m-3'><img src='../../images/images/$image'></div> 
                                     <div class='row'>
                                         <div class='col-md-4'></div>";
                 if (isset($_SESSION['USER'])) {
