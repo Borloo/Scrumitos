@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-5">
-            <h1><a href="/index.php" class="text-decoration-none">Camping de la Grande Bleue</a></h1>
+            <h1><a href="/index.php" id="camping" class="text-decoration-none">Camping de la Grande Bleue</a></h1>
         </div>
         <div class="col-md-1"></div>
         <?php
