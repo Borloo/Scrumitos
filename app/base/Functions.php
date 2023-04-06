@@ -522,41 +522,15 @@ function getTypes(): array
 }
 
 function updateUser(
-<<<<<<< Updated upstream
-    int    $id,
-    string $login,
-    string $password,
-    string $adresse,
-    string $email,
-    string $tel
-=======
     string   $id,
     string   $adresse,
     string   $mail,
     string   $telephone,
    
->>>>>>> Stashed changes
 )
 {
     $conn = getBDConnexion();
     $sql = "UPDATE Utilisateur SET
-<<<<<<< Updated upstream
-            login = :login,
-            password = :password,
-            adresse = :adresse,
-            mail = :email,
-            telephone = :tel
-            WHERE id = :id";
-    $query = $conn->prepare($sql);
-    $query->execute([
-        'login' => $login,
-        'password' => $password,
-        'adresse' => $adresse,
-        'email' => $email,
-        'tel' => $tel,
-        'id' => $id
-    ]);
-=======
             adresse = :adresse,
             mail = :mail,
             telephone = :telephone,
