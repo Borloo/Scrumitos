@@ -53,10 +53,15 @@ require('./../base/HtmlFunctions.php');
 
                 if (isset($_POST['listYear'])) {
 
-                    $selectedYear = $_POST['listYear'];
-                    archivage($selectedYear);
+                    if($_POST['listYear'] == null){
+                        echo '<p>Aucune année à archiver</p>';
+                    }
+                    else {
+                        $selectedYear = $_POST['listYear'];
+                        archivage($selectedYear);
 
-                    echo '<p> Année ' . $selectedYear . ' supprimée';
+                        echo '<p> Année ' . $selectedYear . ' archivée';
+                    }
                 }
 
                 ?>
