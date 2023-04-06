@@ -43,7 +43,7 @@ h1 {
 .sidebar {
     display: table-cell;
     width: 220px;
-    background-color: #f4f4f4;
+    background-color: var(--light-blue);
     border-right: 3px solid #ececec;
 }
 
@@ -60,7 +60,7 @@ h1 {
 .sidebar a:focus {
     color: #222;
     text-decoration: none;
-    background: #dae6f5;
+    background: var(--blue);
 }
 
 section {
