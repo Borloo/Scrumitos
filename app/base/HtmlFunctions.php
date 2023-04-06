@@ -147,7 +147,7 @@ function getHtmlListNews()
                 if ($_SESSION['USER']['isAdmin']) {
                     echo "<div class='row' style='margin: 2%'>
                             <div class='col-md-4'>      
-                                <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0'  style='width: 100%; color:#0d6efd;'><i class="fa-solid fa-magnifying-glass"></i></a>
+                                <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0'  style='width: 100%; color:#0d6efd;'><i class='fa-solid fa-magnifying-glass'></i></a>
                             </div>
                             <div class='col-md-4'>
                                 <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=1' style='width: 100%; color:#ffc107;'><i class='fa-solid fa-pen'></i></a> 
