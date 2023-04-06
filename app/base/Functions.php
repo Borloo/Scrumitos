@@ -525,7 +525,7 @@ function updateUser(
     string   $id,
     string   $adresse,
     string   $mail,
-    string   $telephone,
+    string   $telephone
    
 )
 {
@@ -592,7 +592,7 @@ function connection()
         }
     }
     echo "</div>";
->>>>>>> Stashed changes
+
 }
 
 function registerUser(
