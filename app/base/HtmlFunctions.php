@@ -648,6 +648,10 @@ function getHtmlEmplacementTable(array $emplacements, string $specify = '')
         if (isset($_SESSION['USER'])) {
             if ($_SESSION['USER']['isAdmin'] == 1) {
                 echo "
+ <div class='col-md-4'>
+                        <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=0'><img src='../../images/images/" . $emplacement['PathImage'] . "'></a>
+                    </div></td>
+                    <td>
                 <div class='row'>
                     <div class='col-md-4'>
                         <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=1'><input type='button' class='btn btn-warning' value='Modifier'></a>
@@ -662,12 +666,12 @@ function getHtmlEmplacementTable(array $emplacements, string $specify = '')
             ";
             } else {
                 echo "
-                <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=0'><input type='button' class='btn btn-info' value='Détails'></a>
+                <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=0'><img src='../../images/images/" . $emplacement['PathImage'] . "'></a>
             ";
             }
         } else {
             echo "
-                <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=0'><input type='button' class='btn btn-info' value='Détails'></a>
+                <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=0'><img src='../../images/images/" . $emplacement['PathImage'] . "'></a>
             ";
         }
         echo "
