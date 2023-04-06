@@ -414,9 +414,7 @@ function getHtmlAnnee()
                         </div>
                         <div class='card-body'>";
             if (!empty($emplacements)) {
-                echo "
-                            <center>
-                                <table class='table'>
+                echo "<table class='table'>
                                     <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Date de construction</th><th scope='col'>Aperçu</th>";
                 if (isset($_SESSION['USER'])) {
                     if ($_SESSION['USER']['isAdmin'] == 1) {
