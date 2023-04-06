@@ -34,12 +34,27 @@ require('./../base/HtmlFunctions.php');
                                 echo "
                                 
                                 </select>
+                                
+                                <div class='col-md-1'></div>
+                                    <div class='col-md-2'>
+                                        <input class='btn btn-secondary' type='submit' id='submit' name='submit' value='Afficher'>
+                                    </div>
+                                <div class='col-md-1'></div>
+                                
+                                
+                                    
+        
                             </div>
                         </div>
                         <div class='col-md-5'></div>
                     </div>
                 </div>
                 ";
+
+                if (isset($_POST['submit'])) {
+                    print_r($_POST['submit']);
+                }
+
                 ?>
             </div>
         </section>

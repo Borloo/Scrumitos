@@ -858,4 +858,12 @@ function getAnnee(){
     return $query->fetchAll();
 }
 
+function archivage(){
+    $conn = getBDConnexion();
+    $sql = "delete from location where YEAR(dateFin) = ?";
+    $query = $conn->prepare($sql);
+    $query->execute();
+    return $query->fetchAll();
+}
+
 ?>
