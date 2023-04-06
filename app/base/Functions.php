@@ -532,7 +532,7 @@ function updateUser(
     $sql = "UPDATE Utilisateur SET
             adresse = :adresse,
             mail = :mail,
-            telephone = :telephone,
+            telephone = :telephone
             WHERE id = :id
            ";
     $query = $conn->prepare($sql);
