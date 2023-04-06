@@ -60,7 +60,7 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                 echo "<div class='card-body'>";
                             if ($image != ''){
                                 echo "
-                                <div class='row'>
+                                <div class='row' style='margin-bottom: 1%'>
                                     <div class='col-md-3'></div>
                                     <div class='col-md-6'>
                                         <img src='/uploads/images/" . $image . "'>
