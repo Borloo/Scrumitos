@@ -591,7 +591,6 @@ function connection()
         }
     }
     echo "</div>";
->>>>>>> Stashed changes
 }
 
 function registerUser(
