@@ -213,27 +213,22 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                         <div class='col-md-2'>
                             <input class='btn btn-success' type='submit' name='submit' value='Sauvegarder'>
                         </div>";
-                    if (isset($_SESSION['USER'])) {
-                        if ($_SESSION['USER'] != "ADMIN") {
-                            echo "
+                    if (isset($_SESSION['USER']) && !($_SESSION['USER']['isAdmin'])) {
+                        echo "
                         <div class='col-md-2'>
                             <a href='Locations.php?new=1&id=" . $_GET['id'] . "&user=" . $userId . "'><input class='btn btn-info' type='button' value='Louer'></a>
                         </div>
                         ";
-                        }
                     }
-                } else {
-                    if (isset($_SESSION['USER'])) {
-                        if (!($_SESSION['USER']['isAdmin'])) {
-                            echo "
+                }
+                if (!(isset($_SESSION['USER']))) {
+                    echo "
                         <div class='col-md-1'></div>
                         <div class='col-md-2'>
                             <a href='Locations.php?new=1&id=" . $_GET['id'] . "&user=" . $userId . "'><input class='btn btn-info' type='button' value='Louer'></a>
                         </div>
                         <div class='col-md-1'></div>
                         ";
-                        }
-                    }
                 }
                 echo "<div class='col-md-2'>
                             <a href='Locations.php?new=1&id=" . $_GET['id'] . "&user=" . $userId . "'><input class='btn btn-info' type='button' value='Louer'></a>
@@ -273,10 +268,18 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                             echo "<script>
                                             location.href='http://88.208.226.189/app/views/ConsultType.php?add=1'
                                         </script>";
+<<<<<<< Updated upstream
                                         die();
                                     }else{
                                         $target_dir = "/var/www/html/uploads/images/";
                                         $target_file = $target_dir . basename($image['name']);
+=======
+                            die();
+                        } else {
+                            echo __DIR__;
+                            $target_dir = __DIR__ . "/../uploads/images/";
+                            $target_file = $target_dir . basename($image['name']);
+>>>>>>> Stashed changes
 
                             // Vérifiez et déplacez l'image téléchargée
                             if (move_uploaded_file($image["tmp_name"], $target_file)) {
