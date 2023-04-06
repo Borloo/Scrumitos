@@ -523,9 +523,11 @@ function getTypes(): array
 
 function updateUser(
     int   $id,
-    string   $adresse,
-    string   $mail,
-    string   $telephone
+    string $username,
+    string $password,
+    string $adresse,
+    string $email,
+    string $tel
 )
 {
     $conn = getBDConnexion();
