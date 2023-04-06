@@ -29,7 +29,7 @@ require('./../base/HtmlFunctions.php');
                                 <select class='form-select' required name='listYear'>";
                                 $years = getAnnee();
                                 foreach ($years as $year){
-                                    echo "<option value='" . $year . "'>" . $year . "</option>";
+                                    echo "<option value='" . $year['YEAR(dateFin)'] . "'>" . $year['YEAR(dateFin)'] . "</option>";
                                 }
                                 echo "
                                 
