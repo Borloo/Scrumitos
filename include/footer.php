@@ -6,6 +6,6 @@
 
 <style>
     .globalFooter {
-        background-color: #ececec;
+        background-color: #dae6f5;
     }
 </style>
