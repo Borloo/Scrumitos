@@ -26,6 +26,7 @@ require('./../base/HtmlFunctions.php');
                         <div class='col-md-2'>
                             <div class='input-group mb-3'>
                                 <span class='input-group-text' id='basic-addon2'>Année</span>
+                                <form method='POST'>
                                 <select class='form-select' required name='listYear'>";
                                 $years = getAnnee();
                                 foreach ($years as $year){
@@ -34,12 +35,14 @@ require('./../base/HtmlFunctions.php');
                                 echo "
                                 
                                 </select>
-                                
+                                <br><br>
                                 <div class='col-md-1'></div>
                                     <div class='col-md-2'>
                                         <input class='btn btn-secondary' type='submit' id='submit' name='submit' value='Afficher'>
                                     </div>
                                 <div class='col-md-1'></div>
+                                </form>
+                                
                                 
                                 
                                     
@@ -51,8 +54,12 @@ require('./../base/HtmlFunctions.php');
                 </div>
                 ";
 
-                if (isset($_POST['submit'])) {
-                    print_r($_POST['submit']);
+                if (isset($_POST['listYear'])) {
+
+                    $selectedYear = $_POST['listYear'];
+                    archivage($selectedYear);
+
+                    echo '<p> Année ' . $selectedYear . 'supprimée';
                 }
 
                 ?>
