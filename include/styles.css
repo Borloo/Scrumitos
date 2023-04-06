@@ -54,10 +54,10 @@ h1 {
 .sidebar a {
     display: block;
     padding: 0.5em 0;
-    color: #555;
+    color: var(--blue-medium);
     text-align: center;
-    border-top: 1px solid #ffffff;
-    border-bottom: 1px solid #dbdbdb;
+    border-top: 1px solid var(--light-blue);
+    border-bottom: 1px solid var(--blue);
 }
 
 .sidebar a:hover,
