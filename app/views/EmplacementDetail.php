@@ -268,18 +268,15 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                             echo "<script>
                                             location.href='http://88.208.226.189/app/views/ConsultType.php?add=1'
                                         </script>";
-<<<<<<< Updated upstream
                                         die();
                                     }else{
                                         $target_dir = "/var/www/html/uploads/images/";
                                         $target_file = $target_dir . basename($image['name']);
-=======
                             die();
                         } else {
                             echo __DIR__;
                             $target_dir = __DIR__ . "/../uploads/images/";
                             $target_file = $target_dir . basename($image['name']);
->>>>>>> Stashed changes
 
                             // Vérifiez et déplacez l'image téléchargée
                             if (move_uploaded_file($image["tmp_name"], $target_file)) {
