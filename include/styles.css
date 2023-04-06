@@ -1,6 +1,8 @@
 * {
 	margin: 0;
 	padding: 0;
+	--dark-blue: #05668D;
+	--dark-green: #679436;
 }
 
 html, body {
@@ -10,7 +12,7 @@ html, body {
 }
 
 .globalHeader {
-	background-color: #3C8DBC;
+	background-color: var(--dark-green);
 }
 
 .globalHeader a {
