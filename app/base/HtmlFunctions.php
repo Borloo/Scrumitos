@@ -61,7 +61,12 @@ function getHtmlLocationsValidation()
         <form method='post'>
             <table class='table'>
                 <caption>Locations à valider</caption>
-                <tr><th scope='col'>Utilisateur</th><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Date de réservation</th><th>Actions</th></tr>";
+                <tr><th scope='col'>Utilisateur</th><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Date de réservation</th>";
+        if (isset($_SESSION['USER'])) {
+            if ($_SESSION['USER'] == 'ADMIN') {
+                echo "<th>Actions</th></tr>";
+            }
+        }
         foreach ($locations as $location) {
             $date = $location['dateDeb'] . ' - ' . $location['dateFin'];
             $user = getUserById((int)$location['idUtilisateur']);
@@ -158,7 +163,7 @@ function getHtmlListNews()
                 } else {
                     echo "<a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary' style='width: 50%'>Détails</a>";
                 }
-            }else{
+            } else {
                 echo "<a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary' style='width: 50%'>Détails</a>";
             }
             echo "</div></div></div>";
