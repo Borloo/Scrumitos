@@ -144,7 +144,7 @@ function getHtmlListNews()
                 </div>
                 <div class='card-footer'>";
             if (isset($_SESSION['USER'])) {
-                if ($_SESSION['USER']['isAdmin'] == 1) {
+                if ($_SESSION['USER']['isAdmin']) {
                     echo "<div class='row' style='margin: 2%'>
                             <div class='col-md-4'>      
                                 <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary' style='width: 100%'>Détails</a>
@@ -228,7 +228,7 @@ function getHtmlTaille()
                 echo "<table class='table'>
                                     <tr><th scope='col'>Nom</th><th scope='col'>Type</th><th scope='col'>Adresse</th><th scope='col'>Taille</th><th scope='col'>Aperçu</th>";
                 if (isset($_SESSION['USER'])) {
-                    if ($_SESSION['USER']['isAdmin'] == 1) {
+                    if ($_SESSION['USER']['isAdmin']) {
                         echo "<th scope='col'>Actions</th></tr>";
                     }
                 }
@@ -300,7 +300,7 @@ function getHtmlPrix()
                                 <table class='table'>
                                     <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Prix/semaine</th><th scope='col'>Aperçu</th>";
                 if (isset($_SESSION['USER'])) {
-                    if ($_SESSION['USER']['isAdmin'] == 1) {
+                    if ($_SESSION['USER']['isAdmin']) {
                         echo "<th scope='col'>Actions</th>";
                     }
                 }
@@ -417,7 +417,7 @@ function getHtmlAnnee()
                 echo "<table class='table'>
                                     <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Date de construction</th><th scope='col'>Aperçu</th>";
                 if (isset($_SESSION['USER'])) {
-                    if ($_SESSION['USER']['isAdmin'] == 1) {
+                    if ($_SESSION['USER']['isAdmin']) {
                         echo " <th scope='col'>Actions</th>";
                     }
                 }
@@ -494,7 +494,7 @@ function getHtmlPeriode()
                         <caption> Emplacement du " . $dateDeb . " - " . $dateFin . "</caption>
                         <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Prix/semaine</th><th scope='col'>Aperçu</th>";
                 if (isset($_SESSION['USER'])) {
-                    if ($_SESSION['USER']['isAdmin'] == 1) {
+                    if ($_SESSION['USER']['isAdmin']) {
                         echo "<th scope='col'>Actions</th>";
                     }
                 }
@@ -554,7 +554,7 @@ function getHtmlType()
                             <div class='row'>
                                 <div class='col-md-4'></div>";
     if (isset($_SESSION['USER'])) {
-        if ($_SESSION['USER']['isAdmin'] == 1) {
+        if ($_SESSION['USER']['isAdmin']) {
             echo "
                                 <div class='col-md-2'>
                                     <input class='btn btn-secondary' type='submit' id='submit' name='submit' value='Afficher'>
@@ -604,7 +604,7 @@ function getHtmlType()
                         <caption> Emplacement du type " . $typeName . "</caption>
                         <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Prix par semaine</th><th scope='col'>Aperçu</th>";
                 if (isset($_SESSION['USER'])) {
-                    if ($_SESSION['USER']) {
+                    if ($_SESSION['USER']['isAdmin']) {
                         echo "<th scope='col'>Actions</th></tr>";
                     }
                 }
@@ -650,7 +650,7 @@ function getHtmlEmplacementTable(array $emplacements, string $specify = '')
             <td>" . $emplacement[$specify] . $suffix . "</td>
             <td>";
         if (isset($_SESSION['USER'])) {
-            if ($_SESSION['USER']['isAdmin'] == 1) {
+            if ($_SESSION['USER']['isAdmin']) {
                 echo "
  <div class='col-md-4'>
                         <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=0'><img src='../../images/images/" . $emplacement['PathImage'] . "'></a>
