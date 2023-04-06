@@ -9,37 +9,6 @@ ini_set('display_errors', 'on');
 
 <head>
     <?php include("./../../include/headfile.php"); ?>
-    <style>
-        td {
-            text-align: center;
-            padding: 5px;
-        }
-
-        th {
-            padding: 5px 20px 5px 20px;
-        }
-
-        table {
-            border: 1px solid black;
-        }
-
-        select {
-            width: 100%;
-        }
-
-        .btn {
-            width: 100%;
-        }
-
-        .row {
-            margin: 2%;
-        }
-
-        .card {
-            margin-bottom: 2%;
-            height: 100%;
-        }
-    </style>
 </head>
 
 <body>
@@ -131,7 +100,7 @@ ini_set('display_errors', 'on');
                                 <div class='row'>
                                     <div class='col-md-5'></div>
                                     <div class='col-md-2'>
-                                        <input class='btn btn-success' type='submit' name='submit' value='" . $valueButton . "'>  
+                                        <input class='btn btn-success' type='submit' name='submit' value='" . $valueButton . "' style='width: 100%'>  
                                     </div>
                                     <div class='col-md-5'></div>
                                 </div>

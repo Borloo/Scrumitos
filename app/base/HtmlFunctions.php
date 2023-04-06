@@ -2,45 +2,111 @@
 
 require("Functions.php");
 
-require('../bd/Utilisateur.php');
+require("../bd/Utilisateur.php");
 
-function getHtmlLocationsValidation(){
-    $locations = getLocations(false);
-    if (!empty($locations)){
-        echo "
-        <table class='table'>
-            <caption>Locations à valider</caption>
-            <tr><th scope='col'>Utilisateur</th><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th>Actions</th></tr>";
-            foreach ($locations as $location){
-                $user = getUserById((int)$location['idUtilisateur']);
-                $emplacement = getEmplacementById((int)$location['idEmplacement']);
-                $type = getTypeById($emplacement['idType']);
-                echo "
-                    <tr>
-                        <th scope='row'>" . $user['login'] . "</th>
-                        <td>" . $emplacement['Nom_Emplacement'] . "</td>
-                        <td>" . $type . "</td>
-                        <td>" . $emplacement['adresseEmpl'] . "</td>
-                        <td><input class='btn btn-success' type='submit' name='submit' value='Valider'></td>
-                    </tr>
-                ";
-            }
-        echo "</table>
-        ";
-    }else{
-        echo "<p>Pas de locations à valider</p>";
+function getHtmlNewLocation()
+{
+    $emplacement = getOneEmplacementById((int)$_GET['id']);
+    $dateDeb = $emplacement['Periode_Dispo_Debut'];
+    $dateFin = $emplacement['Periode_Dispo_Fin'];
+    echo "
+        <form method='post'>
+            <div class='row'>
+                <div class='col-md-6'>
+                    <div class='input-group mb-3'>
+                        <span class='input-group-text'>Date de début</span>
+                        <input class='form-control' name='dateDeb' type='datetime-local' min='" . $dateDeb . "' max='" . $dateFin . "' value='" . $dateDeb . "'>
+                    </div>
+                </div>
+                <div class='col-md-6'>
+                    <div class='input-group mb-3'>
+                        <span class='input-group-text'>Date de fin</span>
+                        <input class='form-control' name='dateFin' type='datetime-local' min='" . $dateDeb . "' max='" . $dateFin . "' value='" . $dateFin . "'>
+                    </div>
+                </div>
+            </div>
+            <div class='row'>
+                <div class='input-group mb-3'>
+                    <span class='input-group-text'>Options</span>
+                    <input class='form-control' name='options' type='text' value='" . $emplacement['Options'] . "'>
+                </div>
+            </div>
+            <div class='row'>
+                <div class='col-md-5'></div>
+                <div class='col-md-2'>
+                    <input class='btn btn-success' type='submit' name='submit' value='Demander'>
+                </div>
+                <div class='col-md-5'></div>
+            </div>
+        </form>
+    ";
+    if (isset($_POST['submit'])) {
+        if (isset($_POST['dateDeb']) && isset($_POST['dateFin']) && isset($_POST['options'])) {
+            $dateDeb = new DateTime($_POST['dateDeb'], new DateTimeZone('Europe/Berlin'));
+            $dateFin = new DateTime($_POST['dateFin'], new DateTimeZone('Europe/Berlin'));
+            addLocation((int)$_GET['id'], (int)$_GET['user'], $dateDeb, $dateFin, $_POST['options']);
+            echo "<script>
+                    location.href='http://88.208.226.189/index.php?msg=addLocation'
+                </script>";
+            die();
+        }
     }
 }
 
-function getHtmlListNews(){
+function getHtmlLocationsValidation()
+{
+    $locations = getLocations(false);
+    if (!empty($locations)) {
+        echo "
+        <form method='post'>
+            <table class='table'>
+                <caption>Locations à valider</caption>
+                <tr><th scope='col'>Utilisateur</th><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Date de réservation</th><th>Actions</th></tr>";
+
+        foreach ($locations as $location) {
+            $date = $location['dateDeb'] . ' - ' . $location['dateFin'];
+            $user = getUserById((int)$location['idUtilisateur']);
+            $emplacement = getOneEmplacementById((int)$location['idEmplacement']);
+            $type = getTypeById((int)$emplacement['idType']);
+            echo "
+                        <tr>
+                            <th scope='row'>" . $user['login'] . "</th>
+                            <td>" . $emplacement['Nom_Emplacement'] . "</td>
+                            <td>" . $type['nomType'] . "</td>
+                            <td>" . $date . "</td>
+                            <td>
+                                <input class='btn btn-success' type='submit' name='submit' value='Valider'>
+                                <input type='hidden' name='id' value='" . $location['id'] . "'>
+                            </td>
+                        </tr>
+                    ";
+        }
+        echo "</table>
+            </form>
+        ";
+    } else {
+        echo "<p>Pas de locations à valider</p>";
+    }
+    if (isset($_POST['submit'])) {
+        validateLocation((int)$_POST['id']);
+        echo "
+        <script>
+            location.href='http://88.208.226.189/app/views/Locations.php?msg=validated'
+        </script>";
+        die();
+    }
+}
+
+function getHtmlListNews()
+{
     $news = getNews();
-    if (!empty($news)){
+    if (!empty($news)) {
         $size = sizeof($news) + 1;
         $params = [
             '3' => $size % 3,
             '2' => $size % 2
         ];
-        switch ($params){
+        switch ($params) {
             case $params['3'] == 1:
                 $limit = 3;
                 $col = "<div class='col-md-4'>";
@@ -58,17 +124,17 @@ function getHtmlListNews(){
                 break;
         }
         $i = 1;
-        foreach ($news as $new){
+        foreach ($news as $new) {
             $body = $new['body'];
-            if (strlen($body) > 100){
+            if (strlen($body) > 100) {
                 $body = substr($body, 0, 100);
                 $body .= "(...)";
             }
-            if ($i == 1){
-                echo "<div class='row'>";
+            if ($i == 1) {
+                echo "<div class='row' style='margin-bottom: 2%'>";
             }
             echo $col;
-            echo "<div class='card'>
+            echo "<div class='card' style='height: 100%'>
                 <div class='card-header'>
                     <h5 class='card-title'>" . $new['titre'] . "</h5>
                 </div>
@@ -77,30 +143,34 @@ function getHtmlListNews(){
                     <p class='card-text'>" . $body . "</p>
                 </div>
                 <div class='card-footer'>";
-            if (isset($_SESSION['USER'])){
-                echo "<div class='row'>
-                                <div class='col-md-4'>      
-                                    <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary'>Détails</a>
-                                </div>
-                                <div class='col-md-4'>
-                                    <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=1' class='btn btn-warning'>Modifier</a> 
-                                </div>
-                                <div class='col-md-4'>
-                                    <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=-1' class='btn btn-danger'>Supprimer</a>
-                                </div>
-                            </div>";
-            }else{
-                echo "<a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary'>Détails</a>";
+            if (isset($_SESSION['USER'])) {
+                if ($_SESSION['USER']['isAdmin']) {
+                    echo "<div class='row' style='margin: 2%'>
+                            <div class='col-md-4'>      
+                                <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary' style='width: 100%'>Détails</a>
+                            </div>
+                            <div class='col-md-4'>
+                                <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=1' class='btn btn-warning' style='width: 100%'>Modifier</a> 
+                            </div>
+                            <div class='col-md-4'>
+                                <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=-1' class='btn btn-danger' style='width: 100%'>Supprimer</a>
+                            </div>
+                        </div>";
+                } else {
+                    echo "<a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary' style='width: 50%'>Détails</a>";
+                }
+            } else {
+                echo "<a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=0' class='btn btn-primary' style='width: 50%'>Détails</a>";
             }
             echo "</div></div></div>";
-            if ($i == $limit){
+            if ($i == $limit) {
                 $i = 1;
                 echo $colFin;
-            }else{
+            } else {
                 $i++;
             }
         }
-    }else{
+    } else {
         echo "<h4>Pas de News :(</h4>";
     }
 }
@@ -156,11 +226,12 @@ function getHtmlTaille()
             $emplacements = getEmplacementBySize((int)$_POST['range']);
             if (!empty($emplacements)) {
                 echo "<table class='table'>
-                                    <tr><th scope='col'>Nom</th><th scope='col'>Type</th><th scope='col'>Adresse</th><th scope='col'>Taille</th>";
+                                    <tr><th scope='col'>Nom</th><th scope='col'>Type</th><th scope='col'>Adresse</th><th scope='col'>Taille</th><th scope='col'>Aperçu</th>";
                 if (isset($_SESSION['USER'])) {
-                    echo "<th scope='col'>Actions</th>";
+                    if ($_SESSION['USER']['isAdmin']) {
+                        echo "<th scope='col'>Actions</th></tr>";
+                    }
                 }
-                echo "</tr>";
                 getHtmlEmplacementTable($emplacements, 'size');
                 echo "</table>";
             } else {
@@ -224,14 +295,13 @@ function getHtmlPrix()
                         <div class='card-body'>";
             $emplacements = getEmplacementByPrice((int)$_POST['range']);
             if (!empty($emplacements)) {
-                echo "
-                            <center>
-                                <table class='table'>
-                                    <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Prix/semaine</th>";
+                echo "<table class='table'>
+                                    <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Prix/semaine</th><th scope='col'>Aperçu</th>";
                 if (isset($_SESSION['USER'])) {
-                    echo "<th scope='col'>Actions</th>";
+                    if ($_SESSION['USER']['isAdmin']) {
+                        echo "<th scope='col'>Actions</th>";
+                    }
                 }
-
 
                 echo "</tr>";
                 getHtmlEmplacementTable($emplacements, 'price');
@@ -252,7 +322,7 @@ function getHtmlAnnee()
     echo "
         <div class='card'>
             <div class='card-header'>
-                <h1>Année de construction</h1>
+                <h4>Année de construction</h4>
             </div>
             <div class='card-body'>
                 <form method='post'>    
@@ -342,12 +412,12 @@ function getHtmlAnnee()
                         </div>
                         <div class='card-body'>";
             if (!empty($emplacements)) {
-                echo "
-                            <center>
-                                <table class='table'>
-                                    <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Prix/semaine</th>";
+                echo "<table class='table'>
+                                    <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Date de construction</th><th scope='col'>Aperçu</th>";
                 if (isset($_SESSION['USER'])) {
-                    echo " <th scope='col'>Actions</th>";
+                    if ($_SESSION['USER']['isAdmin']) {
+                        echo " <th scope='col'>Actions</th>";
+                    }
                 }
                 echo "</tr>";
                 getHtmlEmplacementTable($emplacements, 'year');
@@ -368,17 +438,17 @@ function getHtmlPeriode()
 {
     echo "
         <div class='card'>
-                    <div class='card-headear'>
-                        <h1>Période</h1>
-                    </div>
-                    <div class='card-body'>
-                        <form method='post'>
-                            <fieldset>
-                                <div class='row'>
-                                    <div class='col-md-2'></div>
-                                    <div class='col-md-4'>
-                                        <div class='input-group mb-3'>
-                                            <span class='input-group-text'>Date début</span>";
+            <div class='card-headear'>
+                <h4>Période</h4>
+            </div>
+            <div class='card-body'>
+                <form method='post'>
+                    <fieldset>
+                        <div class='row'>
+                            <div class='col-md-2'></div>
+                            <div class='col-md-4'>
+                                <div class='input-group mb-3'>
+                                    <span class='input-group-text'>Date début</span>";
     $dateDeb = new DateTime('now', new DateTimeZone('Europe/Berlin'));
     $dateDeb = $dateDeb->format('Y-m-d H:i');
     echo "<input class='form-control' name='dateDeb' type='datetime-local' value='" . $dateDeb . "'>";
@@ -413,16 +483,18 @@ function getHtmlPeriode()
             echo "
                 <div class='card'>
                     <div class='card-header'>
-                        <h4></h4>
+                        <h4>" . $dateDeb . " - " . $dateFin . "</h4>
                     </div>
                     <div class='card-body'>";
             $emplacements = getEmplacementByPeriode($dateDeb, $dateFin);
             if (!empty($emplacements)) {
                 echo "<table class='table'>
                         <caption> Emplacement du " . $dateDeb . " - " . $dateFin . "</caption>
-                        <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Prix/semaine</th>";
+                        <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Prix/semaine</th><th scope='col'>Aperçu</th>";
                 if (isset($_SESSION['USER'])) {
-                    echo "<th scope='col'>Actions</th>";
+                    if ($_SESSION['USER']['isAdmin']) {
+                        echo "<th scope='col'>Actions</th>";
+                    }
                 }
                 echo "</tr>";
                 getHtmlEmplacementTable($emplacements, 'date');
@@ -434,9 +506,6 @@ function getHtmlPeriode()
                                 </div>  
                             </div>
                         ";
-            echo "</div>
-                </div>
-            ";
         }
     }
 }
@@ -454,7 +523,7 @@ function getHtmlType()
             </style>
             <div class='card'>
                 <div class='card-headear'>
-                    <h1>Consulter les emplacements par type </h1>
+                    <h4>Consulter les emplacements par type </h4>
                 </div>
                 <div class='card-body'>
                     <form method='post'>
@@ -481,18 +550,36 @@ function getHtmlType()
                                 <div class='col-md-5'></div>
                             </div>
                             <div class='row'>
-                                <div class='col-md-2'></div>
-                                <div class='col-md-4'>
-                                    <input class='btn btn-secondary' type='submit' id='submit' name='submit' value='Afficher'>
-                                </div>";
+                                <div class='col-md-4'></div>";
     if (isset($_SESSION['USER'])) {
-        echo "
-                                    <div class='col-md-4'>
+        if ($_SESSION['USER']['isAdmin']) {
+            echo "
+                                <div class='col-md-2'>
+                                    <input class='btn btn-secondary' type='submit' id='submit' name='submit' value='Afficher'>
+                                </div>
+                                    <div class='col-md-2'>
                                         <a href='./EmplacementDetail.php?maj=0&id=-1&edit=2'><input class='btn btn-info' id='ajouter' type='button' value='Ajouter'></a>
                                 </div>";
+        } else {
+            echo "
+            <div class='col-md-1'></div>
+            <div class='col-md-2'>
+                <input class='btn btn-secondary' type='submit' id='submit' name='submit' value='Afficher'>
+            </div>
+            <div class='col-md-1'></div>
+        ";
+        }
+    } else {
+        echo "
+            <div class='col-md-1'></div>
+            <div class='col-md-2'>
+                <input class='btn btn-secondary' type='submit' id='submit' name='submit' value='Afficher'>
+            </div>
+            <div class='col-md-1'></div>
+        ";
     }
     echo "
-                                <div class='col-md-2'></div>
+                                <div class='col-md-4'></div>
                             </div>
                         </fieldset>
                     </form>
@@ -502,31 +589,35 @@ function getHtmlType()
         if (isset($_POST['listType'])) {
             $typeId = $_POST['listType'];
             $typeName = getEmplacementNameById($typeId)['nomType'];
+            $emplacements = getEmplacementByIdType($typeId);
             echo "
-                            <div class='card'>
-                                <div class='card-header'>
-                                    <div class='row'>
-                                        <h4>" . $typeName . "</h4>
-                                    </div>
-                                </div>
-                                <div class='card-body'>
-                                    <table class='table'>
-                                        <caption> Emplacement du type " . $typeName . "</caption>
-                                        <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Année de Construction</th>";
-            if (isset($_SESSION['USER'])) {
-                echo "<th scope='col'>Actions</th>";
-            }
-            echo "</tr>";
-            $emplacements = getEmplacementById($typeId);
+            <div class='card'>
+                <div class='card-header'>
+                    <h4>" . $typeName . "</h4>
+                </div>
+                <div class='card-body'>";
             if (!empty($emplacements)) {
+                echo "
+                    <table class='table'>
+                        <caption> Emplacement du type " . $typeName . "</caption>
+                        <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Prix par semaine</th><th scope='col'>Aperçu</th>";
+                if (isset($_SESSION['USER'])) {
+                    if ($_SESSION['USER']['isAdmin']) {
+                        echo "<th scope='col'>Actions</th></tr>";
+                    }
+                }
+
                 getHtmlEmplacementTable($emplacements);
+                echo "</table>";
             } else {
-                echo "<tr><td>Aucun résultat</td></tr>";
+                echo "<p>Aucun résultat</p>";
             }
             echo "
-                                    </table></center>
-                                </div>
-                            </div>";
+                    </div>
+                </div>";
+            echo "</div>
+                </div>
+            ";
         }
     }
 }
@@ -554,27 +645,208 @@ function getHtmlEmplacementTable(array $emplacements, string $specify = '')
             <th scope='row'>" . $emplacement['Nom_Emplacement'] . "</th>
             <td>" . $type['nomType'] . "</td>
             <td>" . $emplacement['adresseEmpl'] . "</td>
-            <td>" . $emplacement[$specify] . $suffix . "</td>";
+            <td>" . $emplacement[$specify] . $suffix . "</td>
+            <td>";
         if (isset($_SESSION['USER'])) {
-            echo "
-            <td>
+            if ($_SESSION['USER']['isAdmin']) {
+                echo "
+ <div class='col-md-4'>
+                        <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=0'><img src='../../images/images/" . $emplacement['PathImage'] . "'></a>
+                    </div></td>
+                    <td>
                 <div class='row'>
-                    <div class='col-md-4'>
+                    <div class='col-md-6'>
                         <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=1'><input type='button' class='btn btn-warning' value='Modifier'></a>
                     </div>
-                    <div class='col-md-4'>
-                        <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=0'><input type='button' class='btn btn-info' value='Détails'></a>
-                    </div>
-                    <div class='col-md-4'>
+                    <div class='col-md-6'>
                         <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=3'><input type='button' class='btn btn-danger' value='Supprimer'></a>
                     </div>
                 </div>
-            </td>
+            ";
+            } else {
+                echo "
+                <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=0'><img src='../../images/images/" . $emplacement['PathImage'] . "'></a>
+            ";
+            }
+        } else {
+            echo "
+                <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=0'><img src='../../images/images/" . $emplacement['PathImage'] . "'></a>
             ";
         }
-        echo "</tr>
-                            ";
+        echo "
+            </td>
+        </tr>";
     }
+}
+
+function inscription(int $idUtilisateur = null, bool $coToUser = true)
+{
+    if (null !== $idUtilisateur) {
+        $user = getUserById($idUtilisateur);
+        $tel = $user['telephone'];
+        $email = $user['mail'];
+        $adresse = $user['adresse'];
+        $login = $user['login'];
+        $password = $user['password'];
+    } else {
+        $tel = '';
+        $email = '';
+        $adresse = '';
+        $login = '';
+        $password = '';
+    }
+    echo "
+    <div class='card'>
+        <div class='card-header'>
+            <h1>Incription</h1>
+        </div>
+        <div class='card-body'>
+        <form method='post'>
+            <fieldset>
+                <div class='row'>
+                    <div class='col-md-6'>
+                        <div class='input-group mb-3'>
+                            <span class='input-group-text'>Téléphone</span>
+                            <input class='form-control' name='telephone' type='number' value='" . $tel . "'>
+                        </div>
+                    </div>
+                    <div class='col-md-6'>
+                        <div class='input-group mb-3'>
+                            <span class='input-group-text'>Email</span>
+                            <input class='form-control' name='email' type='email' value='" . $email . "'>
+                        </div>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='input-group mb-3'>
+                        <span class='input-group-text'>Adresse</span>
+                        <input class='form-control' name='adresse' type='text' value='" . $adresse . "'>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-6'>
+                        <div class='input-group mb-3'>
+                            <span class='input-group-text'>Login</span>
+                            <input class='form-control' name='login' type='text' value='" . $login . "'>
+                        </div>
+                    </div>
+                    <div class='col-md-6'>
+                        <div class='input-group mb-3'>
+                            <span class='input-group-text'>Password</span>
+                            <input class='form-control' name='password' type='password' value='" . $password . "'>
+                        </div>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-5'></div>
+                    <div class='col-md-2'>
+                        <input class='btn btn-success' type='submit' name='submit' value='Enregistrer'>
+                    </div>
+                    <div class='col-md-5'></div>
+                </div>
+            </fieldset>
+        </form>
+        </div>
+    </div>
+    ";
+    if (isset($_POST['submit'])) {
+        if (
+            isset($_POST['telephone']) &&
+            isset($_POST['email']) &&
+            isset($_POST['adresse']) &&
+            isset($_POST['login']) &&
+            isset($_POST['password'])
+        ) {
+            if (null !== $idUtilisateur) {
+                updateUser($idUtilisateur, $_POST['login'], $_POST['password'], $_POST['adresse'], $_POST['email'], $_POST['telephone']);
+                $isAdmin = $_SESSION['USER']['isAdmin'];
+            } else {
+                registerUser($_POST['login'], $_POST['password'], $_POST['adresse'], $_POST['email'], $_POST['telephone']);
+                $isAdmin = false;
+            }
+            if ($coToUser) {
+                $user = getUser($_POST['login'], $_POST['password']);
+                $_SESSION['USER'] = [
+                    'id' => $user['id'],
+                    'login' => $user['login'],
+                    'isAdmin' => $isAdmin,
+                    'user' => $user
+                ];
+                echo "<script>
+                    location.href='http://88.208.226.189/app/views/Compte.php'
+                </script>";
+                die();
+            } else {
+                echo "<script>
+                    location.href='http://88.208.226.189/app/views/Utilisateurs.php?msg=up'
+                </script>";
+                die();
+            }
+        }
+    }
+}
+
+function connection()
+{
+    echo "
+    <div class='card'>
+        <div class='card-header'>
+            <h2>Connexion</h2>
+        </div>
+        <div class='card-body'>
+            <form method='post'>
+                <div class='row'>
+                    <p>Login : <input type='text' name='login'></p>
+                </div>
+                <div class='row'>
+                    <p>Password : <input type='password' name='password'></p>
+                </div>
+                <div class='row'>
+                    <div class='col-md-2'></div>
+                    <div class='col-md-4'>
+                        <input class='btn btn-success' type='submit' name='submit' value='Se connecter'>
+                    </div>
+                    <div class='col-md-4'>
+                        <a href='/app/views/Connexion.php?conn=0'><input class='btn btn-success' type='button' value='Incription'></a></div>
+                    </div>
+                    <div class='col-md-2'></div>
+                </div>
+            </form>
+        </div>";
+    if (isset($_POST['submit'])) {
+        if (isset($_POST['login']) && isset($_POST['password'])) {
+            $login = $_POST['login'];
+            $password = $_POST['password'];
+            $user = getUser($login, $password);
+            if (null !== $user) {
+                $isAdmin = isAdmin($user);
+                unset($_SESSION['ERROR']);
+                if ($isAdmin) {
+                    $_SESSION['USER'] = [
+                        'id' => $user['id'],
+                        'login' => $user['login'],
+                        'isAdmin' => true,
+                        'user' => $user
+                    ];
+                } else {
+                    $_SESSION['USER'] = [
+                        'id' => $user['id'],
+                        'login' => $user['login'],
+                        'isAdmin' => false,
+                        'user' => $user
+                    ];
+                }
+                header('location: http://88.208.226.189/index.php');
+                die();
+            } else {
+                echo "<p style='background-color: red'>Utilisateur inconnu</p>";
+                $_SESSION['ERROR'] = 'Inconnu';
+            }
+        } else {
+            echo "<p style='background-color: red'>Remplissez les champs nécéssaires</p>";
+        }
+    }
+    echo "</div>";
 }
 
 ?>

@@ -44,7 +44,7 @@ require('./../base/HtmlFunctions.php');
 <body>
 <?php include("./../../include/header.php"); ?>
 <div class="wrapper">
-    <?php include("./../../include/menus.php");?>
+    <?php include("./../../include/menus.php"); ?>
     <section id="content">
         <div class="card">
             <div class="card-header">
@@ -52,56 +52,82 @@ require('./../base/HtmlFunctions.php');
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class='col-md-2'></div>
-                    <div class='col-md-3'>
+                    <div class='col-md-3'></div>
+                    <div class='col-md-2'>
                         <a class="btn btn-secondary" href="ConsultEmplacement.php?c=1" role="button">Type</a>
                     </div>
                     <div class="col-md-2"></div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <a class="btn btn-secondary" href="ConsultEmplacement.php?c=2" role="button">Période</a>
                     </div>
-                    <div class="col-md-2"></div>
+                    <div class="col-md-3"></div>
                 </div>
                 <div class="row">
-                    <div class='col-md-2'></div>
-                    <div class='col-md-3'>
-                        <a class="btn btn-secondary" href="ConsultEmplacement.php?c=3" role="button">Année de
-                            construction</a>
+                    <div class='col-md-3'></div>
+                    <div class='col-md-2'>
+                        <a class="btn btn-secondary" href="ConsultEmplacement.php?c=3" role="button">Année</a>
                     </div>
                     <div class="col-md-2"></div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <a class="btn btn-secondary" href="ConsultEmplacement.php?c=4" role="button">Prix</a>
                     </div>
-                    <div class="col-md-2"></div>
+                    <div class="col-md-3"></div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-2">
                         <a class="btn btn-secondary" href="ConsultEmplacement.php?c=5" role="button">Taille</a>
                     </div>
-                    <div class="col-md-4"></div>
+                    <div class="col-md-5"></div>
                 </div>
 
             </div>
         </div>
         <?php
+        if (isset($_GET['c'])) {
+            switch ($_GET['c']) {
+                case "1":
+                    getHtmlType();
+                    break;
+                case "2":
+                    getHtmlPeriode();
+                    break;
+                case "3":
+                    getHtmlAnnee();
+                    break;
+                case "4":
+                    getHtmlPrix();
+                    break;
+                case "5":
+                    getHtmlTaille();
+                    break;
+            }
+        } else {
+            echo "
+            <div class='card'>
+                <div class='card-header'>
+                    <h4>Tous les emplacements</h4>
+                </div>
+                <div class='card-body'>";
+            $emplacements = getAllEmplacements();
+            if (!empty($emplacements)) {
+                echo "
+                    <table class='table'>
+                        <tr><th scope='col'>Nom</th><th scope='col'>Type</th><th scope='col'>Adresse</th><th scope='col'>Prix par semaine</th><th scope='col'>Aperçu</th>";
+                if (isset($_SESSION['USER'])) {
+                    if ($_SESSION['USER']['isAdmin']) {
+                        echo"<th scope='col'>Actions</th></tr>";
 
-        switch ($_GET['c']){
-            case "1":
-                getHtmlType();
-                break;
-            case "2":
-                getHtmlPeriode();
-                break;
-            case "3":
-                getHtmlAnnee();
-                break;
-            case "4":
-                getHtmlPrix();
-                break;
-            case "5":
-                getHtmlTaille();
-                break;
+                    }
+                }
+                getHtmlEmplacementTable($emplacements);
+                echo "</table>";
+            } else {
+                echo "<p>Aucun emplacements</p>";
+            }
+            echo "</div>
+                    </div>
+                    ";
         }
         ?>
     </section>

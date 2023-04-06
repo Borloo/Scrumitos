@@ -1,7 +1,9 @@
 <?php
-$emplacement_id = isset($_GET['emplacement_id']) ? $_GET['emplacement_id'] : '';
+$emplacement_id = $_GET['emplacement_id'] ?? '';
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
+
+include("../base/HtmlFunctions.php");
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +19,7 @@ ini_set('display_errors', 'on');
 <?php
 include("./../../include/menus.php");
 ?>
-<form action="inscription.php" method="post">
+<form method="post">
     <input type="hidden" name="emplacement_id" value="<?php echo $emplacement_id; ?>">
     <label for="username">Nom:</label>
     <input type="text" id="username" name="username" required><br>
@@ -29,16 +31,20 @@ include("./../../include/menus.php");
     <input type="password" id="password" name="password" required><br>
     <label for="telephone">Téléphone:</label>
     <input type="text" id="telephone" name="telephone" required><br>
-    <a class="btn btn-primary" href="../Connexion.php" role="button" name='submit'>S'inscrire</a>
-    <?php
-    if (isset($_POST['submit'])){
-               registerUser($_POST['username'], $_POST['password'], $_POST['adresse'], $_POST['email'], $_POST['telephone']);
+    <input class='btn btn-success' type="submit" role="button" name='submit' value="S'inscrire"/>
 
-
-    }
-
-    ?>
 </form>
+<?php
+if (isset($_POST['submit'])){
+echo "Formulaire soumis";
+
+
+registerUser($_POST['username'], $_POST['password'], $_POST['adresse'], $_POST['email'], $_POST['telephone']);
+
+
+}
+
+?>
 <?php include("./../../include/footer.php"); ?>
 </body>
 </html>
