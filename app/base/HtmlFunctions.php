@@ -646,7 +646,7 @@ function getHtmlEmplacementTable(array $emplacements, string $specify = '')
             <td>" . $type['nomType'] . "</td>
             <td>" . $emplacement['adresseEmpl'] . "</td>
             <td>" . $emplacement[$specify] . $suffix . "</td>
-            <td><img src='/uploads/images/" . $emplacement['PathImage'] . "' alt='Photo emplacement' width='200px' height='200px'/></td>
+            <td><a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=0'><img src='/uploads/images/" . $emplacement['PathImage'] . "' alt='Photo emplacement' width='200px' height='200px'/></a></td>
             <td>";
         if (isset($_SESSION['USER'])) {
             if ($_SESSION['USER']['isAdmin']) {
@@ -859,7 +859,7 @@ function getAnnee(){
 
 function archivage(string $lastYear){
     $conn = getBDConnexion();
-    $sql = "delete from location where YEAR(dateFin) = '$lastYear'";
+    $sql = "delete from Location where YEAR(dateFin) = '$lastYear'";
     $query = $conn->prepare($sql);
     $query->execute();
     return $query->fetchAll();
