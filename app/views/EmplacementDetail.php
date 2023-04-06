@@ -213,12 +213,14 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                         <div class='col-md-2'>
                             <input class='btn btn-success' type='submit' name='submit' value='Sauvegarder'>
                         </div>";
-                    if ($_SESSION['USER'] != "ADMIN") {
-                        echo "
+                    if (isset($_SESSION['USER'])){
+                        if ($_SESSION['USER'] != "ADMIN") {
+                            echo "
                         <div class='col-md-2'>
                             <a href='Locations.php?new=1&id=" . $_GET['id'] . "&user=" . $userId . "'><input class='btn btn-info' type='button' value='Louer'></a>
                         </div>
                         ";
+                        }
                     }
                 } else {
                     if ($_SESSION['USER'] != "ADMIN") {
