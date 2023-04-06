@@ -35,7 +35,10 @@ require('./../base/HtmlFunctions.php');
                                         echo "<option value='" . $year['YEAR(dateFin)'] . "'>" . $year['YEAR(dateFin)'] . "</option>";
 
                                     }else{
-                                        echo "<option value='Aucune année à archiver'></option>";
+                                        array_push($text, "Aucune année à archiver");
+                                        foreach ($text as $t){
+                                            echo "<option value='" . $t. "'>" . $t . "</option>";
+                                        }
                                     }
 
                                 }
