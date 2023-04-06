@@ -18,17 +18,12 @@ body {
     background-color: var(--light-blue);
 }
 
-#camping {
-    font-weight: bold;
-}
-
 #camping:hover {
-    color: var(--light-blue);
+    color: var(--dark-blue);
 }
 
 h1 {
     color: var(--blue-medium);
-    font-weight: bold;
 }
 
 .globalHeader {
