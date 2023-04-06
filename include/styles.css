@@ -20,6 +20,7 @@ body {
 
 #camping:hover {
     font-weight: bold;
+    color: var(--light-blue);
 }
 
 h1 {
