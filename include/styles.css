@@ -2,7 +2,8 @@
     margin: 0;
     padding: 0;
     --dark-blue: #05668d;
-    --blue: #427aa1;
+    --blue-medium: #427aa1;
+    --blue: #dae6f5;
     --light-blue: #ebf2fa;
     --dark-green: #679436;
     --light-green: #a5be00;
@@ -16,11 +17,11 @@ body {
 }
 
 h1 {
-    color: var(--blue);
+    color: var(--blue-medium);
 }
 
 .globalHeader {
-    background-color: var(--dark-blue);
+    background-color: var(--blue-medium);
 }
 
 .globalHeader a {
@@ -59,7 +60,7 @@ h1 {
 .sidebar a:focus {
     color: #222;
     text-decoration: none;
-    background: #f9f9f9;
+    background: #dae6f5;
 }
 
 section {
