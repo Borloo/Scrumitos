@@ -525,6 +525,7 @@ function updateUser(
     int   $id,
     string $username,
     string $password,
+    string $roles,
     string $adresse,
     string $email,
     string $tel
@@ -532,17 +533,23 @@ function updateUser(
 {
     $conn = getBDConnexion();
     $sql = "UPDATE Utilisateur SET
+            login = :login,
+            password = :password,
+            roles = :roles,
             adresse = :adresse,
-            mail = :mail,
+            mail = :email,
             telephone = :telephone
             WHERE id = :id
            ";
     $query = $conn->prepare($sql);
     $query->execute([
+        'login' => $username,
+        'password' => $password,
+        'roles' => $roles,
         'adresse' => $adresse,
-        'mail' => $mail,
-        'telephone' => $telephone,
-        'id' => $id,
+        'email' => $email,
+        'telephone' => $tel,
+        'id' => $id
     ]);
     print_r($query->errorInfo());
 }

@@ -758,7 +758,11 @@ function inscription(int $idUtilisateur = null, bool $coToUser = true)
             isset($_POST['password'])
         ) {
             if (null !== $idUtilisateur) {
-                updateUser($idUtilisateur, $_POST['login'], $_POST['password'], $_POST['adresse'], $_POST['email'], $_POST['telephone']);
+                $role = 'USER';
+                if ($_SESSION['USER']['isAdmin'] == "1"){
+                    $role = 'ADMIN';
+                }
+                updateUser($idUtilisateur, $_POST['login'], $_POST['password'], $role, $_POST['adresse'], $_POST['email'], $_POST['telephone']);
                 $isAdmin = $_SESSION['USER']['isAdmin'];
             } else {
                 registerUser($_POST['login'], $_POST['password'], $_POST['adresse'], $_POST['email'], $_POST['telephone']);
