@@ -216,7 +216,7 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                     if ($_SESSION['USER'] != "ADMIN") {
                         echo "
                         <div class='col-md-2'>
-                            <a href='Locations.php?new=1&id=" . $_GET['id'] . "&user=" . $userId . "'><input class='btn btn-info' type='button' value=''></a>
+                            <a href='Locations.php?new=1&id=" . $_GET['id'] . "&user=" . $userId . "'><input class='btn btn-info' type='button' value='Louer'></a>
                         </div>
                         ";
                     }
