@@ -58,6 +58,11 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                                     ";
                 }
                 echo "<div class='card-body'>
+                            <div class='row'>
+                                <div class='col-md-3'></div>
+                                <div class='col-md-6'></div>
+                                <div class='col-md-3'></div>
+</div>
                                 <form method='post' enctype='multipart/form-data'>
                                     <div class='row'>
                                         <div class='col-md-6'>
@@ -269,13 +274,8 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                                             location.href='http://88.208.226.189/app/views/ConsultType.php?add=1'
                                         </script>";
                                         die();
-                                    }else{
-                                        $target_dir = "/var/www/html/uploads/images/";
-                                        $target_file = $target_dir . basename($image['name']);
-                            die();
-                        } else {
-                            echo __DIR__;
-                            $target_dir = __DIR__ . "/../uploads/images/";
+                        }else{
+                            $target_dir = "/var/www/html/uploads/images/";
                             $target_file = $target_dir . basename($image['name']);
 
                             // Vérifiez et déplacez l'image téléchargée
@@ -285,10 +285,10 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                                 echo "Sorry, there was an error uploading your file.";
                             }
                             updateEmplacement((string)$_GET['id'], $name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options, $image['name']);
-//                                        echo "<script>
-//                                            location.href='http://88.208.226.189/app/views/EmplacementDetail.php?edit=1&maj=1&id=' + $id
-//                                        </script>";
-//                                        die();
+                            echo "<script>
+                                location.href='http://88.208.226.189/app/views/EmplacementDetail.php?edit=1&maj=1&id=' + $id
+                            </script>";
+                            die();
                         }
                     }
                 }
