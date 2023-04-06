@@ -11,7 +11,7 @@
 html, body {
 	height: 100%;
 	font-family: sans-serif;
-	background-color: var(--light-blue);
+	background-color: var(--light-green);
 }
 
 .globalHeader {
