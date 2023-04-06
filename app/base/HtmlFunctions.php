@@ -153,7 +153,7 @@ function getHtmlListNews()
                                 <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=1' class='btn btn-warning' style='width: 100%'>Modifier</a> 
                             </div>
                             <div class='col-md-4'>
-                                <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=-1'  style='width: 100%'><i class='fa-solid fa-trash'></i></a>
+                                <a href='./../views/NewsDetail.php?id=" . $new['id'] . "&edit=-1'  style='width: 100%; color:red;'><i class='fa-solid fa-trash'></i></a>
                             </div>
                         </div>";
                 } else {
