@@ -25,15 +25,14 @@ require('./../base/HtmlFunctions.php');
                         <div class='col-md-5'></div>
                         <div class='col-md-2'>
                             <div class='input-group mb-3'>
-                                <span class='input-group-text' id='basic-addon2'>Type</span>
+                                <span class='input-group-text' id='basic-addon2'>Année</span>
                                 <select class='form-select' required name='listYear'>";
-                                $year = getMinYear();
-                                $todayYear = new DateTime('now', new DateTimeZone('Europe/Berlin'));
-                                $todayYear = $todayYear->format('Y');
-                                for ($i = (int)$todayYear; $i < (int)$year; $i--){
-                                    echo "<option value='" . $i . "'>" . ($i) . "</option>";
+                                $years = getAnnee();
+                                foreach ($years as $year){
+                                    echo "<option value='" . $year . "'>". ($year) . "</option>";
                                 }
                                 echo "
+                                
                                 </select>
                             </div>
                         </div>

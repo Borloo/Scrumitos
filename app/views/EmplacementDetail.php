@@ -63,7 +63,7 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                                 <div class='row' style='margin-bottom: 1%'>
                                     <div class='col-md-3'></div>
                                     <div class='col-md-6'>
-                                        <img src='/uploads/images/" . $image . "'>
+                                        <img src='/uploads/images/" . $image . "' height='300' width='300' alt='image emplacement'>
                                     </div>
                                     <div class='col-md-3'></div>
                                 </div>
@@ -211,7 +211,6 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                                             </div>
                                         </div>
                                     </div>
-                                   <div class='m-3'><img src='../../images/images/$image'></div> 
                                     <div class='row'>
                                         <div class='col-md-4'></div>";
                 if (isset($_SESSION['USER'])) {
