@@ -275,8 +275,7 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                                         </script>";
                                         die();
                                     }else{
-                                        echo __DIR__;
-                                        $target_dir = __DIR__ . "/../uploads/images/";
+                                        $target_dir = "/var/www/html/uploads/images/";
                                         $target_file = $target_dir . basename($image['name']);
 
                             // Vérifiez et déplacez l'image téléchargée
