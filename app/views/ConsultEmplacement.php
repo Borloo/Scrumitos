@@ -117,6 +117,7 @@ require('./../base/HtmlFunctions.php');
                 if (isset($_SESSION['USER'])) {
                     if ($_SESSION['USER'] == 'ADMIN') {
                         echo"<th scope='col'>Actions</th></tr>";
+                        var_dump($_SESSION);
                     }
                 }
                 getHtmlEmplacementTable($emplacements);
