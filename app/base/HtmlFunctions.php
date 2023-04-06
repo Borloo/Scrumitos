@@ -849,4 +849,12 @@ function connection()
     echo "</div>";
 }
 
+function getAnnee(){
+    $conn = getBDConnexion();
+    $sql = "select distinct YEAR(dateFin) from Location WHERE YEAR(dateFin) = YEAR(CURDATE()) - 1";
+    $query = $conn->prepare($sql);
+    $query->execute();
+    return $query->fetchAll();
+}
+
 ?>
