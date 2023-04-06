@@ -19,7 +19,7 @@ body {
 }
 
 #camping:hover {
-    color: var(--dark-blue);
+    font-weight: bold;
 }
 
 h1 {
