@@ -15,7 +15,7 @@ html,
 body {
     height: 100%;
     font-family: sans-serif;
-    background-color: hotpink;
+    background-color: var(--light-blue);
 }
 
 #camping:hover {
@@ -27,7 +27,7 @@ h1 {
     color: var(--blue-medium);
 }
 
-img {
+#imgKekra {
     max-height: 100px;
     max-width: 100px;
 }
