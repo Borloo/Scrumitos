@@ -295,9 +295,7 @@ function getHtmlPrix()
                         <div class='card-body'>";
             $emplacements = getEmplacementByPrice((int)$_POST['range']);
             if (!empty($emplacements)) {
-                echo "
-                            <center>
-                                <table class='table'>
+                echo "<table class='table'>
                                     <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Prix/semaine</th><th scope='col'>Aperçu</th>";
                 if (isset($_SESSION['USER'])) {
                     if ($_SESSION['USER']['isAdmin']) {
