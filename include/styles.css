@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +9,8 @@
     --light-blue: #ebf2fa;
     --dark-green: #679436;
     --light-green: #a5be00;
+
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 html,
@@ -44,7 +48,7 @@ h1 {
     display: table-cell;
     width: 220px;
     background-color: var(--light-blue);
-    border-right: 3px solid #ececec;
+    border-right: 3px solid var(--blue);
 }
 
 .sidebar a {
