@@ -29,11 +29,15 @@ require('./../base/HtmlFunctions.php');
                                 <form method='POST'>
                                 <select class='form-select' required name='listYear'>";
                                 $years = getAnnee();
+                                $text = [];
                                 foreach ($years as $year){
-                                    if($year['YEAR(dateFin)']==null){
+                                    if($year['YEAR(dateFin)'] == $_POST['listYear']){
+                                        echo "<option value='" . $year['YEAR(dateFin)'] . "'>" . $year['YEAR(dateFin)'] . "</option>";
+
+                                    }else{
                                         echo "<option value='Aucune année à archiver'></option>";
                                     }
-                                    echo "<option value='" . $year['YEAR(dateFin)'] . "'>" . $year['YEAR(dateFin)'] . "</option>";
+
                                 }
                                 echo "
                                 
