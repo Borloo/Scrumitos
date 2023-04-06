@@ -7,8 +7,6 @@
     --blue-medium: #427aa1;
     --blue: #dae6f5;
     --light-blue: #ebf2fa;
-    --dark-green: #679436;
-    --light-green: #a5be00;
 
     font-family: 'Nunito Sans', sans-serif;
 }
@@ -20,8 +18,17 @@ body {
     background-color: var(--light-blue);
 }
 
+#camping {
+    font-weight: bold;
+}
+
+#camping:hover {
+    color: var(--light-blue);
+}
+
 h1 {
     color: var(--blue-medium);
+    font-weight: bold;
 }
 
 .globalHeader {
