@@ -29,18 +29,8 @@ require('./../base/HtmlFunctions.php');
                                 <form method='POST'>
                                 <select class='form-select' required name='listYear'>";
                                 $years = getAnnee();
-                                $text = [];
                                 foreach ($years as $year){
-                                    if($year['YEAR(dateFin)'] == $_POST['listYear']){
-                                        echo "<option value='" . $year['YEAR(dateFin)'] . "'>" . $year['YEAR(dateFin)'] . "</option>";
-
-                                    }else{
-                                        array_push($text, "Aucune année à archiver");
-                                        foreach ($text as $t){
-                                            echo "<option value='" . $t. "'>" . $t . "</option>";
-                                        }
-                                    }
-
+                                    echo "<option value='" . $year['YEAR(dateFin)'] . "'>" . $year['YEAR(dateFin)'] . "</option>";
                                 }
                                 echo "
                                 
@@ -63,15 +53,10 @@ require('./../base/HtmlFunctions.php');
 
                 if (isset($_POST['listYear'])) {
 
-                    if($_POST['listYear'] == null){
-                        echo '<p>Aucune année à archiver</p>';
-                    }
-                    else {
-                        $selectedYear = $_POST['listYear'];
-                        archivage($selectedYear);
+                    $selectedYear = $_POST['listYear'];
+                    archivage($selectedYear);
 
-                        echo '<p> Année ' . $selectedYear . ' archivée';
-                    }
+                    echo '<p> Année ' . $selectedYear . ' archivée';
                 }
 
                 ?>
