@@ -226,13 +226,12 @@ function getHtmlTaille()
             $emplacements = getEmplacementBySize((int)$_POST['range']);
             if (!empty($emplacements)) {
                 echo "<table class='table'>
-                                    <tr><th scope='col'>Nom</th><th scope='col'>Type</th><th scope='col'>Adresse</th><th scope='col'>Taille</th>";
+                                    <tr><th scope='col'>Nom</th><th scope='col'>Type</th><th scope='col'>Adresse</th><th scope='col'>Taille</th><th scope='col'>Aperçu</th>";
                 if (isset($_SESSION['USER'])) {
                     if ($_SESSION['USER']['isAdmin'] == 1) {
-                        echo "<th scope='col'>Actions</th>";
+                        echo "<th scope='col'>Actions</th></tr>";
                     }
                 }
-                echo "</tr>";
                 getHtmlEmplacementTable($emplacements, 'size');
                 echo "</table>";
             } else {
