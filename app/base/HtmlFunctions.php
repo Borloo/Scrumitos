@@ -653,7 +653,7 @@ function getHtmlEmplacementTable(array $emplacements, string $specify = '')
                         <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=1'><input type='button' class='btn btn-warning' value='Modifier'></a>
                     </div>
                     <div class='col-md-4'>
-                        <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=0'><img src='../../images/images/" . $emplacement[PathImage] . "'></a>
+                        <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=0'><img src='../../images/images/" . $emplacement['PathImage'] . "'></a>
                     </div>
                     <div class='col-md-4'>
                         <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=3'><input type='button' class='btn btn-danger' value='Supprimer'></a>
