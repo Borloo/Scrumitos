@@ -606,26 +606,24 @@ function getHtmlType()
                         <caption> Emplacement du type " . $typeName . "</caption>
                         <tr><th scope='col'>Nom de l'emplacement</th><th scope='col'>Type de l'emplacement</th><th scope='col'>Adresse Emplacement</th><th scope='col'>Prix par semaine</th><th scope='col'>Aperçu</th>";
                 if (isset($_SESSION['USER'])) {
-                    if ($_SESSION['USER'] == 'ADMIN') {
+                    if ($_SESSION['USER']) {
                         echo "<th scope='col'>Actions</th></tr>";
                     }
                 }
-            }
-        }
 
-        getHtmlEmplacementTable($emplacements);
-        echo "</table>";
-    } else {
-        echo "<p>Aucun résultat</p>";
-    }
-    echo "
+                getHtmlEmplacementTable($emplacements);
+                echo "</table>";
+            } else {
+                echo "<p>Aucun résultat</p>";
+            }
+            echo "
                     </div>
                 </div>";
-    echo "</div>
+            echo "</div>
                 </div>
             ";
-}
-}
+        }
+    }
 }
 
 function getHtmlEmplacementTable(array $emplacements, string $specify = '')
