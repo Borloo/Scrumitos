@@ -213,7 +213,7 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                         <div class='col-md-2'>
                             <input class='btn btn-success' type='submit' name='submit' value='Sauvegarder'>
                         </div>";
-                    if (isset($_SESSION['USER'])){
+                    if (isset($_SESSION['USER'])) {
                         if ($_SESSION['USER'] != "ADMIN") {
                             echo "
                         <div class='col-md-2'>
@@ -223,65 +223,67 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                         }
                     }
                 } else {
-                    if (!($_SESSION['USER']['isAdmin'])) {
-                        echo "
+                    if (isset($_SESSION['USER'])) {
+                        if (!($_SESSION['USER']['isAdmin'])) {
+                            echo "
                         <div class='col-md-1'></div>
                         <div class='col-md-2'>
                             <a href='Locations.php?new=1&id=" . $_GET['id'] . "&user=" . $userId . "'><input class='btn btn-info' type='button' value='Louer'></a>
                         </div>
                         <div class='col-md-1'></div>
                         ";
+                        }
                     }
                 }
                 echo "
                                     <div class='col-md-4'></div>
                             </div>
                         </form>";
-                            if (isset($_POST['submit'])){
-                                if (
-                                    isset($_POST['name']) &&
-                                    isset($_POST['listType']) &&
-                                    isset($_POST['adresse']) &&
-                                    isset($_POST['annee']) &&
-                                    isset($_POST['taille']) &&
-                                    isset($_POST['maxPersonne']) &&
-                                    isset($_POST['dateDeb']) &&
-                                    isset($_POST['dateFin']) &&
-                                    isset($_POST['prixSemaine']) &&
-                                    isset($_POST['prixAnnee'])
-                                ){
-                                    $name = $_POST['name'];
-                                    $type = getTypeByName($_POST['listType'])['idType'];
-                                    $adresse = $_POST['adresse'];
-                                    $annee = $_POST['annee'];
-                                    $taille = $_POST['taille'];
-                                    $maxPersonne = $_POST['maxPersonne'];
-                                    $dateDeb = new DateTime($_POST['dateDeb']);
-                                    $dateFin = new DateTime($_POST['dateFin']);
-                                    $prixSemaine = $_POST['prixSemaine'];
-                                    $prixAnnee = $_POST['prixAnnee'];
-                                    $options = $_POST['options'];
-                                    $image = $_FILES['image'];
-                                    $id = $_GET['id'];
-                                    print_r($image);
-                                    if ("-1" == $id){
-                                        addEmplacement($name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options, $image['name']);
-                                        echo "<script>
+                if (isset($_POST['submit'])) {
+                    if (
+                        isset($_POST['name']) &&
+                        isset($_POST['listType']) &&
+                        isset($_POST['adresse']) &&
+                        isset($_POST['annee']) &&
+                        isset($_POST['taille']) &&
+                        isset($_POST['maxPersonne']) &&
+                        isset($_POST['dateDeb']) &&
+                        isset($_POST['dateFin']) &&
+                        isset($_POST['prixSemaine']) &&
+                        isset($_POST['prixAnnee'])
+                    ) {
+                        $name = $_POST['name'];
+                        $type = getTypeByName($_POST['listType'])['idType'];
+                        $adresse = $_POST['adresse'];
+                        $annee = $_POST['annee'];
+                        $taille = $_POST['taille'];
+                        $maxPersonne = $_POST['maxPersonne'];
+                        $dateDeb = new DateTime($_POST['dateDeb']);
+                        $dateFin = new DateTime($_POST['dateFin']);
+                        $prixSemaine = $_POST['prixSemaine'];
+                        $prixAnnee = $_POST['prixAnnee'];
+                        $options = $_POST['options'];
+                        $image = $_FILES['image'];
+                        $id = $_GET['id'];
+                        print_r($image);
+                        if ("-1" == $id) {
+                            addEmplacement($name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options, $image['name']);
+                            echo "<script>
                                             location.href='http://88.208.226.189/app/views/ConsultType.php?add=1'
                                         </script>";
-                                        die();
-                                    }else{
-                                        echo __DIR__;
-                                        $target_dir = __DIR__ . "/../../uploads/images/";
-                                        $target_file = $target_dir . basename($image['name']);
+                            die();
+                        } else {
+                            echo __DIR__;
+                            $target_dir = __DIR__ . "/../../uploads/images/";
+                            $target_file = $target_dir . basename($image['name']);
 
-                                        // Vérifiez et déplacez l'image téléchargée
-                                        if (move_uploaded_file($image["tmp_name"], $target_file)) {
-                                            echo "The file " . htmlspecialchars(basename($image['name'])) . " has been uploaded.";
-                                        } else {
-                                            echo "Sorry, there was an error uploading your file.";
-                                        }
-                                        updateEmplacement((string)$_GET['id'], $name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options, $image['name']);
+                            // Vérifiez et déplacez l'image téléchargée
+                            if (move_uploaded_file($image["tmp_name"], $target_file)) {
+                                echo "The file " . htmlspecialchars(basename($image['name'])) . " has been uploaded.";
+                            } else {
+                                echo "Sorry, there was an error uploading your file.";
+                            }
+                            updateEmplacement((string)$_GET['id'], $name, $type, $adresse, (int)$annee, $taille, (int)$maxPersonne, $dateDeb, $dateFin, $prixSemaine, $prixAnnee, $options, $image['name']);
 //                                        echo "<script>
 //                                            location.href='http://88.208.226.189/app/views/EmplacementDetail.php?edit=1&maj=1&id=' + $id
 //                                        </script>";
