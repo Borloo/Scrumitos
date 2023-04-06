@@ -223,7 +223,7 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                         }
                     }
                 } else {
-                    if ($_SESSION['USER'] != "ADMIN") {
+                    if (!($_SESSION['USER']['isAdmin'])) {
                         echo "
                         <div class='col-md-1'></div>
                         <div class='col-md-2'>
