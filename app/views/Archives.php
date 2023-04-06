@@ -25,7 +25,7 @@ require('./../base/HtmlFunctions.php');
                         <div class='col-md-5'></div>
                         <div class='col-md-2'>
                             <div class='input-group mb-3'>
-                                <span class='input-group-text' id='basic-addon2'>Année</span>
+                                <div class='card-header'>Année</div>
                                 <form method='POST'>
                                 <select class='form-select' required name='listYear'>";
                                 $years = getAnnee();
