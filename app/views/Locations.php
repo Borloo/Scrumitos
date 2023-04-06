@@ -7,7 +7,7 @@ if (isset($_GET['user'])){
     if ($_GET['user'] == '-1'){
         echo "
         <script>
-            location.href='Connexion.php?conn=0'
+            location.href='Connexion.php?conn=1'
         </script>";
         die();
     }
