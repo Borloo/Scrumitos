@@ -116,7 +116,7 @@ require('./../base/HtmlFunctions.php');
                         <tr><th scope='col'>Nom</th><th scope='col'>Type</th><th scope='col'>Adresse</th><th scope='col'>Prix par semaine</th><th scope='col'>Aperçu</th>";
                 var_dump($_SESSION['USER']);
                 if (isset($_SESSION['USER'])) {
-                    if ($_SESSION['USER'] == 'ADMIN') {
+                    if ($_SESSION['USER']['isAdmin']) {
                         echo"<th scope='col'>Actions</th></tr>";
 
                     }
