@@ -28,15 +28,7 @@ require('./../base/HtmlFunctions.php');
         }
 
         .btn {
-            width: 100%;
-        }
 
-        .row {
-            margin: 2%;
-        }
-
-        .card {
-            margin-bottom: 2%;
         }
     </style>
 </head>
@@ -46,37 +38,37 @@ require('./../base/HtmlFunctions.php');
 <div class="wrapper">
     <?php include("./../../include/menus.php"); ?>
     <section id="content">
-        <div class="card">
+        <div class="card" style="margin-bottom: 2%">
             <div class="card-header">
                 <h1>Recherche d'emplacements par :</h1>
             </div>
             <div class="card-body">
-                <div class="row">
+                <div class="row" style="margin: 2%;">
                     <div class='col-md-3'></div>
                     <div class='col-md-2'>
-                        <a class="btn btn-secondary" href="ConsultEmplacement.php?c=1" role="button">Type</a>
+                        <a class="btn btn-secondary" href="ConsultEmplacement.php?c=1" role="button" style="width: 100%;">Type</a>
                     </div>
                     <div class="col-md-2"></div>
                     <div class="col-md-2">
-                        <a class="btn btn-secondary" href="ConsultEmplacement.php?c=2" role="button">Période</a>
+                        <a class="btn btn-secondary" href="ConsultEmplacement.php?c=2" role="button" style="width: 100%;">Période</a>
                     </div>
                     <div class="col-md-3"></div>
                 </div>
-                <div class="row">
+                <div class="row" style="margin: 2%;">
                     <div class='col-md-3'></div>
                     <div class='col-md-2'>
-                        <a class="btn btn-secondary" href="ConsultEmplacement.php?c=3" role="button">Année</a>
+                        <a class="btn btn-secondary" href="ConsultEmplacement.php?c=3" role="button" style="width: 100%;">Année</a>
                     </div>
                     <div class="col-md-2"></div>
                     <div class="col-md-2">
-                        <a class="btn btn-secondary" href="ConsultEmplacement.php?c=4" role="button">Prix</a>
+                        <a class="btn btn-secondary" href="ConsultEmplacement.php?c=4" role="button" style="width: 100%;">Prix</a>
                     </div>
                     <div class="col-md-3"></div>
                 </div>
-                <div class="row">
+                <div class="row" style="margin: 2%;">
                     <div class="col-md-5"></div>
                     <div class="col-md-2">
-                        <a class="btn btn-secondary" href="ConsultEmplacement.php?c=5" role="button">Taille</a>
+                        <a class="btn btn-secondary" href="ConsultEmplacement.php?c=5" role="button" style="width: 100%;">Taille</a>
                     </div>
                     <div class="col-md-5"></div>
                 </div>

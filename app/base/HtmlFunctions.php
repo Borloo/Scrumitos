@@ -646,6 +646,7 @@ function getHtmlEmplacementTable(array $emplacements, string $specify = '')
             <td>" . $type['nomType'] . "</td>
             <td>" . $emplacement['adresseEmpl'] . "</td>
             <td>" . $emplacement[$specify] . $suffix . "</td>
+            <td><img src='/uploads/images/" . $emplacement['PathImage'] . "' alt='Photo emplacement' width='200px' height='200px'/></td>
             <td>";
         if (isset($_SESSION['USER'])) {
             if ($_SESSION['USER']['isAdmin']) {
