@@ -57,13 +57,19 @@ $emplacement = getOneEmplacementById((int)$_GET['id']);
                                     </div>
                                     ";
                 }
-                echo "<div class='card-body'>
-                            <div class='row'>
-                                <div class='col-md-3'></div>
-                                <div class='col-md-6'></div>
-                                <div class='col-md-3'></div>
-</div>
-                                <form method='post' enctype='multipart/form-data'>
+                echo "<div class='card-body'>";
+                            if ($image != ''){
+                                echo "
+                                <div class='row'>
+                                    <div class='col-md-3'></div>
+                                    <div class='col-md-6'>
+                                        <img src='/uploads/images/" . $image . "'>
+                                    </div>
+                                    <div class='col-md-3'></div>
+                                </div>
+                                ";
+                            }
+                                echo "<form method='post' enctype='multipart/form-data'>
                                     <div class='row'>
                                         <div class='col-md-6'>
                                             <div class='input-group mb-3'>
