@@ -651,27 +651,26 @@ function getHtmlEmplacementTable(array $emplacements, string $specify = '')
         if (isset($_SESSION['USER'])) {
             if ($_SESSION['USER']['isAdmin']) {
                 echo "
- <div class='col-md-4'>
-                        <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=0'><img src='../../images/images/" . $emplacement['PathImage'] . "'></a>
-                    </div></td>
-                    <td>
-                <div class='row'>
-                    <div class='col-md-6'>
-                        <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=1'><input type='button' class='btn btn-warning' value='Modifier'></a>
+                    <div class='row'>
+                        <div class='col-md-4'>
+                            <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=0'><i class='fa-solid fa-eye'></i></a>
+                        </div>
+                        <div class='col-md-4'>
+                            <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=1'><i class='fa-solid fa-pen'></i></a>
+                        </div>
+                        <div class='col-md-4'>
+                            <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=3'><i class='fa-solid fa-trash'></i></a>
+                        </div>
                     </div>
-                    <div class='col-md-6'>
-                        <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=3'><input type='button' class='btn btn-danger' value='Supprimer'></a>
-                    </div>
-                </div>
             ";
             } else {
                 echo "
-                <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=0'><img src='../../images/images/" . $emplacement['PathImage'] . "'></a>
+                <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=0'><i class='fa-solid fa-eye'></i></a>
             ";
             }
         } else {
             echo "
-                <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=0'><img src='../../images/images/" . $emplacement['PathImage'] . "'></a>
+                <a href='./EmplacementDetail.php?maj=0&id=" . $emplacement['idEmpl'] . "&edit=0'><i class='fa-solid fa-eye'></i></a>
             ";
         }
         echo "
