@@ -522,16 +522,25 @@ function getTypes(): array
 }
 
 function updateUser(
+<<<<<<< Updated upstream
     int    $id,
     string $login,
     string $password,
     string $adresse,
     string $email,
     string $tel
+=======
+    string   $id,
+    string   $adresse,
+    string   $mail,
+    string   $telephone,
+   
+>>>>>>> Stashed changes
 )
 {
     $conn = getBDConnexion();
     $sql = "UPDATE Utilisateur SET
+<<<<<<< Updated upstream
             login = :login,
             password = :password,
             adresse = :adresse,
@@ -547,6 +556,69 @@ function updateUser(
         'tel' => $tel,
         'id' => $id
     ]);
+=======
+            adresse = :adresse,
+            mail = :mail,
+            telephone = :telephone,
+            WHERE id = :id
+           ";
+    $query = $conn->prepare($sql);
+    $query->execute([
+        'adresse' => $adresse,
+        'mail' => $mail,
+        'telephone' => $telephone,
+        'id' => $id,
+    ]);
+    print_r($query->errorInfo());
+}
+
+function connection()
+{
+    echo "
+    <div class='card'>
+        <div class='card-header'>
+            <h2>Connexion</h2>
+        </div>
+        <div class='card-body'>
+            <form method='post'>
+                <div class='row'>
+                    <p>Login : <input type='text' name='login'></p>
+                </div>
+                <div class='row'>
+                    <p>Password : <input type='password' name='password'></p>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'></div>
+                    <div class='col-md-4'>
+                        <input class='btn btn-success' type='submit' name='submit' value='Se connecter'>
+                    </div>
+                    <div class='col-md-4'></div>
+                </div>
+            </form>
+        </div>";
+    if (isset($_SESSION['ERRORCO'])) {
+        echo "<p style='background-color: red'>" . $_SESSION['ERRORCO'] . "</p><br/>";
+    }
+    if (isset($_POST['submit'])) {
+        if (isset($_POST['login']) && isset($_POST['password'])) {
+            require('./bd/Utilisateur.php');
+            $login = $_POST['login'];
+            $password = $_POST['password'];
+            $user = getUser($login, $password);
+            $isAdmin = isAdmin($user);
+            if ($isAdmin || null !== $user) {
+                unset($_SESSION['ERRORCO']);
+                $_SESSION['USER'] = $user['login'];
+                $_SESSION['USER_ID'] = $user['id'];
+                header('location: http://88.208.226.189/index.php');
+                die();
+            } else {
+                $_SESSION['ERRORCO'] = 'Inconnu';
+            }
+        }
+    }
+    echo "</div>";
+>>>>>>> Stashed changes
 }
 
 function registerUser(
