@@ -522,7 +522,7 @@ function getTypes(): array
 }
 
 function updateUser(
-    string   $id,
+    int   $id,
     string   $adresse,
     string   $mail,
     string   $telephone
