@@ -37,11 +37,12 @@ require('./../base/HtmlFunctions.php');
                                 </select>
                                 <br><br>
                                 <div class='col-md-1'></div>
-                                    <div class='col-md-2'>
+                                    
+                                <div class='col-md-1'></div>
+                                </form> <br>
+                                <div class='col-md-2'>
                                         <input class='btn btn-secondary' type='submit' id='submit' name='submit' value='Afficher'>
                                     </div>
-                                <div class='col-md-1'></div>
-                                </form>
                                 
                                 
                                 
@@ -59,7 +60,7 @@ require('./../base/HtmlFunctions.php');
                     $selectedYear = $_POST['listYear'];
                     archivage($selectedYear);
 
-                    echo '<p> Année ' . $selectedYear . 'supprimée';
+                    echo '<p> Année ' . $selectedYear . ' supprimée';
                 }
 
                 ?>
