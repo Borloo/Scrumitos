@@ -525,8 +525,7 @@ function updateUser(
     string   $id,
     string   $adresse,
     string   $mail,
-    string   $telephone,
-   
+    string   $telephone
 )
 {
     $conn = getBDConnexion();
