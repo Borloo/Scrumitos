@@ -39,11 +39,12 @@ require('./../base/HtmlFunctions.php');
                                 <div class='col-md-1'></div>
                                     
                                 <div class='col-md-1'></div>
+                                <div class='col-md-2'>
+                                        <input class='btn btn-secondary' type='submit' id='submit' name='submit' value='Archiver'>
+                                </div>
                                 </form>
                             
-                            <div class='col-md-2'>
-                                        <input class='btn btn-secondary' type='submit' id='submit' name='submit' value='Archiver'>
-                            </div>
+                            
                         </div>
                         <div class='col-md-5'></div>
                     </div>
