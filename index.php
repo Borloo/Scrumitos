@@ -1,22 +1,44 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8" />
-	<link rel="stylesheet" href="./include/styles.css" />
-	<title>Mon site !</title>
+    <?php
+        include("./include/headfile.php");
+    ?>
 </head>
 <body>
-	<?php 
-		// Index.php
-		session_start();
-		include("./include/header.php"); 
+	<?php
+		include("./include/header.php");
 	?>
 	<div class="wrapper">
 		<?php include("./include/menus.php"); ?>
 		<section id="content">
-		<?php
-			echo "<p>Bienvenue sur le site !</p>";
-		?>
+            <div class="card">
+                <div class="card-body">
+                    <?php
+                        if (isset($_GET['msg'])){
+                            switch ($_GET['msg']){
+                                case 'addLocation' :
+                                    $msg = "Demande de location envoyée !";
+                                    break;
+                                default:
+                                    $msg = null;
+                                    break;
+                            }
+                        }
+                        if (isset($_SESSION['USER'])){
+                            echo "<p>Bonjour " . $_SESSION['USER']['login'] . " ! Et bienvenue à la Grande Bleue le meilleur camping de France</p>";
+                            if (isset($_GET['msg'])){
+                                echo "<p>" . $msg . "</p>";
+                            }
+                        }else{
+                            echo "<p>Bonjour, vous pouvez vous connecter ou vous inscrire via le menu !</p>";
+                        }
+                    ?>
+                </div>
+            </div>
 		</section>
 	</div>
 	<?php include("./include/footer.php"); ?>
